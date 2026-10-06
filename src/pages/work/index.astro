@@ -11,7 +11,7 @@ const filters = [
   ["commerce", "فروشگاه"],
   ["interactive", "محصول سه‌بعدی"],
   ["healthcare", "سلامت"],
-];
+].filter(([key]) => key === "all" || projects.some(p => p.data.category === key));
 ---
 
 <Base title="نمونه‌کارها">

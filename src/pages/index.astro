@@ -84,18 +84,17 @@ const benefits = [
   </section>
   <div class="project-wordmarks container" aria-label="برندهای نمونه‌کارها">
     {[
-      ["form", "ATELIER NO"],
-      ["luma", "RIFT"],
-      ["orbit", "VELO"],
-      ["medical", "NEVA"],
-      ["velia", "ALBA"],
-      ["rava", "RAVA"],
-      ["avan", "AVAN"],
-      ["mora", "MORA"],
-      ["", "STUDIO"],
-    ].map(([id, t], i) => (
+      ["form", "ATELIER NO", "0"],
+      ["luma", "RIFT", "1"],
+      ["medical", "NEVA", "3"],
+      ["velia", "ALBA", "4"],
+      ["rava", "RAVA", "5"],
+      ["avan", "AVAN", "6"],
+      ["mora", "MORA", "7"],
+      ["", "STUDIO", "8"],
+    ].map(([id, t, wordmark], i) => (
       <a
-        class={"wordmark wordmark-" + i}
+        class={"wordmark wordmark-" + wordmark}
         href={id ? url("work/" + id + "/") : url("about/")}
         dir="ltr"
         data-motion-reveal

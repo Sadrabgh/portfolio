@@ -54,7 +54,6 @@ const searchEntries = [
   ["مراقبت پوست آلبا · ALBA", "/work/velia/", "فروشگاه مراقبت پوست زیبایی محصولات"],
   ["پوشاک ریفت · RIFT", "/work/luma/", "فروشگاه پوشاک لباس خرید"],
   ["آتلیه نو · ATELIERNO", "/work/form/", "آتلیه معماری استودیو"],
-  ["دوچرخهٔ ولو · VELO", "/work/orbit/", "دوچرخه محصول سه بعدی تعاملی"],
   ["کلینیک نِوا · NEVA", "/work/medical/", "کلینیک سلامت پزشک نوبت"],
 ];
 // Normalize harmless Persian spelling variations; destinations stay allowlisted.
