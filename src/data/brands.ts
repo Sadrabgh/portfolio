@@ -1,5 +1,22 @@
 export const architecture = [
   {
+    id: "grove",
+    name: "خانهٔ بیشه",
+    en: "GROVE HOUSE",
+    type: "residential",
+    label: "مسکونی",
+    image: "art/atelier/hero-poster.webp",
+    interior: "art/atelier/grove-living.webp",
+    area: "۱۸۰",
+    location: "بستر جنگلی",
+    year: "۲۰۲۶",
+    intro: "جایی برای زندگی، در امتداد درختان.",
+    description: "حجم چوبی با فاصله از زمین، میان سنگ‌ها و درختان قرار می‌گیرد. مسیر ورودی، آرام از باغ به آستانه می‌رسد؛ شیشهٔ سرتاسری، نشیمن را به منظره باز می‌کند و تراس، مرز میان خانه و بیشه را نرم‌تر می‌سازد.",
+    materials: ["چوب تیره", "فولاد زغالی", "شیشهٔ شفاف"],
+    process: ["قرارگیری میان سنگ‌ها و درختان", "مسیر پیوسته از باغ به آستانه", "نشیمن رو به منظره"],
+    rooms: ["ورودی", "نشیمن", "تراس", "فضای خصوصی"],
+  },
+  {
     id: "pavilion",
     name: "پاویون سرخ",
     en: "RED PAVILION",

@@ -1,122 +1,64 @@
 ---
-import Brand from "../../../layouts/Brand.astro";
-import { architecture } from "../../../data/brands";
-import { url } from "../../../config";
-import Icon from "../../../components/Icon.astro";
+import Brand from '../../../layouts/Brand.astro';
+import { architecture } from '../../../data/brands';
+import { url } from '../../../config';
+import Icon from '../../../components/Icon.astro';
+const categories = [
+  { name: 'مسکونی', en: 'RESIDENTIAL', project: architecture[0] },
+  { name: 'فرهنگی', en: 'CULTURAL', project: architecture.find(p => p.type === 'cultural')! },
+  { name: 'فضای کار', en: 'WORKSPACE', project: architecture.find(p => p.type === 'commercial')! },
+];
+const facts = [
+  ['04', 'فضا، چهار روایت', 'چهار مطالعهٔ مستقل؛ از خانهٔ جنگلی تا فضای کار مشترک.', 'projects/'],
+  ['03', 'زمینهٔ طراحی', 'مسکونی، فرهنگی و فضای کار؛ هرکدام با پرسش‌های خودش.', 'projects/'],
+  ['03', 'گام روشن', 'تعریف نیاز، طراحی مفهومی و توسعهٔ فضا؛ یک مسیر قابل پیگیری.', 'services/'],
+  ['02', 'زاویهٔ دید', 'نمای بیرون و خواندن جزئیات؛ برای درک رابطهٔ فضا و زندگی.', 'studio/'],
+];
 ---
-
-<Brand brand="atelier" title="فضا، نور، زندگی">
-  <main id="demo-main">
-    <section class="atelier-journal wrap" data-atelier-cover>
-      <div class="journal-masthead"><span>دفترِ فضا / آتلیهٔ نو</span><span dir="ltr">VOL. 01 — SELECTED ARCHITECTURE / 2026</span></div>
-      <div class="journal-cover">
-        <img data-cover-image data-entry src={url(architecture[0].image)} alt="پاویون سرخ؛ ستون‌های آجری و حیاط روشن" width="1536" height="1024" fetchpriority="high" />
-        <div class="journal-title" data-entry>
-          <span class="eyebrow">یادداشت اول / نور و ماده</span>
-          <h1>زندگی،<br />میان <em>نور و ماده.</em></h1>
-          <p>معماری از لحظه‌های کوچک آغاز می‌شود.<br />یک آستانه، یک سایه، جایی برای مکث.</p>
-          <a class="text-link" href={url("demo/atelier/projects/pavilion/")}>خواندن روایت پاویون <Icon name="arrow" size={18} /></a>
-          <span class="journal-mark" aria-hidden="true" dir="ltr">NO.</span>
+<Brand brand="atelier" title="معماری، در امتداد طبیعت">
+  <main id="demo-main" class="at-home">
+    <section class="at-scroll-scene" data-at-scroll aria-labelledby="at-hero-title">
+      <div class="at-hero-card">
+        <img class="at-hero-poster" src={url('art/atelier/hero-poster.webp')} width="1280" height="720" alt="خانهٔ چوبی و شیشه‌ای میان سنگ‌ها و درختان؛ مطالعهٔ مفهومی آتلیه نو" fetchpriority="high"/>
+        <video class="at-hero-video" data-at-video data-src={url('art/atelier/hero-scroll.mp4')} data-mobile-src={url('art/atelier/hero-scroll-mobile.mp4')} muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+        <div class="at-hero-shade" aria-hidden="true"></div>
+        <span class="at-callout at-callout-wood" aria-hidden="true">چوب، در امتداد زمینه<span></span></span>
+        <span class="at-callout at-callout-light" aria-hidden="true">نشیمن، رو به نور<span></span></span>
+        <div class="at-hero-copy" data-at-hero-copy>
+          <span class="at-overline" dir="ltr">ARCHITECTURE / IN HARMONY</span>
+          <h1 id="at-hero-title">فضا، برای زندگی.<br/>در امتداد طبیعت.</h1>
         </div>
-        <div class="journal-caption"><span dir="ltr">01 / RED PAVILION</span><span data-cover-caption>حیاط / ریتمِ آجر و سایه</span></div>
-      </div>
-      <div class="journal-tools"><span>یک فضا، از سه زاویه.</span><div class="journal-views" role="group" aria-label="زاویهٔ دید پاویون">{[[architecture[0].image,"بیرون","پاویون سرخ؛ ستون‌های آجری و حیاط روشن","حیاط / ریتمِ آجر و سایه"],[architecture[0].interior,"درون","فضای داخلی مفهومی پاویون سرخ","گالری / نور در امتداد حرکت"]].map(([image,label,alt,caption],i)=><button disabled data-cover-view={url(image)} data-cover-alt={alt} data-cover-caption-value={caption} aria-pressed={i===0}>{label}</button>)}<a href={url("demo/atelier/projects/pavilion/#project-model")}>حجم سه‌بعدی <Icon name="arrow" size={16}/></a></div></div>
-      <nav class="atelier-project-rail" aria-label="انتخاب یک روایت">
-        {architecture.map((p,i)=><a href={url(`demo/atelier/projects/${p.id}/`)}><span class="rail-number" dir="ltr">0{i+1}</span><span><strong>{p.name}</strong><small>{p.label} / {p.location}</small></span><Icon name="arrow" size={18} /></a>)}
-      </nav>
-    </section>
-    <section class="section wrap" id="selected-projects" data-motion-scene>
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">آرشیو / انتخاب آتلیه</span>
-          <h2>سه فضا، سه روایت.</h2>
-        </div>
-        <a class="text-link" href={url("demo/atelier/projects/")}>
-          تمام پروژه‌ها ↗
-        </a>
-      </div>
-      <div class="atelier-projects">
-        {architecture.map((p, i) => (
-          <article class={`atelier-project project-${i}`} data-reveal>
-            <a href={url(`demo/atelier/projects/${p.id}/`)} class="image-zoom">
-              <img
-                src={url(p.image)}
-                alt={p.name}
-                loading="lazy"
-                width="1536"
-                height="1024"
-              />
-            </a>
-            <div class="atelier-project-meta">
-              <span dir="ltr">
-                0{i + 1} / {p.en}
-              </span>
-              <span>
-                {p.label} · {p.year}
-              </span>
-            </div>
-            <a href={url(`demo/atelier/projects/${p.id}/`)}>
-              <h3>
-                {p.name} <span>↗</span>
-              </h3>
-            </a>
-            <p>{p.intro}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-    <section class="atelier-principles section" data-motion-scene>
-      <div class="wrap two-col">
-        <div data-reveal>
-          <span class="eyebrow">رویکرد آتلیه</span>
-          <h2>
-            از یک پرسش کوچک
-            <br />
-            تا یک فضای معنادار.
-          </h2>
-          <a class="text-link" href={url("demo/atelier/services/")}>
-            روش کار و خدمات ↗
-          </a>
-        </div>
-        <div class="principle-list atelier-principle-list">
-          {[
-            [
-              "01",
-              "اول زندگی",
-              "پیش از شکل‌دادن به حجم، رفتار و نیاز آدم‌ها را بررسی می‌کنیم.",
-            ],
-            [
-              "02",
-              "دقت در ماده",
-              "بافت، اتصال و نور بخشی از ایدهٔ اصلی فضا هستند.",
-            ],
-            [
-              "03",
-              "رابطه با زمینه",
-              "هر پروژه با اقلیم، همسایگی و ریتم زندگی اطرافش خوانده می‌شود.",
-            ],
-          ].map(([n, t, s]) => (
-            <article data-reveal>
-              <span dir="ltr">{n}</span>
-              <div>
-                <h3>{t}</h3>
-                <p>{s}</p>
-              </div>
-            </article>
-          ))}
+        <div class="at-hero-readout">
+          <div class="at-chapter"><span data-at-chapter>۰۱ / در میان درختان</span><span class="at-progress-track" aria-hidden="true"><span data-at-progress></span></span></div>
+          <a class="at-pill" href={url('demo/atelier/projects/grove/')}>کشف خانهٔ بیشه <Icon name="arrow" size={16}/></a>
+          <a class="at-scroll-cue" href="#at-projects"><span data-at-scroll-hint>برای کشف فضا اسکرول کنید</span><Icon name="arrow" size={17}/></a>
         </div>
       </div>
     </section>
-    <section class="atelier-invite wrap section" data-reveal>
-      <div><span class="eyebrow">گفت‌وگو را شروع کنیم</span><h2>
-        فضای بعدی،
-        <br />
-        از یک گفت‌وگو شروع می‌شود.
-      </h2></div>
-      <a class="button" href={url("demo/atelier/inquiry/")}>
-        تعریف پروژهٔ شما ↗
-      </a>
+    <section class="at-block at-project-section" id="at-projects">
+      <div class="at-section-heading" data-motion-scene><div><span class="at-overline" dir="ltr">01 / SELECTED SPACES</span><h2>آخرین<br/><strong>روایت‌های فضا.</strong></h2></div><a class="at-underlink" href={url('demo/atelier/projects/')}>آرشیو پروژه‌ها <Icon name="arrow" size={19}/></a></div>
+      <div class="at-project-grid">
+        {architecture.map((p,i) => <a class="at-project-tile" href={url(`demo/atelier/projects/${p.id}/`)}><div class="at-project-label"><span class="at-tile-index" dir="ltr">0{i+1} / {p.en}</span><h3>{p.name}</h3><span class="at-tile-meta">{p.label} / {p.location}</span><Icon name="arrow" size={26}/></div><div class="at-project-photo"><img src={url(p.image)} alt={p.name} width={p.id === 'grove' ? '1280' : '1536'} height={p.id === 'grove' ? '720' : '1024'} loading="lazy"/></div></a>)}
+      </div>
     </section>
+    <section class="at-block at-services-section">
+      <div class="at-section-heading" data-motion-scene><div><span class="at-overline" dir="ltr">02 / OUR APPROACH</span><h2>معماری،<br/><strong>با نگاهی نزدیک‌تر.</strong></h2></div><p>فضا را از زندگی شروع می‌کنیم؛<br/>از نیاز آدم‌ها، نور و رابطه با زمینه.</p></div>
+      <div class="at-fact-grid">{facts.map(([number,title,copy,path]) => <a href={url('demo/atelier/'+path)} class="at-fact"><div><span>{title}</span><Icon name="arrow" size={18}/></div><p>{copy}</p><strong dir="ltr">{number}</strong></a>)}</div>
+    </section>
+    <section class="at-quiet-section">
+      <img src={url('art/atelier/grove-exterior.webp')} alt="نمای خانهٔ بیشه میان درختان؛ پوستهٔ چوبی و نشیمن شیشه‌ای" width="1280" height="720" loading="lazy"/>
+      <div class="at-quiet-shade" aria-hidden="true"></div>
+      <div class="at-quiet-copy" data-motion-scene><span class="at-overline" dir="ltr">GROVE HOUSE / A PLACE TO PAUSE</span><h2>سکوت،<br/>جزئی از فضاست.</h2><a class="at-underlink" href={url('demo/atelier/projects/grove/')}>یک خانه، نزدیک‌تر به طبیعت <Icon name="arrow" size={18}/></a></div>
+    </section>
+    <section class="at-block at-discover-section">
+      <div class="at-section-heading" data-motion-scene><div><span class="at-overline" dir="ltr">03 / SPACES FOR LIVING</span><h2>هر فضا،<br/><strong>پاسخی تازه.</strong></h2></div><a class="at-underlink" href={url('demo/atelier/services/')}>روش کار آتلیه <Icon name="arrow" size={18}/></a></div>
+      <div class="at-feature-grid">
+        <div class="at-feature-side"><div class="at-tabs" role="tablist" aria-label="کشف کاربری‌ها" aria-orientation="vertical">{categories.map((c,i)=><button type="button" role="tab" id={`at-tab-${i}`} aria-controls={`at-feature-${i}`} aria-selected={i===0} tabindex={i===0?0:-1} data-at-tab={i}>{c.name}<Icon name="arrow" size={16}/></button>)}</div><p>با تغییر کاربری،<br/>پرسش‌های طراحی هم تغییر می‌کنند.</p><span dir="ltr">ATELIER NO<br/>SPACE / MATERIAL / LIFE</span></div>
+        <div class="at-feature-panels">{categories.map((c,i)=><article class="at-feature-panel" id={`at-feature-${i}`} role="tabpanel" aria-labelledby={`at-tab-${i}`} tabindex="0" hidden={i!==0} data-at-panel={i}><a href={url(`demo/atelier/projects/${c.project.id}/`)} class="at-feature-image"><img src={url(c.project.image)} width="1536" height="1024" alt={c.project.name} loading="lazy"/></a><div><span dir="ltr">{c.en} / 0{i+1}</span><h3><a href={url(`demo/atelier/projects/${c.project.id}/`)}>{c.project.name}</a></h3><a class="at-underlink" href={url(`demo/atelier/projects/${c.project.id}/`)}>دیدن روایت <Icon name="arrow" size={17}/></a></div><p>{c.project.intro}</p></article>)}</div>
+      </div>
+      <noscript><style>.at-tabs{display:none}.at-feature-panel[hidden]{display:block!important}.at-feature-panel+.at-feature-panel{margin-top:40px}</style></noscript>
+    </section>
+    <section class="at-block at-invite-section" data-motion-scene><div><span class="at-overline" dir="ltr">04 / LET’S CREATE A SPACE</span><h2>فضای بعدی،<br/><strong>از گفت‌وگو شروع می‌شود.</strong></h2><p>از مکان، نیاز و تجربه‌ای که در ذهن دارید بگویید.</p></div><a class="at-pill" href={url('demo/atelier/inquiry/')}>شروع گفت‌وگو <Icon name="arrow" size={20}/></a></section>
   </main>
-  <script>import "../../../scripts/atelier-cover";</script>
+  <script>import '../../../scripts/atelier-forest';</script>
 </Brand>

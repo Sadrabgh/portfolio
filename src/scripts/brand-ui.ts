@@ -79,7 +79,7 @@ function syncMotion() {
               {
                 opacity: 1,
                 y: 0,
-                duration: document.body.classList.contains("rf-store") ? 0.7 : 0.5,
+                duration: document.body.classList.contains("rf-store") || document.body.classList.contains("at-site") ? 0.7 : 0.5,
                 ease: "power3.out",
                 clearProps: "all",
               },

@@ -3,7 +3,7 @@ import { url } from "../config";
 const { project } = Astro.props;
 const images = [
   { src: url(project.image), label: `${project.name} · نمای بیرونی` },
-  { src: url(project.interior), label: `${project.name} · فضای داخلی` },
+  { src: url(project.interior), label: `${project.name} · ${project.id === 'grove' ? 'آستانه و نشیمن' : 'فضای داخلی'}` },
 ];
 ---
 
@@ -19,7 +19,7 @@ const images = [
           loading="lazy"
         />
         <span>
-          {i === 0 ? "۰۱ / بیرون" : "۰۲ / درون"}
+          {i === 0 ? "۰۱ / بیرون" : project.id === 'grove' ? "۰۲ / آستانه و نشیمن" : "۰۲ / درون"}
           <b>دیدن تصویر ↗</b>
         </span>
       </a>

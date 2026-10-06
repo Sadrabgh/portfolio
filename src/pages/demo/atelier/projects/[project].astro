@@ -13,7 +13,7 @@ const next =
   architecture[
     (architecture.findIndex((x) => x.id === p.id) + 1) % architecture.length
   ];
-const palette = {pavilion:["#a24a37","#aca89c","#bccbc7"],coast:["#dedcd3","#383e3e","#979b96"],atrium:["#343b37","#af8763","#91a487"]}[p.id as "pavilion"|"coast"|"atrium"];
+const palette = {grove:["#625746","#343b37","#bccbc7"],pavilion:["#a24a37","#aca89c","#bccbc7"],coast:["#dedcd3","#383e3e","#979b96"],atrium:["#343b37","#af8763","#91a487"]}[p.id as "grove"|"pavilion"|"coast"|"atrium"];
 ---
 
 <Brand brand="atelier" title={p.name} current="projects">
@@ -55,7 +55,7 @@ const palette = {pavilion:["#a24a37","#aca89c","#bccbc7"],coast:["#dedcd3","#383
     </div>
     <SectionNav label="بخش‌های مطالعهٔ پروژه" items={[
       {id: "project-idea", label: "ایده"}, {id: "project-images", label: "تصاویر"},
-      {id: "project-plan", label: "روابط فضا"}, {id: "project-model", label: "ماکت"},
+      {id: "project-plan", label: "روابط فضا"}, ...(p.id === 'grove' ? [] : [{id: "project-model", label: "ماکت"}]),
     ]} />
     <section class="wrap section two-col" id="project-idea">
       <div data-reveal>
@@ -130,7 +130,7 @@ const palette = {pavilion:["#a24a37","#aca89c","#bccbc7"],coast:["#dedcd3","#383
                 />
               ))}
             </>
-          ) : p.id === "coast" ? (
+          ) : p.id === "coast" || p.id === "grove" ? (
             <>
               <path
                 d="M60 90H500V250H60Z M160 170H540V340H160Z"
@@ -176,7 +176,7 @@ const palette = {pavilion:["#a24a37","#aca89c","#bccbc7"],coast:["#dedcd3","#383
           )}
           <path
             d="M60 380H540"
-            stroke="#b72e33"
+            stroke="var(--muted)"
             stroke-width="2"
             stroke-dasharray="8 5"
           />
@@ -204,7 +204,7 @@ const palette = {pavilion:["#a24a37","#aca89c","#bccbc7"],coast:["#dedcd3","#383
         <figcaption>مطالعهٔ روابط / {p.en}</figcaption>
       </figure>
     </section>
-    <section class="wrap section" id="project-model">
+    {p.id !== 'grove' && <section class="wrap section" id="project-model">
       <div class="section-head">
         <div>
           <span class="eyebrow">۰۳ / تجربهٔ حجم</span>
@@ -218,7 +218,7 @@ const palette = {pavilion:["#a24a37","#aca89c","#bccbc7"],coast:["#dedcd3","#383
         image={p.image}
         label={`ماکت مفهومی ${p.name}`}
       />
-    </section>
+    </section>}
     <section class="wrap section atelier-next">
       <span class="eyebrow">پروژهٔ بعد / {next.en}</span>
       <a href={url(`demo/atelier/projects/${next.id}/`)}>

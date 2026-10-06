@@ -1,0 +1,24 @@
+---
+import Icon from './Icon.astro';
+import { url } from '../config';
+const { current = '' } = Astro.props;
+const links = [['', 'خانه'], ['projects', 'پروژه‌ها'], ['studio', 'استودیو'], ['services', 'روش کار'], ['inquiry', 'گفت‌وگو']];
+---
+<header class="at-header">
+  <a class="at-logo" href={url('demo/atelier/')} aria-label="خانهٔ آتلیه نو">
+    <svg viewBox="0 0 48 48" width="42" height="42" aria-hidden="true"><path d="M5 38V18L24 6l19 12v20H31V25H17v13Z M5 18h38" fill="none" stroke="currentColor" stroke-width="2"/><path d="M24 6v19" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    <span><strong>آتلیه نو</strong><small dir="ltr">ATELIER NO</small></span>
+  </a>
+  <div class="at-header-actions">
+    <a class="at-pill" href={url('demo/atelier/inquiry/')}>گفت‌وگو کنیم <Icon name="arrow" size={16} /></a>
+    <button type="button" class="at-menu-trigger" data-at-menu-open aria-controls="at-menu" aria-expanded="false" aria-label="بازکردن منوی آتلیه"><Icon name="menu" size={21}/></button>
+  </div>
+</header>
+<dialog id="at-menu" class="at-menu" aria-label="منوی آتلیه نو">
+  <div class="at-menu-top"><span dir="ltr">ATELIER NO / EXPLORE</span><button type="button" data-at-menu-close aria-label="بستن منو"><Icon name="close" size={24}/></button></div>
+  <nav class="at-menu-nav" aria-label="صفحات آتلیه نو">{links.map(([path, label], i) => <a href={url(`demo/atelier/${path ? path + '/' : ''}`)} aria-current={current === path ? Astro.url.pathname === url(`demo/atelier/${path ? path + '/' : ''}`) ? 'page' : 'location' : undefined}><span dir="ltr">0{i+1}</span>{label}<Icon name="arrow" size={28}/></a>)}</nav>
+  <div class="at-menu-tools"><button type="button" data-theme-toggle aria-label="تغییر حالت رنگ"><span class="theme-moon"><Icon name="moon" size={18}/></span><span class="theme-sun"><Icon name="sun" size={18}/></span> حالت رنگ</button><button type="button" data-motion-toggle aria-label="کاهش حرکت" aria-pressed="false"><Icon name="motion" size={18}/> کاهش حرکت</button></div>
+  <p>معماری، در امتداد زندگی.</p>
+</dialog>
+<noscript><nav class="at-static-nav" aria-label="صفحات آتلیه">{links.map(([path, label]) => <a href={url(`demo/atelier/${path ? path + '/' : ''}`)}>{label}</a>)}</nav><style>.at-menu-trigger{display:none!important}</style></noscript>
+<script>import '../scripts/atelier-shell';</script>

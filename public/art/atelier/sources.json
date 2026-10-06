@@ -1,0 +1,66 @@
+{
+  "origin": "User-supplied replacement video (1).mp4",
+  "source": {
+    "filename": "video (1).mp4",
+    "bytes": 3818463,
+    "sha256": "7e75a9218c7519b59b391eb66c06b66a192ba564eae2bd8d1ccfd462964bf133",
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "durationSeconds": 5.01
+  },
+  "videoProcessing": {
+    "codec": "H.264",
+    "pixelFormat": "yuv420p",
+    "keyframeIntervalFrames": 6,
+    "bFrames": 0,
+    "audio": false,
+    "fastStart": true,
+    "desktopWidth": 1280,
+    "mobileWidth": 768
+  },
+  "stills": {
+    "hero-poster.webp": {
+      "sourceTimeSeconds": 0
+    },
+    "grove-living.webp": {
+      "sourceTimeSeconds": 3.2
+    },
+    "grove-exterior.webp": {
+      "sourceTimeSeconds": 1
+    }
+  },
+  "note": "The name Grove House and architectural story are conceptual descriptions for this portfolio. The supplied media does not establish a built commission.",
+  "assets": [
+    {
+      "file": "favicon.svg",
+      "bytes": 235,
+      "sha256": "14f423e0b68e0b162088b641beaf9f0f7a53b1f2f18670b628534f446b0e9e2d"
+    },
+    {
+      "file": "grove-exterior.webp",
+      "bytes": 156598,
+      "sha256": "973e0b7370988477ba3335b2918cfbf7ee1801cd86951c072972407f480cb58e"
+    },
+    {
+      "file": "grove-living.webp",
+      "bytes": 68824,
+      "sha256": "2e2fd40f57c2b5660163b8d97f9ad027547cc27087b42304a7721a24867ad15c"
+    },
+    {
+      "file": "hero-poster.webp",
+      "bytes": 184640,
+      "sha256": "17e5d721ecd04f5aa7d9f75e2c57cf16408327117ce857fdaf8aef847f830e2e"
+    },
+    {
+      "file": "hero-scroll-mobile.mp4",
+      "bytes": 1371537,
+      "sha256": "76843dab6628b607e1dbaba3554896f500534e2610ee02300ec09fb165fb744e"
+    },
+    {
+      "file": "hero-scroll.mp4",
+      "bytes": 3256863,
+      "sha256": "7fe0f6ec521b4b51d06dba5c569c2cec853726bb192a6504a137d162b052da67"
+    }
+  ]
+}

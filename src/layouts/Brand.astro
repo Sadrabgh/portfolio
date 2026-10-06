@@ -12,6 +12,8 @@ import "@fontsource/amiri/700.css";
 import "../styles/rift-store.css";
 import RiftHeader from "../components/RiftHeader.astro";
 import RiftFooter from "../components/RiftFooter.astro";
+import AtelierHeader from "../components/AtelierHeader.astro";
+import "../styles/atelier-forest.css";
 import Icon from "../components/Icon.astro";
 import { url } from "../config";
 interface Props {
@@ -79,6 +81,7 @@ const disciplines = { atelier: "معماری / فضا / زندگی", rift: "لب
     />
     <meta name="robots" content="noindex,nofollow" />
     {brand === "rift" && <link rel="icon" type="image/svg+xml" href={url("art/rift/favicon.svg")} />}
+    {brand === "atelier" && <link rel="icon" type="image/svg+xml" href={url("art/atelier/favicon.svg")} />}
     <script is:inline>
       try {
         const t = localStorage.getItem("demo-theme");
@@ -105,7 +108,7 @@ const disciplines = { atelier: "معماری / فضا / زندگی", rift: "لب
         });
     </script>
   </head>
-  <body class:list={["brand", brand, "demo-upgraded", "demo-showcase", { "rf-store": brand === "rift" }]} data-demo-page={isHome ? "home" : "inner"}>
+  <body class:list={["brand", brand, "demo-upgraded", "demo-showcase", { "rf-store": brand === "rift", "at-site": brand === "atelier" }]} data-demo-page={isHome ? "home" : "inner"}>
     <a class="skip" href="#demo-main">
       رفتن به محتوا
     </a>
@@ -113,21 +116,14 @@ const disciplines = { atelier: "معماری / فضا / زندگی", rift: "لب
       <a href={url("work/")}><Icon name="arrow" size={16} /> بازگشت به نمونه‌کارها</a>
       <span><span class="concept-dot" aria-hidden="true"></span> نمونهٔ مفهومی و قابل آزمایش</span>
     </aside>
-    {brand === "rift" ? <RiftHeader current={current} /> : (
+    {brand === "atelier" ? <AtelierHeader current={current}/> : brand === "rift" ? <RiftHeader current={current} /> : (
     <header class="brand-header">
       <a
         class="brand-mark"
         href={url(`demo/${brand}/`)}
         aria-label={`خانهٔ ${info.name}`}
       >
-        {brand === "atelier" ? (
-          <>
-            <b>
-              نو<span class="red-dot"></span>
-            </b>
-            <small>آتلیهٔ معماری</small>
-          </>
-        ) : brand === "neva" ? (
+        {brand === "neva" ? (
           <>
             <span class="neva-symbol"><Icon name="medical" size={34} /></span>
             <b>نِوا</b>
@@ -171,7 +167,6 @@ const disciplines = { atelier: "معماری / فضا / زندگی", rift: "لب
             دریافت نوبت
           </a>
         )}
-        {brand === "atelier" && <a class="button header-project-cta" href={url("demo/atelier/inquiry/")}>شروع گفت‌وگو <Icon name="arrow" size={16} /></a>}
         <button
           class="menu-toggle"
           data-menu-toggle
@@ -227,7 +222,7 @@ const disciplines = { atelier: "معماری / فضا / زندگی", rift: "لب
     )}
     <noscript>
       <p class="wrap notice">
-        {brand === "rift" ? "برای جست‌وجو، علاقه‌مندی‌ها و سبد خرید، جاوااسکریپت را فعال کنید." : "برای پیکربندی سه‌بعدی، سبد خرید و رزرو نمایشی، جاوااسکریپت را فعال کنید."}
+        {brand === "atelier" ? "ویدیو با اسکرول، گالری تعاملی و فرم نمایشی به جاوااسکریپت نیاز دارند." : brand === "rift" ? "برای جست‌وجو، علاقه‌مندی‌ها و سبد خرید، جاوااسکریپت را فعال کنید." : "برای پیکربندی سه‌بعدی، سبد خرید و رزرو نمایشی، جاوااسکریپت را فعال کنید."}
         تصاویر و صفحات قابل مشاهده‌اند.
       </p>
     </noscript>

@@ -3,7 +3,7 @@ import { url } from "../config";
 const { project, presentation = "tile" } = Astro.props;
 const p = project.data;
 const themes: Record<string, string> = {
-  form: "#d8d4c8",
+  form: "#293d2d",
   luma: "#e6dfd3",
   orbit: "#dbe8e9",
   medical: "#e0e8e1",
@@ -34,7 +34,7 @@ const themes: Record<string, string> = {
       src={url(
         presentation === "showcase"
           ? p.previewDesktop
-          : "portfolio/" + (project.id === "luma" ? "rift" : project.id) + "-overview.webp",
+          : "portfolio/" + (project.id === "form" ? "atelier" : project.id === "luma" ? "rift" : project.id) + "-overview.webp",
       )}
       alt={"طراحی رابط وب‌سایت " + p.title}
       width="1440"

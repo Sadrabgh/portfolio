@@ -4,6 +4,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
+import { createReadStream } from "node:fs";
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "dist");
 const port = Number(process.env.PORT || 8080);
 const types = {
@@ -19,6 +20,7 @@ const types = {
   ".xml": "application/xml; charset=utf-8",
   ".txt": "text/plain; charset=utf-8",
   ".json": "application/json",
+  ".mp4": "video/mp4",
 };
 export const createPreviewServer = () =>
   http.createServer(async (req, res) => {
@@ -37,6 +39,28 @@ export const createPreviewServer = () =>
       }
       if ((await fs.stat(file)).isDirectory())
         file = path.join(file, "index.html");
+      if (path.extname(file) === ".mp4") {
+        const { size } = await fs.stat(file);
+        const range = req.headers.range?.match(/^bytes=(\d*)-(\d*)$/);
+        let start = 0;
+        let end = size - 1;
+        if (range) {
+          start = range[1] ? Number(range[1]) : Math.max(0, size - Number(range[2]));
+          end = range[1] && range[2] ? Math.min(size - 1, Number(range[2])) : size - 1;
+          if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start > end || start >= size) {
+            res.writeHead(416, { "Content-Range": `bytes */${size}` }).end();
+            return;
+          }
+        }
+        res.writeHead(range ? 206 : 200, {
+          "Content-Type": "video/mp4", "Content-Length": end - start + 1,
+          "Accept-Ranges": "bytes", "Cache-Control": "no-store",
+          ...(range ? { "Content-Range": `bytes ${start}-${end}/${size}` } : {}),
+        });
+        if (req.method === "HEAD") res.end();
+        else createReadStream(file, { start, end }).on("error", () => res.destroy()).pipe(res);
+        return;
+      }
       const original = await fs.readFile(file);
       const compressible = /\.(html|js|css|svg|xml|txt|json)$/.test(file);
       const gzip =
