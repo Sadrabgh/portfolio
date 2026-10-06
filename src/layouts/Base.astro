@@ -72,7 +72,8 @@ const canonical = Astro.site
         addEventListener("pagereveal", settlePageTransition);
       })();
     </script>
-    <link rel="icon" type="image/svg+xml" href={url("portfolio/favicon.svg")} />
+    <link rel="icon" type="image/svg+xml" href={url("portfolio/brand/favicon.svg")} />
+    <link rel="apple-touch-icon" sizes="180x180" href={url("portfolio/brand/apple-touch-icon.png")} />
     {validDomain && <link rel="canonical" href={canonical} />}
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -83,8 +84,9 @@ const canonical = Astro.site
         <meta property="og:url" content={canonical} />
         <meta
           property="og:image"
-          content={new URL(url("portfolio/social-moonex.png"), Astro.site)}
+          content={new URL(url("portfolio/social-studio.png"), Astro.site)}
         />
+        <meta property="og:image:alt" content="استودیو طراحی — طراحی سایت فروشگاهی برای برند شما" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
       </>

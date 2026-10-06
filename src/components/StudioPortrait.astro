@@ -1,5 +1,6 @@
 ---
 import { url } from "../config";
+import mark from "../assets/brand/studio-mark.svg?raw";
 interface Props {
   priority?: boolean;
   src?: string;
@@ -8,25 +9,14 @@ interface Props {
 }
 const {
   priority = false,
-  src = "portfolio/moonex/portrait.jpg",
-  alt = "پرترهٔ نمایشیِ قالب: طراح همراه با سگ، در قاب بیضی",
-  caption = "تصویر نمایشیِ قالب",
+  src = "portfolio/moonex/portrait-linen-color-v6.png",
+  alt = "پرترهٔ رنگی با پیراهن لینن و ژست نشسته، در قاب بیضی",
+  caption = "استودیو طراحی",
 } = Astro.props;
 ---
 
 <figure class="studio-portrait" data-motion-reveal>
-  <div
-    class="portrait-frame"
-    style={`--portrait-mask:url(${url("portfolio/moonex/portrait-mask.png")})`}
-  >
-    <img
-      class="portrait-back"
-      src={url("portfolio/moonex/portrait-back.png")}
-      alt=""
-      width="814"
-      height="1006"
-      aria-hidden="true"
-    />
+  <div class="portrait-frame">
     <img
       class="portrait-photo"
       src={url(src)}
@@ -36,14 +26,9 @@ const {
       loading={priority ? "eager" : "lazy"}
       fetchpriority={priority ? "high" : "auto"}
     />
-    <img
-      class="portrait-front"
-      src={url("portfolio/moonex/portrait-front.png")}
-      alt=""
-      width="814"
-      height="1006"
-      aria-hidden="true"
-    />
+    <span class="portrait-signature" aria-hidden="true">
+      <Fragment set:html={mark} />
+    </span>
   </div>
   <figcaption>{caption}</figcaption>
 </figure>

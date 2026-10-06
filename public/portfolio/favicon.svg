@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 76"><rect width="64" height="76" rx="12" fill="white"/><g fill="none" stroke="#111" stroke-width="3" stroke-linejoin="round"><path d="M11 13Q32 4 53 13v29c0 14-21 23-21 23S11 56 11 42V13Z"/><path d="m21 28 5 20 6-13 6 13 5-20M21 28l11 7 11-7"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><style>.tile{fill:#fff}.mark{color:#151515}@media(prefers-color-scheme:dark){.tile{fill:#151515}.mark{color:#fff}}</style><rect class="tile" width="64" height="64" rx="13"/><g class="mark"><g stroke="currentColor" stroke-width="7" stroke-linecap="square" stroke-linejoin="round">
+    <path d="M30 9h14a11 11 0 0 1 11 11v14" />
+    <path d="M34 55H20A11 11 0 0 1 9 44V30" />
+    <path d="M21 35V21h14" />
+    <path d="M43 29v14H29" />
+  </g></g></svg>

@@ -1,34 +1,55 @@
 import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 
-const font = await fs.readFile(
-  "node_modules/@fontsource-variable/vazirmatn/files/vazirmatn-arabic-wght-normal.woff2",
-);
-const capture = await fs.readFile("public/portfolio/form-desktop.webp");
+const root = fileURLToPath(new URL("../", import.meta.url));
+const at = (file) => path.join(root, file);
+const destination = "public/portfolio/brand";
+const mark = await fs.readFile(at("src/assets/brand/studio-mark.svg"), "utf8");
+const geometry = mark.match(/<g\b[\s\S]*<\/g>/)?.[0];
+if (!geometry) throw new Error("The studio mark must contain its shared geometry.");
+const svg = (contents, viewBox = "0 0 64 64") => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" fill="none">${contents}</svg>\n`;
+await fs.mkdir(at(destination), { recursive: true });
+const save = (name, contents) => fs.writeFile(at(`${destination}/${name}`), contents);
+await save("studio-mark.svg", mark.replace('aria-hidden="true"', 'role="img" aria-label="نشان استودیو طراحی"'));
+const favicon = svg(`<style>.tile{fill:#fff}.mark{color:#151515}@media(prefers-color-scheme:dark){.tile{fill:#151515}.mark{color:#fff}}</style><rect class="tile" width="64" height="64" rx="13"/><g class="mark">${geometry}</g>`);
+await save("favicon.svg", favicon);
+// Keep the root and previous icon URL consistent for bookmarks and old clients.
+await fs.writeFile(at("public/favicon.svg"), favicon);
+await fs.writeFile(at("public/portfolio/favicon.svg"), favicon);
+const fineGeometry = geometry.replace('stroke-width="7"', 'stroke-width="0.7"');
+const placements = [
+  ["profile-pattern.svg", "0 0 362 525", [[-42, 3, 3.8], [81, 190, 3.8], [-42, 377, 3.8]]],
+  ["projects-pattern.svg", "0 0 291 443", [[25, -21, 3.3], [-65, 151, 3.3], [25, 323, 3.3]]],
+];
+for (const [name, viewBox, positions] of placements) {
+  await save(name, svg(`<g color="#151515" opacity=".18">${positions.map(([x, y, scale]) => `<g transform="translate(${x} ${y}) scale(${scale})">${fineGeometry}</g>`).join("")}</g>`, viewBox));
+}
+const regular = await fs.readFile(at("src/assets/fonts/yekan-bakh/YekanBakhFaNum-Regular.woff"));
+const semibold = await fs.readFile(at("src/assets/fonts/yekan-bakh/YekanBakhFaNum-SemiBold.woff"));
+const fontCSS = `@font-face{font-family:Yekan;src:url(data:font/woff;base64,${regular.toString("base64")});font-weight:400}@font-face{font-family:Yekan;src:url(data:font/woff;base64,${semibold.toString("base64")});font-weight:600}`;
 const browser = await chromium.launch({
   headless: true,
   executablePath: process.env.BROWSER_EXECUTABLE || undefined,
   args: process.env.BROWSER_ARGS ? JSON.parse(process.env.BROWSER_ARGS) : [],
 });
 try {
-  const page = await browser.newPage({
-    viewport: { width: 1200, height: 630 },
-    deviceScaleFactor: 1,
-  });
-  await page.setContent(`<!doctype html><html lang="fa" dir="rtl"><head><style>
-  @font-face{font-family:Vazir;src:url(data:font/woff2;base64,${font.toString("base64")}) format('woff2');font-weight:100 900}
-  *{box-sizing:border-box}body{margin:0;background:#10121b;color:#eff0f8;font-family:Vazir,sans-serif;width:1200px;height:630px;padding:55px 65px;overflow:hidden}
-  header{display:flex;gap:18px;align-items:center;font-size:21px;font-weight:650}svg{width:48px;height:48px}main{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:55px}
-  .label{font-size:16px;color:#a4afff;margin:0 0 17px}h1{font-size:61px;font-weight:750;line-height:1.65;margin:0;letter-spacing:-1px}h1 span{color:#a4afff}p{font-size:19px;color:#afb4c8;line-height:2.1;margin:21px 0 0}
-  .studio{border:1px solid #30364b;background:#1d2130;border-radius:20px;padding:20px;height:365px;overflow:hidden;box-shadow:0 25px 50px #0004;transform:rotate(-2deg)}
-  .studio-label{display:flex;justify-content:space-between;font-size:13px;color:#afb4c8;margin-bottom:18px}.window{border:1px solid #576079;border-radius:10px;overflow:hidden;background:#181b27}.toolbar{text-align:center;padding:7px;font-size:12px;color:#959cb5;border-bottom:1px solid #30364b}img{display:block;width:100%;height:315px;object-fit:cover;object-position:top}
-  </style></head><body><header><svg viewBox="0 0 64 64"><g fill="none" stroke="#a4afff" stroke-width="4" stroke-linecap="round"><path d="M24 13h-3q-6 0-6 7v5q0 7-5 7 5 0 5 7v5q0 7 6 7h3M40 13h3q6 0 6 7v5q0 7 5 7-5 0-5 7v5q0 7-6 7h-3"/></g><rect x="28" y="28" width="8" height="8" rx="2" fill="#a4afff"/></svg><span>طراح مستقل وب</span></header><main><div><div class="label">طراحی رابط · توسعهٔ وب</div><h1>طراحیِ فکرشده.<br><span>اجرایِ دقیق.</span></h1><p>از ایدهٔ بصری، تا جزئیات مرورگر.</p></div><div class="studio"><div class="studio-label"><span>از ساختار، تا تجربه</span><span dir="ltr">FORM / CONCEPT 01</span></div><div class="window"><div class="toolbar" dir="ltr">form.design</div><img src="data:image/webp;base64,${capture.toString("base64")}" alt=""></div></div></main></body></html>`);
-  await page.evaluate(async () => {
-    await document.fonts.ready;
-    await Promise.all([...document.images].map((img) => img.decode()));
-  });
-  await page.screenshot({ path: "public/portfolio/social.png" });
-  console.log("Created public/portfolio/social.png (1200 × 630)");
+  const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
+  await page.setContent(`<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><style>
+  ${fontCSS}
+  *{box-sizing:border-box}body{margin:0;width:1200px;height:630px;background:#f8f7f4;color:#151515;font-family:Yekan,Tahoma,sans-serif;padding:44px 58px;display:flex;flex-direction:column;overflow:hidden}
+  header,footer{display:flex;align-items:center;justify-content:space-between}header{height:64px}.signature{display:flex;gap:14px;align-items:center}.signature svg{width:56px;height:56px}.signature b{font-size:24px;font-weight:600}.tag{font-family:Arial,sans-serif;font-size:12px;letter-spacing:.16em}
+  main{flex:1;display:grid;grid-template-columns:1.35fr 1fr;gap:32px;align-items:center}.eyebrow{font-size:18px;color:#666;margin:0 0 16px}h1{font-size:61px;line-height:1.55;font-weight:600;letter-spacing:-1px;margin:0}h1 span{display:block}p{margin:22px 0 0;font-size:22px;line-height:1.8;color:#666}
+  .art{height:348px;position:relative;display:grid;place-items:center;direction:ltr}.outline{position:absolute;width:280px;height:280px;border:1px solid #dddcd7;border-radius:54px}.outline:first-child{transform:translate(-44px,-24px)}.outline:nth-child(2){transform:translate(44px,24px)}.main-mark{width:250px;height:250px;padding:18px;background:#151515;border-radius:44px;color:#f8f7f4;position:relative}.main-mark svg{width:100%;height:100%}.accent{position:absolute;width:18px;height:18px;background:#d83824;border-radius:4px;right:14px;top:40px}
+  footer{padding-top:20px;border-top:1px solid #d8d7d2;font-size:16px}footer small{font-size:16px;color:#666}.address{font-family:Arial,sans-serif;font-size:16px;letter-spacing:.02em}
+  </style></head><body><header><div class="signature">${mark}<b>استودیو طراحی</b></div><span class="tag" dir="ltr">DESIGN / BUILD / COMMERCE</span></header><main><div><div class="eyebrow">طراحی سایت فروشگاهی و وب‌سایت اختصاصی</div><h1><span>فروشگاه شما،</span><span>با هویت خودتان.</span></h1><p>طراحی فکرشده، اجرای دقیق، تجربهٔ خرید روان.</p></div><div class="art" aria-hidden="true"><div class="outline"></div><div class="outline"></div><div class="main-mark">${mark}</div><span class="accent"></span></div></main><footer><small>هماهنگ با برند شما، روی موبایل و دسکتاپ</small><span class="address" dir="ltr">sadrabgh.github.io/portfolio</span></footer></body></html>`);
+  await page.evaluate(() => document.fonts.ready);
+  await page.screenshot({ path: at("public/portfolio/social-studio.png") });
+  await page.setViewportSize({ width: 180, height: 180 });
+  await page.setContent(`<html><body style="margin:0;background:#fff;color:#151515;width:180px;height:180px">${svg(`<rect width="80" height="80" fill="#fff"/><g transform="translate(8 8)">${geometry}</g>`, "0 0 80 80")}</body></html>`);
+  await page.screenshot({ path: at(`${destination}/apple-touch-icon.png`) });
+  console.log("Studio identity generated: shared SVG mark, icons, two patterns, 1200 × 630 social card.");
 } finally {
   await browser.close();
 }

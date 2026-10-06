@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" role="img" aria-label="نشان استودیو طراحی" focusable="false">
+  <g stroke="currentColor" stroke-width="7" stroke-linecap="square" stroke-linejoin="round">
+    <path d="M30 9h14a11 11 0 0 1 11 11v14" />
+    <path d="M34 55H20A11 11 0 0 1 9 44V30" />
+    <path d="M21 35V21h14" />
+    <path d="M43 29v14H29" />
+  </g>
+</svg>

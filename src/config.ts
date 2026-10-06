@@ -7,7 +7,7 @@ export const site = {
     "طراحی و اجرای سایت فروشگاهی و وب‌سایت اختصاصی؛ هماهنگ با هویت برند، با معرفی روشن محصولات و تجربهٔ خرید آسان روی موبایل و دسکتاپ.",
   email: "",
   telegram: "",
-  github: "",
+  github: "https://github.com/Sadrabgh",
   // Optional HTTPS form endpoint. See README for its contract.
   formEndpoint: "",
 };

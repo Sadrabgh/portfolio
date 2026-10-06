@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview --host 0.0.0.0",
     "check": "astro check",
+    "brand:build": "node scripts/social-card.mjs",
     "serve": "node serve.mjs",
     "test": "node tests/v10.mjs",
     "test:avan": "node tests/avan-unit.mjs && node tests/avan.mjs && node tests/avan-review.mjs",

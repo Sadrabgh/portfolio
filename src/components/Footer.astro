@@ -46,15 +46,9 @@ const { compact = false } = Astro.props;
     </div>
   )}
   <div class="footer-bottom container">
-    {compact ? (
-      <a class="footer-brand" href={url()}>
-        استودیو طراحی
-      </a>
-    ) : (
-      <a class="footer-brand" href={url()} aria-label="خانه">
-        <Logo horizontal />
-      </a>
-    )}
+    <a class="footer-brand" href={url()} aria-label={"صفحهٔ اصلی " + site.brand}>
+      <Logo horizontal />
+    </a>
     <p>© {new Date().getFullYear()} استودیو طراحی. پروژه‌های مستقل و نمایشی.</p>
     {compact ? (
       <a href={url("contact/")} class="footer-bottom-contact">

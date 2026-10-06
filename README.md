@@ -35,4 +35,6 @@ Workflow موجود در `.github/workflows/deploy.yml` پس از هر push به
 
 اطلاعات صاحب سایت و آدرس اختیاری ارسال فرم در `src/config.ts` قرار دارند. پرداخت و ثبت سفارش دموها آزمایشی است.
 
+نشان و دارایی‌های هویت سایت اصلی با `npm run brand:build` بازسازی می‌شوند. فایل برداری اصلی و کاربردهای آن در [راهنمای هویت استودیو](docs/studio-identity.md) معرفی شده‌اند.
+
 جزئیات بیشتر اجرای پروژه در [README فارسی](README.fa.md)، معنی نام‌ها در [راهنمای نام پروژه‌ها](docs/project-names.md) و منشأ دارایی‌ها در [ASSETS.md](ASSETS.md) و [LICENSE-ASSETS.md](LICENSE-ASSETS.md) ثبت شده است.
