@@ -1,6 +1,6 @@
 # Design Studio Portfolio
 
-[مشاهدهٔ سایت](https://sadrabgh.github.io/) · [ریپازیتوری](https://github.com/Sadrabgh/sadrabgh.github.io)
+[مشاهدهٔ سایت](https://sadrabgh.github.io/portfolio/) · [ریپازیتوری](https://github.com/Sadrabgh/portfolio)
 
 پرتفولیوی فارسی و راست‌چین با هشت نمونه‌کار مستقل: **ATELIERNO، RIFT، VELO، NEVA، ALBA، RAVA، AVAN و MORA**.
 
