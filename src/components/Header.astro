@@ -1,0 +1,160 @@
+---
+import Icon from "./Icon.astro";
+import Logo from "./Logo.astro";
+import SocialLinks from "./SocialLinks.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+import { url, site } from "../config";
+const home = Astro.url.pathname === url();
+const projects = [
+  ["form", "آتلیه نو"],
+  ["luma", "RIFT"],
+  ["orbit", "VELO"],
+  ["medical", "نِوا"],
+];
+const menus = [
+  [
+    "خانه",
+    [
+      ["", "خانهٔ فریلنسر"],
+      ["about/", "دربارهٔ طراح"],
+    ],
+  ],
+  [
+    "نمونه‌کارها",
+    [
+      ["work/", "آرشیو پروژه‌ها"],
+      ...projects.map(([id, t]) => ["work/" + id + "/", t]),
+    ],
+  ],
+  [
+    "خدمات",
+    [
+      ["services/", "خدمات طراحی"],
+      ["services/#approach", "رویکرد کار"],
+      ["contact/", "شروع همکاری"],
+    ],
+  ],
+  [
+    "صفحات",
+    [
+      ["about/", "درباره"],
+      ["contact/", "تماس"],
+      ["privacy/", "حریم خصوصی"],
+    ],
+  ],
+];
+---
+
+<header
+  class:list={["site-header", { "freelancer-header": home }]}
+  id="site-header"
+>
+  <div class="header-inner container">
+    {!home && (
+      <a class="brand" href={url()} aria-label={"صفحهٔ اصلی " + site.brand}>
+        <Logo horizontal />
+      </a>
+    )}
+    <nav class="desktop-nav" aria-label="ناوبری اصلی">
+      {menus.map(([label, items]) => (
+        <details class="nav-group">
+          <summary>{label as string}</summary>
+          <div class="nav-dropdown">
+            {(items as string[][]).map(([href, t]) => (
+              <a href={url(href)}>{t}</a>
+            ))}
+          </div>
+        </details>
+      ))}
+    </nav>
+    {home && (
+      <a class="brand" href={url()} aria-label={"صفحهٔ اصلی " + site.brand}>
+        <Logo />
+      </a>
+    )}
+    <div class="header-actions">
+      {home && <SocialLinks />}
+      <ThemeToggle compact />
+      {!home && (
+        <button
+          class="search-toggle icon-button"
+          type="button"
+          aria-label="جست‌وجوی صفحات"
+          aria-expanded="false"
+          aria-controls="site-search"
+        >
+          <Icon name="search" size={28} />
+        </button>
+      )}
+      <button
+        class="menu-toggle icon-button"
+        type="button"
+        aria-label="بازکردن منو"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <Icon name="menu" size={30} />
+      </button>
+    </div>
+  </div>
+  {!home && (
+    <section class="header-search-panel container" id="site-search" hidden>
+      <form role="search" id="site-search-form">
+        <label for="site-query">جست‌وجو در سایت</label>
+        <input
+          id="site-query"
+          type="search"
+          autocomplete="off"
+          placeholder="نام صفحه یا پروژه را بنویسید…"
+        />
+        <button
+          type="button"
+          class="search-close icon-button"
+          aria-label="بستن جست‌وجو"
+        >
+          <Icon name="close" size={24} />
+        </button>
+      </form>
+      <div class="search-results" role="status" aria-live="polite"></div>
+    </section>
+  )}
+</header>
+<dialog class="mobile-menu" id="mobile-menu" aria-label="منوی اصلی">
+  <div class="menu-inner">
+    <div class="mobile-menu-top">
+      <span dir="ltr">FA</span>
+      <button
+        class="icon-button menu-close"
+        type="button"
+        aria-label="بستن منو"
+      >
+        <Icon name="close" size={30} />
+      </button>
+    </div>
+    <nav aria-label="منوی کناری">
+      <a href={url()}>خانه</a>
+      <details class="menu-projects">
+        <summary>
+          نمونه‌کارها <Icon name="down" size={22} />
+        </summary>
+        <div>
+          <a href={url("work/")}>همهٔ پروژه‌ها</a>
+          {projects.map(([id, t]) => (
+            <a href={url("work/" + id + "/")}>{t}</a>
+          ))}
+        </div>
+      </details>
+      <a href={url("services/")}>خدمات</a>
+      <a href={url("about/")}>درباره</a>
+      <a href={url("contact/")}>تماس</a>
+    </nav>
+    <div class="menu-bottom">
+      <p>
+        © {new Date().getFullYear()} استودیو طراحی
+        <br />
+        طراحی رابط و توسعهٔ وب
+      </p>
+      <SocialLinks />
+    </div>
+  </div>
+</dialog>

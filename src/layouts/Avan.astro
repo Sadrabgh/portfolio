@@ -1,0 +1,178 @@
+---
+import baseStyles from "../styles/avan.css?inline";
+import pageStyles from "../styles/avan-pages.css?inline";
+import motionStyles from "../styles/avan-motion.css?inline";
+import Brand from "../components/avan/Brand.astro";
+import Icon from "../components/avan/Icon.astro";
+import { avanUrl } from "../lib/avan/paths";
+import { products } from "../data/avan";
+import Card from "../components/avan/Card.astro";
+import Dialogs from "../components/avan/Dialogs.astro";
+import { url } from "../config";
+import arabicFont from "../assets/avan/fonts/arabic.woff2?url";
+import latinFont from "../assets/avan/fonts/latin.woff2?url";
+interface Props {
+  title: string;
+  page: string;
+}
+const { title, page } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#123E42" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={url("images/avan/favicon.svg")}
+    />
+    {page === "home" && (
+      <link
+        rel="preload"
+        as="image"
+        type="image/avif"
+        imagesrcset={[320, 640, 900]
+          .map(
+            (width) => `${url(`images/avan/hero/h01-${width}.avif`)} ${width}w`,
+          )
+          .join(", ")}
+        imagesizes="(max-width:767px) 280px, 45vw"
+        fetchpriority="high"
+      />
+    )}
+    <style is:inline set:html={baseStyles + pageStyles + motionStyles} />
+    <link
+      rel="preload"
+      href={arabicFont}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={latinFont}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta
+      name="description"
+      content="آوان، فروشگاه مفهومی محصولات صوتی با مشخصات روشن و هویت مستقل."
+    />
+    <title>{title} — AVAN</title>
+  </head>
+  <body class="av" data-avan-page={page}>
+    <a class="skip-link" href="#av-main">
+      رفتن به محتوا
+    </a>
+    <header class="site-header">
+      <Brand />
+      <nav class="desktop-nav" aria-label="اصلی">
+        <a
+          href={avanUrl("shop/")}
+          aria-current={page === "shop" ? "page" : undefined}
+        >
+          محصولات
+        </a>
+        <a
+          href={avanUrl("guide/")}
+          aria-current={page === "guide" ? "page" : undefined}
+        >
+          راهنمای انتخاب
+        </a>
+        <a
+          href={avanUrl("about/")}
+          aria-current={page === "about" ? "page" : undefined}
+        >
+          دربارهٔ آوان
+        </a>
+      </nav>
+      <div class="tools">
+        <a
+          class="tool"
+          href={avanUrl("shop/#search")}
+          aria-label="جست‌وجوی محصول"
+        >
+          <Icon name="search" />
+        </a>
+        <a
+          class="tool desktop-tool"
+          href={avanUrl("compare/")}
+          aria-label="مقایسه"
+        >
+          <Icon name="compare" />
+        </a>
+        <a
+          class="tool desktop-tool"
+          href={avanUrl("wishlist/")}
+          aria-label="علاقه‌مندی‌ها"
+        >
+          <Icon name="heart" />
+        </a>
+        <a class="tool" href={avanUrl("cart/")} aria-label="سبد خرید">
+          <Icon name="cart" />
+          <span data-cart-count class="count" hidden />
+        </a>
+        <details class="mobile-menu">
+          <summary class="tool" aria-label="منوی اصلی">
+            <Icon name="menu" />
+          </summary>
+          <nav aria-label="منوی موبایل">
+            <a href={avanUrl("shop/")}>محصولات</a>
+            <a href={avanUrl("guide/")}>راهنمای انتخاب</a>
+            <a href={avanUrl("compare/")}>مقایسه</a>
+            <a href={avanUrl("wishlist/")}>علاقه‌مندی‌ها</a>
+            <a href={avanUrl("about/")}>دربارهٔ آوان</a>
+            <a href={avanUrl("help/faq/")}>پرسش‌های رایج</a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main id="av-main">
+      <div class="preview-note">
+        فروشگاه مفهومی؛ خرید آزمایشی بدون پرداخت و ارسال واقعی.
+      </div>
+      <noscript>
+        <p class="inline-note">
+          برای فیلتر، مقایسه، ذخیره‌سازی و خرید آزمایشی، JavaScript را فعال کن.
+          محصولات و مشخصات همچنان قابل خواندن‌اند.
+        </p>
+      </noscript>
+      <p class="storage-note" data-storage-note hidden role="status" />
+      <slot />
+    </main>
+    <footer class="footer">
+      <div>
+        <Brand />
+        <p>صدای دلخواهت، انتخاب روشن‌تر.</p>
+      </div>
+      <div>
+        <a href={avanUrl("shop/")}>همهٔ محصولات</a>
+        <a href={avanUrl("help/shipping/")}>ارسال</a>
+        <a href={avanUrl("help/returns/")}>بازگشت</a>
+        <a href={avanUrl("help/faq/")}>پرسش‌ها</a>
+      </div>
+      <small>
+        آوان یک فروشگاه مفهومی است. محصولات، مشخصات، قیمت‌ها و موجودی، دادهٔ
+        نمونه هستند؛ خرید و پرداخت واقعی انجام نمی‌شود.
+      </small>
+    </footer>
+    <div
+      class="live-status"
+      role="status"
+      aria-live="polite"
+      data-live-status
+    />
+    <template data-product-templates>
+      <Card product={products[0]} />
+    </template>
+    <Dialogs checkout={page === "checkout"} />
+    <script>
+      import "../scripts/avan";
+    </script>
+  </body>
+</html>

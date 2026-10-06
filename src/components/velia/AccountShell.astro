@@ -1,0 +1,78 @@
+---
+import Velia from "../../layouts/Velia.astro";
+import SkinIcon from "./SkinIcon.astro";
+import { url } from "../../config";
+const {
+  title,
+  current = "overview",
+  subtitle = "انتخاب‌ها، سفارش‌ها و تنظیمات تو، در یک جای ساده.",
+} = Astro.props;
+const nav = [
+  ["overview", "", "نمای کلی", "user"],
+  ["orders", "orders/", "سفارش‌ها", "box"],
+  ["addresses", "addresses/", "نشانی‌ها", "pin"],
+  ["profile", "profile/", "اطلاعات حساب", "user"],
+];
+---
+
+<Velia title={title} current="account">
+  <main id="skin-main" class="skin-wrap">
+    <div class="skin-page-heading velia-page-intro">
+      <span class="skin-eyebrow" dir="ltr">
+        YOUR ALBA SPACE
+      </span>
+      <h1>{title}</h1>
+      <p>{subtitle}</p>
+    </div>
+    <section class="velia-account-gate velia-panel" data-account-gate>
+      <SkinIcon name="user" size={42} />
+      <h2>به فضای شخصی آلبا خوش آمدی.</h2>
+      <p>
+        حساب نمونه را باز کن و مسیر سفارش‌ها، نشانی‌ها و تنظیمات را با اطلاعات
+        ساختگی ببین.
+      </p>
+      <button class="skin-button" type="button" data-demo-login>
+        ورود به حساب نمونه <SkinIcon name="arrow" size={19} />
+      </button>
+    </section>
+    <div class="velia-account-layout" data-account-content hidden>
+      <aside class="velia-account-sidebar velia-panel">
+        <div class="velia-account-person">
+          <span>س</span>
+          <div>
+            <b>سارا محمدی</b>
+            <small>حساب نمایشی آلبا</small>
+          </div>
+        </div>
+        <nav aria-label="بخش‌های حساب">
+          {nav.map(([id, path, label, icon]) => (
+            <a
+              href={url(`demo/velia/account/${path}`)}
+              aria-current={id === current ? "page" : undefined}
+            >
+              <SkinIcon name={icon} size={20} />
+              {label}
+              <SkinIcon name="arrow" size={15} />
+            </a>
+          ))}
+          <a href={url("demo/velia/favourites/")}>
+            <SkinIcon name="heart" size={20} />
+            علاقه‌مندی‌ها
+            <SkinIcon name="arrow" size={15} />
+          </a>
+          <button data-demo-logout type="button">
+            <SkinIcon name="back" size={20} />
+            خروج از حساب نمونه
+          </button>
+        </nav>
+      </aside>
+      <div class="velia-account-main">
+        <p class="velia-account-banner">
+          <SkinIcon name="leaf" size={18} /> اطلاعات این حساب ساختگی‌اند؛
+          تغییرات فرم‌ها فقط در صفحهٔ جاری پیش‌نمایش می‌شوند.
+        </p>
+        <slot />
+      </div>
+    </div>
+  </main>
+</Velia>

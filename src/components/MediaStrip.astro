@@ -1,0 +1,28 @@
+---
+import { url } from "../config";
+---
+
+<section class="media-gallery">
+  <h2 class="serif-section-title" data-motion-reveal>
+    دفتر تصویری استودیو
+  </h2>
+  <div class="image-strip">
+    {Array.from({ length: 5 }, (_, i) => (
+      <a
+        href={url("portfolio/moonex/social-" + (i + 1) + ".png")}
+        data-lightbox
+        aria-label={"بزرگ‌کردن تصویر " + (i + 1)}
+        data-motion-reveal
+        data-delay={i * 100}
+      >
+        <img
+          src={url("portfolio/moonex/social-" + (i + 1) + ".png")}
+          alt={"تصویر " + (i + 1) + " از دفتر تصویریِ قالب"}
+          width="400"
+          height="400"
+          loading="lazy"
+        />
+      </a>
+    ))}
+  </div>
+</section>

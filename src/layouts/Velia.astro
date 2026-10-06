@@ -1,0 +1,291 @@
+---
+import "../styles/yekan-bakh.css";
+import "../styles/velia.css";
+import "../styles/velia-store.css";
+import "../styles/velia-motion.css";
+import SkinIcon from "../components/velia/SkinIcon.astro";
+import StoreHeader from "../components/velia/StoreHeader.astro";
+import StoreFooter from "../components/velia/StoreFooter.astro";
+import SkinBag from "../components/velia/SkinBag.astro";
+import regularFont from "../assets/fonts/yekan-bakh/YekanBakhFaNum-Regular.woff?url";
+import semiboldFont from "../assets/fonts/yekan-bakh/YekanBakhFaNum-SemiBold.woff?url";
+interface Props {
+  title: string;
+  current?: string;
+}
+const { title, current = "home" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fa" dir="rtl" data-velia-theme="light">
+  <head>
+    <style is:inline>
+      @view-transition {
+        navigation: auto;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · آلبا</title>
+    <meta
+      name="description"
+      content="نمونهٔ مفهومی فروشگاه مراقبت پوست آلبا؛ یک تجربهٔ ساده برای انتخاب، کشف و خرید."
+    />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#efedf1" />
+    <link
+      rel="preload"
+      href={regularFont}
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={semiboldFont}
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <script is:inline>
+      try {
+        document.documentElement.dataset.veliaTheme =
+          localStorage.getItem("velia-theme") === "dark" ? "dark" : "light";
+      } catch {}
+      // Name only the image participating in a navigation, then clear it after capture.
+      // https://developer.chrome.com/docs/web-platform/view-transitions/cross-document
+      let skinLastLink;
+      document.addEventListener("click", (event) => {
+        if (event.target instanceof Element) {
+          skinLastLink = event.target.closest("a");
+          if (
+            event.ctrlKey ||
+            event.metaKey ||
+            event.shiftKey ||
+            event.altKey ||
+            skinLastLink?.target === "_blank"
+          )
+            return;
+          const id = skinProductFromUrl(skinLastLink?.href),
+            image = skinTransitionImage(id, true);
+          // ASVS 2.2.1: bounded, same-origin artwork intent only; never identity or arbitrary URLs.
+          try {
+            if (id && image && new URL(image.src).origin === location.origin)
+              sessionStorage.setItem(
+                "velia-image-intent",
+                JSON.stringify({ id, src: image.src, time: Date.now() }),
+              );
+          } catch {}
+        }
+      });
+      const skinProductFromUrl = (value) => {
+        try {
+          return new URL(value, location.href).pathname.match(
+            /\/demo\/velia\/products\/([a-z-]+)\//,
+          )?.[1];
+        } catch {
+          return undefined;
+        }
+      };
+      const skinTransitionImage = (id, preferClicked) => {
+        if (!id) return null;
+        const detail = document.querySelector("[data-product-detail]");
+        if (detail?.dataset.productDetail === id)
+          return detail.querySelector("[data-gallery-image]");
+        if (preferClicked && skinProductFromUrl(skinLastLink?.href) === id) {
+          const clicked =
+            skinLastLink.querySelector("img") ||
+            skinLastLink.closest("[data-skin-card]")?.querySelector("img");
+          if (clicked) return clicked;
+        }
+        const card = [...document.querySelectorAll("[data-skin-card]")].find(
+          (item) => item.dataset.skinCard === id && !item.hidden,
+        );
+        if (card) {
+          const box = card.getBoundingClientRect();
+          if (box.bottom > 0 && box.top < innerHeight)
+            return card.querySelector("img");
+        }
+        return id === "facial-cleanser"
+          ? document.querySelector("[data-skin-tilt]")
+          : null;
+      };
+      const skinNameDuringCapture = (image, done) => {
+        if (!image) return;
+        image.style.viewTransitionName = "skin-product-image";
+        done
+          .catch(() => {})
+          .finally(() => {
+            image.style.viewTransitionName = "";
+          });
+      };
+      let skinArrivalApplied = false;
+      const skinApplyArrival = () => {
+        if (skinArrivalApplied) return;
+        skinArrivalApplied = true;
+        try {
+          const raw = sessionStorage.getItem("velia-image-intent");
+          sessionStorage.removeItem("velia-image-intent");
+          if (!raw || raw.length > 700) return;
+          const intent = JSON.parse(raw),
+            detail = document.querySelector("[data-product-detail]");
+          if (
+            !detail ||
+            intent.id !== detail.dataset.productDetail ||
+            typeof intent.src !== "string" ||
+            !Number.isFinite(intent.time) ||
+            Date.now() - intent.time > 60000 ||
+            intent.time > Date.now()
+          )
+            return;
+          const allowed = [...detail.querySelectorAll("[data-gallery-source]")];
+          const choice = allowed.find(
+            (button) =>
+              new URL(button.dataset.gallerySource, location.href).href ===
+              intent.src,
+          );
+          if (!choice || new URL(intent.src).origin !== location.origin) return;
+          detail.querySelector("[data-gallery-image]").src = intent.src;
+          const zoom = document.querySelector("[data-zoom-image]");
+          if (zoom) zoom.src = intent.src;
+          allowed.forEach((button) =>
+            button.setAttribute("aria-pressed", String(button === choice)),
+          );
+        } catch {}
+      };
+      document.addEventListener("DOMContentLoaded", skinApplyArrival, {
+        once: true,
+      });
+      const skinNavigationDirection = (activation) => {
+        document.documentElement.dataset.veliaNavigation =
+          activation?.navigationType === "traverse" &&
+          activation.entry?.index < activation.from?.index
+            ? "back"
+            : "forward";
+      };
+      addEventListener("pageswap", (event) => {
+        if (!event.viewTransition) return;
+        if (matchMedia("(prefers-reduced-motion:reduce)").matches) {
+          event.viewTransition.skipTransition();
+          return;
+        }
+        skinNavigationDirection(event.activation);
+        const id =
+          skinProductFromUrl(event.activation?.entry.url) ||
+          document.querySelector("[data-product-detail]")?.dataset
+            .productDetail;
+        skinNameDuringCapture(
+          skinTransitionImage(id, true),
+          event.viewTransition.finished,
+        );
+      });
+      addEventListener("pagereveal", (event) => {
+        skinApplyArrival();
+        if (!event.viewTransition) return;
+        if (matchMedia("(prefers-reduced-motion:reduce)").matches) {
+          event.viewTransition.skipTransition();
+          return;
+        }
+        skinNavigationDirection(Reflect.get(window, "navigation")?.activation);
+        const id =
+          document.querySelector("[data-product-detail]")?.dataset
+            .productDetail ||
+          skinProductFromUrl(
+            Reflect.get(window, "navigation")?.activation?.from?.url,
+          );
+        skinNameDuringCapture(
+          skinTransitionImage(id, false),
+          event.viewTransition.ready,
+        );
+      });
+    </script>
+  </head>
+  <body class="velia" data-page={current}>
+    <a class="skin-skip" href="#skin-main">
+      رفتن به محتوا
+    </a>
+    <StoreHeader current={current} />
+    <slot />
+    <StoreFooter current={current} />
+    <dialog
+      class="skin-bag-dialog"
+      data-bag-dialog
+      aria-labelledby="skin-bag-title"
+    >
+      <div class="skin-dialog-heading">
+        <h2 id="skin-bag-title">سبد خرید تو</h2>
+        <button
+          type="button"
+          class="skin-icon-button"
+          data-dialog-close
+          aria-label="بستن سبد خرید"
+        >
+          <SkinIcon name="close" />
+        </button>
+      </div>
+      <SkinBag />
+    </dialog>
+    <div
+      class="skin-sr"
+      data-skin-announcer
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+    <template id="skin-bag-row">
+      <article class="skin-bag-row">
+        <a class="skin-bag-image">
+          <img width="120" height="140" alt="" />
+        </a>
+        <div class="skin-bag-row-info">
+          <a class="skin-bag-product-name"></a>
+          <small data-line-size></small>
+          <b data-line-price></b>
+        </div>
+        <div class="skin-bag-row-actions">
+          <button
+            type="button"
+            class="skin-remove"
+            data-remove
+            aria-label="حذف محصول"
+          >
+            <SkinIcon name="close" size={15} />
+          </button>
+          <div class="skin-stepper">
+            <button type="button" data-line-minus aria-label="کاهش تعداد">
+              <SkinIcon name="minus" size={14} />
+            </button>
+            <span data-line-quantity></span>
+            <button type="button" data-line-plus aria-label="افزایش تعداد">
+              <SkinIcon name="plus" size={14} />
+            </button>
+          </div>
+        </div>
+      </article>
+    </template>
+    <noscript>
+      <p class="skin-noscript skin-wrap">
+        برای جست‌وجو، ذخیرهٔ محصولات و آزمایش سبد خرید، جاوااسکریپت لازم است.
+        تصاویر و صفحه‌های محصول قابل مشاهده‌اند.
+      </p>
+      <style>
+        .velia .skin-favourite,
+        .velia .skin-quick-add,
+        .velia [data-add-product],
+        .velia [data-bag-filled] {
+          display: none !important;
+        }
+        .velia-tab-list {
+          display: none;
+        }
+        .velia [data-product-panel] {
+          display: block !important;
+          margin-bottom: 35px;
+        }
+      </style>
+    </noscript>
+    <script>
+      import "../scripts/velia";
+    </script>
+  </body>
+</html>

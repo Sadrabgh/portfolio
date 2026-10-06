@@ -1,0 +1,101 @@
+---
+import Brand from "../../../layouts/Brand.astro";
+import Icon from "../../../components/Icon.astro";
+import { url } from "../../../config";
+---
+
+<Brand brand="atelier" title="شروع گفت‌وگو" current="inquiry">
+  <main id="demo-main" class="wrap section two-col">
+    <div data-entry>
+      <span class="eyebrow">START A CONVERSATION</span>
+      <h1>
+        فضای شما،
+        <br />
+        پرسش ما.
+      </h1>
+      <p>
+        شرح کوتاهی از پروژه بنویسید. پیش از تأیید، اطلاعات را بازبینی و اصلاح
+        می‌کنید.
+      </p>
+      <p class="notice">فرم نمایشی است؛ اطلاعات ارسال یا ذخیره نمی‌شوند.</p>
+      <ol class="inquiry-process" aria-label="مراحل درخواست"><li data-inquiry-stage="1" aria-current="step"><span>۰۱</span> شرح فضا و نیاز</li><li data-inquiry-stage="2"><span>۰۲</span> بازبینی و ویرایش</li><li data-inquiry-stage="3"><span>۰۳</span> تأیید نمایشی</li></ol>
+    </div>
+    <form id="architecture-form" class="d-form inquiry-panel" novalidate>
+      <div data-inquiry-edit>
+        <label>
+          نام آزمایشی
+          <input
+            name="name"
+            minlength="2"
+            maxlength="80"
+            required
+            aria-describedby="name-error"
+          />
+          <span id="name-error" class="d-error" data-error="name"></span>
+        </label>
+        <div class="two-col">
+          <label>
+            نوع فضا
+            <select name="type">
+              <option>مسکونی</option>
+              <option>فرهنگی</option>
+              <option>فضای کار</option>
+              <option>سایر</option>
+            </select>
+          </label>
+          <label>
+            متراژ حدودی
+            <input
+              name="size"
+              inputmode="numeric"
+              maxlength="30"
+              placeholder="مثلاً ۳۰۰ مترمربع (اختیاری)"
+            />
+          </label>
+        </div>
+        <label>
+          شرح نیاز
+          <textarea
+            name="description"
+            required
+            minlength="10"
+            maxlength="1500"
+            aria-describedby="description-error"
+          ></textarea>
+          <small class="muted">چه فضایی در نظر دارید و قرار است چه تجربه‌ای در آن ساخته شود؟ حداقل ۱۰ نویسه.</small>
+          <span
+            id="description-error"
+            class="d-error"
+            data-error="description"
+          ></span>
+        </label>
+        <button class="button" type="submit" disabled>
+          بازبینی درخواست <Icon name="arrow" size={18} />
+        </button>
+      </div>
+      <section data-inquiry-review hidden tabindex="-1">
+        <h2>بازبینی درخواست</h2>
+        <dl class="summary" data-inquiry-summary></dl>
+        <div class="actions">
+          <button class="button secondary" data-inquiry-back type="button">
+            ویرایش
+          </button>
+          <button class="button" data-inquiry-confirm type="button">
+            تأیید نمایشی
+          </button>
+        </div>
+      </section>
+      <section data-inquiry-success hidden tabindex="-1" class="inquiry-success">
+        <span class="completion-icon"><Icon name="check" size={28} /></span>
+        <span class="eyebrow">CONVERSATION / COMPLETE</span>
+        <h2>فضا را از یک پرسش شروع کردید.</h2>
+        <p>مسیر درخواست نمایشی کامل شد. اطلاعات آزمایشی از فرم پاک شدند؛ درخواستی ارسال نشده است.</p>
+        <div class="actions"><button class="button secondary" type="button" data-inquiry-restart>درخواست تازه</button><a class="text-link" href={url("demo/atelier/projects/")}>کشف فضاهای آتلیه <Icon name="arrow" size={18} /></a></div>
+      </section>
+      <p id="architecture-status" class="status" role="status"></p>
+    </form>
+  </main>
+  <script>
+    import "../../../scripts/form-demo";
+  </script>
+</Brand>

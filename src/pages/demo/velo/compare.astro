@@ -1,0 +1,68 @@
+---
+import Brand from "../../../layouts/Brand.astro";
+import { url } from "../../../config";
+---
+
+<Brand brand="velo" title="مقایسهٔ مدل‌ها" current="compare">
+  <main id="demo-main" class="wrap section">
+    <span class="eyebrow">THREE FORMS / ONE CITY</span>
+    <h1>
+      مسیر تو،
+      <br />
+      فرم تو.
+    </h1>
+    <div class="velo-model-index">
+      {[
+        ["city", "CITY", "فرم الماسی با تجهیزات کم و خطوط پیوسته."],
+        ["step", "STEP", "فریم پایین‌تر برای دسترسی باز در سناریوی شهری."],
+        ["tour", "TOUR", "رک عقب و گلگیرها؛ جزئیات بیشتر برای حمل روزمره."],
+      ].map(([id, name, desc],i) => (
+        <article data-reveal>
+          <span class="model-index-number" dir="ltr">0{i+1} / THE {name} FORM</span>
+          <img
+            src={url(`art/v10/velo-${id}-cyan.webp`)}
+            alt={`رندر مطالعهٔ سه‌بعدی ${name}`}
+            width="1200"
+            height="800"
+          />
+          <span class="eyebrow">{name} / CONCEPT</span>
+          <h2 dir="ltr">{name}</h2>
+          <p>{desc}</p>
+          <a class="button secondary" href={url(`demo/velo/?model=${id}#configure`)}>
+            تنظیم این مدل ↗
+          </a>
+        </article>
+      ))}
+    </div>
+    <div class="table-scroll section" tabindex="0" role="region" aria-label="جدول مقایسهٔ مدل‌های VELO">
+      <table>
+        <caption>مقایسهٔ مفهومی؛ مشخصات تولید یا عملکرد مهندسی نیستند.</caption>
+        <thead>
+          <tr>
+            <th scope="col">ساختار</th>
+            <th scope="col" dir="ltr">CITY</th>
+            <th scope="col" dir="ltr">STEP</th>
+            <th scope="col" dir="ltr">TOUR</th>
+          </tr>
+        </thead>
+        <tbody>
+          {[
+            ["فریم", "الماسی", "لولهٔ بالایی پایین‌تر", "الماسی"],
+            [
+              "تجهیزات بدنه",
+              "چراغ و باتری",
+              "چراغ و باتری",
+              "رک، گلگیر، چراغ و باتری",
+            ],
+            ["رنگ", "۳ رنگ", "۳ رنگ", "۳ رنگ"],
+            ["پرداخت", "ساتن / براق", "ساتن / براق", "ساتن / براق"],
+          ].map((row) => (
+            <tr>
+              {row.map((t, i) => (i === 0 ? <th scope="row">{t}</th> : <td>{t}</td>))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </main>
+</Brand>

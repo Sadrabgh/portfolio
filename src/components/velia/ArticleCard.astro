@@ -1,0 +1,29 @@
+---
+import { url } from "../../config";
+import SkinIcon from "./SkinIcon.astro";
+const { article: a } = Astro.props;
+---
+
+<a class="velia-article-card" href={url(`demo/velia/journal/${a.id}/`)}>
+  <div
+    class:list={["velia-article-image", { "is-pack": a.image !== "editorial" }]}
+  >
+    <img
+      src={url(`art/velia/${a.image}.webp`)}
+      alt=""
+      width="700"
+      height="470"
+      loading="lazy"
+    />
+  </div>
+  <div>
+    <span>
+      {a.tag} · {a.time} مطالعه
+    </span>
+    <h3>{a.title}</h3>
+    <p>{a.intro}</p>
+    <b>
+      خواندن یادداشت <SkinIcon name="arrow" size={17} />
+    </b>
+  </div>
+</a>

@@ -1,0 +1,104 @@
+---
+import Brand from "../../../layouts/Brand.astro";
+import Card from "../../../components/RiftCard.astro";
+import Cart from "../../../components/RiftCart.astro";
+import { garments } from "../../../data/brands";
+import { url } from "../../../config";
+import Icon from "../../../components/Icon.astro";
+import Lookbook from "../../../components/RiftLookbook.astro";
+---
+
+<Brand brand="rift" title="لباس برای حرکت در شهر">
+  <main id="demo-main">
+    <section class="rift-campaign rift-poster">
+      <div class="rift-campaign-image" data-entry>
+        <img
+          src={url("art/v10/campaign.webp")}
+          alt="کمپین مفهومی RIFT؛ ژاکت مشکی و شلوار کارگو در حیاط بتنی"
+          width="1536"
+          height="1024"
+          fetchpriority="high"
+        />
+        <a class="rift-look-tag" href={url("demo/rift/products/shell/")}><span>THE CITY LOOK / 01</span><strong>ژاکت شِل <Icon name="arrow" size={18} /></strong><small>یک لایه. شروع یک ترکیب.</small></a>
+      </div>
+      <div class="rift-campaign-copy" data-entry>
+        <span class="eyebrow">DROP 001 / CITY IN MOTION</span>
+        <h1>
+          <span>از ریتم</span>
+          <br />
+          <span>نیفت.</span>
+        </h1>
+        <p>
+          فرم‌های آزاد. جزئیات کاربردی.
+          <br />
+          لایه‌هایی برای حرکت روزمره.
+        </p>
+        <div class="hero-actions"><a class="button" href={url("demo/rift/collections/layers/")}>کشف کالکشن <Icon name="arrow" size={18} /></a><a class="text-link" href={url("demo/rift/catalog/")}>همهٔ فرم‌ها</a></div>
+        <span class="campaign-number" dir="ltr">
+          <span>DROP 001 / 2026</span><span>4 FORMS. YOUR RHYTHM.</span>
+        </span>
+      </div>
+      <div class="rift-strip" aria-hidden="true">
+        <span>MOVE THROUGH THE CITY</span>
+        <b>RIFT</b>
+        <span>FORM / TEXTURE / MOVEMENT</span>
+      </div>
+    </section>
+    <nav class="rift-category-rail wrap" aria-label="خرید بر اساس فرم"><span class="eyebrow">YOUR NEXT LAYER</span>{[["outer","لایهٔ بیرونی","01"],["layers","لایهٔ میانی","02"],["essentials","روزمره","03"]].map(([id,label,n])=><a href={url(`demo/rift/catalog/?category=${id}`)}><span dir="ltr">{n}</span>{label}<Icon name="arrow" size={18} /></a>)}</nav>
+    <Lookbook />
+    <section class="section wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">THE FIRST EDIT / 4 FORMS</span>
+          <h2>انتخاب اول.</h2>
+        </div>
+        <a class="text-link" href={url("demo/rift/catalog/")}>
+          تمام محصولات ↗
+        </a>
+      </div>
+      <div class="rift-grid">
+        {garments.map((p) => (
+          <Card p={p} />
+        ))}
+      </div>
+    </section>
+    <section class="rift-editorial" data-motion-scene>
+      <img
+        src={url("art/v10/campaign-detail.webp")}
+        alt="جزئیات بافت و سرآستین هودی تمشکی"
+        loading="lazy"
+        width="1024"
+        height="1536"
+      />
+      <div data-reveal>
+        <span class="eyebrow">HEAVY / 02</span>
+        <h2>
+          بافت را
+          <br />
+          از نزدیک ببین.
+        </h2>
+        <p>
+          وزن پارچه، نسبت یقه و حجم آستین؛ شخصیت یک لباس در همین جزئیات ساخته
+          می‌شود.
+        </p>
+        <a class="button" href={url("demo/rift/products/hoodie/")}>
+          هودی هِوی ↗
+        </a>
+      </div>
+    </section>
+    <section class="wrap section" aria-labelledby="rift-collections-title">
+      <div class="section-head"><div><span class="eyebrow">FIND YOUR COMBINATION</span><h2 id="rift-collections-title">از یک لایه شروع کن.</h2></div><a class="text-link" href={url("demo/rift/size-guide/")}>راهنمای انتخاب اندازه <Icon name="arrow" size={18} /></a></div>
+      <div class="rift-collections"><a href={url("demo/rift/collections/layers/")} data-reveal>
+        <span class="eyebrow">01 / LAYERS</span>
+        <h3>لایه‌ها. <Icon name="arrow" /></h3>
+        <p>شِل و هِوی؛ دو حجم برای ترکیب شخصی.</p>
+      </a>
+      <a href={url("demo/rift/collections/essentials/")} data-reveal>
+        <span class="eyebrow">02 / ESSENTIALS</span>
+        <h3>روزمره‌ها. <Icon name="arrow" /></h3>
+        <p>باکس و یوتیلیتی؛ ساختار ساده، جزئیات دقیق.</p>
+      </a></div>
+    </section>
+  </main>
+  <Cart />
+</Brand>

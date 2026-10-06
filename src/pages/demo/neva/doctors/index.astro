@@ -1,0 +1,35 @@
+---
+import Brand from "../../../../layouts/Brand.astro";
+import Comparison from "../../../../components/NevaComparison.astro";
+import { doctors } from "../../../../data/brands";
+---
+
+<Brand brand="neva" title="پزشکان و زمان‌ها" current="doctors">
+  <main id="demo-main" class="wrap section">
+    <span class="eyebrow">انتخاب پزشک</span>
+    <h1>
+      اطلاعاتی که
+      <br />
+      به انتخاب کمک می‌کنند.
+    </h1>
+    <p>
+      پروفایل‌ها و تصاویر مفهومی‌اند؛ سابقه، مدرک و امتیاز واقعی ادعا نمی‌شود.
+    </p>
+    <div class="filters" role="group" aria-label="نوع خدمت">
+      {[["all", "همه"], ...doctors.map((d) => [d.id, d.short])].map(
+        ([v, t]) => (
+          <button data-doctor-filter={v} aria-pressed={v === "all"}>
+            {t}
+          </button>
+        ),
+      )}
+    </div>
+    <p class="status" data-doctor-filter-status role="status">
+      ۳ پزشک فرضی
+    </p>
+    <Comparison heading="h2" />
+  </main>
+  <script>
+    import "../../../../scripts/medical-demo";
+  </script>
+</Brand>

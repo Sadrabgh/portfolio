@@ -1,0 +1,109 @@
+---
+import Checkout from "./Checkout.astro";
+interface Props {
+  checkout: boolean;
+}
+const { checkout } = Astro.props;
+---
+
+<dialog
+  class="av-dialog av-drawer"
+  data-cart-dialog
+  aria-labelledby="av-cart-title"
+  tabindex="-1"
+>
+  <div class="dialog-heading">
+    <h2 id="av-cart-title">سبد انتخاب تو</h2>
+    <button type="button" data-close-dialog aria-label="بستن سبد">
+      ×
+    </button>
+  </div>
+  <div data-cart-content />
+</dialog>
+<dialog
+  class="av-dialog"
+  data-quick-dialog
+  aria-labelledby="av-quick-title"
+  tabindex="-1"
+>
+  <div class="dialog-heading">
+    <h2 id="av-quick-title">نگاه سریع</h2>
+    <button type="button" data-close-dialog aria-label="بستن نگاه سریع">
+      ×
+    </button>
+  </div>
+  <div data-quick-content />
+</dialog>
+<dialog
+  class="av-dialog zoom-dialog"
+  data-zoom-dialog
+  aria-label="تصویر بزرگ محصول"
+  tabindex="-1"
+>
+  <div class="dialog-heading">
+    <h2>جزئیات محصول</h2>
+    <button type="button" data-close-dialog aria-label="بستن تصویر">
+      ×
+    </button>
+  </div>
+  <div data-zoom-content />
+</dialog>
+<dialog
+  class="av-dialog"
+  data-reset-dialog
+  aria-labelledby="av-reset-title"
+  tabindex="-1"
+>
+  <div class="dialog-heading">
+    <h2 id="av-reset-title">گروه مقایسه تغییر کند؟</h2>
+    <button type="button" data-close-dialog aria-label="بستن تأیید">
+      ×
+    </button>
+  </div>
+  <p>
+    این مدل از گروه دیگری است. با تأیید، مدل‌های فعلی مقایسه پاک و این مدل
+    جایگزین می‌شود.
+  </p>
+  <button class="btn" type="button" data-confirm-comparison>
+    تغییر گروه
+  </button>
+  <button class="btn secondary" type="button" data-close-dialog>
+    نگه‌داشتن انتخاب فعلی
+  </button>
+</dialog>
+<dialog
+  class="av-dialog"
+  data-filters-dialog
+  aria-labelledby="av-filter-title"
+  tabindex="-1"
+>
+  <div class="dialog-heading">
+    <h2 id="av-filter-title">فیلتر محصولات</h2>
+    <button type="button" data-close-dialog aria-label="بستن فیلتر">
+      ×
+    </button>
+  </div>
+  <div data-filter-host />
+  <button class="btn" type="button" data-close-dialog>
+    دیدن نتیجه‌ها
+  </button>
+</dialog>
+<dialog
+  class="av-dialog checkout-dialog"
+  data-inline-checkout
+  aria-labelledby="av-inline-title"
+  tabindex="-1"
+>
+  <div class="dialog-heading">
+    <h2 id="av-inline-title">خرید آزمایشی در همین صفحه</h2>
+    <button type="button" data-close-dialog aria-label="بستن خرید">
+      ×
+    </button>
+  </div>
+  <div data-inline-checkout-host />
+</dialog>
+{!checkout && (
+  <template data-checkout-template>
+    <Checkout embedded />
+  </template>
+)}

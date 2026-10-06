@@ -1,0 +1,18 @@
+---
+import Base from "../layouts/Base.astro";
+import { url } from "../config";
+---
+
+<Base title="صفحه پیدا نشد" noindex>
+  <section class="error-page container">
+    <span dir="ltr">404</span>
+    <h1>این مسیر به جایی نرسید.</h1>
+    <p>شاید نشانی تغییر کرده یا صفحه‌ای در این مسیر وجود ندارد.</p>
+    <a class="button" href={url()}>
+      بازگشت به خانه
+    </a>
+    <a class="button button-outline" href={url("work/")}>
+      دیدن نمونه‌کارها
+    </a>
+  </section>
+</Base>

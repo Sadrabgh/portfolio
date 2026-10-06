@@ -1,0 +1,29 @@
+---
+import Velia from "../../../../layouts/Velia.astro";
+import CollectionCard from "../../../../components/velia/CollectionCard.astro";
+import { skinCollections } from "../../../../data/velia";
+---
+
+<Velia title="روتین‌های آماده" current="collections">
+  <main id="skin-main" class="skin-wrap">
+    <div class="skin-page-heading velia-page-intro">
+      <span class="skin-eyebrow" dir="ltr">
+        A RITUAL FOR EVERY MOMENT
+      </span>
+      <h1>مراقبت، کنار هم.</h1>
+      <p>
+        چند انتخاب هماهنگ، برای شروع ساده‌تر. هر مجموعه را ببین و به اندازهٔ
+        نیازت انتخاب کن.
+      </p>
+    </div>
+    <div class="velia-collection-grid">
+      {skinCollections.map((collection) => (
+        <CollectionCard collection={collection} />
+      ))}
+    </div>
+    <div class="velia-quiet-note">
+      مجموعه‌ها پیشنهادهای نمایشی برای معرفی محصولات‌اند؛ ترکیب روتین را با
+      راهنمای محصول و نیاز شخصی خودت بررسی کن.
+    </div>
+  </main>
+</Velia>

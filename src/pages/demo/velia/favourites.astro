@@ -1,0 +1,36 @@
+---
+import Velia from "../../../layouts/Velia.astro";
+import SkinCard from "../../../components/velia/SkinCard.astro";
+import SkinIcon from "../../../components/velia/SkinIcon.astro";
+import { skinProducts } from "../../../data/velia";
+import { url } from "../../../config";
+---
+
+<Velia title="انتخاب‌های ذخیره‌شده" current="favourites">
+  <main id="skin-main" class="skin-wrap" data-favourites-page>
+    <div class="skin-page-heading">
+      <nav class="skin-breadcrumb" aria-label="مسیر صفحه">
+        <a href={url("demo/velia/shop/")}>محصولات</a>
+        <SkinIcon name="back" size={15} />
+        <span aria-current="page">ذخیره‌ها</span>
+      </nav>
+      <h1>برای یک وقتِ خوب.</h1>
+      <p>
+        <span data-saved-results>۰</span> محصولی که برای بعد نگه داشته‌ای.
+      </p>
+    </div>
+    <div class="skin-product-grid skin-saved-grid" data-saved-grid hidden>
+      {skinProducts.map((product, index) => (
+        <SkinCard product={product} index={index} />
+      ))}
+    </div>
+    <div class="skin-no-results" data-saved-empty>
+      <SkinIcon name="heart" size={44} />
+      <h2>هنوز انتخابی نگه نداشته‌ای.</h2>
+      <p>قلب کنار هر محصول، آن را برای بعد اینجا نگه می‌دارد.</p>
+      <a href={url("demo/velia/shop/")} class="skin-button">
+        کشف مجموعه <SkinIcon name="arrow" size={20} />
+      </a>
+    </div>
+  </main>
+</Velia>

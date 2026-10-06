@@ -1,0 +1,64 @@
+---
+import Brand from "../../../../layouts/Brand.astro";
+import Card from "../../../../components/RiftCard.astro";
+import Cart from "../../../../components/RiftCart.astro";
+import { garments } from "../../../../data/brands";
+import { url } from "../../../../config";
+export function getStaticPaths() {
+  return ["layers", "essentials"].map((id) => ({
+    params: { collection: id },
+    props: { id },
+  }));
+}
+const { id } = Astro.props;
+const layers = id === "layers";
+---
+
+<Brand
+  brand="rift"
+  title={layers ? "لایه‌ها" : "روزمره‌ها"}
+  current="collections"
+>
+  <main id="demo-main">
+    <section class="collection-cover">
+      <img
+        src={url(
+          layers ? "art/v10/campaign.webp" : "art/v10/cargo-graphite.webp",
+        )}
+        alt="تصویر کمپین مفهومی"
+        width={layers ? 1536 : 1024}
+        height={layers ? 1024 : 1536}
+      />
+      <div data-entry>
+        <span class="eyebrow">
+          {layers ? "01 / LAYERS" : "02 / ESSENTIALS"}
+        </span>
+        <h1>{layers ? "لایه‌ها." : "روزمره‌ها."}</h1>
+        <p>
+          {layers
+            ? "دو حجم، بی‌نهایت ترکیب."
+            : "نسبت‌های تازه برای فرم‌های آشنا."}
+        </p>
+      </div>
+    </section>
+    <section class="collection-notes wrap" aria-label="یادداشت کالکشن"><div><span class="eyebrow">THE EDIT / یادداشت انتخاب</span><h2>{layers?"حجم روی حجم.":"یک پایهٔ حساب‌شده."}</h2></div><p>{layers?"شِل، ساختار کوتاه و کاربردی را به ترکیب می‌آورد؛ هِوی، حجم آزاد و بافت ضخیم را. هر دو برای ساختن یک ترکیب شخصی کنار فرم‌های روزمره قرار می‌گیرند.":"تیشرت باکس با نسبت‌های ساده و کارگو با جزئیات کاربردی؛ دو فرم مستقل که شروع یک ترکیب روزمره را می‌سازند."}</p></section>
+    <section class="wrap section">
+      <div class="section-head">
+        <h2>{layers ? "از بیرون به درون." : "پایهٔ یک ترکیب شخصی."}</h2>
+        <a class="text-link" href={url("demo/rift/catalog/")}>
+          تمام محصولات ↗
+        </a>
+      </div>
+      <div class="rift-grid collection-products">
+        {garments
+          .filter((p) =>
+            layers ? p.category !== "essentials" : p.category === "essentials",
+          )
+          .map((p) => (
+            <Card p={p} />
+          ))}
+      </div>
+    </section>
+  </main>
+  <Cart />
+</Brand>

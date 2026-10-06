@@ -1,0 +1,130 @@
+---
+import Brand from "../../../layouts/Brand.astro";
+import Cart from "../../../components/RiftCart.astro";
+import { url } from "../../../config";
+import Icon from "../../../components/Icon.astro";
+---
+
+<Brand brand="rift" title="بازبینی سفارش">
+  <main id="demo-main" class="wrap section" data-checkout-app>
+    <span class="eyebrow">DEMO CHECKOUT / NO PAYMENT</span>
+    <h1>از انتخاب تا بازبینی.</h1>
+    <div class="checkout-layout">
+      <section>
+        <ol class="checkout-steps">
+          <li data-checkout-step="1" aria-current="step">
+            ۰۱ / اطلاعات
+          </li>
+          <li data-checkout-step="2">۰۲ / بازبینی</li>
+          <li data-checkout-step="3">۰۳ / رسید</li>
+        </ol>
+        <div data-checkout-empty hidden class="empty">
+          <h2>سبد شما خالی است.</h2>
+          <a class="button" href={url("demo/rift/catalog/")}>
+            دیدن محصولات ↗
+          </a>
+        </div>
+        <form class="d-form checkout-form" data-checkout-form novalidate>
+          <div data-checkout-edit>
+            <h2>اطلاعات آزمایشی</h2>
+            <p class="notice">
+              از اطلاعات آزمایشی استفاده کنید. چیزی ارسال یا ذخیره نمی‌شود.
+            </p>
+            <label>
+              نام آزمایشی
+              <input
+                name="name"
+                required
+                minlength="2"
+                maxlength="80"
+                aria-describedby="checkout-name-error"
+              />
+              <span
+                id="checkout-name-error"
+                data-checkout-error="name"
+                class="d-error"
+              ></span>
+            </label>
+            <label>
+              شمارهٔ آزمایشی
+              <input
+                name="phone"
+                type="tel"
+                dir="ltr"
+                inputmode="tel"
+                required
+                maxlength="15"
+                aria-describedby="checkout-phone-error"
+              />
+              <span
+                id="checkout-phone-error"
+                data-checkout-error="phone"
+                class="d-error"
+              ></span>
+            </label>
+            <label>
+              شهر و نشانی آزمایشی
+              <textarea
+                name="address"
+                required
+                minlength="10"
+                maxlength="500"
+                aria-describedby="checkout-address-error"
+              ></textarea>
+              <span
+                id="checkout-address-error"
+                data-checkout-error="address"
+                class="d-error"
+              ></span>
+            </label>
+            <button type="submit" class="button" disabled>
+              بازبینی سفارش ↗
+            </button>
+          </div>
+          <section data-checkout-review hidden tabindex="-1">
+            <h2>همه‌چیز را یک بار ببینید.</h2>
+            <dl class="summary" data-order-review></dl>
+            <p>
+              ارسال و پرداخت در این نمونه انجام نمی‌شود. مبلغ صرفاً برای نمایش
+              جمع سبد است.
+            </p>
+            <div class="actions">
+              <button type="button" class="button secondary" data-order-edit>
+                ویرایش اطلاعات
+              </button>
+              <button type="button" class="button" data-order-confirm>
+                ثبت نمایشی
+              </button>
+            </div>
+          </section>
+        </form>
+        <section data-order-success class="checkout-success" hidden tabindex="-1">
+          <span class="completion-icon"><Icon name="check" size={28} /></span>
+          <h2>انتخاب شما ثبت نمایشی شد.</h2>
+          <p>
+            کد رسید: <strong data-order-code dir="ltr"></strong>
+          </p>
+          <p>این رسید خرید واقعی نیست. اطلاعات آزمایشی از فرم پاک شدند.</p>
+          <div data-order-receipt></div>
+          <a class="button" href={url("demo/rift/catalog/")}>
+            ادامهٔ دیدن کالکشن ↗
+          </a>
+        </section>
+        <p class="status" data-order-status role="status"></p>
+      </section>
+      <aside class="checkout-summary">
+        <h2>انتخاب شما</h2>
+        <div data-checkout-lines></div>
+        <div class="section-head">
+          <span>جمع نمایشی</span>
+          <strong data-checkout-total></strong>
+        </div>
+        <button class="text-link" data-cart-open>
+          ویرایش سبد
+        </button>
+        <div class="flow-assurance"><Icon name="shield" size={20} /><span>پرداخت و ارسال انجام نمی‌شود. پیش از ثبت نمایشی، همهٔ انتخاب‌ها را بازبینی می‌کنید.</span></div>
+      </aside>
+    </div>
+  </main>
+  <Cart />
+</Brand>

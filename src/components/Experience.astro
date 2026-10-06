@@ -1,0 +1,26 @@
+---
+import { url } from "../config";
+const groups = [
+  { number: "۰۱", label: "ساختار", title: "اول، مسیر روشن.", description: "هر صفحه از یک نیاز شروع می‌شود: چه چیزی باید دیده شود و کاربر از کجا به مقصد برسد؟", points: ["اولویت محتوا و مسیر اصلی", "حالت‌های انتخاب، خطا و بازبینی"], href: "services/#approach" },
+  { number: "۰۲", label: "شخصیت", title: "بعد، نگاه مستقل.", description: "تصویر، حروف و فاصله‌ها کنار هم به یک زبان مشترک می‌رسند؛ جزئیات حرکت هم ادامهٔ همان زبان‌اند.", points: ["تایپوگرافی و ترکیب تصاویر", "حرکت متناسب با هر تعامل"], href: "work/" },
+  { number: "۰۳", label: "اجرا", title: "تا آخرین جزئیات.", description: "طرح در اندازه‌های مختلف و با لمس و کیبورد بررسی می‌شود تا کیفیت آن در استفاده هم باقی بماند.", points: ["چیدمان مستقل موبایل و دسکتاپ", "بازخورد واضح و کنترل حرکت"], href: "about/" },
+];
+---
+
+<section class="experience-section container">
+  <h2 class="serif-section-title" data-motion-reveal>
+    از ایده تا تجربه
+  </h2>
+  <div class="experience-columns">
+    {groups.map((group, i) => (
+      <div data-motion-reveal data-delay={i * 100}>
+        <span class="eyebrow">{group.number} / {group.label}</span>
+        <a class="experience-entry" href={url(group.href)}>
+          <h3>{group.title}</h3>
+          <p>{group.description}</p>
+          <ul>{group.points.map(point => <li>{point}</li>)}</ul>
+        </a>
+      </div>
+    ))}
+  </div>
+</section>

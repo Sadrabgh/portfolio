@@ -1,0 +1,119 @@
+---
+import Brand from "../../../layouts/Brand.astro";
+import { garments } from "../../../data/brands";
+import Cart from "../../../components/RiftCart.astro";
+import { url } from "../../../config";
+const measures: Record<string, { head: string[]; rows: string[][] }> = {
+  shell: {
+    head: ["اندازه", "عرض سینه", "قد", "آستین از سرشانه"],
+    rows: [
+      ["S", "۵۸", "۵۸", "۵۹"],
+      ["M", "۶۱", "۶۱", "۶۱"],
+      ["L", "۶۴", "۶۴", "۶۳"],
+      ["XL", "۶۷", "۶۷", "۶۵"],
+    ],
+  },
+  hoodie: {
+    head: ["اندازه", "عرض سینه", "قد", "آستین از سرشانه"],
+    rows: [
+      ["S", "۵۶", "۶۶", "۵۷"],
+      ["M", "۵۹", "۶۹", "۵۹"],
+      ["L", "۶۲", "۷۲", "۶۱"],
+      ["XL", "۶۵", "۷۵", "۶۳"],
+    ],
+  },
+  tee: {
+    head: ["اندازه", "عرض سینه", "قد", "آستین"],
+    rows: [
+      ["S", "۵۴", "۶۵", "۲۱"],
+      ["M", "۵۷", "۶۸", "۲۲"],
+      ["L", "۶۰", "۷۱", "۲۳"],
+      ["XL", "۶۳", "۷۴", "۲۴"],
+    ],
+  },
+  cargo: {
+    head: ["اندازه", "عرض کمر", "قد بیرونی", "عرض ران"],
+    rows: [
+      ["S", "۳۶", "۹۹", "۳۰"],
+      ["M", "۳۹", "۱۰۲", "۳۲"],
+      ["L", "۴۲", "۱۰۵", "۳۴"],
+      ["XL", "۴۵", "۱۰۸", "۳۶"],
+    ],
+  },
+};
+---
+
+<Brand brand="rift" title="راهنمای اندازه" current="size-guide">
+  <main id="demo-main" class="wrap section">
+    <span class="eyebrow">FIT GUIDE</span>
+    <h1>یک اندازهٔ روشن‌تر.</h1>
+    <p class="large-copy">
+      فرم شِل آزاد و کوتاه، هودی اورسایز و تیشرت باکسی است. اندازه‌ها متعلق به
+      سناریوی مفهومی‌اند.
+    </p>
+    <div class="two-col section">
+      <div>
+        <h2>چطور اندازه بگیرید؟</h2>
+        <ol>
+          <li>یک لباس با فرم مشابه را روی سطح صاف قرار دهید.</li>
+          <li>عرض سینه را از زیر بغل تا زیر بغل اندازه بگیرید.</li>
+          <li>قد را از بالاترین نقطهٔ سرشانه تا لبه بگیرید.</li>
+          <li>عرض کمر شلوار را روی سطح صاف مقایسه کنید.</li>
+        </ol>
+        <p class="notice">
+          واحد: سانتی‌متر. اندازه‌های جدول مربوط به خود لباس‌اند.
+        </p>
+        <a class="text-link" href={url("demo/rift/catalog/")}>
+          بازگشت به محصولات ↗
+        </a>
+      </div>
+      <div data-size-guide class="rift-size-guide">
+        {garments.map((p, i) => (
+          <details data-size-panel={p.id} open={i === 0}>
+            <summary>
+              {p.name} · {p.fit}
+            </summary>
+            <div class="table-scroll" tabindex="0" role="region" aria-label={`جدول اندازهٔ ${p.name}`}>
+              <table>
+                <caption>
+                  اندازهٔ خود لباس، به سانتی‌متر / مقادیر مفهومی
+                </caption>
+                <thead>
+                  <tr>
+                    {measures[p.id].head.map((t) => (
+                      <th scope="col">{t}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {measures[p.id].rows.map((row) => (
+                    <tr>
+                      {row.map((t, j) =>
+                        j === 0 ? <th scope="row" dir="ltr">{t}</th> : <td>{t}</td>,
+                      )}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p class="muted">
+              این جدول شکل لباس را شرح می‌دهد؛ موجودی اندازه را در صفحهٔ محصول
+              ببینید.
+            </p>
+            <a class="text-link" href={url(`demo/rift/products/${p.id}/`)}>
+              بازگشت به {p.name} ↗
+            </a>
+          </details>
+        ))}
+      </div>
+    </div>
+  </main>
+  <Cart />
+  <script>
+    const selected = new URLSearchParams(location.search).get("product");
+    if (selected && ["shell", "hoodie", "tee", "cargo"].includes(selected))
+      document
+        .querySelectorAll<HTMLDetailsElement>("[data-size-panel]")
+        .forEach((p) => (p.open = p.dataset.sizePanel === selected));
+  </script>
+</Brand>

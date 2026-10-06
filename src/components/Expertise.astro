@@ -1,0 +1,31 @@
+---
+import SkillMark from "./SkillMark.astro";
+const tools = [
+  ["frontend", "FRONTEND", "توسعهٔ فرانت‌اند", "رابط‌های سریع و واکنش‌گرا"],
+  ["backend", "BACKEND", "توسعهٔ بک‌اند", "منطق، امنیت و پردازش"],
+  ["api", "API", "طراحی و اتصال API", "ارتباط و یکپارچه‌سازی سرویس‌ها"],
+  ["database", "DATABASE", "دیتابیس و داده", "مدل‌سازی و مدیریت داده"],
+  ["testing", "TESTING", "تست و خطایابی", "تست، خطایابی و کیفیت"],
+  ["devops", "DEVOPS", "استقرار و زیرساخت", "استقرار، پایش و اتوماسیون"],
+];
+---
+
+<section class="expertise-section container">
+  <h2 class="serif-section-title" data-motion-reveal>
+    حوزه‌های تخصص
+  </h2>
+  <div class="expertise-grid">
+    {tools.map(([id, code, t, description], i) => (
+      <div class="expertise-item" data-skill={id} data-motion-reveal data-delay={i * 100}>
+        <div class="expertise-pill">
+          <span class="skill-mark" dir="ltr" aria-hidden="true">
+            <SkillMark skill={id} />
+          </span>
+          <span class="skill-code" dir="ltr">{code}</span>
+          <span class="skill-description">{description}</span>
+        </div>
+        <h3>{t}</h3>
+      </div>
+    ))}
+  </div>
+</section>

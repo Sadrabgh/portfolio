@@ -1,0 +1,20 @@
+---
+import Velia from "../../../layouts/Velia.astro";
+import Catalog from "../../../components/velia/Catalog.astro";
+---
+
+<Velia title="مجموعهٔ محصولات" current="shop">
+  <main id="skin-main" class="skin-wrap skin-shop">
+    <div class="skin-shop-intro">
+      <div>
+        <span class="skin-eyebrow" dir="ltr">
+          YOUR EVERYDAY RITUAL
+        </span>
+        <h1>مراقبت، با ریتم تو.</h1>
+        <p>۲۰ انتخاب فکرشده؛ از پاک‌سازی تا لحظه‌های مراقبت بدن.</p>
+      </div>
+      <span class="velia-count-label">THE COLLECTION / 20</span>
+    </div>
+    <Catalog />
+  </main>
+</Velia>

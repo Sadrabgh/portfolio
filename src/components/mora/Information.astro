@@ -1,0 +1,259 @@
+---
+import { link, products } from "../../data/mora";
+import Photo from "./Photo.astro";
+import Icon from "./Icon.astro";
+interface Props {
+  page: string;
+}
+const { page } = Astro.props;
+const info: Record<
+  string,
+  { title: string; intro: string; sections: { title: string; text: string }[] }
+> = {
+  "help/shipping": {
+    title: "تا رسیدن به خانه.",
+    intro:
+      "منطق ارسال در این فروشگاه نمونه و چیزهایی که پیش از خرید مبلمان باید در نظر بگیری.",
+    sections: [
+      {
+        title: "هزینهٔ روشن",
+        text: "در سفارش آزمایشی، ارسال معمول ۵۰۰ هزار تومان است. اگر مبلغ پس از تخفیف به ۷۰ میلیون تومان برسد، ارسال رایگان می‌شود. دریافت حضوری نمونه نیز بدون هزینه است.",
+      },
+      {
+        title: "زمان و دسترسی",
+        text: "بازهٔ ۵ تا ۷ روز کاری صرفاً بخشی از سناریوی نمونه است. برای خرید واقعی مبلمان باید موجودی، زمان آماده‌سازی و دسترسی خودرو به محل تحویل مشخص شود.",
+      },
+      {
+        title: "قبل از رسیدن مبلمان",
+        text: "ابعاد درگاه، آسانسور و راه‌پله را بررسی کن. عرض، عمق و ارتفاع هر مدل در صفحهٔ محصول آمده است. مسیر حمل باید برای ابعاد بسته‌بندی نیز کافی باشد.",
+      },
+    ],
+  },
+  "help/returns": {
+    title: "انتخاب روشن، از ابتدا.",
+    intro:
+      "این پروژه سفارش واقعی ایجاد نمی‌کند. شرایط زیر به تصمیم‌گیری در یک فروشگاه مبلمان کمک می‌کنند.",
+    sections: [
+      {
+        title: "در این نمونه‌کار",
+        text: "مبلغی پرداخت نمی‌شود، کالا ارسال نمی‌شود و درخواست مرجوعی واقعی وجود ندارد. می‌توانی پیش از ثبت آزمایشی، تعداد و مدل‌ها را در سبد تغییر بدهی.",
+      },
+      {
+        title: "در یک خرید واقعی",
+        text: "شرایط بازگشت باید قبل از پرداخت با فروشنده بررسی شود: وضعیت کالا، هزینهٔ حمل، محصولات سفارشی و مهلت ثبت درخواست، به قرارداد فروشگاه بستگی دارند.",
+      },
+      {
+        title: "بازبینی انتخاب",
+        text: "رنگ عکس با نور محیط و نمایشگر تغییر می‌کند. ابعاد، جنس و روش مراقبت را کنار تصویر محصول بررسی کن.",
+      },
+    ],
+  },
+  "help/care": {
+    title: "زیبا بماند، هر روز.",
+    intro: "مراقبت ساده و منظم، بخشی از زندگی با متریال خوب است.",
+    sections: [
+      {
+        title: "چوب طبیعی",
+        text: "با دستمال نرم تمیز و بلافاصله خشک کن. گرمای مستقیم، رطوبت طولانی و شوینده‌های قوی به سطح آسیب می‌زنند. از زیرظرفی استفاده کن.",
+      },
+      {
+        title: "پارچه و بوکله",
+        text: "با سری نرم و مکش ملایم جارو کن. لکه را زود، بدون مالش و ابتدا در قسمتی پنهان با محلول ملایم امتحان کن. برای لکهٔ جدی از متخصص کمک بگیر.",
+      },
+      {
+        title: "فلز و روشنایی",
+        text: "پارچهٔ نرم مرطوب کافی است. از ابزار ساینده استفاده نکن. برای چراغ‌ها ابتدا برق را قطع کن؛ نصب و تعمیر سیم‌کشی کار برق‌کار است.",
+      },
+      {
+        title: "هر مدل، جزئیات خودش",
+        text: "روش مراقبت مختص هر محصول در صفحهٔ همان مدل نوشته شده است. سطح‌های مختلف یک روش تمیزکردن یکسان ندارند.",
+      },
+    ],
+  },
+};
+const content = info[page];
+const faqs = [
+  [
+    "آیا می‌توانم خرید واقعی انجام بدهم؟",
+    "خیر. مورا یک نمونه‌کار فروشگاهی است. تمام محصولات، قیمت‌ها و موجودی‌ها نمونه‌اند و ثبت سفارش فقط رسید آزمایشی می‌سازد.",
+  ],
+  [
+    "چه چیزهایی در مرورگر ذخیره می‌شود؟",
+    "سبد، علاقه‌مندی‌ها و انتخاب‌های مقایسه در مرورگر می‌مانند. نام، تلفن و نشانی فقط در حافظهٔ فرم هستند و داخل رسید ذخیره نمی‌شوند.",
+  ],
+  [
+    "کد تخفیف نمونه چیست؟",
+    "کد MORA10 ده درصد تخفیف تا سقف ۳ میلیون تومان دارد. هزینهٔ ارسال بر اساس مبلغ پس از تخفیف محاسبه می‌شود.",
+  ],
+  [
+    "مدل ناموجود را می‌توان سفارش داد؟",
+    "خیر. می‌توانی آن را ذخیره یا مقایسه کنی، اما افزودن به سبد غیرفعال است.",
+  ],
+  [
+    "چگونه اندازه را انتخاب کنم؟",
+    "ابعاد هر مدل به‌ترتیب عرض، عمق و ارتفاع در صفحهٔ محصول است. فضای عبور و مسیر ورود را هم اندازه بگیر.",
+  ],
+];
+---
+
+{content && (
+  <section class="mr-wrap mr-information">
+    <div class="mr-intro">
+      <span class="mr-eyebrow">HERE TO HELP.</span>
+      <h1>{content.title}</h1>
+      <p>{content.intro}</p>
+    </div>
+    <div class="mr-info-grid">
+      <nav aria-label="راهنمای فروشگاه">
+        {[
+          ["shipping", "ارسال و تحویل"],
+          ["returns", "بازگشت و شرایط"],
+          ["care", "مراقبت از متریال"],
+          ["faq", "پرسش‌های رایج"],
+        ].map(([id, title]) => (
+          <a
+            href={link("help/" + id + "/")}
+            aria-current={page === "help/" + id ? "page" : undefined}
+          >
+            {title}
+            <Icon />
+          </a>
+        ))}
+      </nav>
+      <div class="mr-prose">
+        {content.sections.map((s) => (
+          <section>
+            <h2>{s.title}</h2>
+            <p>{s.text}</p>
+          </section>
+        ))}
+        <a class="mr-btn mr-outline" href={link("contact/")}>
+          ارتباط با مورا <Icon />
+        </a>
+      </div>
+    </div>
+  </section>
+)}
+{page === "help/faq" && (
+  <section class="mr-wrap mr-information">
+    <div class="mr-intro">
+      <span class="mr-eyebrow">A FEW GOOD QUESTIONS.</span>
+      <h1>قبل از انتخاب.</h1>
+      <p>پاسخ‌های روشن برای تجربهٔ فروشگاه مورا.</p>
+    </div>
+    <div class="mr-faq">
+      {faqs.map(([q, a], i) => (
+        <details open={i === 0}>
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+    <a class="mr-btn mr-outline" href={link("contact/")}>
+      هنوز پرسشی داری؟ <Icon />
+    </a>
+  </section>
+)}
+{page === "studio" && (
+  <section class="mr-wrap mr-studio">
+    <div class="mr-intro">
+      <span class="mr-eyebrow">MORA / A WAY OF LIVING</span>
+      <h1>
+        کمتر، اما
+        <br />
+        با شخصیت.
+      </h1>
+      <p>
+        مورا از یک فکر ساده شروع شد: خانه را با چیزهایی پر کنیم که دوست داریم با
+        آن‌ها زندگی کنیم.
+      </p>
+    </div>
+    <div class="mr-studio-photo">
+      <Photo
+        name="hero"
+        alt="نشیمن با چوب گردو، صندلی آجری و نور طبیعی"
+        eager
+      />
+    </div>
+    <div class="mr-info-grid mr-section">
+      <div>
+        <h2>
+          فرم آرام.
+          <br />
+          زندگی واقعی.
+        </h2>
+      </div>
+      <div class="mr-prose">
+        <p>
+          در هویت مورا، خط‌های روشن و رنگ‌های آرام کنار چوب گرم می‌نشینند. هر
+          مدل با ابعاد، جنس، روش مراقبت و قیمت معرفی می‌شود؛ جزئیاتی که باید قبل
+          از انتخاب بدانیم.
+        </p>
+        <p>
+          این یک مطالعهٔ مستقل در طراحی فروشگاه است. نام، نشان، متن‌ها و تصاویر
+          برای مورا ساخته شده‌اند. ترکیب صفحهٔ اصلی از طرح Dune اثر Orbix Studio
+          الهام گرفته است.
+        </p>
+        <p>
+          محصولات و مشخصات، دادهٔ نمونه‌اند. تصاویر اتاق‌ها برای الهام از چیدمان
+          هستند و الزاماً ترکیب دقیق محصولات کاتالوگ را نشان نمی‌دهند.
+        </p>
+        <a class="mr-btn" href={link("shop/")}>
+          دیدن {products.length.toLocaleString("fa-IR")} مدل مورا <Icon />
+        </a>
+      </div>
+    </div>
+  </section>
+)}
+{page === "contact" && (
+  <section class="mr-wrap mr-information">
+    <div class="mr-intro">
+      <span class="mr-eyebrow">LET'S MAKE ROOM.</span>
+      <h1>از خانه‌ات بگو.</h1>
+      <p>
+        فرم زیر، بخشی از تجربهٔ نمونه‌کار است. پیامی ارسال یا ذخیره نمی‌شود.
+      </p>
+    </div>
+    <div class="mr-info-grid">
+      <div class="mr-contact-aside">
+        <h2>
+          یک انتخاب بهتر،
+          <br />
+          با جزئیات بیشتر.
+        </h2>
+        <p>
+          برای انتخاب مبلمان، اندازهٔ فضا، نور اتاق و سبک زندگی را کنار هم ببین.
+        </p>
+        <a class="mr-text-link" href={link("help/faq/")}>
+          پرسش‌های رایج <Icon />
+        </a>
+      </div>
+      <form class="mr-contact-form" id="mr-contact-form">
+        <label>
+          نام
+          <input name="name" required minlength="2" autocomplete="name" />
+        </label>
+        <label>
+          ایمیل
+          <input name="email" required type="email" autocomplete="email" />
+        </label>
+        <label>
+          موضوع
+          <select name="subject">
+            <option>انتخاب محصول</option>
+            <option>چیدمان و اندازه</option>
+            <option>نظر دربارهٔ طراحی</option>
+          </select>
+        </label>
+        <label>
+          پیام
+          <textarea name="message" required minlength="10" rows="5"></textarea>
+        </label>
+        <button class="mr-btn" type="submit">
+          بررسی فرم نمونه <Icon />
+        </button>
+        <p role="status" data-contact-result hidden></p>
+      </form>
+    </div>
+  </section>
+)}

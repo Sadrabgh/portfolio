@@ -1,0 +1,156 @@
+---
+import Base from "../layouts/Base.astro";
+import StudioPortrait from "../components/StudioPortrait.astro";
+import Expertise from "../components/Expertise.astro";
+import Experience from "../components/Experience.astro";
+import PortfolioTile from "../components/PortfolioTile.astro";
+import ProjectQuotes from "../components/ProjectQuotes.astro";
+import MediaStrip from "../components/MediaStrip.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+import Icon from "../components/Icon.astro";
+import { getCollection } from "astro:content";
+import { site, url } from "../config";
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const stats = [
+  ["پروژهٔ", "مستقل", projects.length],
+  ["حوزهٔ", "طراحی", 4],
+  ["اندازهٔ", "نمایش", 2],
+  ["تجربهٔ", "محصول سه‌بعدی", 1],
+];
+---
+
+<Base title="استودیو طراحی — رابط و تجربهٔ کاربر">
+  <section class="freelancer-intro container">
+    <h1 data-motion-reveal>
+      <span>{site.ownerName || "استودیو طراحی"}</span>
+      <span>طراح رابط و تجربهٔ کاربر</span>
+      <span>طراحی و توسعهٔ وب</span>
+    </h1>
+  </section>
+  <section class="freelancer-profile container" aria-label="معرفی طراح">
+    <div class="profile-notes">
+      <div data-motion-reveal data-delay="100">
+        <span class="eyebrow">زندگی‌نامه</span>
+        <p>
+          طراحی برای تجربه‌های بهتر.
+          <br />
+          من طراح رابط و توسعه‌دهندهٔ وب هستم؛ از ایده و ساختار تا جزئیات حرکت و
+          اجرا.
+        </p>
+      </div>
+      <div data-motion-reveal data-delay="200">
+        <span class="eyebrow">تماس</span>
+        <a class="profile-contact" href={url("contact/")}>
+          گفت‌وگو دربارهٔ پروژه
+          <br />
+          شروع یک همکاری
+        </a>
+        {site.email && (
+          <a href={"mailto:" + site.email} dir="ltr">
+            {site.email}
+          </a>
+        )}
+      </div>
+      <div data-motion-reveal data-delay="300">
+        <span class="eyebrow">خدمات</span>
+        <ul>
+          <li>
+            <a href={url("services/")}>طراحی وب‌سایت</a>
+          </li>
+          <li>
+            <a href={url("services/")}>رابط و تجربهٔ کاربر</a>
+          </li>
+          <li>
+            <a href={url("services/")}>حرکت و انیمیشن</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <StudioPortrait
+      priority
+      src="portfolio/moonex/portrait-linen-color-v6.png"
+      alt="پرترهٔ رنگی با پیراهن لینن دکمه‌بسته و ژست نشسته، در قاب بیضی"
+      caption="پرترهٔ شخصی"
+    />
+    <div class="profile-numbers">
+      {stats.map(([a, b, n], i) => (
+        <div data-motion-reveal data-delay={i * 100}>
+          <span class="eyebrow">
+            {a}
+            <br />
+            {b}
+          </span>
+          <strong dir="ltr" data-count={n} aria-label={String(n)}>
+            {String(n).padStart(2, "0")}
+          </strong>
+        </div>
+      ))}
+    </div>
+  </section>
+  <div class="project-wordmarks container" aria-label="جهان پروژه‌ها">
+    {[
+      ["form", "ATELIER NO"],
+      ["luma", "RIFT"],
+      ["orbit", "VELO"],
+      ["medical", "NEVA"],
+      ["velia", "ALBA"],
+      ["rava", "RAVA"],
+      ["avan", "AVAN"],
+      ["mora", "MORA"],
+      ["", "STUDIO"],
+    ].map(([id, t], i) => (
+      <a
+        class={"wordmark wordmark-" + i}
+        href={id ? url("work/" + id + "/") : url("about/")}
+        dir="ltr"
+        data-motion-reveal
+        data-delay={i * 100}
+      >
+        {t}
+      </a>
+    ))}
+  </div>
+  <Expertise />
+  <Experience />
+  <section class="selected-section container" id="selected">
+    <h2 class="serif-section-title" data-motion-reveal>
+      آخرین پروژه‌ها
+    </h2>
+    <div
+      class="carousel project-carousel"
+      data-carousel
+      data-carousel-kind="projects"
+      role="region"
+      aria-label="پروژه‌های منتخب"
+      tabindex="0"
+      data-motion-reveal
+    >
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+          {projects.map((p) => (
+            <PortfolioTile project={p} slider />
+          ))}
+        </div>
+      </div>
+      <div class="carousel-controls" data-carousel-controls hidden>
+        <button type="button" data-carousel-prev aria-label="پروژهٔ قبلی">
+          <Icon name="right" size={36} />
+        </button>
+        <button type="button" data-carousel-next aria-label="پروژهٔ بعدی">
+          <Icon name="right" size={36} />
+        </button>
+      </div>
+      <span
+        class="sr-only"
+        data-carousel-status
+        role="status"
+        aria-live="polite"
+      ></span>
+    </div>
+  </section>
+  <ProjectQuotes />
+  <MediaStrip />
+  <ContactCTA />
+</Base>

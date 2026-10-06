@@ -1,0 +1,80 @@
+---
+import type { AudioProduct } from "../../data/avan";
+import {
+  categories,
+  formatMoney,
+  minimumPrice,
+  inStock,
+} from "../../data/avan";
+import { avanUrl } from "../../lib/avan/paths";
+import Photo from "./Photo.astro";
+import Icon from "./Icon.astro";
+interface Props {
+  product: AudioProduct;
+}
+const { product: p } = Astro.props;
+---
+
+<article class="product-card" data-product-card={p.id}>
+  <a class="product-frame" href={avanUrl(`product/${p.id}/`)}>
+    <Photo
+      source={p.variants[0].images[0]}
+      alt={`${p.title} ${p.code}، گرافیتی`}
+      class="product-art"
+      sizes="(max-width:350px) 85vw, (max-width:767px) 43vw, 25vw"
+    />
+    <span class="model-label" dir="ltr">
+      {p.code}
+    </span>
+  </a>
+  <div class="card-body">
+    <small>{categories.find((c) => c.id === p.category)?.name}</small>
+    <h3>
+      <a href={avanUrl(`product/${p.id}/`)}>{p.title}</a>
+    </h3>
+    <div class="card-meta">
+      <strong data-card-price>از {formatMoney(minimumPrice(p))}</strong>
+      <span class="swatches" aria-label="گرافیتی و استخوانی">
+        {p.variants.map((v) => (
+          <b style={`background:${v.hex}`} title={v.name} />
+        ))}
+      </span>
+    </div>
+    <small data-card-color>دو رنگ</small>
+    <small
+      data-card-stock
+      class:list={["card-stock", { unavailable: !inStock(p) }]}
+    >
+      {inStock(p) ? "رنگ موجود دارد" : "ناموجود در هر دو رنگ"}
+    </small>
+    <a class="card-link" href={avanUrl(`product/${p.id}/`)}>
+      انتخاب رنگ و بررسی
+      <Icon name="arrow" />
+    </a>
+    <div class="card-actions">
+      <button
+        type="button"
+        data-save-model={p.id}
+        data-requires-js
+        disabled
+        aria-label={`ذخیرهٔ ${p.code}`}
+      >
+        <Icon name="heart" />
+      </button>
+      {p.compareGroup && (
+        <button
+          type="button"
+          data-compare-model={p.id}
+          data-requires-js
+          disabled
+          aria-label={`مقایسهٔ ${p.code}`}
+        >
+          <Icon name="compare" />
+        </button>
+      )}
+      <button type="button" data-quick-view={p.id} data-requires-js disabled>
+        نگاه سریع
+      </button>
+    </div>
+  </div>
+</article>

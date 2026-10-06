@@ -1,0 +1,231 @@
+---
+import "../styles/mora.css";
+import Icon from "../components/mora/Icon.astro";
+import { link, products, collections } from "../data/mora";
+import { url } from "../config";
+import arabicFont from "../assets/avan/fonts/arabic.woff2?url";
+import latinFont from "../assets/avan/fonts/latin.woff2?url";
+interface Props {
+  title: string;
+  page: string;
+}
+const { title, page } = Astro.props;
+const nav = [
+  ["", "خانه"],
+  ["collections/", "کالکشن‌ها"],
+  ["journal/", "یادداشت‌ها"],
+  ["studio/", "استودیو"],
+];
+---
+
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#D0F8E4" />
+    <meta
+      name="description"
+      content="مورا؛ مبلمان، نور و جزئیات برای خانه‌ای به سبک تو. فروشگاه نمونه با سفارش آزمایشی."
+    />
+    <title>{title} — MORA</title>
+    <link rel="icon" href={url("images/mora/mark.svg")} />
+    <link
+      rel="preload"
+      as="font"
+      href={arabicFont}
+      type="font/woff2"
+      crossorigin
+    />
+    <style
+      is:inline
+      set:html={`@font-face{font-family:Mora;src:url("${arabicFont}") format("woff2");font-weight:100 900;font-display:swap}@font-face{font-family:Mora;src:url("${latinFont}") format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0000-024F}`}
+    />
+  </head>
+  <body class="mr" data-page={page}>
+    <a class="mr-skip" href="#mr-main">
+      رفتن به محتوا
+    </a>
+    <header class="mr-header mr-wrap">
+      <a class="mr-brand" href={link()} aria-label="مورا، خانه">
+        <svg
+          width="30"
+          height="28"
+          viewBox="0 0 30 28"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M2 25V12a7 7 0 0 1 14 0v13M14 25V8a7 7 0 0 1 14 0v17M2 25h26"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+        </svg>
+        <span dir="ltr">
+          MORA<span class="mr-brand-dot">®</span>
+        </span>
+      </a>
+      <nav class="mr-nav" aria-label="منوی اصلی">
+        {nav.map(([path, label]) => (
+          <a
+            href={link(path)}
+            aria-current={
+              page === (path.replace(/\/$/, "") || "home") ? "page" : undefined
+            }
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+      <div class="mr-tools">
+        <a
+          class="mr-icon mr-search-link"
+          href={link("shop/#mr-search")}
+          aria-label="جست‌وجوی محصولات"
+        >
+          <Icon name="search" />
+        </a>
+        <a class="mr-icon" href={link("wishlist/")} aria-label="علاقه‌مندی‌ها">
+          <Icon name="heart" />
+        </a>
+        <a
+          class="mr-icon mr-account-link"
+          href={link("account/")}
+          aria-label="سفارش من"
+        >
+          <Icon name="user" />
+        </a>
+        <button
+          class="mr-icon mr-cart-toggle"
+          data-open-cart
+          aria-label="سبد خرید"
+        >
+          <Icon name="bag" />
+          <span data-cart-count class="mr-count" hidden>
+            0
+          </span>
+        </button>
+        <a class="mr-btn mr-shop-link" href={link("shop/")}>
+          کشف محصولات <Icon />
+        </a>
+        <button
+          class="mr-icon mr-menu-toggle"
+          data-open-menu
+          aria-label="بازکردن منو"
+        >
+          <Icon name="menu" />
+        </button>
+      </div>
+    </header>
+    <main id="mr-main" tabindex="-1">
+      <slot />
+    </main>
+    <footer class="mr-footer">
+      <div class="mr-wrap">
+        <div class="mr-footer-top">
+          <div>
+            <a class="mr-brand" href={link()}>
+              <span dir="ltr">MORA®</span>
+            </a>
+            <p>خانه، با انتخاب‌های تو شکل می‌گیرد.</p>
+          </div>
+          <div class="mr-footer-links">
+            <div>
+              <strong>کشف مورا</strong>
+              <a href={link("shop/")}>محصولات</a>
+              <a href={link("collections/")}>کالکشن‌ها</a>
+              <a href={link("studio/")}>استودیو</a>
+              <a href={link("journal/")}>یادداشت‌ها</a>
+            </div>
+            <div>
+              <strong>همراه انتخاب تو</strong>
+              <a href={link("help/shipping/")}>ارسال و تحویل</a>
+              <a href={link("help/returns/")}>بازگشت و شرایط</a>
+              <a href={link("help/care/")}>مراقبت از متریال</a>
+              <a href={link("help/faq/")}>پرسش‌های رایج</a>
+              <a href={link("contact/")}>ارتباط با مورا</a>
+            </div>
+          </div>
+        </div>
+        <div class="mr-footer-bottom">
+          <span>© ۲۰۲۶ مورا. یک نمونه‌کار مستقل.</span>
+          <a href={url("work/mora/")}>
+            دربارهٔ این پروژه <Icon />
+          </a>
+          <span>خرید و قیمت‌ها آزمایشی‌اند.</span>
+        </div>
+      </div>
+    </footer>
+    <dialog class="mr-drawer" id="mr-cart" aria-labelledby="mr-cart-title">
+      <div class="mr-panel-head">
+        <h2 id="mr-cart-title">
+          سبد انتخاب تو <span data-cart-count>۰</span>
+        </h2>
+        <button class="mr-icon" data-close aria-label="بستن سبد">
+          <Icon name="close" />
+        </button>
+      </div>
+      <div data-drawer-content>
+        <p>سبد تو هنوز خالی است.</p>
+        <a class="mr-btn" href={link("shop/")}>
+          دیدن محصولات
+        </a>
+      </div>
+      <a class="mr-text-link" href={link("cart/")}>
+        بازبینی کامل سبد <Icon />
+      </a>
+    </dialog>
+    <dialog class="mr-mobile-menu" id="mr-menu" aria-label="منوی مورا">
+      <div class="mr-panel-head">
+        <span class="mr-brand" dir="ltr">
+          MORA®
+        </span>
+        <button class="mr-icon" data-close aria-label="بستن منو">
+          <Icon name="close" />
+        </button>
+      </div>
+      <nav>
+        {[
+          ["shop/", "محصولات"],
+          ...nav,
+          ["compare/", "مقایسه"],
+          ["account/", "سفارش من"],
+          ["contact/", "ارتباط"],
+        ].map(([path, label]) => (
+          <a href={link(path)}>
+            {label}
+            <Icon />
+          </a>
+        ))}
+      </nav>
+    </dialog>
+    <dialog class="mr-zoom" id="mr-zoom" aria-label="نمای بزرگ محصول">
+      <button class="mr-icon" data-close aria-label="بستن نمای بزرگ">
+        <Icon name="close" />
+      </button>
+      <img alt="" width="1536" height="1024" />
+    </dialog>
+    <div
+      class="mr-toast"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      hidden
+    ></div>
+    <p class="mr-storage-note" data-storage-note hidden>
+      ذخیره‌سازی مرورگر محدود است؛ انتخاب‌ها فقط در این نشست نگه‌داری می‌شوند.
+    </p>
+    <script
+      type="application/json"
+      id="mr-data"
+      set:html={JSON.stringify({ products, collections, base: link() }).replace(
+        /</g,
+        "\\u003c",
+      )}
+    />
+    <script>
+      import "../scripts/mora";
+    </script>
+  </body>
+</html>

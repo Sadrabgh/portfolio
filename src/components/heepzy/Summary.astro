@@ -1,0 +1,63 @@
+---
+interface Props {
+  checkout?: boolean;
+}
+import { shopUrl } from "../../data/heepzy";
+const { checkout = false } = Astro.props;
+---
+
+<div class="hp-summary" data-summary>
+  <h2>خلاصهٔ انتخاب‌ها</h2>
+  <dl>
+    <div>
+      <dt>جمع محصولات</dt>
+      <dd data-total="subtotal">—</dd>
+    </div>
+    <div>
+      <dt>تخفیف کد</dt>
+      <dd data-total="discount">—</dd>
+    </div>
+    <div>
+      <dt>پس از تخفیف</dt>
+      <dd data-total="afterDiscount">—</dd>
+    </div>
+    <div>
+      <dt>ارسال</dt>
+      <dd data-total="shipping">—</dd>
+    </div>
+    <div class="hp-total">
+      <dt>مبلغ نهایی</dt>
+      <dd data-total="total">—</dd>
+    </div>
+  </dl>
+  <div class="hp-coupon">
+    <label>
+      کد تخفیف نمونه
+      <input
+        data-coupon-input
+        autocomplete="off"
+        maxlength="30"
+        placeholder="RAVA10"
+        dir="ltr"
+        disabled
+      />
+    </label>
+    <button type="button" data-coupon-apply disabled>
+      اعمال
+    </button>
+    <button type="button" data-coupon-remove disabled hidden>
+      حذف
+    </button>
+    <p role="status" data-coupon-status></p>
+  </div>
+  <p class="hp-fine">
+    ارسال استاندارد ۹۰ هزار تومان؛ از ۱۰ میلیون تومان پس از تخفیف، رایگان. ارسال
+    سریع ۱۵۰ هزار تومان.
+  </p>
+  {!checkout && (
+    <a class="hp-button" data-checkout-link href={shopUrl("checkout/")}>
+      ادامه و بررسی سفارش ←
+    </a>
+  )}
+  <p class="hp-fine">نمونهٔ تعاملی است؛ پرداخت و ارسال واقعی انجام نمی‌شود.</p>
+</div>

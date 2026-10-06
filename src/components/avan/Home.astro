@@ -1,0 +1,176 @@
+---
+import { products, categories, featuredIds } from "../../data/avan";
+import { avanUrl } from "../../lib/avan/paths";
+import Card from "./Card.astro";
+import Photo from "./Photo.astro";
+import HeroPhoto from "./HeroPhoto.astro";
+import Icon from "./Icon.astro";
+const h = products[0];
+const moments = [
+  { id: "focus", title: "در سکوت کار", text: "صدایی که همراه تمرکز توست." },
+  { id: "daily", title: "همراه مسیر", text: "سبک‌تر از شلوغی روز." },
+  { id: "home", title: "در فضای خانه", text: "یک ریتم تازه برای خانه." },
+];
+---
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow light">آوان / مجموعهٔ صوتی</div>
+    <h1>
+      برای لحظه‌های
+      <br />
+      خودت <em>بشنو.</em>
+    </h1>
+    <p>
+      هدفون، ایرباد و اسپیکر؛ با انتخابی روشن
+      <br class="desktop-tool" /> برای صدایی که همراه توست.
+    </p>
+    <div class="hero-actions">
+      <a class="btn" href={avanUrl("product/h01/")}>
+        کشف AVAN H01
+        <Icon name="arrow" />
+      </a>
+      <a class="btn secondary" href={avanUrl("shop/")}>
+        همهٔ محصولات
+        <Icon name="arrow" />
+      </a>
+    </div>
+    <div class="hero-foot">
+      <span>حذف نویز فعال</span>
+      <span>۳۸ ساعت · ANC خاموش</span>
+    </div>
+  </div>
+  <div class="hero-stage">
+    <span class="stage-code" dir="ltr">
+      H / 01
+    </span>
+    <div class="wave" aria-hidden="true" />
+    <HeroPhoto />
+    <div class="floating-caption">
+      <span class="dot" />
+      آرامش در جزئیات
+    </div>
+  </div>
+  <span class="hero-index" dir="ltr" lang="en">
+    01 — SOUND FOR YOU
+  </span>
+</section>
+<section class="section">
+  <div class="section-heading">
+    <h2>از کجا شروع می‌کنی؟</h2>
+    <p>چهار مسیر، برای انتخابی که به تو می‌آید.</p>
+  </div>
+  <div class="categories">
+    {categories.map((c) => (
+      <a class="category" href={avanUrl(`shop/?category=${c.id}`)}>
+        <span>{c.name}</span>
+        <Icon name="arrow" />
+        <small>{c.description}</small>
+      </a>
+    ))}
+  </div>
+</section>
+<section class="section">
+  <div class="section-heading">
+    <h2>منتخب‌های آوان</h2>
+    <a href={avanUrl("shop/")}>
+      دیدن همهٔ محصولات <Icon name="arrow" />
+    </a>
+  </div>
+  <div class="product-grid">
+    {featuredIds.map((id) => (
+      <Card product={products.find((p) => p.id === id)!} />
+    ))}
+  </div>
+</section>
+<section class="feature-section section" data-marketing-reveal>
+  <div>
+    <small class="eyebrow">در جزئیات نزدیک‌تر شو</small>
+    <h2>
+      تمرکز بیشتر.
+      <br />
+      همراهی طولانی‌تر.
+    </h2>
+    <p>
+      AVAN H01 برای کار و مسیر روزانه؛ با قابلیت‌هایی که روشن و قابل مقایسه‌اند.
+    </p>
+    <a class="btn" href={avanUrl("product/h01/#specifications")}>
+      بررسی مشخصات H01
+      <Icon name="arrow" />
+    </a>
+    <div class="feature-lines">
+      <div>
+        <strong>
+          <bdi dir="ltr">ANC</bdi>
+        </strong>
+        <span>حذف نویز فعال</span>
+      </div>
+      <div>
+        <strong>۲۶۸ گرم</strong>
+        <span>وزن مدل نمونه</span>
+      </div>
+      <div>
+        <strong>
+          <bdi dir="ltr">USB-C</bdi>
+        </strong>
+        <span>شارژ ساده</span>
+      </div>
+    </div>
+  </div>
+  <div class="feature-art">
+    <Photo
+      source={h.variants[1].images[2]}
+      alt="جزئیات بدنه و کنترل‌های H01 در رنگ استخوانی"
+      class="product-art"
+      sizes="(max-width:767px) 80vw, 40vw"
+    />
+  </div>
+</section>
+<section class="section" data-marketing-reveal>
+  <div class="section-heading">
+    <h2>برای کدام لحظه؟</h2>
+    <p>صدا، بخشی از روز توست.</p>
+  </div>
+  <div class="lifestyles">
+    {moments.map((m) => (
+      <a class="lifestyle" href={avanUrl(`shop/?use=${m.id}`)}>
+        <Photo
+          source={`/images/avan/editorial/editorial-${m.id}.webp`}
+          alt={m.text}
+          class="lifestyle-photo"
+          sizes="(max-width:767px) 90vw, 30vw"
+        />
+        <div class="lifestyle-caption">
+          <small>{m.text}</small>
+          <h3>{m.title}</h3>
+        </div>
+        <Icon name="arrow" />
+      </a>
+    ))}
+  </div>
+</section>
+<section class="guide section" data-marketing-reveal>
+  <div>
+    <small class="eyebrow">همراه انتخاب تو</small>
+    <h2>هنوز مدل خودت را پیدا نکردی؟</h2>
+    <p>از کاربرد و بودجه شروع کن؛ گزینه‌های مناسب را با هم ببین.</p>
+  </div>
+  <a class="btn" href={avanUrl("guide/")}>
+    راهنمای انتخاب
+    <Icon name="arrow" />
+  </a>
+</section>
+<section class="reassurance section">
+  <div>
+    <strong>مشخصات روشن</strong>
+    <p>واحدها و قابلیت‌ها، کنار هر مدل.</p>
+  </div>
+  <div>
+    <strong>مقایسهٔ هم‌گروه‌ها</strong>
+    <p>تفاوت‌ها را پیش از انتخاب ببین.</p>
+  </div>
+  <div>
+    <strong>خرید قابل بازبینی</strong>
+    <p>رنگ، تعداد و مبلغ پیش از ثبت.</p>
+  </div>
+</section>

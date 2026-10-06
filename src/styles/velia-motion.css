@@ -1,0 +1,291 @@
+:root {
+  --velia-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --velia-ease-move: cubic-bezier(0.25, 1, 0.5, 1);
+  --velia-ease-sheet: cubic-bezier(0.32, 0.72, 0, 1);
+  --velia-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+}
+.velia-hero-line {
+  display: block;
+  transform-origin: right center;
+}
+.velia .velia-hero-copy h1 > .velia-hero-line {
+  color: var(--skin-text);
+}
+.velia .velia-hero-art > a {
+  transform-origin: center 65%;
+}
+.velia [data-skin-tilt] {
+  transition: none;
+}
+.velia .skin-card {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+.velia .skin-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 22px 32px -18px rgb(25 30 22 / 24%);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms var(--velia-ease-enter);
+}
+.velia .skin-card-image img {
+  transition: transform 220ms var(--velia-ease-enter);
+}
+.velia .skin-card-discover {
+  transition:
+    opacity 140ms var(--velia-ease-enter),
+    transform 180ms var(--velia-ease-enter);
+}
+.velia .skin-card:focus-within::before {
+  opacity: 1;
+}
+.velia .skin-card:focus-within .skin-card-image img {
+  transform: translateY(-6px) scale(1.035);
+}
+.velia .skin-card:focus-within .skin-card-discover {
+  opacity: 1;
+  transform: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .velia .skin-card:hover::before {
+    opacity: 1;
+  }
+  .velia .skin-card:hover .skin-card-image img,
+  .velia .skin-card:hover .skin-card-image img.skin-packshot {
+    transform: translateY(-6px) scale(1.035);
+  }
+  .velia-category-card:hover img {
+    transform: translateY(-5px) rotate(-1.5deg);
+  }
+}
+.velia .skin-icon-button,
+.velia .skin-button,
+.velia .skin-quick-add {
+  transition:
+    transform 140ms var(--velia-ease-enter),
+    background-color 150ms var(--velia-ease-enter),
+    color 150ms var(--velia-ease-enter);
+}
+.velia .skin-icon-button:active,
+.velia .skin-button:active,
+.velia .skin-quick-add:active {
+  transition-duration: 0ms;
+  transform: scale(0.97);
+}
+.velia [data-bag-surface],
+.velia [data-results-surface],
+.velia [data-product-grid] {
+  position: relative;
+  overflow-anchor: none;
+}
+.velia [data-product-grid] {
+  align-content: start;
+}
+.velia .skin-cart-page {
+  align-items: start;
+}
+.velia [data-motion-ghost] {
+  pointer-events: none !important;
+  user-select: none;
+}
+.velia .skin-bag-dialog {
+  transition:
+    transform 190ms var(--velia-ease-exit),
+    opacity 190ms var(--velia-ease-exit),
+    display 190ms allow-discrete,
+    overlay 190ms allow-discrete;
+}
+.velia .skin-bag-dialog[open] {
+  transition:
+    transform 340ms var(--velia-ease-sheet),
+    opacity 340ms var(--velia-ease-sheet),
+    display 340ms allow-discrete,
+    overlay 340ms allow-discrete;
+}
+.velia .skin-filter-dialog,
+.velia .skin-zoom-dialog {
+  transition:
+    transform 170ms var(--velia-ease-exit),
+    opacity 170ms var(--velia-ease-exit),
+    display 170ms allow-discrete,
+    overlay 170ms allow-discrete;
+}
+.velia .skin-filter-dialog[open],
+.velia .skin-zoom-dialog[open] {
+  transition:
+    transform 250ms var(--velia-ease-enter),
+    opacity 250ms var(--velia-ease-enter),
+    display 250ms allow-discrete,
+    overlay 250ms allow-discrete;
+}
+.velia dialog::backdrop {
+  transition:
+    opacity 190ms var(--velia-ease-exit),
+    display 190ms allow-discrete,
+    overlay 190ms allow-discrete;
+}
+.velia dialog[open]::backdrop {
+  transition:
+    opacity 250ms var(--velia-ease-enter),
+    display 250ms allow-discrete,
+    overlay 250ms allow-discrete;
+}
+.velia .skin-bag-dialog[open]::backdrop {
+  transition-duration: 340ms;
+}
+.velia .velia-tab-list {
+  position: relative;
+}
+.velia .velia-tab-list button[aria-selected="true"] {
+  border-bottom-color: transparent;
+}
+.velia-tab-indicator {
+  position: absolute;
+  bottom: -1px;
+  height: 2px;
+  background: var(--skin-text);
+  pointer-events: none;
+  transform-origin: left center;
+}
+html[data-velia-theme]::view-transition-group(skin-product-image) {
+  animation-duration: 380ms;
+  animation-timing-function: var(--velia-ease-move);
+}
+html[data-velia-theme]::view-transition-image-pair(skin-product-image) {
+  isolation: isolate;
+}
+html[data-velia-theme]::view-transition-old(skin-product-image),
+html[data-velia-theme]::view-transition-new(skin-product-image) {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  mix-blend-mode: normal;
+}
+/* Preserve the shell; only the changing page travels. No whole-document flash. */
+.velia .skin-header {
+  view-transition-name: velia-header;
+}
+.velia .skin-announcement {
+  view-transition-name: velia-announcement;
+}
+.velia .skin-mobile-nav {
+  view-transition-name: velia-navigation;
+}
+.velia #skin-main {
+  view-transition-name: velia-page;
+}
+.velia .skin-footer {
+  view-transition-name: velia-footer;
+}
+html[data-velia-theme] {
+  --velia-page-from: -12px;
+  --velia-page-to: 8px;
+}
+html[data-velia-navigation="back"] {
+  --velia-page-from: 12px;
+  --velia-page-to: -8px;
+}
+html[data-velia-theme]::view-transition-group(root),
+html[data-velia-theme]::view-transition-group(velia-header),
+html[data-velia-theme]::view-transition-group(velia-announcement),
+html[data-velia-theme]::view-transition-group(velia-navigation),
+html[data-velia-theme]::view-transition-group(velia-page),
+html[data-velia-theme]::view-transition-group(velia-footer) {
+  animation: none;
+}
+html[data-velia-theme]::view-transition-old(root),
+html[data-velia-theme]::view-transition-new(root),
+html[data-velia-theme]::view-transition-old(velia-header),
+html[data-velia-theme]::view-transition-new(velia-header),
+html[data-velia-theme]::view-transition-old(velia-announcement),
+html[data-velia-theme]::view-transition-new(velia-announcement),
+html[data-velia-theme]::view-transition-old(velia-navigation),
+html[data-velia-theme]::view-transition-new(velia-navigation) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+html[data-velia-theme]::view-transition-image-pair(velia-page),
+html[data-velia-theme]::view-transition-image-pair(velia-footer) {
+  isolation: isolate;
+}
+html[data-velia-theme]::view-transition-old(velia-page) {
+  animation: velia-page-out 180ms var(--velia-ease-enter) both;
+  mix-blend-mode: normal;
+}
+html[data-velia-theme]::view-transition-new(velia-page) {
+  animation: velia-page-in 300ms var(--velia-ease-move) both;
+  mix-blend-mode: normal;
+}
+html[data-velia-theme]::view-transition-old(velia-footer) {
+  animation: velia-surface-out 180ms var(--velia-ease-enter) both;
+  mix-blend-mode: normal;
+}
+html[data-velia-theme]::view-transition-new(velia-footer) {
+  animation: velia-surface-in 300ms var(--velia-ease-move) both;
+  mix-blend-mode: normal;
+}
+@keyframes velia-page-in {
+  from {
+    opacity: 0;
+    transform: translateX(var(--velia-page-from));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes velia-page-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(var(--velia-page-to));
+  }
+}
+@keyframes velia-surface-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes velia-surface-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@media (max-width: 767px) {
+  html[data-velia-theme] {
+    scroll-padding-bottom: 90px;
+  }
+  html[data-velia-theme]:has(.velia[data-page="product"]) {
+    scroll-padding-bottom: 165px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .velia *,
+  .velia *::before,
+  .velia *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .velia [data-skin-tilt] {
+    transform: none !important;
+  }
+  html[data-velia-theme]::view-transition-group(*),
+  html[data-velia-theme]::view-transition-old(*),
+  html[data-velia-theme]::view-transition-new(*) {
+    animation: none !important;
+  }
+}

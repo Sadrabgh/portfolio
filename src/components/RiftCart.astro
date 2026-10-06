@@ -1,0 +1,48 @@
+---
+import { url } from "../config";
+import Icon from "./Icon.astro";
+---
+
+<dialog
+  class="rift-cart"
+  data-cart-dialog
+  aria-labelledby="cart-title"
+  data-checkout={url("demo/rift/checkout/")}
+>
+  <div class="dialog-head">
+    <div>
+      <span class="eyebrow">YOUR SELECTION</span>
+      <h2 id="cart-title">سبد شما</h2>
+    </div>
+    <button class="dialog-close" data-cart-close aria-label="بستن سبد">
+      ×
+    </button>
+  </div>
+  <div data-cart-lines></div>
+  <p class="status" data-cart-status role="status"></p>
+  <div class="cart-bottom" data-cart-bottom>
+    <div class="section-head">
+      <span>جمع محصولات</span>
+      <strong data-cart-total></strong>
+    </div>
+    <a class="button" href={url("demo/rift/checkout/")} data-cart-checkout>
+      بازبینی و ادامه ↗
+    </a>
+    <p class="muted">سفارش نمایشی · بدون پرداخت و ارسال</p>
+  </div>
+</dialog>
+<dialog class="rift-quick-dialog" data-quick-dialog aria-labelledby="quick-title">
+  <div class="dialog-head"><span class="eyebrow">QUICK SELECTION / DROP 001</span><button class="dialog-close" type="button" data-quick-close aria-label="بستن انتخاب سریع"><Icon name="close" /></button></div>
+  <div class="rift-quick-layout">
+    <div class="rift-quick-photo"><img data-quick-image alt="" width="1024" height="1536" /></div>
+    <div class="rift-quick-info"><span class="eyebrow" data-quick-code></span><h2 id="quick-title" data-quick-title></h2><p class="muted" data-quick-description></p><p class="product-price" data-quick-price></p>
+      <fieldset class="variant-group"><legend>رنگ: <span data-quick-color-label></span></legend><div class="color-options" data-quick-colors></div></fieldset>
+      <fieldset class="variant-group"><legend>اندازهٔ موجود در سناریوی نمایشی</legend><div class="size-options" data-quick-sizes dir="ltr"></div></fieldset>
+      <p class="status" data-quick-status role="status">برای افزودن، یک اندازه انتخاب کنید.</p><button class="button" type="button" data-quick-add>افزودن به سبد</button>
+      <a class="text-link" data-quick-details>جزئیات محصول و راهنمای اندازه <Icon name="arrow" size={18} /></a><p class="small muted">محصول و قیمت مفهومی · بدون پرداخت و ارسال</p>
+    </div>
+  </div>
+</dialog>
+<script>
+  import "../scripts/rift";
+</script>

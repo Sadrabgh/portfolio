@@ -1,0 +1,38 @@
+---
+import Velia from "../../../layouts/Velia.astro";
+import SkinBag from "../../../components/velia/SkinBag.astro";
+import SkinIcon from "../../../components/velia/SkinIcon.astro";
+import { url } from "../../../config";
+---
+
+<Velia title="سبد خرید تو" current="cart">
+  <main id="skin-main" class="skin-wrap">
+    <div class="skin-page-heading">
+      <nav class="skin-breadcrumb" aria-label="مسیر صفحه">
+        <a href={url("demo/velia/shop/")}>محصولات</a>
+        <SkinIcon name="back" size={15} />
+        <span aria-current="page">سبد خرید</span>
+      </nav>
+      <h1>انتخاب‌های خوبِ تو.</h1>
+      <p>یک نگاه آخر، پیش از کامل‌کردن روتین.</p>
+    </div>
+    <div class="skin-cart-page">
+      <SkinBag mode="page" />
+      <aside class="skin-cart-aside">
+        <SkinIcon name="nature" size={43} />
+        <h2>
+          ساده انتخاب کن.
+          <br />
+          با خیال راحت بازبینی کن.
+        </h2>
+        <p>
+          تعداد هر محصول را تغییر بده یا انتخابت را از سبد بردار. ارسال
+          سفارش‌های بالای ۱٬۲۰۰٬۰۰۰ تومان رایگان است.
+        </p>
+        <a href={url("demo/velia/shop/")}>
+          ادامهٔ کشف محصولات <SkinIcon name="arrow" size={19} />
+        </a>
+      </aside>
+    </div>
+  </main>
+</Velia>

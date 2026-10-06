@@ -1,0 +1,10 @@
+{
+  "name": "webcraft-contact",
+  "main": "contact-worker.mjs",
+  "compatibility_date": "2026-10-01",
+  "vars": {
+    "ALLOWED_ORIGIN": "https://your-domain.example",
+    "CONTACT_FROM": "Portfolio <hello@your-verified-domain.example>"
+  },
+  "ratelimits": [{ "name": "RATE_LIMITER", "namespace_id": "1001", "simple": {"limit": 5, "period": 60} }]
+}

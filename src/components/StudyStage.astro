@@ -1,0 +1,93 @@
+---
+import { url } from "../config";
+const {
+  kind = "bike",
+  variant = "city",
+  image = "",
+  label = "مدل مفهومی",
+  compact = false,
+} = Astro.props;
+const Controls = compact ? "details" : "div";
+---
+
+<div class="model-stage" data-study={kind} data-variant={variant}>
+  <div
+    class="model-viewport"
+    data-model-viewport
+    role="region"
+    aria-label={label}
+    tabindex="0"
+  >
+    <img class="model-fallback" src={url(image)} alt={label} width="1536" height="1024" loading={kind === "bike" ? "eager" : "lazy"} />
+    <span class="model-badge">مطالعهٔ سه‌بعدی / {variant.toUpperCase()}</span>
+    <p class="model-status" role="status">
+      نمای ثابت · بررسی سه‌بعدی با جاوااسکریپت
+    </p>
+    {kind === "bike" &&
+      ["battery", "drive", "cockpit"].map((part, i) => (
+        <button
+          class="model-hotspot"
+          data-hotspot={part}
+          aria-label={`نمای جزئیات ${["باتری", "انتقال حرکت", "فرمان"][i]}`}
+          hidden
+        >
+          {i + 1}
+          <span>{["باتری", "انتقال حرکت", "فرمان"][i]}</span>
+        </button>
+      ))}
+  </div>
+  <Controls class:list={[compact && "model-tools"]}>
+  {compact && <summary>ابزار بررسی مدل <span>چرخش / نور / اجزا</span></summary>}
+  <div class="model-controls">
+    <button type="button" disabled data-camera="overview" aria-pressed="true">
+      نمای کامل
+    </button>
+    <button
+      type="button"
+      disabled
+      data-camera={kind === "bike" ? "drive" : "top"}
+      aria-pressed="false"
+    >
+      {kind === "bike" ? "انتقال حرکت" : "دید از بالا"}
+    </button>
+    <button
+      type="button"
+      disabled
+      data-camera={kind === "bike" ? "cockpit" : "inside"}
+      aria-pressed="false"
+    >
+      {kind === "bike" ? "فرمان" : "فضای داخلی"}
+    </button>
+    <button type="button" disabled data-explode aria-pressed="false">
+      {kind === "bike" ? "نمای اجزا" : "برداشتن سقف"}
+    </button>
+    <button type="button" disabled data-light aria-pressed="false">
+      نور شب
+    </button>
+    <button type="button" disabled data-static aria-pressed="false">
+      نمای ثابت
+    </button>
+    <button type="button" disabled data-reset>
+      بازنشانی دید
+    </button>
+    <button type="button" disabled data-zoom="1" aria-label="نزدیک‌تر">
+      +
+    </button>
+    <button type="button" disabled data-zoom="-1" aria-label="دورتر">
+      −
+    </button>
+    {kind === "bike" && (
+      <button type="button" disabled data-capture>
+        ذخیرهٔ تصویر
+      </button>
+    )}
+  </div>
+  </Controls>
+</div>
+<p class="model-caption">
+  برای چرخش، افقی بکشید یا کلیدهای جهت چپ و راست را بزنید. اسکرول عمودی صفحه
+  آزاد است. مدل، مطالعهٔ مفهومی است.
+</p>
+<script>
+  import "../scripts/study";
+</script>

@@ -1,0 +1,221 @@
+---
+import SkinIcon from "./SkinIcon.astro";
+import SkinCard from "./SkinCard.astro";
+import SkinValues from "./SkinValues.astro";
+import {
+  skinProducts,
+  skinCategories,
+  categoryInfo,
+  skinMoney,
+} from "../../data/velia";
+import { url } from "../../config";
+const { category = "all", searchPage = false } = Astro.props;
+const selected = categoryInfo.find((c) => c.id === category);
+const items =
+  category === "all"
+    ? skinProducts
+    : skinProducts.filter((p) => p.category === category);
+const featured = items[0];
+---
+
+<div class:list={["skin-workspace", { "velia-search-workspace": searchPage }]}>
+  <section
+    class="skin-catalog"
+    id="products"
+    aria-labelledby="skin-catalog-title"
+  >
+    <div class="skin-search-row">
+      <form class="skin-search" data-skin-search role="search">
+        <SkinIcon name="search" size={21} />
+        <label class="skin-sr" for="skin-search">
+          جست‌وجوی محصولات
+        </label>
+        <input
+          id="skin-search"
+          name="q"
+          type="search"
+          placeholder="نام محصول، بافت یا دسته‌بندی…"
+          maxlength="80"
+          autocomplete="off"
+        />
+        <button type="submit" class="skin-sr">
+          جست‌وجو
+        </button>
+      </form>
+      <button
+        class="skin-icon-button skin-filter-trigger"
+        type="button"
+        data-filter-open
+        aria-label="فیلتر محصولات"
+      >
+        <SkinIcon name="sliders" size={23} />
+        <span data-filter-count hidden></span>
+      </button>
+    </div>
+    <div class="skin-categories" aria-label="دسته‌بندی محصولات">
+      {category === "all" ? (
+        skinCategories.map(([id, label]) => (
+          <button
+            type="button"
+            data-skin-category={id}
+            aria-pressed={id === "all" ? "true" : "false"}
+          >
+            {label}
+          </button>
+        ))
+      ) : (
+        <>
+          <a class="velia-category-back" href={url("demo/velia/shop/")}>
+            <SkinIcon name="back" size={16} /> همهٔ محصولات
+          </a>
+          <span class="velia-category-chip">{selected?.label}</span>
+        </>
+      )}
+    </div>
+    <div class="skin-catalog-heading">
+      <h2 id="skin-catalog-title">
+        <span data-results-count>{skinMoney(items.length)}</span> انتخاب برای تو
+      </h2>
+      <label class="skin-sort">
+        <span class="skin-sr">مرتب‌سازی محصولات</span>
+        <select data-skin-sort aria-label="مرتب‌سازی محصولات">
+          <option value="recommended">پیشنهادی</option>
+          <option value="price-low">قیمت: کم به زیاد</option>
+          <option value="price-high">قیمت: زیاد به کم</option>
+          <option value="name">نام محصول</option>
+        </select>
+      </label>
+    </div>
+    <div class="skin-active-filters" data-active-filters hidden>
+      <span data-filter-description></span>
+      <button type="button" data-clear-filters>
+        پاک‌کردن فیلترها <SkinIcon name="close" size={14} />
+      </button>
+    </div>
+    <div data-results-surface>
+      <div
+        class="skin-product-grid"
+        data-product-grid
+        data-catalog-category={category}
+      >
+        {items.map((product, index) => (
+          <SkinCard product={product} index={index} />
+        ))}
+      </div>
+      <div class="skin-no-results" data-no-results hidden>
+        <SkinIcon name="search" size={42} />
+        <h3>این انتخاب هنوز در مجموعه نیست.</h3>
+        <p>عبارت کوتاه‌تری جست‌وجو کن یا فیلترها را تغییر بده.</p>
+        <button class="skin-button" data-clear-filters type="button">
+          بازنشانی جست‌وجو
+        </button>
+      </div>
+    </div>
+  </section>
+  {!searchPage && (
+    <aside class="skin-spotlight" aria-label="انتخاب ویژه">
+      <div class="skin-spotlight-top">
+        <span>{selected?.name || "از طبیعت، به لحظه‌های تو"}</span>
+        <span dir="ltr">THE ALBA EDIT</span>
+      </div>
+      <a
+        href={url(`demo/velia/products/${featured.id}/`)}
+        class="skin-spotlight-image"
+        aria-label={`کشف ${featured.name}`}
+      >
+        <img
+          data-skin-tilt
+          src={url(
+            `art/velia/${category === "all" ? "hero" : selected?.image}.webp`,
+          )}
+          alt={featured.name + "؛ بسته‌بندی اختصاصی آلبا"}
+          width="1100"
+          height="1100"
+          fetchpriority="high"
+        />
+        <span class="skin-image-annotation">
+          یک مکث کوچک
+          <br />
+          برای خودت
+        </span>
+      </a>
+      <SkinValues />
+      <div class="skin-spotlight-info">
+        <div>
+          <span class="skin-eyebrow" dir="ltr">
+            {featured.english}
+          </span>
+          <h2>{featured.name}</h2>
+          <p>
+            {featured.size} · {featured.note}
+          </p>
+        </div>
+        <div class="skin-spotlight-bottom">
+          <span class="skin-price">
+            {skinMoney(featured.price)} <small>تومان</small>
+          </span>
+          <a
+            class="skin-button"
+            href={url(`demo/velia/products/${featured.id}/`)}
+          >
+            کشف محصول <SkinIcon name="arrow" size={19} />
+          </a>
+        </div>
+      </div>
+    </aside>
+  )}
+</div>
+<dialog
+  class="skin-filter-dialog"
+  data-filter-dialog
+  aria-labelledby="skin-filter-title"
+>
+  <form method="dialog" data-filter-form>
+    <div class="skin-dialog-heading">
+      <h2 id="skin-filter-title">انتخاب دقیق‌تر</h2>
+      <button
+        class="skin-icon-button"
+        type="button"
+        data-dialog-close
+        aria-label="بستن فیلترها"
+      >
+        <SkinIcon name="close" />
+      </button>
+    </div>
+    <label class="skin-range-label" for="skin-max-price">
+      تا چه قیمتی؟{" "}
+      <b>
+        <span data-budget-label>۸۰۰٬۰۰۰</span> تومان
+      </b>
+    </label>
+    <input
+      id="skin-max-price"
+      type="range"
+      min="295000"
+      max="800000"
+      step="5000"
+      value="800000"
+      name="budget"
+    />
+    <label class="skin-availability">
+      <input type="checkbox" name="available" /> فقط محصولات موجود
+    </label>
+    <label class="skin-field velia-type-filter">
+      <span>نوع پوست در اطلاعات محصول</span>
+      <select name="skinType">
+        <option value="all">همهٔ انواع</option>
+        <option value="خشک">خشک</option>
+        <option value="مختلط">مختلط</option>
+        <option value="معمولی">معمولی</option>
+      </select>
+    </label>
+    <div class="skin-filter-footer">
+      <button class="skin-button" type="submit">
+        نمایش محصولات <SkinIcon name="arrow" size={19} />
+      </button>
+      <button class="skin-text-button" type="button" data-filter-reset>
+        بازنشانی
+      </button>
+    </div>
+  </form>
+</dialog>

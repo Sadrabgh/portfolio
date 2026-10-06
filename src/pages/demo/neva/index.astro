@@ -1,0 +1,92 @@
+---
+import Brand from "../../../layouts/Brand.astro";
+import Comparison from "../../../components/NevaComparison.astro";
+import { doctors } from "../../../data/brands";
+import { url } from "../../../config";
+import Icon from "../../../components/Icon.astro";
+---
+
+<Brand brand="neva" title="یک مسیر روشن برای مراجعه">
+  <main id="demo-main">
+    <section class="neva-hero wrap neva-arrival">
+      <div class="neva-welcome" data-entry>
+        <span class="demo-kicker">نِوا / مراقبت با آرامش</span>
+        <h1>برای مراجعه،<br/><span>با خیال روشن.</span></h1>
+        <p>
+          خدمت مناسب را انتخاب کنید، زمان‌های آزاد را ببینید و نوبت نمایشی را
+          مرحله‌به‌مرحله بسازید.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href={url("demo/neva/book/")}>انتخاب پزشک و زمان <Icon name="arrow" size={18} /></a>
+          <a class="text-link" href={url("demo/neva/guide/")}>راهنمای مراجعه</a>
+        </div>
+        <div class="neva-trust-row"><span><Icon name="calendar" size={18} /> تقویم شمسی</span><span><Icon name="clock" size={18} /> به وقت تهران</span><span><Icon name="shield" size={18} /> بازبینی پیش از تأیید</span></div>
+        <p class="flow-assurance"><Icon name="medical" size={18} /> پزشکان و نوبت‌ها فرضی‌اند؛ این یک تجربهٔ آزمایشی است.</p>
+      </div>
+      <figure class="neva-arrival-visual" data-entry>
+        <img src={url("art/v10/neva-clinic.webp")} alt="پذیرش مفهومی نِوا با فضای انتظار روشن و گیاهان" width="1536" height="1024" fetchpriority="high" />
+        <figcaption><span><Icon name="leaf" size={18} /> آشنایی، پیش از مراجعه</span><a href={url("demo/neva/guide/")}>فضا و مسیر را بشناسید <Icon name="arrow" size={16} /></a></figcaption>
+        <div class="neva-next-card"><span class="next-card-icon"><Icon name="calendar" size={24} /></span><div><small>نزدیک‌ترین زمان ویزیت عمومی · نمایشی</small><strong data-nearest-label="general">در حال بررسی زمان‌ها…</strong></div><a href={url("demo/neva/book/?doctor=general")} data-nearest-book="general" aria-label="انتخاب نزدیک‌ترین نوبت ویزیت عمومی"><Icon name="arrow" size={20} /></a></div>
+      </figure>
+    </section>
+    <section class="wrap section care-finder" id="doctors">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">پزشک و زمان را کنار هم ببینید</span>
+          <h2>کدام نوبت، برای شما؟</h2>
+        </div>
+        <a class="text-link" href={url("demo/neva/doctors/")}>
+          همهٔ پزشکان ↗
+        </a>
+      </div>
+      <div class="care-filter-bar"><div class="filters" role="group" aria-label="نوع خدمت">{[["all","همهٔ خدمات"],...doctors.map(d=>[d.id,d.short])].map(([v,t])=><button data-doctor-filter={v} aria-pressed={v==="all"}>{t}</button>)}</div><p class="status" data-doctor-filter-status role="status">۳ پزشک فرضی</p></div>
+      <Comparison />
+      <p class="care-footnote"><Icon name="clock" size={16}/> زمان‌ها به وقت تهران‌اند. پیش از تأیید، انتخاب‌ها را دوباره می‌بینید.</p>
+    </section>
+    <section class="neva-place wrap" data-motion-scene>
+      <img
+        src={url("art/v10/neva-clinic.webp")}
+        alt="فضای مفهومی پذیرش نِوا؛ سفید و سبز نفتی"
+        width="1536"
+        height="1024"
+        loading="lazy"
+      />
+      <div data-reveal>
+        <span class="eyebrow">محیط مراجعه / سناریوی فضایی</span>
+        <h2>
+          فضایی برای
+          <br />
+          آرام‌تر شروع‌کردن.
+        </h2>
+        <p>
+          پذیرش همکف، مسیر واضح اتاق‌ها و فضای انتظار روشن؛ شناخت محیط بخشی از
+          تجربهٔ مراجعه است.
+        </p>
+        <a class="button" href={url("demo/neva/guide/")}>
+          راهنمای مراجعه ↗
+        </a>
+      </div>
+    </section>
+    <section class="wrap section neva-how">
+      <div>
+        <span class="eyebrow">چهار قدم روشن</span>
+        <h2>تا نوبت شما.</h2>
+      </div>
+      <div class="how-steps">{[
+        ["01", "انتخاب پزشک", "خدمت، مدت و هزینهٔ فرضی را مقایسه کنید."],
+        ["02", "روز و ساعت", "زمان آزاد را از تقویم شمسی انتخاب کنید."],
+        ["03", "اطلاعات آزمایشی", "نام و شمارهٔ آزمایشی را فقط برای بازبینی وارد کنید."],
+        ["04", "بازبینی و تأیید", "انتخاب‌ها را بررسی و نوبت نمایشی را ثبت کنید."],
+      ].map(([n, t, s]) => (
+        <article data-reveal>
+          <b>{n}</b>
+          <h3>{t}</h3>
+          <p>{s}</p>
+        </article>
+      ))}</div>
+    </section>
+  </main>
+  <script>
+    import "../../../scripts/medical-demo";
+  </script>
+</Brand>

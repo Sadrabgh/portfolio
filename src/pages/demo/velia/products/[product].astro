@@ -1,0 +1,382 @@
+---
+import Velia from "../../../../layouts/Velia.astro";
+import SkinIcon from "../../../../components/velia/SkinIcon.astro";
+import SkinValues from "../../../../components/velia/SkinValues.astro";
+import SkinCard from "../../../../components/velia/SkinCard.astro";
+import { skinProducts, skinMoney } from "../../../../data/velia";
+import { url } from "../../../../config";
+export function getStaticPaths() {
+  return skinProducts.map((product) => ({
+    params: { product: product.id },
+    props: { product },
+  }));
+}
+const { product: p } = Astro.props;
+const related = skinProducts
+  .filter((product) => product.id !== p.id && product.category === p.category)
+  .slice(0, 4);
+const gallery = [
+  { image: p.image, label: "نمای محصول" },
+  ...(p.alternate ? [{ image: p.alternate, label: "ترکیب و جزئیات" }] : []),
+];
+---
+
+<Velia title={p.name} current="product">
+  <main id="skin-main" class="skin-wrap">
+    <div class="skin-page-heading">
+      <nav class="skin-breadcrumb" aria-label="مسیر صفحه">
+        <a href={url("demo/velia/shop/")}>محصولات</a>
+        <SkinIcon name="back" size={15} />
+        <a href={url(`demo/velia/category/${p.category}/`)}>
+          {p.categoryLabel}
+        </a>
+        <SkinIcon name="back" size={15} />
+        <span aria-current="page">{p.name}</span>
+      </nav>
+    </div>
+    <section class="skin-product-layout" data-product-detail={p.id}>
+      <div class="skin-gallery">
+        <div class="skin-gallery-top">
+          <a
+            href={url("demo/velia/shop/")}
+            class="skin-icon-button"
+            aria-label="بازگشت به محصولات"
+          >
+            <SkinIcon name="back" />
+          </a>
+          <button
+            type="button"
+            class="skin-icon-button skin-favourite"
+            data-favourite={p.id}
+            aria-label={`ذخیرهٔ ${p.name}`}
+            aria-pressed="false"
+          >
+            <SkinIcon name="heart" size={22} />
+          </button>
+        </div>
+        <div class="skin-gallery-stage">
+          <img
+            data-gallery-image
+            src={url(`art/velia/${p.image}.webp`)}
+            alt={p.name + " آلبا"}
+            width="900"
+            height="1000"
+            fetchpriority="high"
+          />
+          <button
+            type="button"
+            class="skin-icon-button"
+            data-zoom-open
+            aria-label="بزرگ‌نمایی تصویر محصول"
+          >
+            <SkinIcon name="zoom" size={21} />
+          </button>
+        </div>
+        {gallery.length > 1 && (
+          <div class="skin-gallery-dots" aria-label="تصاویر محصول">
+            {gallery.map((item, index) => (
+              <button
+                type="button"
+                data-gallery-source={url(`art/velia/${item.image}.webp`)}
+                aria-label={item.label}
+                aria-pressed={index === 0 ? "true" : "false"}
+              ></button>
+            ))}
+          </div>
+        )}
+        <SkinValues />
+      </div>
+      <div class="skin-product-info">
+        <span class="skin-eyebrow" dir="ltr">
+          ALBA / {p.english}
+        </span>
+        <h1>{p.name}</h1>
+        <p class="skin-product-note">{p.note}</p>
+        {p.badge && <span class="velia-status-pill">{p.badge}</span>}
+        <p class="skin-product-description">{p.description}</p>
+        <div class="skin-product-meta">
+          <span>{p.size}</span>
+          <span class="skin-stock">
+            {p.stock ? "موجود در مجموعه" : "فعلاً ناموجود"}
+          </span>
+        </div>
+        <div class="skin-product-purchase">
+          <div class="skin-product-price-row">
+            <span class="skin-price">
+              {p.oldPrice && <del>{skinMoney(p.oldPrice)}</del>}
+              {skinMoney(p.price)} <small>تومان</small>
+            </span>
+            <span class="skin-eyebrow" dir="ltr">
+              EVERYDAY ESSENTIAL
+            </span>
+          </div>
+          <div class="skin-product-buy-row">
+            <div class="skin-stepper" aria-label="تعداد محصول">
+              <button
+                type="button"
+                data-detail-minus
+                aria-label="کاهش تعداد"
+                disabled
+              >
+                <SkinIcon name="minus" size={14} />
+              </button>
+              <span data-detail-quantity>۱</span>
+              <button
+                type="button"
+                data-detail-plus
+                aria-label="افزایش تعداد"
+                disabled={!p.stock}
+              >
+                <SkinIcon name="plus" size={14} />
+              </button>
+            </div>
+            <button
+              type="button"
+              class="skin-button"
+              data-add-product={p.id}
+              data-detail-add
+              disabled={!p.stock}
+            >
+              <span data-add-label>
+                {p.stock ? "افزودن به سبد" : "فعلاً ناموجود"}
+              </span>
+              <SkinIcon name="bag" size={21} />
+            </button>
+          </div>
+          <p class="skin-stock-note" data-detail-stock-note>
+            {p.stock
+              ? "تعداد را انتخاب کن؛ در سبد هم قابل تغییر است."
+              : "محصولات مشابه را پایین همین صفحه ببین."}
+          </p>
+        </div>
+        <div class="velia-product-services">
+          <a href={url("demo/velia/help/shipping/")}>
+            <SkinIcon name="delivery" size={19} /> ارسال استاندارد ۲ تا ۴ روز
+            کاری
+          </a>
+          <a href={url("demo/velia/help/returns/")}>
+            <SkinIcon name="box" size={19} /> شرایط بازگشت و تعویض
+          </a>
+        </div>
+      </div>
+    </section>
+    <section
+      class="velia-product-tabs velia-section"
+      aria-label="اطلاعات کامل محصول"
+    >
+      <div class="velia-tab-list" role="tablist" aria-label="اطلاعات محصول">
+        <button
+          type="button"
+          id="product-tab-description"
+          role="tab"
+          aria-controls="product-panel-description"
+          aria-selected="true"
+          data-product-tab="description"
+        >
+          دربارهٔ محصول
+        </button>
+        <button
+          type="button"
+          id="product-tab-use"
+          role="tab"
+          aria-controls="product-panel-use"
+          aria-selected="false"
+          tabindex="-1"
+          data-product-tab="use"
+        >
+          روش استفاده و ترکیبات
+        </button>
+        <button
+          type="button"
+          id="product-tab-reviews"
+          role="tab"
+          aria-controls="product-panel-reviews"
+          aria-selected="false"
+          tabindex="-1"
+          data-product-tab="reviews"
+        >
+          دیدگاه‌های نمونه
+        </button>
+      </div>
+      <div
+        id="product-panel-description"
+        role="tabpanel"
+        aria-labelledby="product-tab-description"
+        data-product-panel="description"
+        tabindex="0"
+      >
+        <div class="velia-spec-layout">
+          <div>
+            <h2>بافت و تجربه.</h2>
+            <p>{p.description}</p>
+          </div>
+          <dl class="velia-specs">
+            <div>
+              <dt>نوع محصول</dt>
+              <dd>{p.categoryLabel}</dd>
+            </div>
+            <div>
+              <dt>حجم</dt>
+              <dd>{p.size}</dd>
+            </div>
+            <div>
+              <dt>بافت</dt>
+              <dd>{p.texture}</dd>
+            </div>
+            <div>
+              <dt>نوع پوست در دادهٔ نمونه</dt>
+              <dd>{p.skinType}</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div
+        id="product-panel-use"
+        role="tabpanel"
+        aria-labelledby="product-tab-use"
+        data-product-panel="use"
+        tabindex="0"
+        hidden
+      >
+        <div class="velia-spec-layout">
+          <div>
+            <h2>روش استفادهٔ نمونه</h2>
+            <p>{p.use}</p>
+            <small>مشخصات این محصول برای نمایش نمونه‌کار طراحی شده‌اند.</small>
+          </div>
+          <div>
+            <h2>ترکیبات در طرح مفهومی</h2>
+            <div class="skin-ingredient-list">
+              {p.ingredients.map((ingredient: string) => (
+                <span>{ingredient}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="product-panel-reviews"
+        role="tabpanel"
+        aria-labelledby="product-tab-reviews"
+        data-product-panel="reviews"
+        tabindex="0"
+        hidden
+      >
+        <div class="velia-review-layout">
+          <div data-review-list>
+            <h2>تجربهٔ انتخاب</h2>
+            <p class="velia-quiet-note">
+              دیدگاه‌های زیر، محتوای نمونه برای نمایش طراحی این بخش هستند.
+            </p>
+            <article class="velia-review">
+              <div>
+                <b>سارا</b>
+                <span aria-label="امتیاز نمونه ۵ از ۵">★★★★★</span>
+              </div>
+              <p>
+                بسته‌بندی ساده و توضیحات روشن محصول را دوست داشتم. پیدا‌کردن
+                انتخابم راحت بود.
+              </p>
+            </article>
+            <article class="velia-review">
+              <div>
+                <b>نیلوفر</b>
+                <span aria-label="امتیاز نمونه ۴ از ۵">★★★★☆</span>
+              </div>
+              <p>
+                حجم و اطلاعات بافت به انتخاب کمک می‌کنند؛ ظاهر مجموعه هم آرام و
+                هماهنگ است.
+              </p>
+            </article>
+          </div>
+          <form class="velia-panel" data-demo-form="review" method="dialog">
+            <h3>دیدگاه نمونهٔ تو</h3>
+            <label class="skin-field">
+              <span>نام نمایشی</span>
+              <input
+                name="name"
+                required
+                minlength="2"
+                maxlength="40"
+                autocomplete="off"
+              />
+            </label>
+            <label class="skin-field">
+              <span>امتیاز</span>
+              <select name="rating">
+                <option value="5">۵ — خیلی خوب</option>
+                <option value="4">۴ — خوب</option>
+                <option value="3">۳ — متوسط</option>
+                <option value="2">۲ — ضعیف</option>
+                <option value="1">۱ — خیلی ضعیف</option>
+              </select>
+            </label>
+            <label class="skin-field">
+              <span>متن دیدگاه</span>
+              <textarea
+                name="message"
+                required
+                minlength="10"
+                maxlength="500"
+                rows="3"
+              ></textarea>
+            </label>
+            <button class="skin-button" type="submit">
+              نمایش دیدگاه نمونه <SkinIcon name="plus" size={18} />
+            </button>
+            <p data-form-status role="status" class="velia-form-status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="skin-related">
+      <div class="skin-related-heading">
+        <h2>روتینت را کامل کن.</h2>
+        <a href={url("demo/velia/shop/")}>
+          همهٔ محصولات <SkinIcon name="arrow" size={19} />
+        </a>
+      </div>
+      <div class="skin-product-grid">
+        {related.map((product, index) => (
+          <SkinCard product={product} index={index} />
+        ))}
+      </div>
+    </section>
+  </main>
+  <div class="velia-mobile-purchase" data-mobile-purchase hidden>
+    <span class="skin-price">
+      {skinMoney(p.price)} <small>تومان</small>
+    </span>
+    <button
+      class="skin-button"
+      type="button"
+      data-add-product={p.id}
+      data-detail-add
+      disabled={!p.stock}
+    >
+      <span data-add-label>{p.stock ? "افزودن به سبد" : "ناموجود"}</span>
+      <SkinIcon name="bag" size={19} />
+    </button>
+  </div>
+  <dialog
+    class="skin-zoom-dialog"
+    data-zoom-dialog
+    aria-label={`نمای بزرگ ${p.name}`}
+  >
+    <button
+      type="button"
+      class="skin-icon-button"
+      data-dialog-close
+      aria-label="بستن تصویر"
+    >
+      <SkinIcon name="close" />
+    </button>
+    <img
+      data-zoom-image
+      src={url(`art/velia/${p.image}.webp`)}
+      alt={p.name + "؛ نمای بزرگ"}
+      width="1300"
+      height="1200"
+    />
+  </dialog>
+</Velia>

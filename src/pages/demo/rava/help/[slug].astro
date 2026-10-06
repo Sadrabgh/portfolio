@@ -1,0 +1,35 @@
+---
+import Heepzy from "../../../../layouts/Heepzy.astro";
+import { helpPages } from "../../../../data/heepzy-help";
+import { shopUrl } from "../../../../data/heepzy";
+export function getStaticPaths() {
+  return helpPages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+}
+const { page } = Astro.props;
+---
+
+<Heepzy title={page.title}>
+  <header class="hp-container hp-page-heading">
+    <nav class="hp-breadcrumb" aria-label="مسیر صفحه">
+      <a href={shopUrl()}>خانه</a>
+      <span>/</span>
+      <span>راهنمای راوا</span>
+    </nav>
+    <h1>{page.title}</h1>
+    <p>{page.intro}</p>
+  </header>
+  <article class="hp-article">
+    {page.sections.map(([title, text]) => (
+      <section>
+        <h2>{title}</h2>
+        <p>{text}</p>
+      </section>
+    ))}
+    <a class="hp-text-button" href={shopUrl("catalog/")}>
+      بازگشت به کفش‌ها ←
+    </a>
+  </article>
+</Heepzy>

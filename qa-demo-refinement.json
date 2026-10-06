@@ -1,0 +1,2441 @@
+{
+  "date": "2026-10-03T11:56:01.393Z",
+  "edition": "Second UI/UX refinement",
+  "scope": "All 31 demo routes",
+  "skill": "ui-ux-pro-max",
+  "status": "passed",
+  "checks": {
+    "typecheck": "80 files: 0 errors, 0 warnings, 0 hints",
+    "build": "42 static pages",
+    "regression": {
+      "version": 10,
+      "date": "2026-10-03T11:51:20.624Z",
+      "checks": 1602,
+      "routes": 41,
+      "reflow": [],
+      "errors": [],
+      "badResponses": [],
+      "models": {
+        "pavilion": "f89108628a5f805b5e1197301a2dd0ad62e61a39547c40875e015d09f3d30ad1",
+        "coast": "143a2d655acb4ec87b92af3e472f91d26742a37b122f7655d3f85fcb14d1dc6a",
+        "atrium": "320556638173d6f09fb210d02767d0ccf3487662c53a13c6a27fdbb488f30ac6"
+      },
+      "status": "passed"
+    },
+    "gallery": {
+      "edition": 10,
+      "status": "passed",
+      "checks": 64,
+      "errors": [],
+      "metrics": [
+        {
+          "theme": "dark",
+          "width": 1440,
+          "selectedHeight": 843,
+          "cardHeight": 375
+        },
+        {
+          "theme": "light",
+          "width": 1440,
+          "selectedHeight": 843,
+          "cardHeight": 375
+        }
+      ],
+      "coverage": [
+        "whole HTML glass body and physical edge planes",
+        "mouse tilt with stable actions",
+        "mouse drag and click cancellation",
+        "direct buttons and RTL keyboard",
+        "touch swipe and native scroll",
+        "mobile inert and aria-hidden semantics",
+        "six responsive widths",
+        "200 percent text at four widths",
+        "reduced motion",
+        "no-JavaScript navigation",
+        "without WebGL"
+      ]
+    },
+    "accessibility": {
+      "tool": "axe-core",
+      "runs": 140,
+      "routeRuns": 124,
+      "interactiveStateRuns": 16,
+      "tags": [
+        "wcag2a",
+        "wcag2aa",
+        "wcag21a",
+        "wcag21aa",
+        "best-practice"
+      ],
+      "violations": 0,
+      "results": [
+        {
+          "route": "/demo/velo/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "button[data-zoom=\"-1\"]"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/velo/design/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "button[data-zoom=\"-1\"]"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/velo/compare/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/size-guide/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/tee/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/shell/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/hoodie/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/cargo/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/collections/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/collections/layers/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "div[data-entry=\"\"] > .eyebrow"
+                ],
+                [
+                  "h1"
+                ],
+                [
+                  "div[data-entry=\"\"] > p"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/collections/essentials/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "div[data-entry=\"\"] > .eyebrow"
+                ],
+                [
+                  "h1"
+                ],
+                [
+                  "div[data-entry=\"\"] > p"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/checkout/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/catalog/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/services/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/guide/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "button[data-zoom=\"-1\"]"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/doctors/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/doctors/skin/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/doctors/general/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/doctors/dental/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/book/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/appointments/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/studio/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/services/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/pavilion/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"90\"]"
+                ],
+                [
+                  "text[x=\"370\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/coast/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"90\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/atrium/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"370\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/inquiry/",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/velo/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "button[data-zoom=\"-1\"]"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/velo/design/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "button[data-zoom=\"-1\"]"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/velo/compare/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/size-guide/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/tee/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/shell/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/hoodie/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/cargo/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/collections/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/collections/layers/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "div[data-entry=\"\"] > .eyebrow"
+                ],
+                [
+                  "h1"
+                ],
+                [
+                  "div[data-entry=\"\"] > p"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/collections/essentials/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "div[data-entry=\"\"] > .eyebrow"
+                ],
+                [
+                  "h1"
+                ],
+                [
+                  "div[data-entry=\"\"] > p"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/checkout/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/catalog/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/services/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/guide/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "button[data-zoom=\"-1\"]"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/doctors/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/doctors/skin/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/doctors/general/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/doctors/dental/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/book/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/appointments/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/studio/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/services/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/pavilion/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"90\"]"
+                ],
+                [
+                  "text[x=\"370\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/coast/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"90\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/atrium/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"370\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ],
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/inquiry/",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/velo/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".model-status"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/velo/design/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".model-status"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".rift-look-tag > span"
+                ],
+                [
+                  "small"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/tee/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/shell/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/hoodie/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/cargo/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/collections/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/collections/layers/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "div[data-entry=\"\"] > .eyebrow"
+                ],
+                [
+                  "h1"
+                ],
+                [
+                  "div[data-entry=\"\"] > p"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/collections/essentials/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "div[data-entry=\"\"] > .eyebrow"
+                ],
+                [
+                  "h1"
+                ],
+                [
+                  "div[data-entry=\"\"] > p"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/checkout/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/catalog/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/services/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/guide/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/doctors/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/doctors/skin/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/doctors/general/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/doctors/dental/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/book/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/appointments/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/studio/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/services/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/projects/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/projects/pavilion/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"90\"]"
+                ],
+                [
+                  "text[x=\"370\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/coast/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"90\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/atrium/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"370\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/inquiry/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/velo/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".model-status"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/velo/design/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".model-status"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".rift-look-tag > span"
+                ],
+                [
+                  "small"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/tee/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/shell/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/hoodie/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/cargo/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/collections/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/collections/layers/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "div[data-entry=\"\"] > .eyebrow"
+                ],
+                [
+                  "h1"
+                ],
+                [
+                  "div[data-entry=\"\"] > p"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/collections/essentials/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "div[data-entry=\"\"] > .eyebrow"
+                ],
+                [
+                  "h1"
+                ],
+                [
+                  "div[data-entry=\"\"] > p"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/checkout/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/catalog/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/services/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/guide/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/doctors/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/doctors/skin/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/doctors/general/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/doctors/dental/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/book/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/appointments/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/studio/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/services/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/projects/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/projects/pavilion/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"90\"]"
+                ],
+                [
+                  "text[x=\"370\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/coast/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"90\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/atrium/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"370\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/inquiry/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/velo/compare/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/size-guide/",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/velo/compare/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/size-guide/",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        }
+      ],
+      "interactiveStates": [
+        {
+          "name": "RIFT quick selection",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "name": "Neva selected time",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Neva information errors",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Neva review",
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "name": "RIFT quick selection",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "name": "Neva selected time",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Neva information errors",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Neva review",
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".footer-signature > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "name": "RIFT quick selection",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "name": "Neva selected time",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "name": "Neva information errors",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "name": "Neva review",
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "name": "RIFT quick selection",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "name": "Neva selected time",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "name": "Neva information errors",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "name": "Neva review",
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "violations": [],
+          "incomplete": []
+        }
+      ]
+    },
+    "additionalInteractions": [
+      {
+        "check": "Quick selection returns focus",
+        "width": 1440,
+        "theme": "light",
+        "pass": true
+      },
+      {
+        "check": "Nearest-time success has positive feedback",
+        "width": 1440,
+        "theme": "light",
+        "pass": true
+      },
+      {
+        "check": "Quick selection returns focus",
+        "width": 1440,
+        "theme": "dark",
+        "pass": true
+      },
+      {
+        "check": "Nearest-time success has positive feedback",
+        "width": 1440,
+        "theme": "dark",
+        "pass": true
+      },
+      {
+        "check": "Quick selection returns focus",
+        "width": 390,
+        "theme": "light",
+        "pass": true
+      },
+      {
+        "check": "Nearest-time success has positive feedback",
+        "width": 390,
+        "theme": "light",
+        "pass": true
+      },
+      {
+        "check": "Quick selection returns focus",
+        "width": 390,
+        "theme": "dark",
+        "pass": true
+      },
+      {
+        "check": "Nearest-time success has positive feedback",
+        "width": 390,
+        "theme": "dark",
+        "pass": true
+      },
+      {
+        "check": "All five URL options restored",
+        "pass": true
+      },
+      {
+        "check": "Clipboard denied exposes selected URL and honest feedback",
+        "pass": true
+      },
+      {
+        "check": "Unknown URL choices fall back to defaults",
+        "pass": true
+      },
+      {
+        "check": "Clipboard success path copies the current configuration (mocked clipboard)",
+        "pass": true
+      }
+    ],
+    "keyboardTables": [
+      {
+        "route": "/demo/velo/compare/",
+        "pass": true
+      },
+      {
+        "route": "/demo/rift/size-guide/",
+        "pass": true
+      }
+    ],
+    "footerAfterFinalCSS": [
+      {
+        "brand": "atelier",
+        "width": 320,
+        "text": "200%",
+        "pass": true,
+        "overflow": 0
+      },
+      {
+        "brand": "rift",
+        "width": 320,
+        "text": "200%",
+        "pass": true,
+        "overflow": 0
+      },
+      {
+        "brand": "velo",
+        "width": 320,
+        "text": "200%",
+        "pass": true,
+        "overflow": 0
+      },
+      {
+        "brand": "neva",
+        "width": 320,
+        "text": "200%",
+        "pass": true,
+        "overflow": 0
+      },
+      {
+        "brand": "atelier",
+        "width": 390,
+        "text": "200%",
+        "pass": true,
+        "overflow": 0
+      },
+      {
+        "brand": "rift",
+        "width": 390,
+        "text": "200%",
+        "pass": true,
+        "overflow": 0
+      },
+      {
+        "brand": "velo",
+        "width": 390,
+        "text": "200%",
+        "pass": true,
+        "overflow": 0
+      },
+      {
+        "brand": "neva",
+        "width": 390,
+        "text": "200%",
+        "pass": true,
+        "overflow": 0
+      },
+      {
+        "brand": "atelier",
+        "width": 760,
+        "text": "200%",
+        "pass": true,
+        "overflow": 0
+      },
+      {
+        "brand": "rift",
+        "width": 760,
+        "text": "200%",
+        "pass": true,
+        "overflow": 0
+      },
+      {
+        "brand": "velo",
+        "width": 760,
+        "text": "200%",
+        "pass": true,
+        "overflow": 0
+      },
+      {
+        "brand": "neva",
+        "width": 760,
+        "text": "200%",
+        "pass": true,
+        "overflow": 0
+      }
+    ],
+    "pageErrors": []
+  },
+  "manualReview": [
+    "All four home pages: desktop/mobile and dark themes; local project photography and real model preserved",
+    "Atelier section navigation: anchor and active indicator",
+    "RIFT quick selection: selected image loaded before inspection, deliberate size selection, native dialog focus restoration",
+    "Neva booking: selected time has positive feedback, errors remain separate, selected profile and contextual summary",
+    "Final footer wrapping checked at 200% text after the full regression run; 320/390/760 widths for all four brands"
+  ],
+  "limitations": [
+    "Headless Chromium; no physical-device, Safari or user-study verification",
+    "Canvas contrast and symbolic zoom controls require manual review; automated results are not a WCAG certification",
+    "Three.js bundle-size warning remains from the existing model runtime"
+  ],
+  "previewImages": "All four desktop and mobile WebP previews regenerated."
+}

@@ -1,0 +1,170 @@
+---
+import SkinIcon from "./SkinIcon.astro";
+import { categoryInfo } from "../../data/velia";
+import { url } from "../../config";
+const { current = "home" } = Astro.props;
+---
+
+<div class="skin-announcement">
+  <span>ارسال رایگان برای انتخاب‌های بالای ۱٬۲۰۰٬۰۰۰ تومان</span>
+  <a href={url("demo/velia/help/shipping/")}>
+    جزئیات ارسال <SkinIcon name="arrow" size={15} />
+  </a>
+</div>
+<header class="skin-header skin-wrap">
+  <a class="skin-logo" href={url("demo/velia/")} aria-label="آلبا؛ خانه">
+    <b dir="ltr">
+      alba<span>.</span>
+    </b>
+    <small>مراقبت، با ریتم تو</small>
+  </a>
+  <nav class="skin-main-nav" aria-label="ناوبری فروشگاه">
+    <a
+      href={url("demo/velia/")}
+      aria-current={current === "home" ? "page" : undefined}
+    >
+      خانه
+    </a>
+    <details class="velia-mega" data-mega>
+      <summary>
+        محصولات <SkinIcon name="chevron" size={14} />
+      </summary>
+      <div class="velia-mega-panel">
+        <div>
+          <span class="skin-eyebrow">YOUR EVERYDAY ESSENTIALS</span>
+          <h2>یک انتخاب برای هر لحظه</h2>
+          <a href={url("demo/velia/shop/")}>
+            دیدن تمام محصولات <SkinIcon name="arrow" size={18} />
+          </a>
+        </div>
+        <div class="velia-mega-links">
+          {categoryInfo.map((c) => (
+            <a href={url(`demo/velia/category/${c.id}/`)}>
+              <img
+                src={url(`art/velia/${c.image}.webp`)}
+                alt=""
+                width="70"
+                height="90"
+              />
+              <span>
+                {c.label}
+                <small>{c.name}</small>
+              </span>
+              <SkinIcon name="arrow" size={16} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </details>
+    <a
+      href={url("demo/velia/collections/")}
+      aria-current={current === "collections" ? "page" : undefined}
+    >
+      روتین‌های آماده
+    </a>
+    <a
+      href={url("demo/velia/journal/")}
+      aria-current={current === "journal" ? "page" : undefined}
+    >
+      مجلهٔ آلبا
+    </a>
+    <a
+      href={url("demo/velia/story/")}
+      aria-current={current === "story" ? "page" : undefined}
+    >
+      داستان ما
+    </a>
+  </nav>
+  <div class="skin-header-tools">
+    <a
+      class="skin-icon-button"
+      href={url("demo/velia/search/")}
+      aria-label="جست‌وجوی محصولات"
+    >
+      <SkinIcon name="search" size={21} />
+    </a>
+    <button
+      class="skin-icon-button"
+      data-skin-theme
+      type="button"
+      aria-label="فعال‌کردن حالت تاریک"
+      aria-pressed="false"
+    >
+      <span class="skin-theme-moon">
+        <SkinIcon name="moon" size={21} />
+      </span>
+      <span class="skin-theme-sun">
+        <SkinIcon name="sun" size={21} />
+      </span>
+    </button>
+    <a
+      class="skin-icon-button velia-account-link"
+      href={url("demo/velia/account/")}
+      data-account-entry
+      aria-label="حساب کاربری"
+    >
+      <SkinIcon name="user" size={21} />
+    </a>
+    <a
+      class="skin-icon-button skin-header-saved"
+      href={url("demo/velia/favourites/")}
+      aria-label="محصولات ذخیره‌شده"
+    >
+      <SkinIcon name="heart" size={21} />
+      <span data-favourites-count hidden>
+        ۰
+      </span>
+    </a>
+    <a
+      class="skin-cart-trigger"
+      href={url("demo/velia/cart/")}
+      data-bag-open
+      aria-label="بازکردن سبد خرید"
+    >
+      <SkinIcon name="bag" size={21} />
+      <span class="skin-cart-word">سبد خرید</span>
+      <span data-bag-count>۰</span>
+    </a>
+    <button
+      class="skin-icon-button velia-menu-button"
+      data-menu-open
+      type="button"
+      aria-label="بازکردن منوی فروشگاه"
+    >
+      <SkinIcon name="menu" />
+    </button>
+  </div>
+</header>
+<dialog
+  class="velia-menu-dialog skin-filter-dialog"
+  data-menu-dialog
+  aria-labelledby="velia-menu-title"
+>
+  <div class="skin-dialog-heading">
+    <h2 id="velia-menu-title">کشف آلبا</h2>
+    <button
+      type="button"
+      class="skin-icon-button"
+      data-dialog-close
+      aria-label="بستن منو"
+    >
+      <SkinIcon name="close" />
+    </button>
+  </div>
+  <nav aria-label="منوی موبایل">
+    <a href={url("demo/velia/")}>خانه</a>
+    <a href={url("demo/velia/shop/")}>همهٔ محصولات</a>
+    <a href={url("demo/velia/search/")}>جست‌وجوی محصولات</a>
+    {categoryInfo.map((c) => (
+      <a href={url(`demo/velia/category/${c.id}/`)}>
+        {c.label}
+        <SkinIcon name="arrow" size={18} />
+      </a>
+    ))}
+    <a href={url("demo/velia/collections/")}>روتین‌های آماده</a>
+    <a href={url("demo/velia/journal/")}>مجلهٔ آلبا</a>
+    <a href={url("demo/velia/story/")}>داستان ما</a>
+    <a href={url("demo/velia/contact/")}>تماس و پشتیبانی</a>
+    <a href={url("demo/velia/tracking/")}>پیگیری سفارش</a>
+  </nav>
+</dialog>

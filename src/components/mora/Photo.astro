@@ -1,0 +1,30 @@
+---
+import { photo } from "../../data/mora";
+interface Props {
+  name: string;
+  alt: string;
+  eager?: boolean;
+  class?: string;
+  sizes?: string;
+}
+const {
+  name,
+  alt,
+  eager = false,
+  class: className = "",
+  sizes = "(max-width:700px) 90vw, 40vw",
+} = Astro.props;
+---
+
+<img
+  class={className}
+  src={photo(name)}
+  srcset={[400, 800, 1600].map((w) => `${photo(name, w)} ${w}w`).join(", ")}
+  sizes={sizes}
+  alt={alt}
+  width="1536"
+  height="1024"
+  loading={eager ? "eager" : "lazy"}
+  fetchpriority={eager ? "high" : "auto"}
+  decoding="async"
+/>

@@ -1,0 +1,87 @@
+---
+import Brand from "../../../../layouts/Brand.astro";
+import { doctors, money } from "../../../../data/brands";
+import { url } from "../../../../config";
+export function getStaticPaths() {
+  return doctors.map((d) => ({ params: { doctor: d.id }, props: { d } }));
+}
+const { d } = Astro.props;
+---
+
+<Brand brand="neva" title={d.name} current="doctors">
+  <main id="demo-main" class="wrap">
+    <div class="crumbs">
+      <a href={url("demo/neva/doctors/")}>پزشکان</a>
+      <span>/ {d.name}</span>
+    </div>
+    <section class="neva-profile">
+      <img
+        src={url(d.image)}
+        alt={`تصویر فرضی ${d.name}`}
+        width="1024"
+        height="1536"
+        data-entry
+      />
+      <div data-entry>
+        <span class="eyebrow">پروفایل مفهومی / {d.specialty}</span>
+        <h1>{d.name}</h1>
+        <p class="large-copy">{d.about}</p>
+        <dl class="profile-facts">
+          <div>
+            <dt>مدت ویزیت</dt>
+            <dd>{d.duration.toLocaleString("fa-IR")} دقیقه</dd>
+          </div>
+          <div>
+            <dt>هزینهٔ فرضی</dt>
+            <dd>{money(d.fee)}</dd>
+          </div>
+          <div>
+            <dt>فضای مراجعه</dt>
+            <dd>{d.room}</dd>
+          </div>
+        </dl>
+        <div class="nearest-box">
+          <span>نزدیک‌ترین زمان آزاد</span>
+          <strong data-nearest-label={d.id}></strong>
+          <a
+            class="button"
+            data-nearest-book={d.id}
+            href={url(`demo/neva/book/?doctor=${d.id}`)}
+          >
+            انتخاب این زمان ↗
+          </a>
+        </div>
+        <a class="text-link" href={url(`demo/neva/book/?doctor=${d.id}`)}>
+          انتخاب زمان دیگر
+        </a>
+      </div>
+    </section>
+    <section class="section two-col">
+      <div>
+        <span class="eyebrow">دامنهٔ مراجعه در این سناریو</span>
+        <h2>در جلسه چه می‌گذرد؟</h2>
+        <ul>
+          {d.services.map((s) => (
+            <li>{s}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="neva-info-panel">
+        <h3>پیش از ادامه</h3>
+        <p>
+          تصویر و نقش این پزشک فرضی است. این نمونه پیشنهاد درمان یا تشخیص پزشکی
+          ارائه نمی‌کند.
+        </p>
+        <p>
+          نام و شمارهٔ آزمایشی در فرم فقط برای بازبینی هستند و ذخیره نمی‌شوند.
+        </p>
+        <a class="text-link" href={url("demo/neva/guide/")}>
+          راهنمای مراحل و حفظ اطلاعات
+        </a>
+      </div>
+    </section>
+  </main>
+  <script>
+    import "../../../../scripts/medical-demo";
+  </script>
+</Brand>

@@ -1,0 +1,6 @@
+---
+import {photoProps} from '../../lib/avan/paths';
+interface Props {source:string;alt:string;class?:string;sizes?:string;eager?:boolean;}
+const {source,alt,class:className='',sizes='(max-width:767px) 80vw, 40vw',eager=false}=Astro.props;
+---
+<img {...photoProps(source)} alt={alt} class={className} sizes={sizes} loading={eager?'eager':'lazy'} decoding="async" fetchpriority={eager?'high':'auto'}/>

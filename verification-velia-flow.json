@@ -1,0 +1,76 @@
+{
+  "checks": 57,
+  "widths": [
+    390,
+    1440
+  ],
+  "measurements": [
+    {
+      "name": "desktop",
+      "cart": {
+        "before": {
+          "height": 940.6875,
+          "summary": 549.609375
+        },
+        "immediate": {
+          "height": 940.6875,
+          "summary": 549.609375
+        },
+        "lines": 2,
+        "focused": true,
+        "middle": 882.15625,
+        "final": 872.6875
+      }
+    },
+    {
+      "name": "desktop",
+      "filter": {
+        "before": 3349.296875,
+        "immediate": 3349.296875,
+        "count": 5,
+        "focused": true,
+        "middle": 1274.984375,
+        "rapid": {
+          "before": 1274.984375,
+          "immediate": 1274.984375,
+          "count": 20
+        },
+        "final": 3349.296875
+      }
+    },
+    {
+      "name": "mobile",
+      "cart": {
+        "before": {
+          "height": 849.421875,
+          "summary": 464.359375
+        },
+        "immediate": {
+          "height": 849.421875,
+          "summary": 464.359375
+        },
+        "lines": 2,
+        "focused": true,
+        "middle": 819.65625,
+        "final": 812.421875
+      }
+    },
+    {
+      "name": "mobile",
+      "filter": {
+        "before": 4378.515625,
+        "immediate": 4378.515625,
+        "count": 5,
+        "focused": true,
+        "middle": 1879.21875,
+        "rapid": {
+          "before": 1710.640625,
+          "immediate": 1710.640625,
+          "count": 20
+        },
+        "final": 4378.515625
+      }
+    }
+  ],
+  "runtimeErrors": []
+}

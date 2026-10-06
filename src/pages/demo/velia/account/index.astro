@@ -1,0 +1,49 @@
+---
+import AccountShell from "../../../../components/velia/AccountShell.astro";
+import SkinIcon from "../../../../components/velia/SkinIcon.astro";
+import { url } from "../../../../config";
+---
+
+<AccountShell title="سلام، به آلبا خوش آمدی.">
+  <div class="velia-account-welcome velia-panel">
+    <span class="skin-eyebrow" dir="ltr">
+      A LITTLE SPACE, JUST FOR YOU
+    </span>
+    <h2>
+      انتخاب‌های تو،
+      <br />
+      همیشه نزدیک.
+    </h2>
+    <p>از آخرین سفارش تا محصولی که برای بعد ذخیره کرده‌ای.</p>
+    <a class="skin-button" href={url("demo/velia/shop/")}>
+      یک انتخاب تازه <SkinIcon name="arrow" size={19} />
+    </a>
+    <img src={url("art/velia/serum.webp")} alt="" width="350" height="350" />
+  </div>
+  <div class="velia-account-stat-grid">
+    <a class="velia-panel" href={url("demo/velia/account/orders/")}>
+      <SkinIcon name="box" />
+      <b data-order-count>۱</b>
+      <span>سفارش در حساب نمونه</span>
+    </a>
+    <a class="velia-panel" href={url("demo/velia/favourites/")}>
+      <SkinIcon name="heart" />
+      <b data-account-saved-count>۰</b>
+      <span>انتخاب ذخیره‌شده</span>
+    </a>
+    <a class="velia-panel" href={url("demo/velia/account/addresses/")}>
+      <SkinIcon name="pin" />
+      <b>۲</b>
+      <span>نشانی نمونه</span>
+    </a>
+  </div>
+  <section class="velia-panel">
+    <div class="velia-section-heading">
+      <h2>آخرین سفارش‌ها</h2>
+      <a href={url("demo/velia/account/orders/")}>
+        همهٔ سفارش‌ها <SkinIcon name="arrow" size={18} />
+      </a>
+    </div>
+    <div data-orders-list></div>
+  </section>
+</AccountShell>

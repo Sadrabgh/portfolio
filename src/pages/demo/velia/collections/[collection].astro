@@ -1,0 +1,80 @@
+---
+import Velia from "../../../../layouts/Velia.astro";
+import SkinCard from "../../../../components/velia/SkinCard.astro";
+import SkinIcon from "../../../../components/velia/SkinIcon.astro";
+import {
+  skinCollections,
+  skinProducts,
+  skinMoney,
+} from "../../../../data/velia";
+import { url } from "../../../../config";
+export function getStaticPaths() {
+  return skinCollections.map((collection) => ({
+    params: { collection: collection.id },
+    props: { collection },
+  }));
+}
+const { collection: c } = Astro.props;
+const products = c.ids.map((id: string) =>
+  skinProducts.find((p) => p.id === id)!,
+);
+const total = products.reduce(
+  (sum: number, p: (typeof skinProducts)[number]) => sum + p.price,
+  0,
+);
+---
+
+<Velia title={c.name} current="collections">
+  <main id="skin-main" class="skin-wrap">
+    <nav class="skin-breadcrumb velia-top-breadcrumb" aria-label="مسیر صفحه">
+      <a href={url("demo/velia/collections/")}>روتین‌ها</a>
+      <SkinIcon name="back" size={15} />
+      <span aria-current="page">{c.name}</span>
+    </nav>
+    <section class:list={["velia-collection-hero", "tone-" + c.tone]}>
+      <div>
+        <span class="skin-eyebrow" dir="ltr">
+          {c.english}
+        </span>
+        <h1>{c.name}</h1>
+        <p>{c.copy}</p>
+        <div class="velia-collection-buy">
+          <span class="skin-price">
+            {skinMoney(total)} <small>تومان / ۳ محصول</small>
+          </span>
+          <button class="skin-button" type="button" data-add-collection={c.id}>
+            <span data-add-label>افزودن مجموعه به سبد</span>
+            <SkinIcon name="bag" size={20} />
+          </button>
+        </div>
+        <small>
+          قیمت مجموعه برابر جمع محصولات است؛ هر محصول را جدا هم می‌توانی انتخاب
+          کنی.
+        </small>
+      </div>
+      <div class="velia-collection-art">
+        {products.map((p: (typeof skinProducts)[number]) => (
+          <img
+            src={url(`art/velia/${p.cardImage || p.image}.webp`)}
+            alt={p.name}
+            width="450"
+            height="500"
+          />
+        ))}
+      </div>
+    </section>
+    <section class="velia-section">
+      <div class="velia-section-heading">
+        <h2>در این مجموعه</h2>
+        <span>انتخاب جداگانه هم ممکن است.</span>
+      </div>
+      <div class="skin-product-grid velia-three-grid">
+        {products.map(
+          (product: (typeof skinProducts)[number], index: number) => (
+            <SkinCard product={product} index={index} />
+          ),
+        )}
+      </div>
+    </section>
+  </main>
+</Velia>

@@ -1,0 +1,22 @@
+---
+import Velia from "../../../../layouts/Velia.astro";
+import ArticleCard from "../../../../components/velia/ArticleCard.astro";
+import { skinArticles } from "../../../../data/velia";
+---
+
+<Velia title="مجلهٔ آلبا" current="journal">
+  <main id="skin-main" class="skin-wrap">
+    <div class="skin-page-heading velia-page-intro">
+      <span class="skin-eyebrow" dir="ltr">
+        THE ALBA JOURNAL
+      </span>
+      <h1>یک مکث، چند خط.</h1>
+      <p>یادداشت‌هایی دربارهٔ انتخاب، روتین و لحظه‌های کوچک روزمره.</p>
+    </div>
+    <div class="velia-article-grid velia-journal-grid">
+      {skinArticles.map((article) => (
+        <ArticleCard article={article} />
+      ))}
+    </div>
+  </main>
+</Velia>

@@ -1,0 +1,101 @@
+---
+import SkinIcon from "./SkinIcon.astro";
+import { url } from "../../config";
+interface Props {
+  mode?: "drawer" | "page" | "checkout";
+}
+const { mode = "drawer" } = Astro.props;
+---
+
+<div class="skin-bag-content" data-bag-surface={mode}>
+  <p class="skin-bag-quantity">
+    <span data-bag-quantity>۰</span> محصول در سبد تو
+  </p>
+  <div class="skin-undo" data-bag-undo hidden>
+    <span data-undo-copy></span>
+    <button type="button" data-undo>
+      برگرداندن
+    </button>
+  </div>
+  <div class="skin-bag-empty" data-bag-empty>
+    <SkinIcon name="bag" size={47} />
+    <h2>جای یک انتخاب خوب خالی‌ست.</h2>
+    <p>از مجموعه، چیزی برای روتین خودت پیدا کن.</p>
+    <a class="skin-button" href={url("demo/velia/shop/")}>
+      کشف محصولات <SkinIcon name="arrow" size={19} />
+    </a>
+  </div>
+  <div data-bag-filled hidden>
+    <div class="skin-bag-lines" data-bag-lines></div>
+    <p class="skin-shipping-message" data-shipping-message></p>
+    <div
+      class="skin-shipping-progress"
+      role="progressbar"
+      aria-label="پیشرفت تا ارسال رایگان"
+      aria-valuemin="0"
+      aria-valuemax="1200000"
+      aria-valuenow="0"
+    >
+      <span data-shipping-progress></span>
+    </div>
+    {mode !== "checkout" && (
+      <form class="skin-promo" data-promo-form>
+        <label>
+          <span class="skin-sr">کد تخفیف</span>
+          <input
+            name="promo"
+            placeholder="کد تخفیف"
+            maxlength="20"
+            autocomplete="off"
+            aria-label="کد تخفیف"
+          />
+        </label>
+        <button type="submit">اعمال</button>
+      </form>
+    )}
+    <p class="skin-promo-result" data-promo-result role="status"></p>
+    <dl class="skin-totals">
+      <div>
+        <dt>جمع محصولات</dt>
+        <dd>
+          <span data-subtotal>۰</span>
+          <small>تومان</small>
+        </dd>
+      </div>
+      <div data-discount-row hidden>
+        <dt>
+          تخفیف{" "}
+          <button data-remove-promo type="button" aria-label="حذف کد تخفیف">
+            ×
+          </button>
+        </dt>
+        <dd>
+          <span data-discount>۰</span>
+          <small>تومان</small>
+        </dd>
+      </div>
+      <div>
+        <dt>ارسال</dt>
+        <dd data-shipping>۰</dd>
+      </div>
+      <div class="skin-total-final">
+        <dt>مبلغ نهایی</dt>
+        <dd>
+          <span data-total>۰</span>
+          <small>تومان</small>
+        </dd>
+      </div>
+    </dl>
+    {mode !== "checkout" && (
+      <a
+        class="skin-button skin-checkout-link"
+        href={url("demo/velia/checkout/")}
+      >
+        ادامه و تکمیل سفارش <SkinIcon name="arrow" size={20} />
+      </a>
+    )}
+    <p class="skin-bag-hint">
+      اولین انتخاب؟ کد <bdi dir="ltr">ALBA10</bdi> را امتحان کن.
+    </p>
+  </div>
+</div>

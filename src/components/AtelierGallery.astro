@@ -1,0 +1,49 @@
+---
+import { url } from "../config";
+const { project } = Astro.props;
+const images = [
+  { src: url(project.image), label: `${project.name} · نمای بیرونی` },
+  { src: url(project.interior), label: `${project.name} · فضای داخلی` },
+];
+---
+
+<div data-photo-gallery data-images={JSON.stringify(images)}>
+  <div class="atelier-gallery">
+    {images.map((im, i) => (
+      <a href={im.src} data-photo-open={i} class="image-zoom">
+        <img
+          src={im.src}
+          alt={im.label}
+          width="1536"
+          height="1024"
+          loading="lazy"
+        />
+        <span>
+          {i === 0 ? "۰۱ / بیرون" : "۰۲ / درون"}
+          <b>دیدن تصویر ↗</b>
+        </span>
+      </a>
+    ))}
+  </div>
+  <dialog class="photo-dialog" aria-label="گالری پروژه">
+    <div class="dialog-head">
+      <p data-photo-caption></p>
+      <button class="dialog-close" data-photo-close aria-label="بستن">
+        ×
+      </button>
+    </div>
+    <img data-photo-image alt="" />
+    <div class="actions">
+      <button class="button secondary" data-photo-prev>
+        تصویر قبل
+      </button>
+      <span data-photo-position></span>
+      <button class="button secondary" data-photo-next>
+        تصویر بعد
+      </button>
+    </div>
+  </dialog>
+</div>
+<script>
+  import "../scripts/photo-gallery";
+</script>

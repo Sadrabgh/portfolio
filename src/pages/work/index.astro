@@ -1,0 +1,53 @@
+---
+import Base from "../../layouts/Base.astro";
+import PortfolioTile from "../../components/PortfolioTile.astro";
+import { getCollection } from "astro:content";
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const filters = [
+  ["all", "همه"],
+  ["business", "معماری"],
+  ["commerce", "فروشگاه"],
+  ["interactive", "محصول سه‌بعدی"],
+  ["healthcare", "سلامت"],
+];
+---
+
+<Base title="نمونه‌کارها">
+  <section class="page-intro archive-intro container">
+    <h1 data-motion-reveal>نمونه‌کارها</h1>
+  </section>
+  <section class="portfolio-archive container">
+    <div
+      class="portfolio-filters"
+      data-portfolio-filters
+      hidden
+      data-motion-reveal
+    >
+      {filters.map(([key, t]) => (
+        <button
+          type="button"
+          data-filter={key}
+          aria-pressed={key === "all" ? "true" : "false"}
+        >
+          {t}
+        </button>
+      ))}
+    </div>
+    <div class="portfolio-grid" data-portfolio-grid>
+      {projects.map((p, i) => (
+        <div
+          class="portfolio-grid-entry"
+          data-motion-reveal
+          data-delay={(i % 2) * 100}
+        >
+          <PortfolioTile project={p} />
+        </div>
+      ))}
+    </div>
+    <p class="sr-only" data-filter-status role="status" aria-live="polite">
+      {projects.length.toLocaleString("fa-IR")} پروژه نمایش داده می‌شود
+    </p>
+  </section>
+</Base>

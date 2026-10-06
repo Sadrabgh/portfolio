@@ -1,0 +1,36 @@
+---
+import Velia from "../../../../layouts/Velia.astro";
+import Catalog from "../../../../components/velia/Catalog.astro";
+import SkinIcon from "../../../../components/velia/SkinIcon.astro";
+import { categoryInfo } from "../../../../data/velia";
+import { url } from "../../../../config";
+export function getStaticPaths() {
+  return categoryInfo.map((category) => ({
+    params: { category: category.id },
+    props: { category },
+  }));
+}
+const { category: c } = Astro.props;
+---
+
+<Velia title={c.label} current="shop">
+  <main id="skin-main" class="skin-wrap skin-shop">
+    <nav class="skin-breadcrumb velia-top-breadcrumb" aria-label="مسیر صفحه">
+      <a href={url("demo/velia/")}>خانه</a>
+      <SkinIcon name="back" size={15} />
+      <a href={url("demo/velia/shop/")}>محصولات</a>
+      <SkinIcon name="back" size={15} />
+      <span aria-current="page">{c.label}</span>
+    </nav>
+    <div class="skin-shop-intro">
+      <div>
+        <span class="skin-eyebrow" dir="ltr">
+          THE ALBA COLLECTION
+        </span>
+        <h1>{c.label}</h1>
+        <p>{c.copy}</p>
+      </div>
+    </div>
+    <Catalog category={c.id} />
+  </main>
+</Velia>

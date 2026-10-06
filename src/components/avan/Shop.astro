@@ -1,0 +1,120 @@
+---
+import { products, categories, usages, colors } from "../../data/avan";
+import Card from "./Card.astro";
+import Icon from "./Icon.astro";
+import Intro from "./Intro.astro";
+---
+
+<Intro
+  title="انتخابت را نزدیک‌تر کن."
+  description="ده مدل برای کار، مسیر روزانه و خانه."
+/>
+<div class="catalog-search">
+  <label for="search">جست‌وجوی مدل یا محصول</label>
+  <div class="search-wrap">
+    <Icon name="search" />
+    <input
+      id="search"
+      type="search"
+      placeholder="مثلاً H01 یا هدفون"
+      disabled
+    />
+  </div>
+</div>
+<div class="catalog-layout">
+  <aside class="filters" id="av-filters">
+    <h2>فیلتر محصولات</h2>
+    <fieldset>
+      <legend>دسته‌بندی</legend>
+      {categories.map((c) => (
+        <label>
+          <input type="checkbox" name="category" value={c.id} disabled />
+          {c.name}
+        </label>
+      ))}
+    </fieldset>
+    <fieldset>
+      <legend>کاربرد</legend>
+      {usages.map((u) => (
+        <label>
+          <input type="checkbox" name="use" value={u.id} disabled />
+          {u.name}
+        </label>
+      ))}
+    </fieldset>
+    <fieldset>
+      <legend>رنگ</legend>
+      {Object.entries(colors).map(([id, c]) => (
+        <label>
+          <input type="checkbox" name="color" value={id} disabled />
+          {c.name}
+        </label>
+      ))}
+    </fieldset>
+    <fieldset>
+      <legend>محدودهٔ قیمت به تومان</legend>
+      <label for="priceMin">
+        از
+        <input id="priceMin" inputmode="numeric" disabled />
+      </label>
+      <label for="priceMax">
+        تا
+        <input id="priceMax" inputmode="numeric" disabled />
+      </label>
+    </fieldset>
+    <label>
+      <input type="checkbox" name="stock" disabled />
+      فقط موجودها
+    </label>
+    <div class="anc-filter">
+      <label>
+        <input type="checkbox" name="anc" disabled />
+        حذف نویز فعال
+      </label>
+    </div>
+    <button type="button" class="btn secondary" data-filter-reset disabled>
+      پاک‌کردن فیلترها
+    </button>
+    <p class="field-error" data-filter-error role="status" />
+  </aside>
+  <div>
+    <div class="catalog-bar">
+      <span data-result-count>۱۰ مدل</span>
+      <button
+        class="mobile-filter btn secondary"
+        type="button"
+        data-open-filters
+        disabled
+      >
+        <Icon name="filter" />
+        فیلتر
+      </button>
+      <label for="sort">
+        مرتب‌سازی{" "}
+        <select id="sort" disabled>
+          <option value="recommended">پیشنهاد آوان</option>
+          <option value="price-asc">ارزان‌تر</option>
+          <option value="price-desc">گران‌تر</option>
+          <option value="name">کد مدل</option>
+        </select>
+      </label>
+    </div>
+    <div
+      class="filter-chips"
+      data-filter-chips
+      aria-label="فیلترهای انتخاب‌شده"
+    />
+    <div class="product-grid catalog-grid" data-catalog-results>
+      {products.map((p) => (
+        <Card product={p} />
+      ))}
+    </div>
+    <div class="empty-state" data-no-results hidden>
+      <h2>محصولی با این انتخاب پیدا نشد.</h2>
+      <p>محدودهٔ قیمت یا فیلترها را تغییر بده.</p>
+      <button type="button" data-filter-reset class="btn secondary" disabled>
+        دیدن همهٔ محصولات
+      </button>
+    </div>
+  </div>
+</div>

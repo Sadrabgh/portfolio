@@ -1,0 +1,110 @@
+---
+import Velia from "../../../layouts/Velia.astro";
+import SkinIcon from "../../../components/velia/SkinIcon.astro";
+import { url } from "../../../config";
+---
+
+<Velia title="تماس و پشتیبانی" current="help">
+  <main id="skin-main" class="skin-wrap">
+    <div class="skin-page-heading velia-page-intro">
+      <span class="skin-eyebrow" dir="ltr">
+        A CONVERSATION STARTS HERE
+      </span>
+      <h1>برای شنیدن، اینجاییم.</h1>
+      <p>پرسشی دربارهٔ انتخاب یا مسیر سفارش داری؟ از همین‌جا شروع کن.</p>
+    </div>
+    <div class="velia-contact-layout">
+      <aside>
+        <div class="velia-contact-note">
+          <SkinIcon name="leaf" size={46} />
+          <h2>
+            یک ارتباط ساده.
+            <br />
+            با خیال روشن.
+          </h2>
+          <p>
+            این فرم مسیر پشتیبانی فروشگاه را نمایش می‌دهد. پیام آزمایشی به شبکه
+            ارسال نمی‌شود.
+          </p>
+        </div>
+        <a class="velia-contact-method" href={url("demo/velia/faq/")}>
+          <SkinIcon name="mail" size={25} />
+          <div>
+            <b>شاید پاسخ همین‌جا باشد</b>
+            <span>پرسش‌های متداول</span>
+          </div>
+          <SkinIcon name="arrow" size={18} />
+        </a>
+        <a class="velia-contact-method" href={url("demo/velia/tracking/")}>
+          <SkinIcon name="box" size={25} />
+          <div>
+            <b>از سفارش چه خبر؟</b>
+            <span>پیگیری سفارش نمونه</span>
+          </div>
+          <SkinIcon name="arrow" size={18} />
+        </a>
+      </aside>
+      <form
+        class="velia-panel skin-form-fields"
+        data-demo-form="contact"
+        method="dialog"
+      >
+        <h2 class="skin-field-full">چند خط برای ما بنویس.</h2>
+        <label class="skin-field">
+          <span>نام تو</span>
+          <input
+            name="name"
+            required
+            minlength="2"
+            maxlength="70"
+            autocomplete="off"
+            placeholder="مثلاً سارا"
+          />
+        </label>
+        <label class="skin-field">
+          <span>ایمیل</span>
+          <input
+            name="email"
+            type="email"
+            required
+            maxlength="100"
+            autocomplete="off"
+            placeholder="name@example.com"
+            dir="ltr"
+          />
+        </label>
+        <label class="skin-field skin-field-full">
+          <span>موضوع پیام</span>
+          <select name="topic">
+            <option>انتخاب محصول</option>
+            <option>سفارش و ارسال</option>
+            <option>بازگشت کالا</option>
+            <option>پیشنهاد و همکاری</option>
+          </select>
+        </label>
+        <label class="skin-field skin-field-full">
+          <span>پیامت</span>
+          <textarea
+            name="message"
+            required
+            minlength="10"
+            maxlength="1000"
+            rows="5"
+            placeholder="چه چیزی می‌خواهی با ما در میان بگذاری؟"
+          ></textarea>
+        </label>
+        <div class="skin-field-full velia-form-bottom">
+          <button class="skin-button" type="submit">
+            آزمایش ارسال پیام <SkinIcon name="arrow" size={20} />
+          </button>
+          <small>برای آزمایش، اطلاعات ساختگی وارد کن.</small>
+        </div>
+        <p
+          class="skin-field-full velia-form-status"
+          data-form-status
+          role="status"
+        ></p>
+      </form>
+    </div>
+  </main>
+</Velia>

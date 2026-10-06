@@ -1,0 +1,151 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/portfolio.css";
+import "../styles/yekan-bakh.css";
+import regularFont from "../assets/fonts/yekan-bakh/YekanBakhFaNum-Regular.woff?url";
+import semiboldFont from "../assets/fonts/yekan-bakh/YekanBakhFaNum-SemiBold.woff?url";
+import { site, url } from "../config";
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+const {
+  title = site.brand,
+  description = site.description,
+  noindex = false,
+} = Astro.props;
+const validDomain = !Astro.site?.hostname.endsWith(".invalid");
+const compactFooter =
+  Astro.url.pathname === url() || Astro.url.pathname === url("about/");
+const canonical = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site)
+  : undefined;
+---
+
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="preload" href={regularFont} as="font" type="font/woff" crossorigin />
+    <link rel="preload" href={semiboldFont} as="font" type="font/woff" crossorigin />
+    <meta name="theme-color" content="#ffffff" />
+    <title>{title} | {site.ownerName || site.brand}</title>
+    <meta name="description" content={description} />
+    <script is:inline>
+      (() => {
+        let theme;
+        let motion;
+        try {
+          theme = localStorage.getItem("portfolio-theme");
+          motion = localStorage.getItem("portfolio-motion");
+        } catch {}
+        const dark = theme === "dark";
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        document.documentElement.dataset.motion =
+          motion === "reduce" ||
+          matchMedia("(prefers-reduced-motion:reduce)").matches
+            ? "reduce"
+            : "full";
+        document
+          .querySelector('meta[name="theme-color"]')
+          ?.setAttribute("content", dark ? "#151515" : "#ffffff");
+        // A native page transition may be skipped during a normal navigation.
+        const settlePageTransition = (event) => {
+          const transition = event.viewTransition;
+          if (!transition) return;
+          transition.ready.catch(() => {});
+          transition.finished.catch(() => {});
+          transition.updateCallbackDone.catch(() => {});
+          const destination = event.activation?.entry?.url;
+          // Demo pages use their own transition system; skip the outgoing
+          // portfolio animation when switching layouts.
+          if (
+            document.documentElement.dataset.motion === "reduce" ||
+            (destination && new URL(destination).pathname.includes("/demo/"))
+          )
+            transition.skipTransition();
+        };
+        addEventListener("pageswap", settlePageTransition);
+        addEventListener("pagereveal", settlePageTransition);
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href={url("portfolio/favicon.svg")} />
+    {validDomain && <link rel="canonical" href={canonical} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="fa_IR" />
+    {validDomain && (
+      <>
+        <meta property="og:url" content={canonical} />
+        <meta
+          property="og:image"
+          content={new URL(url("portfolio/social-moonex.png"), Astro.site)}
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+      </>
+    )}
+    <meta name="twitter:card" content="summary_large_image" />
+    {noindex && <meta name="robots" content="noindex,follow" />}
+    <noscript>
+      <style>
+        .theme-toggle,
+        .motion-toggle,
+        .menu-toggle,
+        .stage-projects,
+        .stage-views,
+        .stage-layer-control,
+        .stage-settings,
+        .stage-hint,
+        .gallery-controls,
+        .gallery-hint {
+          display: none !important;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body id="top" data-page={Astro.url.pathname === url() ? "home" : "internal"}>
+    <span class="scroll-top-sentinel" aria-hidden="true"></span>
+    <a class="skip-link" href="#main">
+      رفتن به محتوای اصلی
+    </a>
+    <Header />
+    <noscript>
+      <nav class="nojs-nav container" aria-label="ناوبری اصلی">
+        <a href={url("work/")}>نمونه‌کارها</a>
+        <a href={url("services/")}>خدمات و همکاری</a>
+        <a href={url("about/")}>دربارهٔ من</a>
+        <a href={url("contact/")}>ارتباط</a>
+      </nav>
+    </noscript>
+    <main id="main">
+      <slot />
+    </main>
+    <Footer compact={compactFooter} />
+    <a class="floating-back-top" href="#top" aria-label="بازگشت به بالای صفحه" data-floating-top hidden>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 15 6-6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+    </a>
+    <div class="cursor-follower" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <dialog class="media-lightbox" aria-label="نمایش تصویر">
+      <button
+        type="button"
+        class="lightbox-close icon-button"
+        aria-label="بستن تصویر"
+      >
+        ×
+      </button>
+      <img alt="" />
+      <p></p>
+    </dialog>
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script>
+      import "../scripts/global";
+      import "../scripts/portfolio";
+    </script>
+  </body>
+</html>

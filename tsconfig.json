@@ -1,0 +1,5 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": { "noUncheckedIndexedAccess": false },
+  "exclude": ["node_modules", "dist", "output"]
+}

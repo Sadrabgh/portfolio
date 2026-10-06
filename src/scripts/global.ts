@@ -1,0 +1,133 @@
+const menu = document.querySelector<HTMLDialogElement>("#mobile-menu");
+const toggle = document.querySelector<HTMLButtonElement>(".menu-toggle");
+function closeMenu() {
+  if (menu?.open) menu.close();
+}
+toggle?.addEventListener("click", () => {
+  if (!menu) return;
+  menu.showModal();
+  toggle.setAttribute("aria-expanded", "true");
+  document.body.style.overflow = "hidden";
+  menu.querySelector<HTMLButtonElement>(".menu-close")?.focus();
+  document.dispatchEvent(new CustomEvent("portfolio:menu-open"));
+});
+menu?.querySelector(".menu-close")?.addEventListener("click", closeMenu);
+menu?.addEventListener("close", () => {
+  toggle?.setAttribute("aria-expanded", "false");
+  document.body.style.overflow = "";
+  toggle?.focus();
+});
+menu?.addEventListener("click", (e) => {
+  if (e.target === menu) {
+    const b = menu.getBoundingClientRect();
+    const p = e as MouseEvent;
+    if (
+      p.clientX < b.left ||
+      p.clientX > b.right ||
+      p.clientY < b.top ||
+      p.clientY > b.bottom
+    )
+      closeMenu();
+  }
+});
+menu
+  ?.querySelectorAll("a")
+  .forEach((a) => a.addEventListener("click", closeMenu));
+window.addEventListener("pagehide", () => {
+  if (menu?.open) menu.close();
+  document.body.style.overflow = "";
+});
+document.querySelectorAll<HTMLDetailsElement>(".nav-group").forEach((group) => {
+  let timer: ReturnType<typeof setTimeout>;
+  group.addEventListener("pointerenter", (e) => {
+    if ((e as PointerEvent).pointerType === "mouse") {
+      clearTimeout(timer);
+      group.open = true;
+    }
+  });
+  group.addEventListener("pointerleave", () => {
+    timer = setTimeout(() => {
+      if (!group.contains(document.activeElement)) group.open = false;
+    }, 220);
+  });
+  group.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      group.open = false;
+      group.querySelector<HTMLElement>("summary")?.focus();
+    }
+  });
+  group.addEventListener("focusout", () => {
+    setTimeout(() => {
+      if (!group.contains(document.activeElement)) group.open = false;
+    }, 0);
+  });
+});
+const searchPanel = document.querySelector<HTMLElement>("#site-search");
+const searchToggle =
+  document.querySelector<HTMLButtonElement>(".search-toggle");
+const query = document.querySelector<HTMLInputElement>("#site-query");
+const result = searchPanel?.querySelector<HTMLElement>(".search-results");
+const searchEntries = [
+  ["خانهٔ فریلنسر", "/", "صفحه اصلی استودیو"],
+  ["نمونه‌کارها", "/work/", "نمونه کار پروژه ها آرشیو پورتفولیو"],
+  ["دربارهٔ طراح", "/about/", "درباره ما معرفی زندگی نامه"],
+  ["خدمات طراحی", "/services/", "طراحی وب توسعه رابط تجربه کاربر موشن انیمیشن"],
+  ["تماس و شروع پروژه", "/contact/", "ارتباط همکاری درخواست سفارش"],
+  ["آتلیه نو · ATELIER", "/work/form/", "آتلیه معماری استودیو"],
+  ["پوشاک شهری · RIFT", "/work/luma/", "ریفت ریفْت فروشگاه پوشاک لباس خرید"],
+  ["دوچرخهٔ شهری · VELO", "/work/orbit/", "ولو وِلو دوچرخه محصول سه بعدی"],
+  ["کلینیک نِوا · NEVA", "/work/medical/", "نوا کلینیک سلامت پزشک پزشکی نوبت"],
+];
+// Normalize harmless Persian spelling variations; destinations stay allowlisted.
+function normalizeSearch(value: string) {
+  return value.normalize("NFKD").toLocaleLowerCase("fa")
+    .replace(/\p{M}/gu, "")
+    .replace(/[يى]/g, "ی").replace(/ك/g, "ک")
+    .replace(/[\s\u200c\u200dـ]/g, "");
+}
+const base = import.meta.env.BASE_URL;
+function closeSearch() {
+  if (searchPanel) searchPanel.hidden = true;
+  searchToggle?.setAttribute("aria-expanded", "false");
+  searchToggle?.focus();
+}
+function showSearch() {
+  if (!searchPanel) return;
+  searchPanel.hidden = false;
+  searchToggle?.setAttribute("aria-expanded", "true");
+  query?.focus();
+  search();
+}
+function search() {
+  if (!result || !query) return;
+  const value = normalizeSearch(query.value.slice(0, 100));
+  result.replaceChildren();
+  const matches = searchEntries
+    .filter(([name, , aliases]) => !value || normalizeSearch(name + " " + aliases).includes(value))
+    .slice(0, value ? 6 : 5);
+  // ASVS 1.2.1: local search never renders user-controlled HTML.
+  if (!matches.length) {
+    result.textContent = "نتیجه‌ای پیدا نشد. عبارتی مثل «معماری»، «ریفت» یا «تماس» را امتحان کنید.";
+    return;
+  }
+  matches.forEach(([name, path]) => {
+    const link = document.createElement("a");
+    link.textContent = name;
+    link.href = base + path.replace(/^\//, "");
+    result.append(link);
+  });
+}
+searchToggle?.addEventListener("click", () =>
+  searchPanel?.hidden ? showSearch() : closeSearch(),
+);
+searchPanel
+  ?.querySelector(".search-close")
+  ?.addEventListener("click", closeSearch);
+query?.addEventListener("input", search);
+document.querySelector("#site-search-form")?.addEventListener("submit", (e) => {
+  e.preventDefault();
+  result?.querySelector<HTMLAnchorElement>("a")?.click();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && searchPanel && !searchPanel.hidden) closeSearch();
+});

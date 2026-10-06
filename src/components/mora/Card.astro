@@ -1,0 +1,69 @@
+---
+import type { Furniture } from "../../data/mora";
+import { link, money } from "../../data/mora";
+import Photo from "./Photo.astro";
+import Icon from "./Icon.astro";
+interface Props {
+  product: Furniture;
+}
+const { product: p } = Astro.props;
+---
+
+<article
+  class="mr-card"
+  data-product={p.id}
+  data-category={p.category}
+  data-material={p.material}
+  data-price={p.price}
+  data-stock={p.stock}
+  data-search={`${p.name} ${p.code} ${p.finish}`}
+>
+  <div class="mr-card-image">
+    <a
+      href={link(`product/${p.id}/`)}
+      aria-label={`مشخصات ${p.name} ${p.code}`}
+    >
+      <Photo
+        name={p.image}
+        alt={`${p.name} ${p.code}، ${p.finish}`}
+        sizes="(max-width:600px) 90vw, (max-width:1000px) 45vw, 28vw"
+      />
+    </a>
+    <button
+      class="mr-icon mr-save"
+      data-save={p.id}
+      aria-label={`ذخیرهٔ ${p.code}`}
+      aria-pressed="false"
+    >
+      <Icon name="heart" />
+    </button>
+    {p.stock === 0 && <span class="mr-stock-label">فعلاً ناموجود</span>}
+  </div>
+  <div class="mr-card-title">
+    <a href={link(`product/${p.id}/`)}>
+      <h3>{p.name}</h3>
+      <span class="mr-code" dir="ltr">
+        {p.code}
+      </span>
+    </a>
+    <button
+      class="mr-icon"
+      data-compare={p.id}
+      aria-label={`مقایسهٔ ${p.code}`}
+      aria-pressed="false"
+    >
+      <Icon name="compare" />
+    </button>
+  </div>
+  <div class="mr-card-bottom">
+    <span>{money(p.price)}</span>
+    <button
+      class="mr-icon mr-add"
+      data-add={p.id}
+      aria-label={`افزودن ${p.code} به سبد`}
+      disabled={!p.stock}
+    >
+      <Icon name="plus" />
+    </button>
+  </div>
+</article>

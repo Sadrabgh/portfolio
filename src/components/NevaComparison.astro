@@ -1,0 +1,16 @@
+---
+import {doctors, money} from "../data/brands";
+import {url} from "../config";
+import Icon from "./Icon.astro";
+const {heading="h3"} = Astro.props;
+const Heading = heading as "h2" | "h3";
+---
+<div class="care-comparison">
+  <div class="care-table-head" aria-hidden="true"><span>پزشک و خدمت</span><span>مدت و هزینهٔ فرضی</span><span>نزدیک‌ترین زمان آزاد</span><span>انتخاب نوبت</span></div>
+  {doctors.map(d=><article class="care-row" data-doctor={d.id}>
+    <div class="care-profile"><img src={url(d.image)} alt={`تصویر فرضی ${d.name}`} width="1024" height="1536" loading="lazy"/><div><span class="eyebrow">{d.specialty}</span><Heading><a href={url(`demo/neva/doctors/${d.id}/`)}>{d.name}</a></Heading><a class="text-link" href={url(`demo/neva/doctors/${d.id}/`)}>شناخت پزشک <Icon name="arrow" size={16}/></a></div></div>
+    <dl class="care-facts"><div><dt><Icon name="clock" size={16}/> مدت ویزیت</dt><dd>{d.duration.toLocaleString("fa-IR")} دقیقه</dd></div><div><dt>هزینهٔ فرضی</dt><dd>{money(d.fee)}</dd></div></dl>
+    <div class="care-availability"><span><i aria-hidden="true"></i> نزدیک‌ترین زمان</span><strong data-nearest-label={d.id}>در حال بررسی زمان‌ها…</strong><small>به وقت تهران</small></div>
+    <a class="button" data-nearest-book={d.id} href={url(`demo/neva/book/?doctor=${d.id}`)}>انتخاب نوبت <Icon name="arrow" size={18}/></a>
+  </article>)}
+</div>

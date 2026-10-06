@@ -1,0 +1,188 @@
+---
+import Icon from "./Icon.astro";
+import {
+  shoeImage,
+  shoePrice,
+  money,
+  shopUrl,
+  art,
+  shoeSizes,
+  type Shoe,
+} from "../../data/heepzy";
+interface Props {
+  product: Shoe;
+  featured?: boolean;
+  context?: string;
+}
+const { product: p, featured = false, context = "product" } = Astro.props;
+const colour = p.colours[0];
+---
+
+<div
+  class:list={["hp-product", { "hp-featured": featured }]}
+  data-product={p.id}
+  data-colour={colour.id}
+  data-angle={featured ? "lifestyle" : "1"}
+>
+  <div class="hp-gallery">
+    <button
+      class="hp-main-photo"
+      type="button"
+      data-zoom
+      disabled
+      aria-label={`بزرگ‌نمایی تصویر ${p.name}`}
+    >
+      <img
+        data-product-image
+        src={featured ? art("featured") : shoeImage(p)}
+        alt={
+          featured
+            ? `${p.name} سفید و نارنجی، نمای روی پا`
+            : `${p.name}، ${colour.label}، نمای روبه‌رو`
+        }
+        width="1000"
+        height="1000"
+        loading="lazy"
+        decoding="async"
+      />
+      <span class="hp-photo-zoom">
+        <Icon name="zoom" />
+      </span>
+    </button>
+    <div class="hp-thumbs" aria-label="نماهای محصول">
+      {Array.from({ length: p.angles }, (_, i) => (
+        <button
+          type="button"
+          data-angle={i + 1}
+          disabled
+          aria-label={`نمای ${i + 1}، ${colour.label}`}
+          aria-pressed={!featured && i === 0 ? "true" : "false"}
+        >
+          <img
+            src={shoeImage(p, colour.id, i + 1, true)}
+            alt=""
+            width="400"
+            height="400"
+            loading="lazy"
+          />
+        </button>
+      ))}
+    </div>
+    {p.id === "h05" && (
+      <button type="button" class="hp-text-button" data-lifestyle disabled>
+        نمای روی پا · سفید و نارنجی
+      </button>
+    )}
+  </div>
+  <div class="hp-product-info" dir="rtl">
+    <span class="hp-eyebrow" lang="en" dir="ltr">
+      RAVA / MODEL {p.id.slice(1)}
+    </span>
+    <h2>
+      <bdi lang={p.name === p.en ? "en" : undefined}>{p.name}</bdi>
+      {p.name !== p.en && (
+        <span lang="en" dir="ltr">
+          {p.en}
+        </span>
+      )}
+    </h2>
+    <p class="hp-muted">{p.description}</p>
+    <div class="hp-product-price">
+      <strong>{money(shoePrice(p))}</strong>
+      {p.sale > 0 && (
+        <>
+          <del>{money(p.price)}</del>
+          <span class="hp-sale">۲۵٪ تخفیف</span>
+        </>
+      )}
+    </div>
+    <p class="hp-rating">
+      <span aria-label="امتیاز نمونه">★★★★★</span>{" "}
+      {new Intl.NumberFormat("fa-IR").format(p.rating)}{" "}
+      <small>امتیاز نمایشی</small>
+    </p>
+    <div class="hp-benefits">
+      <div>
+        <Icon name="box" />
+        <span>
+          انتخابت، آمادهٔ حرکت<small>موجودی نمونه بر اساس رنگ و سایز</small>
+        </span>
+      </div>
+      <a href={shopUrl("help/shipping/")}>
+        <Icon name="truck" />
+        <span>
+          ارسال استاندارد<small>رایگان از ۱۰ میلیون پس از تخفیف</small>
+        </span>
+      </a>
+    </div>
+    <fieldset class="hp-colours">
+      <legend>
+        رنگ: <span data-colour-label>{colour.label}</span>
+      </legend>
+      {p.colours.map((c) => (
+        <button
+          type="button"
+          disabled
+          data-colour={c.id}
+          style={`--swatch:${c.hex}`}
+          aria-label={c.label}
+          aria-pressed={c.id === colour.id ? "true" : "false"}
+        >
+          <span></span>
+          {c.label}
+        </button>
+      ))}
+    </fieldset>
+    <div class="hp-size-heading">
+      <label for={`${context}-${p.id}-size`}>سایز اروپایی</label>
+      <a href={shopUrl("size-guide/")}>راهنمای سایز ↗</a>
+    </div>
+    <select id={`${context}-${p.id}-size`} data-size disabled>
+      <option value="">سایزت را انتخاب کن</option>
+      {shoeSizes.map((size) => (
+        <option
+          value={size}
+          disabled={
+            !p.variants.find((v) => v.colour === colour.id && v.size === size)
+              ?.stock
+          }
+        >
+          {new Intl.NumberFormat("fa-IR").format(size)}
+          {!p.variants.find((v) => v.colour === colour.id && v.size === size)
+            ?.stock
+            ? " · ناموجود"
+            : ""}
+        </option>
+      ))}
+    </select>
+    <p class="hp-stock" data-stock role="status">
+      برای دیدن موجودی، سایزت را انتخاب کن.
+    </p>
+    <div class="hp-product-actions">
+      <button type="button" class="hp-button" data-add disabled>
+        افزودن به سبد <Icon name="plus" />
+      </button>
+      <button
+        type="button"
+        class="hp-icon"
+        data-favourite={p.id}
+        disabled
+        aria-pressed="false"
+        aria-label={`علاقه‌مندی: ${p.name}`}
+      >
+        <Icon name="heart" />
+      </button>
+    </div>
+    <p
+      class="hp-inline-status"
+      data-product-status
+      role="status"
+      aria-live="polite"
+    ></p>
+    {featured && (
+      <a class="hp-text-button" href={shopUrl(`product/${p.slug}/`)}>
+        جزئیات و همهٔ نماها <Icon size={16} />
+      </a>
+    )}
+  </div>
+</div>

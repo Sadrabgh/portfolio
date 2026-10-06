@@ -1,0 +1,82 @@
+---
+import Demo from "../../../layouts/Brand.astro";
+
+import { url } from "../../../config";
+---
+
+<Demo brand="neva" title="نوبت‌های من" current="appointments">
+  <main id="demo-main">
+    <section
+      class="d-wrap d-section"
+      style="padding-top:2.5rem"
+      data-appointment-page
+      data-book-url={url("demo/neva/book/")}
+    >
+      <div class="d-head">
+        <div>
+          <span class="d-kicker">مدیریت مراجعهٔ نمایشی</span>
+          <h1 class="d-title">نوبت‌های من.</h1>
+        </div>
+        <a class="d-button" href={url("demo/neva/book/")}>
+          نوبت جدید
+        </a>
+      </div>
+      <p class="d-muted">
+        نوبت‌های ذخیره‌شده روی همین مرورگر؛ اطلاعات تماس و نام نگهداری نمی‌شوند.
+      </p>
+      <div
+        class="demo-filters d-js-only"
+        style="margin-top:1.5rem"
+        role="group"
+        aria-label="وضعیت نوبت‌ها"
+      >
+        <button
+          class="d-chip"
+          data-appointment-filter="active"
+          aria-pressed="true"
+        >
+          فعال
+        </button>
+        <button
+          class="d-chip"
+          data-appointment-filter="all"
+          aria-pressed="false"
+        >
+          همه
+        </button>
+      </div>
+      <div class="appointment-list" data-appointment-list></div>
+      <p class="d-note" data-appointment-status role="status"></p>
+    </section>
+    <noscript>
+      <p class="d-wrap d-note">
+        برای مشاهدهٔ نوبت‌های محلی، جاوااسکریپت را فعال کنید.
+      </p>
+    </noscript>
+  </main>
+  <dialog class="d-dialog" data-cancel-dialog aria-labelledby="cancel-title">
+    <div class="d-dialog-head">
+      <h2 id="cancel-title">لغو نوبت نمایشی</h2>
+      <button
+        class="dialog-close"
+        type="button"
+        data-cancel-close
+        aria-label="بستن پنجره"
+      >
+        ×
+      </button>
+    </div>
+    <p data-cancel-details></p>
+    <div class="d-actions">
+      <button class="d-button secondary" data-cancel-close type="button">
+        حفظ نوبت
+      </button>
+      <button class="d-button" data-cancel-confirm type="button">
+        تأیید لغو
+      </button>
+    </div>
+  </dialog>
+  <script>
+    import "../../../scripts/medical-demo";
+  </script>
+</Demo>

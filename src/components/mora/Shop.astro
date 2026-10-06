@@ -1,0 +1,98 @@
+---
+import { products, categories, materials, link } from "../../data/mora";
+import Card from "./Card.astro";
+import Icon from "./Icon.astro";
+---
+
+<section class="mr-wrap mr-intro">
+  <span class="mr-eyebrow">THE MORA EDIT</span>
+  <h1>
+    هر قطعه،
+    <br />
+    یک انتخاب شخصی.
+  </h1>
+  <p>برای نشستن، دورهم‌بودن و جزئیات کوچک خانه.</p>
+</section>
+<section class="mr-wrap mr-shop">
+  <form class="mr-filter" id="mr-filter" role="search">
+    <label class="mr-search">
+      <Icon name="search" />
+      <span class="mr-sr">جست‌وجوی مدل</span>
+      <input
+        id="mr-search"
+        name="q"
+        type="search"
+        placeholder="نام، کد یا رنگ محصول…"
+        autocomplete="off"
+      />
+    </label>
+    <div class="mr-filter-fields">
+      <label>
+        دسته
+        <select name="category">
+          {Object.entries(categories).map(([id, name]) => (
+            <option value={id}>{name}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        متریال
+        <select name="material">
+          <option value="all">همهٔ متریال‌ها</option>
+          {Object.entries(materials).map(([id, name]) => (
+            <option value={id}>{name}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        محدودهٔ قیمت
+        <select name="price">
+          <option value="all">همهٔ قیمت‌ها</option>
+          <option value="low">تا ۱۵ میلیون</option>
+          <option value="mid">۱۵ تا ۳۰ میلیون</option>
+          <option value="high">بیش از ۳۰ میلیون</option>
+        </select>
+      </label>
+      <label>
+        چیدمان
+        <select name="sort">
+          <option value="default">انتخاب مورا</option>
+          <option value="low">ارزان‌تر</option>
+          <option value="high">گران‌تر</option>
+        </select>
+      </label>
+      <label class="mr-checkbox">
+        <input type="checkbox" name="stock" /> فقط موجودها
+      </label>
+      <button type="reset" class="mr-text-button">
+        پاک‌کردن فیلترها
+      </button>
+    </div>
+  </form>
+  <div class="mr-results-head">
+    <span data-results role="status" aria-live="polite">
+      ۸ محصول
+    </span>
+    <a class="mr-text-link" href={link("compare/")}>
+      مقایسهٔ انتخاب‌ها <Icon name="compare" />
+    </a>
+  </div>
+  <div class="mr-grid" data-catalog>
+    {products.map((product) => (
+      <Card product={product} />
+    ))}
+  </div>
+  <div class="mr-empty" data-no-results hidden>
+    <h2>هنوز به انتخابت نرسیدیم.</h2>
+    <p>یک دسته یا محدودهٔ قیمت دیگر را امتحان کن.</p>
+    <button class="mr-btn mr-outline" data-reset-filter>
+      پاک‌کردن فیلترها
+    </button>
+  </div>
+  <noscript>
+    <p class="mr-notice">
+      همهٔ محصولات قابل مشاهده‌اند. برای فیلتر و سبد خرید، جاوااسکریپت را فعال
+      کنید.
+    </p>
+  </noscript>
+</section>

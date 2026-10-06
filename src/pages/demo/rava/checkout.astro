@@ -1,0 +1,130 @@
+---
+import Heepzy from "../../../layouts/Heepzy.astro";
+import Summary from "../../../components/heepzy/Summary.astro";
+import { shopUrl } from "../../../data/heepzy";
+const fields = [
+  ["name", "نام و نام خانوادگی", "text", ""],
+  ["mobile", "شمارهٔ موبایل", "tel", "مثلاً ۰۹۱۲۳۴۵۶۷۸۹"],
+  ["city", "شهر", "text", ""],
+  ["postal", "کد پستی ۱۰ رقمی", "text", ""],
+] as const;
+---
+
+<Heepzy title="بررسی سفارش نمونه">
+  <div class="hp-container" data-checkout-page>
+    <header class="hp-page-heading">
+      <span class="hp-eyebrow" dir="ltr">
+        A LITTLE CLOSER
+      </span>
+      <h1>یک قدم تا انتخاب نهایی.</h1>
+      <p>
+        پرداختی دریافت نمی‌شود. اطلاعات این فرم فقط تا زمان ثبت نمونه در حافظهٔ
+        همین صفحه می‌ماند.
+      </p>
+    </header>
+    <p class="hp-checkout-warning" data-checkout-warning role="status"></p>
+    <div class="hp-checkout-layout" data-checkout-content>
+      <form
+        class="hp-checkout-fields"
+        method="dialog"
+        autocomplete="off"
+        novalidate
+        data-checkout-form
+      >
+        <section data-checkout-step="1">
+          <h2>۱. اطلاعات دریافت‌کننده</h2>
+          <div class="hp-fields">
+            {fields.map(([id, label, type, placeholder]) => (
+              <label class="hp-field" for={`hp-field-${id}`}>
+                {label}
+                <input
+                  id={`hp-field-${id}`}
+                  data-private-field={id}
+                  type={type}
+                  inputmode={
+                    ["mobile", "postal"].includes(id) ? "numeric" : undefined
+                  }
+                  maxlength={
+                    id === "name"
+                      ? 80
+                      : id === "city"
+                        ? 60
+                        : id === "postal"
+                          ? 10
+                          : 11
+                  }
+                  placeholder={placeholder}
+                  autocomplete="off"
+                  disabled
+                  aria-describedby={`hp-error-${id}`}
+                />
+                <span
+                  id={`hp-error-${id}`}
+                  class="hp-field-error"
+                  data-field-error={id}
+                ></span>
+              </label>
+            ))}
+            <label class="hp-field hp-field-wide" for="hp-field-address">
+              نشانی
+              <textarea
+                id="hp-field-address"
+                data-private-field="address"
+                maxlength="300"
+                autocomplete="off"
+                disabled
+                aria-describedby="hp-error-address"
+              ></textarea>
+              <span
+                class="hp-field-error"
+                id="hp-error-address"
+                data-field-error="address"
+              ></span>
+            </label>
+          </div>
+          <button type="button" class="hp-button" data-next-step disabled>
+            ادامه و بررسی خلاصه ←
+          </button>
+        </section>
+        <section data-checkout-step="2" hidden>
+          <h2>۲. ارسال و بررسی نهایی</h2>
+          <fieldset class="hp-shipping">
+            <legend>روش ارسال نمونه</legend>
+            <label>
+              <input
+                type="radio"
+                name="shipping"
+                value="standard"
+                checked
+                disabled
+              />
+              استاندارد · ۹۰ هزار تومان / رایگان از ۱۰ میلیون
+            </label>
+            <label>
+              <input type="radio" name="shipping" value="express" disabled />
+              سریع · ۱۵۰ هزار تومان
+            </label>
+          </fieldset>
+          <div data-checkout-review-rows></div>
+          <label class="hp-review-ack">
+            <input type="checkbox" data-review-ack disabled />
+            رنگ، سایز، تعداد، تخفیف و مبلغ نهایی را بررسی کردم.
+          </label>
+          <button type="submit" class="hp-button" data-confirm-order disabled>
+            ثبت سفارش نمونه
+          </button>
+          <button type="button" class="hp-text-button" data-back-step disabled>
+            بازگشت به اطلاعات
+          </button>
+        </section>
+      </form>
+      <Summary checkout />
+    </div>
+    <div data-inline-receipt hidden></div>
+    <p class="hp-empty" data-checkout-empty hidden>
+      برای ادامه، ابتدا کفشی به سبد اضافه کن.
+      <br />
+      <a href={shopUrl("catalog/")}>رفتن به کفش‌ها ←</a>
+    </p>
+  </div>
+</Heepzy>

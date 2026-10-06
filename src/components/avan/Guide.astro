@@ -1,0 +1,6 @@
+---
+import {categories,usages} from '../../data/avan';
+import Intro from './Intro.astro';
+---
+<Intro eyebrow="همراه انتخاب تو" title="از لحظه‌های خودت شروع کن." description="با سه انتخاب ساده، گزینه‌های مناسب کاربرد و بودجه‌ات را پیدا کن."/>
+<form class="guide-questions" data-guide-form><fieldset><legend>۱. چه محصولی می‌خواهی؟</legend>{categories.filter(c=>c.id!=='accessories').map(c=><label><input type="radio" name="category" value={c.id} disabled/>{c.name}</label>)}</fieldset><fieldset><legend>۲. بیشتر برای چه کاری؟</legend>{usages.map(u=><label><input type="radio" name="use" value={u.id} disabled/>{u.name}</label>)}</fieldset><fieldset><legend>۳. سقف بودجه‌ات به تومان؟</legend><label for="guide-budget">بودجه<input id="guide-budget" name="budget" inputmode="numeric" placeholder="مثلاً ۵۰۰۰۰۰۰" disabled/></label></fieldset><button class="btn" type="submit" disabled>دیدن گزینه‌های من</button></form><div data-guide-results/>

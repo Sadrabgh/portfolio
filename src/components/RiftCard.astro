@@ -1,0 +1,48 @@
+---
+import { url } from "../config";
+import { garmentImage, money, garmentStock } from "../data/brands";
+import Icon from "./Icon.astro";
+const { p, heading = "h3" } = Astro.props;
+const Heading = heading as "h2" | "h3";
+---
+
+<article
+  class="rift-card"
+  data-product-card
+  data-category={p.category}
+  data-price={p.price}
+  data-sizes={Object.keys(garmentStock[p.id])
+    .filter((s) => garmentStock[p.id][s] > 0)
+    .join(" ")}
+  data-colors={p.colors.map((c: any) => c.id).join(" ")}
+  data-depth
+>
+  <a class="rift-card-image" href={url(`demo/rift/products/${p.id}/`)}>
+    <img
+      src={url(garmentImage(p.id, p.colors[0].id))}
+      alt={`${p.name} · ${p.colors[0].label}`}
+      width="1024"
+      height="1536"
+      loading="lazy"
+    />
+    <span class="rift-card-arrow"><Icon name="arrow" size={18} /></span>
+    <span class="rift-card-code" dir="ltr">
+      {p.en}
+    </span>
+  </a>
+  <div class="rift-card-info">
+    <a href={url(`demo/rift/products/${p.id}/`)}>
+      <Heading>{p.name}</Heading>
+    </a>
+    <span>{money(p.price)}</span>
+  </div>
+  <div class="rift-card-bottom">
+    <span>{p.fit}</span>
+    <div class="color-dots" role="group" aria-label={`رنگ‌های ${p.name}`}>
+      {p.colors.map((c: any) => (
+        <a href={url(`demo/rift/products/${p.id}/?color=${c.id}`)} style={`--swatch:${c.hex}`} aria-label={`${p.name}، رنگ ${c.label}`} title={c.label}></a>
+      ))}
+    </div>
+  </div>
+  <button class="rift-quick-trigger" type="button" data-quick-view={p.id} aria-label={`انتخاب سریع ${p.name}`} disabled><span>انتخاب سریع</span><Icon name="plus" size={18} /></button>
+</article>

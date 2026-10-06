@@ -1,0 +1,14 @@
+{
+  "checks": 13,
+  "status": "passed",
+  "coverage": [
+    "dark campaign action contrast",
+    "dark campaign strip contrast",
+    "first available size focus",
+    "cart remove focus",
+    "system preference preserves user motion choice",
+    "restored page preferences, visible content and real back navigation",
+    "restored cart count and total"
+  ],
+  "date": "2026-10-01T17:41:10.783Z"
+}

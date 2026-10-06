@@ -1,0 +1,788 @@
+{
+  "date": "2026-10-03T11:13:04.932Z",
+  "scope": "31 demo routes",
+  "skill": "ui-ux-pro-max",
+  "status": "passed",
+  "checks": {
+    "typecheck": "0 errors, 0 warnings, 0 hints",
+    "build": "42 static pages",
+    "regression": {
+      "version": 10,
+      "date": "2026-10-03T11:08:54.405Z",
+      "checks": 1573,
+      "routes": 41,
+      "reflow": [],
+      "errors": [],
+      "badResponses": [],
+      "models": {
+        "pavilion": "f89108628a5f805b5e1197301a2dd0ad62e61a39547c40875e015d09f3d30ad1",
+        "coast": "04bc7a018938f18ad7a217d6432bf63cd6df4b9fcc1c57e8bcadf01f6f8d6016",
+        "atrium": "320556638173d6f09fb210d02767d0ccf3487662c53a13c6a27fdbb488f30ac6"
+      },
+      "status": "passed"
+    },
+    "gallery": "64 checks passed",
+    "additionalInteractions": [
+      "Catalog restores category from URL",
+      "Combined deep-link filters show matching product",
+      "Changing filters updates URL and removes defaults",
+      "Reload preserves active filters",
+      "Product swatch deep link selects the requested known color",
+      "Advanced configuration starts collapsed on mobile",
+      "Mobile advanced disclosure retains working controls",
+      "Model name remains CITY in summary"
+    ],
+    "mobile": [
+      {
+        "route": "/demo/atelier/",
+        "width": 320,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/rift/",
+        "width": 320,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/velo/",
+        "width": 320,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/neva/",
+        "width": 320,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/atelier/inquiry/",
+        "width": 320,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/rift/products/shell/",
+        "width": 320,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/rift/catalog/",
+        "width": 320,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/neva/book/?doctor=general",
+        "width": 320,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/atelier/",
+        "width": 768,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/rift/",
+        "width": 768,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/velo/",
+        "width": 768,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/neva/",
+        "width": 768,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/atelier/inquiry/",
+        "width": 768,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/rift/products/shell/",
+        "width": 768,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/rift/catalog/",
+        "width": 768,
+        "overflow": 0
+      },
+      {
+        "route": "/demo/neva/book/?doctor=general",
+        "width": 768,
+        "overflow": 0
+      }
+    ],
+    "accessibility": {
+      "tool": "axe-core",
+      "runs": 62,
+      "tags": [
+        "wcag2a",
+        "wcag2aa",
+        "wcag21a",
+        "wcag21aa",
+        "best-practice"
+      ],
+      "violations": 0,
+      "results": [
+        {
+          "route": "/demo/velo/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/velo/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/velo/design/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/velo/design/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/velo/compare/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/velo/compare/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/size-guide/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/size-guide/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/products/tee/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/tee/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/shell/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/shell/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/hoodie/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/hoodie/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/cargo/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/products/cargo/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  ".product-zoom > span"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/collections/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/collections/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/collections/layers/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "div[data-entry=\"\"] > .eyebrow"
+                ],
+                [
+                  "h1"
+                ],
+                [
+                  "div[data-entry=\"\"] > p"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/collections/layers/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "div[data-entry=\"\"] > .eyebrow"
+                ],
+                [
+                  "h1"
+                ],
+                [
+                  "div[data-entry=\"\"] > p"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/collections/essentials/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "div[data-entry=\"\"] > .eyebrow"
+                ],
+                [
+                  "h1"
+                ],
+                [
+                  "div[data-entry=\"\"] > p"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/collections/essentials/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "div[data-entry=\"\"] > .eyebrow"
+                ],
+                [
+                  "h1"
+                ],
+                [
+                  "div[data-entry=\"\"] > p"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/rift/checkout/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/checkout/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/catalog/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/rift/catalog/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/services/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/services/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/guide/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/guide/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/neva/doctors/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/doctors/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/doctors/skin/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/doctors/skin/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/doctors/general/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/doctors/general/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/doctors/dental/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/doctors/dental/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/book/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/book/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/appointments/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/neva/appointments/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/studio/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/studio/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/services/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/services/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/projects/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/projects/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/projects/pavilion/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"90\"]"
+                ],
+                [
+                  "text[x=\"370\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/pavilion/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"90\"]"
+                ],
+                [
+                  "text[x=\"370\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/coast/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"90\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/coast/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"90\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/atrium/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"370\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/projects/atrium/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "targets": [
+                [
+                  "text[x=\"300\"]"
+                ],
+                [
+                  "text[x=\"370\"]"
+                ],
+                [
+                  "button[data-zoom=\"-1\"]"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "route": "/demo/atelier/inquiry/",
+          "theme": "light",
+          "violations": [],
+          "incomplete": []
+        },
+        {
+          "route": "/demo/atelier/inquiry/",
+          "theme": "dark",
+          "violations": [],
+          "incomplete": []
+        }
+      ]
+    }
+  },
+  "manualReview": "Desktop and mobile screenshots, both themes, campaign footer containment, keyboard and actual 3D interactions. Incomplete contrast results concern canvas overlays or symbolic zoom controls; automated checks do not certify assistive-technology conformance.",
+  "previewImages": "All four desktop and mobile WebP previews regenerated."
+}

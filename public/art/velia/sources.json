@@ -1,0 +1,118 @@
+{
+  "generator": "Built-in Imagegen",
+  "brand": "ALBA — original fictional concept",
+  "edit": "Only replace VELIA lettering with ALBA; preserve original product design and scene.",
+  "originalProvenance": "output/alba/originals/sources.json",
+  "sources": {
+    "hero": "output/alba/generated/hero.png",
+    "cleanser": "output/alba/generated/cleanser.png",
+    "foam": "output/alba/generated/foam.png",
+    "serum": "output/alba/generated/serum.png",
+    "cream": "output/alba/generated/cream.png",
+    "tube": "output/alba/generated/tube.png",
+    "lotion": "output/alba/generated/lotion.png",
+    "editorial": "output/alba/generated/editorial.png"
+  },
+  "originalSources": {
+    "hero": "exec-33af3f16-03de-4f5e-a276-4aa80e8fd040.png",
+    "cleanser": "exec-43fb92ae-b434-4109-9eed-f49a30dc0742.png",
+    "foam": "exec-5a07a1da-10c5-492b-b077-8768f26a3dd0.png",
+    "serum": "exec-aa6c1db0-5297-4498-8417-1730df15c8e7.png",
+    "cream": "exec-7178877d-488c-44a0-905d-dfa9a66c2535.png",
+    "tube": "exec-89930dcf-70e9-4289-a0bd-5ee607d85f38.png",
+    "lotion": "exec-ae928579-b663-424a-8019-844e20e9887d.png",
+    "editorial": "exec-b43a9200-331c-4342-a95b-521a3a967687.png"
+  },
+  "promptSet": {
+    "hero": "Use case: text-localization. Edit target: the attached existing product photograph. Change ONLY the printed brand name \"VELIA\" to \"ALBA\" (A-L-B-A), matching the existing typeface, spacing, ink color and label perspective. Keep all other printed words, product names, volume, label artwork, bottle/jar/tube shape, position, crop, lighting, colors and details unchanged. No new objects, redesign or watermarks. Keep the original framing and aspect ratio. Preserve genuine transparent alpha background, clean object edges, no white or black background. Preserve all olive leaves and white blossoms exactly.",
+    "cleanser": "Use case: text-localization. Edit target: the attached existing product photograph. Change ONLY the printed brand name \"VELIA\" to \"ALBA\" (A-L-B-A), matching the existing typeface, spacing, ink color and label perspective. Keep all other printed words, product names, volume, label artwork, bottle/jar/tube shape, position, crop, lighting, colors and details unchanged. No new objects, redesign or watermarks. Keep the original framing and aspect ratio. Preserve genuine transparent alpha background, clean object edges, no white or black background.",
+    "foam": "Use case: text-localization. Edit target: the attached existing product photograph. Change ONLY the printed brand name \"VELIA\" to \"ALBA\" (A-L-B-A), matching the existing typeface, spacing, ink color and label perspective. Keep all other printed words, product names, volume, label artwork, bottle/jar/tube shape, position, crop, lighting, colors and details unchanged. No new objects, redesign or watermarks. Keep the original framing and aspect ratio. Preserve genuine transparent alpha background, clean object edges, no white or black background.",
+    "serum": "Use case: text-localization. Edit target: the attached existing product photograph. Change ONLY the printed brand name \"VELIA\" to \"ALBA\" (A-L-B-A), matching the existing typeface, spacing, ink color and label perspective. Keep all other printed words, product names, volume, label artwork, bottle/jar/tube shape, position, crop, lighting, colors and details unchanged. No new objects, redesign or watermarks. Keep the original framing and aspect ratio. Preserve genuine transparent alpha background, clean object edges, no white or black background.",
+    "cream": "Use case: text-localization. Edit target: the attached existing product photograph. Change ONLY the printed brand name \"VELIA\" to \"ALBA\" (A-L-B-A), matching the existing typeface, spacing, ink color and label perspective. Keep all other printed words, product names, volume, label artwork, bottle/jar/tube shape, position, crop, lighting, colors and details unchanged. No new objects, redesign or watermarks. Keep the original framing and aspect ratio. Preserve genuine transparent alpha background, clean object edges, no white or black background.",
+    "tube": "Use case: text-localization. Edit target: the attached existing product photograph. Change ONLY the printed brand name \"VELIA\" to \"ALBA\" (A-L-B-A), matching the existing typeface, spacing, ink color and label perspective. Keep all other printed words, product names, volume, label artwork, bottle/jar/tube shape, position, crop, lighting, colors and details unchanged. No new objects, redesign or watermarks. Keep the original framing and aspect ratio. Preserve genuine transparent alpha background, clean object edges, no white or black background.",
+    "lotion": "Use case: text-localization. Edit target: the attached existing product photograph. Change ONLY the printed brand name \"VELIA\" to \"ALBA\" (A-L-B-A), matching the existing typeface, spacing, ink color and label perspective. Keep all other printed words, product names, volume, label artwork, bottle/jar/tube shape, position, crop, lighting, colors and details unchanged. No new objects, redesign or watermarks. Keep the original framing and aspect ratio. Preserve genuine transparent alpha background, clean object edges, no white or black background.",
+    "editorial": "Use case: text-localization. Edit target: the attached existing product photograph. Change ONLY the printed brand name \"VELIA\" to \"ALBA\" (A-L-B-A), matching the existing typeface, spacing, ink color and label perspective. Keep all other printed words, product names, volume, label artwork, bottle/jar/tube shape, position, crop, lighting, colors and details unchanged. No new objects, redesign or watermarks. Keep the original framing and aspect ratio. Replace the brand on BOTH the jar and the bottle, and its reflected text. Preserve the pale stone bathroom scene, linen, olives and natural shadows. Opaque original background."
+  },
+  "assets": [
+    {
+      "name": "hero",
+      "path": "public/art/velia/hero.webp",
+      "original": "output/alba/originals/hero.webp",
+      "generated": "output/alba/generated/hero.png",
+      "width": 1200,
+      "height": 1200,
+      "hasAlpha": true,
+      "bytes": 257390
+    },
+    {
+      "name": "cleanser",
+      "path": "public/art/velia/cleanser.webp",
+      "original": "output/alba/originals/cleanser.webp",
+      "generated": "output/alba/generated/cleanser.png",
+      "width": 800,
+      "height": 800,
+      "hasAlpha": true,
+      "bytes": 38280
+    },
+    {
+      "name": "foam",
+      "path": "public/art/velia/foam.webp",
+      "original": "output/alba/originals/foam.webp",
+      "generated": "output/alba/generated/foam.png",
+      "width": 800,
+      "height": 800,
+      "hasAlpha": true,
+      "bytes": 29634
+    },
+    {
+      "name": "serum",
+      "path": "public/art/velia/serum.webp",
+      "original": "output/alba/originals/serum.webp",
+      "generated": "output/alba/generated/serum.png",
+      "width": 800,
+      "height": 800,
+      "hasAlpha": true,
+      "bytes": 44306
+    },
+    {
+      "name": "cream",
+      "path": "public/art/velia/cream.webp",
+      "original": "output/alba/originals/cream.webp",
+      "generated": "output/alba/generated/cream.png",
+      "width": 800,
+      "height": 800,
+      "hasAlpha": true,
+      "bytes": 49352
+    },
+    {
+      "name": "tube",
+      "path": "public/art/velia/tube.webp",
+      "original": "output/alba/originals/tube.webp",
+      "generated": "output/alba/generated/tube.png",
+      "width": 800,
+      "height": 800,
+      "hasAlpha": true,
+      "bytes": 36840
+    },
+    {
+      "name": "lotion",
+      "path": "public/art/velia/lotion.webp",
+      "original": "output/alba/originals/lotion.webp",
+      "generated": "output/alba/generated/lotion.png",
+      "width": 800,
+      "height": 800,
+      "hasAlpha": true,
+      "bytes": 30094
+    },
+    {
+      "name": "editorial",
+      "path": "public/art/velia/editorial.webp",
+      "original": "output/alba/originals/editorial.webp",
+      "generated": "output/alba/generated/editorial.png",
+      "width": 1536,
+      "height": 1024,
+      "hasAlpha": false,
+      "bytes": 156648
+    }
+  ]
+}

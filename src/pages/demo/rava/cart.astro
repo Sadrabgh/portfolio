@@ -1,0 +1,33 @@
+---
+import Heepzy from "../../../layouts/Heepzy.astro";
+import Summary from "../../../components/heepzy/Summary.astro";
+import { shopUrl } from "../../../data/heepzy";
+---
+
+<Heepzy title="سبد خرید">
+  <div class="hp-container">
+    <header class="hp-page-heading">
+      <span class="hp-eyebrow" dir="ltr">
+        YOUR NEXT STEP
+      </span>
+      <h1>انتخاب‌های تو.</h1>
+      <p>رنگ، سایز و تعداد را بررسی کن؛ ادامهٔ مسیر یک سفارش نمایشی است.</p>
+    </header>
+    <div data-cart-page>
+      <div class="hp-cart-layout" data-cart-filled hidden>
+        <div>
+          <div data-cart-rows></div>
+          <a class="hp-text-button" href={shopUrl("catalog/")}>
+            ادامهٔ انتخاب کفش‌ها ←
+          </a>
+        </div>
+        <Summary />
+      </div>
+      <p class="hp-empty" data-cart-empty>
+        سبدت هنوز خالی است.
+        <br />
+        <a href={shopUrl("catalog/")}>دیدن همهٔ کفش‌ها ←</a>
+      </p>
+    </div>
+  </div>
+</Heepzy>

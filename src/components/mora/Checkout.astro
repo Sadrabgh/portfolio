@@ -1,0 +1,157 @@
+---
+import { link } from "../../data/mora";
+import Icon from "./Icon.astro";
+---
+
+<section class="mr-wrap mr-intro">
+  <span class="mr-eyebrow">ALMOST HOME.</span>
+  <h1>انتخابت را کامل کن.</h1>
+  <p>سه قدم تا رسید سفارش نمونه. پرداخت و ارسال واقعی انجام نمی‌شود.</p>
+</section>
+<div class="mr-wrap mr-checkout" data-checkout>
+  <div class="mr-checkout-form">
+    <ol class="mr-steps">
+      <li aria-current="step">۱. اطلاعات</li>
+      <li>۲. تحویل</li>
+      <li>۳. بازبینی</li>
+    </ol>
+    <form id="mr-checkout-form" novalidate>
+      <section data-step="0" aria-labelledby="mr-step0">
+        <h2 id="mr-step0" tabindex="-1">
+          اطلاعات دریافت‌کننده
+        </h2>
+        <p>
+          برای تجربهٔ خرید می‌توانی از اطلاعات نمونه استفاده کنی. این اطلاعات
+          ذخیره نمی‌شوند.
+        </p>
+        <div class="mr-form-grid">
+          <label>
+            نام و نام خانوادگی
+            <input
+              name="fullName"
+              autocomplete="name"
+              required
+              minlength="3"
+              placeholder="مثلاً سارا احمدی"
+            />
+          </label>
+          <label>
+            شمارهٔ موبایل
+            <input
+              name="phone"
+              autocomplete="tel"
+              inputmode="tel"
+              required
+              placeholder="۰۹۱۲۳۴۵۶۷۸۹"
+            />
+          </label>
+          <label>
+            شهر
+            <input
+              name="city"
+              autocomplete="address-level2"
+              required
+              minlength="2"
+              placeholder="تهران"
+            />
+          </label>
+          <label>
+            کد پستی
+            <input
+              name="postal"
+              autocomplete="postal-code"
+              inputmode="numeric"
+              required
+              placeholder="۱۰ رقم"
+            />
+          </label>
+          <label class="mr-wide">
+            نشانی
+            <textarea
+              name="address"
+              autocomplete="street-address"
+              required
+              minlength="10"
+              rows="3"
+              placeholder="خیابان، کوچه، پلاک و واحد"
+            ></textarea>
+          </label>
+        </div>
+        <p class="mr-form-error" data-form-error role="alert" hidden></p>
+        <button class="mr-btn" type="button" data-next>
+          انتخاب روش تحویل <Icon />
+        </button>
+      </section>
+      <section data-step="1" hidden aria-labelledby="mr-step1">
+        <h2 id="mr-step1" tabindex="-1">
+          روش تحویل
+        </h2>
+        <p>زمان‌ها و هزینه‌ها برای شبیه‌سازی تجربهٔ خرید هستند.</p>
+        <label class="mr-radio-card">
+          <input type="radio" name="delivery" value="standard" checked />
+          <span>
+            <strong>ارسال معمول</strong>
+            <small>۵ تا ۷ روز کاری فرضی / ۵۰۰ هزار تومان</small>
+            <small>خرید خالص بالای ۷۰ میلیون: رایگان</small>
+          </span>
+        </label>
+        <label class="mr-radio-card">
+          <input type="radio" name="delivery" value="pickup" />
+          <span>
+            <strong>دریافت حضوری نمونه</strong>
+            <small>بدون هزینه / این گزینه تحویل واقعی ندارد</small>
+          </span>
+        </label>
+        <div class="mr-form-actions">
+          <button class="mr-btn" type="button" data-next>
+            بازبینی سفارش <Icon />
+          </button>
+          <button class="mr-text-button" type="button" data-back>
+            مرحلهٔ قبل
+          </button>
+        </div>
+      </section>
+      <section data-step="2" hidden aria-labelledby="mr-step2">
+        <h2 id="mr-step2" tabindex="-1">
+          یک نگاه آخر.
+        </h2>
+        <div class="mr-review-address" data-review-address></div>
+        <button type="button" class="mr-text-button" data-edit-address>
+          ویرایش اطلاعات
+        </button>
+        <p class="mr-notice">
+          در این نمونه‌کار، اطلاعات بانکی دریافت نمی‌شود. این سفارش فقط یک رسید
+          آزمایشی می‌سازد.
+        </p>
+        <label class="mr-checkbox">
+          <input name="consent" type="checkbox" required /> می‌دانم این سفارش
+          آزمایشی است.
+        </label>
+        <p class="mr-form-error" data-final-error role="alert" hidden></p>
+        <div class="mr-form-actions">
+          <button class="mr-btn" type="submit">
+            ثبت سفارش آزمایشی <Icon />
+          </button>
+          <button class="mr-text-button" type="button" data-back>
+            مرحلهٔ قبل
+          </button>
+        </div>
+      </section>
+    </form>
+    <div data-inline-receipt hidden></div>
+  </div>
+  <aside class="mr-summary" data-checkout-summary>
+    <h2>خلاصهٔ انتخاب</h2>
+    <p>سبد در حال بارگذاری است.</p>
+  </aside>
+</div>
+<div class="mr-wrap mr-empty" data-checkout-empty hidden>
+  <h2>اول، یک انتخاب.</h2>
+  <p>سبد خالی است؛ قبل از ثبت، محصولی به آن اضافه کن.</p>
+  <a class="mr-btn" href={link("shop/")}>
+    دیدن محصولات <Icon />
+  </a>
+</div>
+<noscript>
+  <p class="mr-wrap mr-notice">برای سفارش آزمایشی، جاوااسکریپت لازم است.</p>
+</noscript>

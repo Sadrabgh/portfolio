@@ -1,0 +1,789 @@
+body.brand.neva {
+  --bg: #f3f8f7;
+  --paper: #fff;
+  --ink: #143b43;
+  --muted: #506e73;
+  --line: #c6dbd9;
+  --accent: #066b69;
+  --on-accent: #fff;
+}
+html[data-demo-theme="dark"] body.brand.neva {
+  --bg: #102b32;
+  --paper: #193941;
+  --ink: #eef9f6;
+  --muted: #b2cfcd;
+  --line: #3c626a;
+  --accent: #79dad0;
+  --on-accent: #113a40;
+}
+.neva .button,
+.neva .d-button {
+  border-radius: 9px;
+}
+.neva .brand-header {
+  min-height: 94px;
+}
+.neva-symbol {
+  font-size: 2.75rem;
+  color: var(--accent);
+  line-height: 1;
+}
+.neva .brand-mark small {
+  max-width: 90px;
+}
+.neva-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 80px;
+  padding-block: 65px 30px;
+  align-items: center;
+}
+.neva-welcome h1 {
+  font-size: clamp(2.8rem, 4.7vw, 4.8rem);
+  line-height: 1.45;
+}
+.neva-welcome h1 span {
+  color: var(--accent);
+}
+.neva-welcome > p {
+  max-width: 480px;
+}
+.neva-help {
+  margin-top: 35px;
+  padding-inline-start: 20px;
+  border-inline-start: 2px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.neva-finder {
+  padding: 35px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 20px 80px #174d4010;
+}
+.neva-finder h2 {
+  font-size: 1.625rem;
+}
+.neva-finder .section-head {
+  margin-bottom: 24px;
+}
+.neva-service-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.neva-service-options > a {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  transition:
+    background 0.3s,
+    transform 0.3s;
+}
+.neva-service-options > a:hover {
+  text-decoration: none;
+  background: var(--bg);
+  transform: translateX(-4px);
+}
+.service-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--accent);
+  font-size: 1.75rem;
+  border-radius: 12px;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+}
+.neva-service-options div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+.neva-service-options div > span {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.neva-finder > p {
+  font-size: 0.875rem;
+  margin-top: 22px;
+}
+.neva-finder > .text-link {
+  font-size: 0.875rem;
+}
+.neva-doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.neva-doctor {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  overflow: hidden;
+}
+.neva-doctor-photo {
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+}
+.neva-doctor-photo img {
+  height: 100%;
+  width: 100%;
+  object-position: center 27%;
+}
+.neva-doctor-photo > span {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-size: 0.75rem;
+  background: #f7faf8df;
+  color: #27434a;
+  padding: 3px 10px;
+  border-radius: 30px;
+}
+.neva-doctor-body {
+  padding: 26px;
+}
+.neva-doctor-body h3 {
+  font-size: 1.5625rem;
+}
+.neva-doctor-body .eyebrow {
+  margin-bottom: 10px;
+}
+.neva-doctor-body > p {
+  color: var(--muted);
+  font-size: 0.875rem;
+  min-height: 52px;
+}
+.neva-doctor-body dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 0.875rem;
+  margin-block: 22px;
+}
+.neva-doctor dt {
+  color: var(--muted);
+}
+.neva-doctor dd {
+  margin: 5px 0;
+}
+.nearest-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 18px;
+}
+.nearest-box > span {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.nearest-box > strong {
+  font-size: 1rem;
+  font-weight: 550;
+}
+.nearest-box .button {
+  align-self: start;
+  margin-top: 10px;
+}
+.neva-doctor .actions {
+  gap: 16px;
+  justify-content: space-between;
+}
+.neva-doctor .button {
+  padding: 10px 17px;
+  font-size: 0.875rem;
+}
+.neva-doctor .text-link {
+  font-size: 0.875rem;
+}
+.neva-place {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.neva-place img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+}
+.neva-place > div {
+  padding: 45px;
+  align-self: center;
+}
+.neva-how {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+.neva-how article {
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+.neva-how article > b {
+  font-size: 0.875rem;
+  direction: ltr;
+  color: var(--accent);
+}
+.neva-how article > h3 {
+  margin-top: 15px;
+}
+.neva-how p {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.neva-profile {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 70px;
+  align-items: center;
+}
+.neva-profile > img {
+  height: 560px;
+  width: 100%;
+  border-radius: 20px;
+  object-position: center 25%;
+}
+.profile-facts {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  padding-block: 20px;
+}
+.profile-facts dt {
+  color: var(--muted);
+}
+.profile-facts dd {
+  margin: 8px 0;
+}
+.neva-info-panel {
+  background: var(--paper);
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.neva-services {
+  margin-top: 50px;
+}
+.neva-services article {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 35px;
+  padding: 35px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+.neva-services p {
+  max-width: 600px;
+}
+.neva details {
+  border-bottom: 1px solid var(--line);
+  padding-block: 18px;
+}
+.neva summary {
+  font-weight: 550;
+  cursor: pointer;
+}
+.neva details p {
+  padding-top: 14px;
+  color: var(--muted);
+}
+.guide-list li {
+  padding-block: 15px;
+}
+.guide-list p {
+  color: var(--muted);
+}
+.booking-heading {
+  padding-block: 35px 10px;
+}
+.booking-heading h1 {
+  font-size: 2.25rem;
+}
+.booking-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 28px;
+  padding-block: 20px 80px;
+}
+.booking-main {
+  border-radius: 16px;
+  padding: 30px;
+}
+.booking-steps {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0 0 24px;
+  border-bottom: 1px solid var(--line);
+  margin: 0 0 30px;
+}
+.booking-steps li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.booking-steps b {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.booking-steps [aria-current] {
+  color: var(--accent);
+  font-weight: 700;
+}
+.booking-steps [aria-current] b {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.booking-main h2 {
+  font-size: 1.625rem;
+}
+.booking-choices {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-block: 25px;
+}
+.booking-doctor {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  text-align: right;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 16px;
+  border-radius: 10px;
+}
+.booking-doctor[aria-pressed="true"] {
+  border: 2px solid var(--accent);
+  background: var(--paper);
+}
+.booking-doctor strong {
+  flex: 1;
+}
+.booking-doctor strong span,
+.booking-doctor > span {
+  font-size: 0.875rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+.booking-doctor-photo {
+  width: 70px;
+  height: 76px;
+  border-radius: 8px;
+  object-position: center 20%;
+}
+.booking-summary {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+}
+.booking-summary details {
+  padding: 0;
+  border: 0;
+}
+.booking-summary summary {
+  font-size: 1.125rem;
+}
+.booking-summary dl {
+  font-size: 0.875rem;
+}
+.booking-summary dl > div {
+  border-bottom: 1px solid var(--line);
+  padding-block: 15px;
+}
+.booking-summary dt {
+  color: var(--muted);
+}
+.booking-summary dd {
+  margin: 8px 0;
+}
+.booking-summary .d-note {
+  font-size: 0.875rem;
+}
+.booking-calendar-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 25px 0 18px;
+}
+.booking-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+}
+.booking-day {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  padding: 12px 5px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  min-height: 100px;
+}
+.booking-day strong {
+  font-size: 1.375rem;
+}
+.booking-day[aria-pressed="true"],
+.booking-slot[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--accent);
+}
+.booking-day small {
+  font-size: 0.75rem;
+}
+.booking-slots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.booking-slot {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 10px;
+  border-radius: 8px;
+  min-height: 46px;
+}
+.booking-subtitle {
+  margin-top: 30px;
+  font-size: 1.125rem;
+}
+.neva .d-form input {
+  border-radius: 8px;
+}
+.neva .d-summary {
+  border-radius: 10px;
+}
+.neva .d-summary dl {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  font-size: 0.875rem;
+}
+.neva .d-summary dd {
+  margin: 0;
+}
+.booking-result {
+  padding-block: 35px;
+}
+.appointment-list {
+  margin-top: 30px;
+}
+.appointment-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.appointment-card header {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.appointment-card h2 {
+  font-size: 1.4375rem;
+}
+.appointment-card dl {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+}
+.appointment-card dt {
+  color: var(--muted);
+}
+.appointment-card dd {
+  margin: 4px 0;
+}
+.appointment-badge,
+.appointment-state {
+  font-size: 0.875rem;
+  color: var(--accent);
+}
+@media (max-width: 1100px) {
+  .neva-hero {
+    gap: 40px;
+  }
+  .neva-doctor-body {
+    padding: 20px;
+  }
+  .neva-place > div {
+    padding: 30px;
+  }
+  .booking-layout {
+    grid-template-columns: minmax(0, 1fr) 270px;
+  }
+  .booking-days {
+    gap: 5px;
+  }
+  .neva-profile {
+    gap: 40px;
+  }
+}
+@media (max-width: 760px) {
+  .neva-hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-block: 35px 15px;
+  }
+  .neva-welcome h1 {
+    font-size: 2.7rem;
+  }
+  .neva-welcome > p {
+    margin-bottom: 12px;
+  }
+  .neva-help {
+    margin-top: 20px;
+  }
+  .neva-finder {
+    padding: 24px 20px;
+    border-radius: 15px;
+  }
+  .neva-finder h2 {
+    font-size: 1.5rem;
+  }
+  .neva-service-options > a {
+    padding: 14px;
+    gap: 12px;
+  }
+  .neva-service-options div > span {
+    font-size: 0.875rem;
+  }
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+  }
+  .neva-doctor-grid {
+    grid-template-columns: 1fr;
+  }
+  .neva-doctor {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    align-items: start;
+  }
+  .neva-doctor-photo {
+    height: 155px;
+    border-radius: 0 0 0 12px;
+  }
+  .neva-doctor-photo > span {
+    display: none;
+  }
+  .neva-doctor-body {
+    padding: 20px 16px;
+  }
+  .neva-doctor-body h3 {
+    font-size: 1.375rem;
+  }
+  .neva-doctor-body > p {
+    min-height: 0;
+  }
+  .neva-doctor-body dl {
+    gap: 14px;
+    margin-block: 15px;
+  }
+  .nearest-box {
+    padding: 14px;
+  }
+  .neva-doctor .actions {
+    margin-top: 16px;
+    gap: 10px;
+  }
+  .neva-place {
+    grid-template-columns: 1fr;
+    border-radius: 14px;
+  }
+  .neva-place img {
+    height: 300px;
+    min-height: 0;
+  }
+  .neva-place > div {
+    padding: 28px;
+  }
+  .neva-how {
+    grid-template-columns: 1fr;
+  }
+  .neva-how article {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+    padding-top: 18px;
+  }
+  .neva-how article > h3 {
+    margin: 0;
+  }
+  .neva-how article > p {
+    grid-column: 2;
+  }
+  .neva-profile {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .neva-profile > img {
+    height: 400px;
+    max-width: 420px;
+  }
+  .profile-facts {
+    gap: 22px;
+  }
+  .neva-services article {
+    grid-template-columns: 50px 1fr;
+    gap: 18px;
+  }
+  .neva-services article > .button {
+    grid-column: 2;
+    justify-self: start;
+  }
+  .booking-heading {
+    padding-block: 25px 0;
+  }
+  .booking-heading h1 {
+    font-size: 1.875rem;
+  }
+  .booking-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 45px;
+  }
+  .booking-summary {
+    order: -1;
+    position: static;
+    padding: 18px;
+  }
+  .booking-summary summary {
+    font-size: 1rem;
+  }
+  .booking-main {
+    padding: 22px 16px;
+    border-radius: 12px;
+  }
+  .booking-steps {
+    gap: 12px;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+  .booking-steps li {
+    gap: 6px;
+    flex-direction: column;
+    font-size: 0.875rem;
+  }
+  .booking-steps b {
+    width: 28px;
+    height: 28px;
+  }
+  .booking-main h2 {
+    font-size: 1.5rem;
+  }
+  .booking-doctor {
+    padding: 12px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .booking-doctor-photo {
+    width: 52px;
+    height: 65px;
+  }
+  .booking-doctor strong {
+    font-size: 1rem;
+  }
+  .booking-doctor > span {
+    margin-inline-start: 64px;
+    margin-top: -8px;
+  }
+  .booking-days {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .booking-day {
+    padding: 10px 3px;
+    min-height: 95px;
+  }
+  .booking-slots {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .booking-calendar-head .demo-filters {
+    gap: 8px;
+  }
+  .neva .d-summary {
+    padding: 18px;
+  }
+  .neva .d-summary dl {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .neva .d-summary dd {
+    margin-bottom: 10px;
+  }
+  .appointment-card {
+    padding: 20px;
+  }
+  .neva .brand-mark small {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .neva-welcome h1 {
+    font-size: 2.2rem;
+    line-height: 1.45;
+  }
+  .neva-welcome h1 br {
+    display: none;
+  }
+  .neva-help {
+    display: none;
+  }
+  .neva-hero {
+    gap: 25px;
+  }
+}
+.booking-day > * {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.booking-steps {
+  flex-wrap: wrap;
+}
+.booking-steps li {
+  min-width: 0;
+  flex: 1 1 60px;
+}
+.booking-calendar-head > strong {
+  max-width: 100%;
+}

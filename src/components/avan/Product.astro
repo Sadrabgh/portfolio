@@ -1,0 +1,195 @@
+---
+import type { AudioProduct } from "../../data/avan";
+import { products, categories, formatMoney } from "../../data/avan";
+import { avanUrl } from "../../lib/avan/paths";
+import Photo from "./Photo.astro";
+import Card from "./Card.astro";
+import Spec from "./Spec.astro";
+import Icon from "./Icon.astro";
+import { url } from "../../config";
+interface Props {
+  product: AudioProduct;
+}
+const { product: p } = Astro.props,
+  v = p.variants[0];
+---
+
+<div class="breadcrumb">
+  <a href={avanUrl("shop/")}>محصولات</a>
+  <span>/</span>
+  <a href={avanUrl(`shop/?category=${p.category}`)}>
+    {categories.find((c) => c.id === p.category)?.name}
+  </a>
+  <span>/</span>
+  <bdi>{p.code}</bdi>
+</div>
+<div class="product-detail" data-product={p.id}>
+  <div class="gallery">
+    <div class="main-image">
+      <Photo
+        source={v.images[0]}
+        alt={`${p.title} ${p.code}، ${v.name}`}
+        class="product-art"
+        eager
+        sizes="(max-width:767px) 80vw, 42vw"
+      />
+      <a
+        class="gallery-zoom"
+        href={url(v.images[0])}
+        aria-label={`دیدن تصویر بزرگ ${p.code}`}
+      >
+        <Icon name="search" />
+        بررسی جزئیات
+      </a>
+    </div>
+    <div class="gallery-controls">
+      <button type="button" data-gallery-prev disabled aria-label="نمای قبلی">
+        ←
+      </button>
+      <p data-gallery-status role="status" />
+      <button type="button" data-gallery-next disabled aria-label="نمای بعدی">
+        →
+      </button>
+    </div>
+    <div class="thumbnails" aria-label="نماهای هر دو رنگ">
+      {p.variants.flatMap((variant) =>
+        variant.images.map((source, i) => (
+          <a
+            href={url(source)}
+            class="thumbnail"
+            data-gallery-sku={variant.id}
+            data-gallery-index={i}
+            aria-label={`${variant.name}، نمای ${i + 1}`}
+          >
+            <Photo
+              source={source}
+              alt={`${variant.name}، نمای ${i + 1}`}
+              class="product-art"
+              sizes="80px"
+            />
+          </a>
+        )),
+      )}
+    </div>
+  </div>
+  <div class="buy-panel">
+    <small class="eyebrow">{p.title}</small>
+    <h1 dir="ltr">{p.code}</h1>
+    <p>{p.description}</p>
+    <div class="price" data-product-price>
+      {formatMoney(v.price)}
+    </div>
+    <div
+      class:list={["availability", { unavailable: v.stock === 0 }]}
+      data-product-stock
+    >
+      {v.stock ? (
+        <>
+          <Icon name="check" />
+          موجود · {new Intl.NumberFormat("fa").format(v.stock)} عدد در رنگ{" "}
+          {v.name}
+        </>
+      ) : (
+        "این رنگ ناموجود است"
+      )}
+    </div>
+    <fieldset class="color-options">
+      <legend>
+        رنگ: <span data-color-label>{v.name}</span>
+      </legend>
+      {p.variants.map((variant, i) => (
+        <label class:list={["color", { selected: i === 0 }]}>
+          <input
+            type="radio"
+            name="color"
+            value={variant.id}
+            checked={i === 0}
+            disabled
+          />
+          <b style={`background:${variant.hex}`} />
+          {variant.name}
+        </label>
+      ))}
+    </fieldset>
+    <div class="buy-row">
+      <label class="quantity" for="quantity">
+        تعداد{" "}
+        <select id="quantity" disabled>
+          <option>۱</option>
+        </select>
+      </label>
+      <button class="btn" type="button" data-add-to-cart disabled>
+        افزودن به سبد
+        <Icon name="arrow" />
+      </button>
+    </div>
+    <div class="buy-secondary">
+      {p.compareGroup && (
+        <button type="button" data-compare-model={p.id} disabled>
+          <Icon name="compare" />
+          مقایسهٔ مدل
+        </button>
+      )}
+      <button type="button" data-save-model={p.id} disabled>
+        <Icon name="heart" />
+        ذخیرهٔ مدل
+      </button>
+    </div>
+    <div class="buy-note">
+      ارسال عادی ۱۰۰٬۰۰۰ تومان؛ از ۸ میلیون تومان پس از تخفیف رایگان.
+    </div>
+    <small>مشخصات، قیمت‌ها و موجودی این فروشگاه، دادهٔ مفهومی هستند.</small>
+  </div>
+</div>
+<section class="section variant-summary">
+  <h2>قیمت و موجودی هر رنگ</h2>
+  <dl>
+    {p.variants.map((variant) => (
+      <div>
+        <dt>{variant.name}</dt>
+        <dd>
+          {formatMoney(variant.price)} ·{" "}
+          {variant.stock
+            ? `${new Intl.NumberFormat("fa").format(variant.stock)} عدد موجود`
+            : "ناموجود"}
+        </dd>
+      </div>
+    ))}
+  </dl>
+</section>
+<section class="section" id="specifications">
+  <div class="section-heading">
+    <h2>روشن، در همهٔ جزئیات.</h2>
+  </div>
+  <dl class="spec-grid">
+    {p.specs.map((s) => (
+      <div>
+        <dt>{s.label}</dt>
+        <dd>
+          <Spec spec={s} />
+        </dd>
+      </div>
+    ))}
+  </dl>
+</section>
+<section class="section contents">
+  <h2>داخل جعبه</h2>
+  <ul>
+    {p.contents.map((c) => (
+      <li>{c}</li>
+    ))}
+  </ul>
+</section>
+{p.compatibleAccessories.length > 0 && (
+  <section class="section">
+    <div class="section-heading">
+      <h2>انتخاب را کامل کن.</h2>
+      <p>لوازم جانبی سازگار با همین مدل.</p>
+    </div>
+    <div class="product-grid related">
+      {p.compatibleAccessories.map((id) => (
+        <Card product={products.find((product) => product.id === id)!} />
+      ))}
+    </div>
+  </section>
+)}

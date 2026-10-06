@@ -1,0 +1,52 @@
+---
+import { url } from "../config";
+import { money } from "../data/brands";
+const { d, heading = "h3" } = Astro.props;
+const Heading = heading as "h2" | "h3";
+---
+
+<article class="neva-doctor" data-doctor={d.id}>
+  <div class="neva-doctor-photo">
+    <img
+      src={url(d.image)}
+      alt={`تصویر فرضی ${d.name}`}
+      width="1024"
+      height="1536"
+      loading="lazy"
+    />
+    <span>پروفایل مفهومی</span>
+  </div>
+  <div class="neva-doctor-body">
+    <span class="eyebrow">{d.specialty}</span>
+    <Heading>
+      <a href={url(`demo/neva/doctors/${d.id}/`)}>{d.name} ↗</a>
+    </Heading>
+    <p>{d.about}</p>
+    <dl>
+      <div>
+        <dt>مدت ویزیت</dt>
+        <dd>{d.duration.toLocaleString("fa-IR")} دقیقه</dd>
+      </div>
+      <div>
+        <dt>هزینهٔ فرضی</dt>
+        <dd>{money(d.fee)}</dd>
+      </div>
+    </dl>
+    <div class="nearest-box">
+      <span>نزدیک‌ترین زمان آزاد</span>
+      <strong data-nearest-label={d.id}>در حال بررسی زمان‌ها…</strong>
+    </div>
+    <div class="actions">
+      <a
+        class="button"
+        data-nearest-book={d.id}
+        href={url(`demo/neva/book/?doctor=${d.id}`)}
+      >
+        انتخاب این نوبت
+      </a>
+      <a class="text-link" href={url(`demo/neva/doctors/${d.id}/`)}>
+        پروفایل
+      </a>
+    </div>
+  </div>
+</article>

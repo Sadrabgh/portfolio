@@ -1,0 +1,33 @@
+{
+  "edition": 10,
+  "status": "passed",
+  "checks": 64,
+  "errors": [],
+  "metrics": [
+    {
+      "theme": "dark",
+      "width": 1440,
+      "selectedHeight": 843,
+      "cardHeight": 375
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "selectedHeight": 843,
+      "cardHeight": 375
+    }
+  ],
+  "coverage": [
+    "whole HTML glass body and physical edge planes",
+    "mouse tilt with stable actions",
+    "mouse drag and click cancellation",
+    "direct buttons and RTL keyboard",
+    "touch swipe and native scroll",
+    "mobile inert and aria-hidden semantics",
+    "six responsive widths",
+    "200 percent text at four widths",
+    "reduced motion",
+    "no-JavaScript navigation",
+    "without WebGL"
+  ]
+}

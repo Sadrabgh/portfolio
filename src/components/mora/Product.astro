@@ -1,0 +1,167 @@
+---
+import type { Furniture } from "../../data/mora";
+import { products, link, money, materials } from "../../data/mora";
+import Photo from "./Photo.astro";
+import Icon from "./Icon.astro";
+import Card from "./Card.astro";
+interface Props {
+  product: Furniture;
+}
+const { product: p } = Astro.props;
+---
+
+<div class="mr-wrap mr-breadcrumb">
+  <a href={link()}>خانه</a>
+  <span>/</span>
+  <a href={link("shop/")}>محصولات</a>
+  <span>/</span>
+  <span dir="ltr">{p.code}</span>
+</div>
+<section class="mr-wrap mr-product">
+  <div>
+    <button
+      class="mr-product-photo"
+      data-zoom={p.image}
+      aria-label={`نمای بزرگ ${p.code}`}
+    >
+      <Photo
+        name={p.image}
+        alt={p.name + " " + p.finish}
+        eager
+        sizes="(max-width:700px) 92vw, 55vw"
+      />
+      <span>
+        <Icon name="plus" /> نمای بزرگ
+      </span>
+    </button>
+    <div class="mr-photo-note">
+      <span dir="ltr">
+        {p.code} / {p.finish}
+      </span>
+      <span>تصویر اختصاصی مدل</span>
+    </div>
+  </div>
+  <div class="mr-product-info">
+    <span class="mr-eyebrow">A LITTLE MORE YOU.</span>
+    <div class="mr-product-title">
+      <h1>{p.name}</h1>
+      <button
+        class="mr-icon mr-outline"
+        data-save={p.id}
+        aria-label="ذخیرهٔ محصول"
+        aria-pressed="false"
+      >
+        <Icon name="heart" />
+      </button>
+    </div>
+    <span class="mr-code" dir="ltr">
+      {p.code}
+    </span>
+    <p>{p.description}</p>
+    <div class="mr-price">{money(p.price)}</div>
+    <div class="mr-finish">
+      <span>متریال و رنگ این مدل</span>
+      <strong>
+        <i
+          style={
+            "background:" +
+            ({
+              c01: "#b2532c",
+              s01: "#e4ded2",
+              c02: "#8c947b",
+              l01: "#222",
+              t03: "#887361",
+            }[p.id] || "#8b603e")
+          }
+        ></i>
+        {p.finish}
+      </strong>
+    </div>
+    <div class="mr-stock">
+      <i class:list={[p.stock ? "available" : "unavailable"]}></i>
+      {p.stock ? "موجود برای سفارش آزمایشی" : "فعلاً ناموجود"}
+      {p.stock > 0 && <span> / {p.stock.toLocaleString("fa-IR")} عدد</span>}
+    </div>
+    <div class="mr-buy-row">
+      <label class="mr-quantity">
+        تعداد
+        <select
+          id="mr-product-qty"
+          aria-label="تعداد محصول"
+          disabled={!p.stock}
+        >
+          {Array.from({ length: Math.max(1, p.stock) }, (_, i) => (
+            <option value={i + 1}>{(i + 1).toLocaleString("fa-IR")}</option>
+          ))}
+        </select>
+      </label>
+      <button
+        class="mr-btn"
+        data-add={p.id}
+        data-product-buy
+        disabled={!p.stock}
+      >
+        {p.stock ? "افزودن به سبد" : "ناموجود"}
+        <Icon name="bag" />
+      </button>
+    </div>
+    <div class="mr-product-links">
+      <button class="mr-text-button" data-compare={p.id} aria-pressed="false">
+        <Icon name="compare" /> افزودن به مقایسه
+      </button>
+      <a href={link("help/shipping/")}>
+        ارسال و تحویل <Icon />
+      </a>
+    </div>
+    <p class="mr-demo-note">
+      این فروشگاه نمونه‌کار است. مبلغی پرداخت نمی‌شود و محصولی ارسال نمی‌شود.
+    </p>
+    <details open>
+      <summary>اندازه و مشخصات</summary>
+      <dl>
+        <div>
+          <dt>عرض × عمق × ارتفاع</dt>
+          <dd>
+            {p.dimensions.map((n) => n.toLocaleString("fa-IR")).join(" × ")}{" "}
+            سانتی‌متر
+          </dd>
+        </div>
+        <div>
+          <dt>متریال</dt>
+          <dd>{materials[p.material]}</dd>
+        </div>
+        <div>
+          <dt>رنگ و پرداخت</dt>
+          <dd>{p.finish}</dd>
+        </div>
+      </dl>
+    </details>
+    <details>
+      <summary>روش مراقبت</summary>
+      <p>{p.care}</p>
+      <a class="mr-text-link" href={link("help/care/")}>
+        راهنمای کامل <Icon />
+      </a>
+    </details>
+  </div>
+</section>
+<section class="mr-wrap mr-section">
+  <div class="mr-section-head">
+    <div>
+      <span class="mr-eyebrow">BETTER TOGETHER</span>
+      <h2>کنار این انتخاب.</h2>
+    </div>
+    <a class="mr-text-link" href={link("collections/" + p.room + "/")}>
+      کالکشن مرتبط <Icon />
+    </a>
+  </div>
+  <div class="mr-grid">
+    {products
+      .filter((x) => x.id !== p.id)
+      .sort((a, b) => Number(b.room === p.room) - Number(a.room === p.room))
+      .slice(0, 3)
+      .map((product) => (
+        <Card product={product} />
+      ))}
+  </div>
+</section>

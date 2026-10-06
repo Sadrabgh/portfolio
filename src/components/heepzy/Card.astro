@@ -1,0 +1,61 @@
+---
+import Icon from "./Icon.astro";
+import {
+  shoeImage,
+  shoePrice,
+  money,
+  shopUrl,
+  type Shoe,
+} from "../../data/heepzy";
+interface Props {
+  product: Shoe;
+}
+const { product: p } = Astro.props;
+---
+
+<article class="hp-card" data-card={p.id}>
+  <a
+    class="hp-card-photo"
+    href={shopUrl(`product/${p.slug}/`)}
+    aria-label={`مشاهدهٔ ${p.name}`}
+  >
+    <img
+      src={shoeImage(p, p.colours[0].id, 1, true)}
+      alt={`کفش ${p.name}، رنگ ${p.colours[0].label}`}
+      width="400"
+      height="400"
+      loading="lazy"
+      decoding="async"
+    />
+    {p.sale > 0 && <span class="hp-sale">۲۵٪</span>}
+  </a>
+  <button
+    class="hp-icon hp-card-heart"
+    type="button"
+    data-favourite={p.id}
+    disabled
+    aria-pressed="false"
+    aria-label={`علاقه‌مندی: ${p.name}`}
+  >
+    <Icon name="heart" size={18} />
+  </button>
+  <div class="hp-card-meta">
+    <a href={shopUrl(`product/${p.slug}/`)}>
+      <span lang={p.name === p.en ? "en" : undefined} dir="auto">
+        {p.name}
+      </span>
+      {p.name !== p.en && (
+        <small lang="en" dir="ltr">
+          {p.en}
+        </small>
+      )}
+    </a>
+    <div class="hp-card-price">
+      {p.sale > 0 && <del>{money(p.price)}</del>}
+      <strong>{money(shoePrice(p))}</strong>
+    </div>
+  </div>
+  <button class="hp-card-add" type="button" data-quick={p.id} disabled>
+    انتخاب سایز و افزودن <Icon name="plus" size={16} />
+  </button>
+</article>

@@ -1,0 +1,62 @@
+{
+  "purpose": "User-requested reproduction of Moonex reference template; reference media, not owner portrait or authored projects.",
+  "assets": [
+    {
+      "name": "portrait.jpg",
+      "bytes": 98324,
+      "source": "https://moonex.ibthemespro.com/assets/img/about-me-main-image.jpg"
+    },
+    {
+      "name": "portrait-front.png",
+      "bytes": 2658,
+      "source": "https://moonex.ibthemespro.com/assets/img/root/about-me/about-me-main-image-layer-2.png"
+    },
+    {
+      "name": "portrait-back.png",
+      "bytes": 8765,
+      "source": "https://moonex.ibthemespro.com/assets/img/root/about-me/about-me-main-image-layer-1.png"
+    },
+    {
+      "name": "social-1.png",
+      "bytes": 57525,
+      "source": "https://moonex.ibthemespro.com/assets/img/instagram/image-1.png"
+    },
+    {
+      "name": "social-2.png",
+      "bytes": 30411,
+      "source": "https://moonex.ibthemespro.com/assets/img/instagram/image-2.png"
+    },
+    {
+      "name": "social-3.png",
+      "bytes": 36201,
+      "source": "https://moonex.ibthemespro.com/assets/img/instagram/image-3.png"
+    },
+    {
+      "name": "social-4.png",
+      "bytes": 2853,
+      "source": "https://moonex.ibthemespro.com/assets/img/instagram/image-4.png"
+    },
+    {
+      "name": "social-5.png",
+      "bytes": 58362,
+      "source": "https://moonex.ibthemespro.com/assets/img/instagram/image-5.png"
+    },
+    {
+      "name": "portrait-mask.png",
+      "source": "https://moonex.ibthemespro.com/static/css/main.11dceaf8.css",
+      "purpose": "Original embedded PNG mask for .ptf-mask-image img.lay, extracted from the reference CSS."
+    },
+    {
+      "name": "profile-pattern.png",
+      "source": "https://moonex.ibthemespro.com/static/media/home-freelancer-bubble-1.90ee66c1929ce6fde859.png",
+      "bytes": 47803,
+      "purpose": "Faint background ornament from the selected template."
+    },
+    {
+      "name": "projects-pattern.png",
+      "source": "https://moonex.ibthemespro.com/static/media/home-freelancer-bubble-2.462001017f0324a870e7.png",
+      "bytes": 12873,
+      "purpose": "Faint background ornament from the selected template."
+    }
+  ]
+}

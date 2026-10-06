@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "Yekan Bakh";
+  src: url("../assets/fonts/yekan-bakh/YekanBakhFaNum-Light.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yekan Bakh";
+  src: url("../assets/fonts/yekan-bakh/YekanBakhFaNum-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yekan Bakh";
+  src: url("../assets/fonts/yekan-bakh/YekanBakhFaNum-SemiBold.woff") format("woff");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yekan Bakh";
+  src: url("../assets/fonts/yekan-bakh/YekanBakhFaNum-Bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yekan Bakh";
+  src: url("../assets/fonts/yekan-bakh/YekanBakhFaNum-ExtraBold.woff") format("woff");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}

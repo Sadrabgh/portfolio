@@ -1,0 +1,75 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  projects: CollectionEntry<"projects">[];
+  id?: string;
+}
+const { projects, id = "projects" } = Astro.props;
+const names: Record<string, string> = {
+  form: "آتلیه نو",
+  luma: "RIFT",
+  orbit: "VELO",
+  medical: "نِوا",
+  velia: "آلبا",
+  rava: "راوا",
+};
+---
+
+<div class="project-gallery" data-project-gallery data-active="luma">
+  <div
+    class="project-stage"
+    id={`${id}-stage`}
+    data-gallery-stage
+    role="region"
+    aria-label="گالری نمونه‌کارها"
+  >
+    {projects.map((project, index) => (
+      <ProjectCard project={project} index={index} />
+    ))}
+  </div>
+  <div class="gallery-controls" data-gallery-controls>
+    <button
+      type="button"
+      class="gallery-step"
+      data-gallery-step="-1"
+      aria-controls={`${id}-stage`}
+    >
+      قبلی
+    </button>
+    <div class="gallery-projects" role="group" aria-label="انتخاب مستقیم پروژه">
+      {projects.map((project, index) => (
+        <button
+          type="button"
+          data-gallery-select={index}
+          aria-label={`نمایش ${project.data.title}`}
+          aria-controls={`${id}-stage`}
+          aria-pressed={project.id === "luma" ? "true" : "false"}
+        >
+          {names[project.id] || project.data.title}
+        </button>
+      ))}
+    </div>
+    <button
+      type="button"
+      class="gallery-step"
+      data-gallery-step="1"
+      aria-controls={`${id}-stage`}
+    >
+      بعدی
+    </button>
+  </div>
+  <p class="gallery-hint" id={`${id}-hint`} data-gallery-hint>
+    بکشید یا پروژه را انتخاب کنید
+  </p>
+  <p
+    class="sr-only"
+    data-gallery-status
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></p>
+</div>
+<script>
+  import "../scripts/project-cards";
+</script>

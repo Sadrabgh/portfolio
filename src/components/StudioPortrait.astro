@@ -1,0 +1,49 @@
+---
+import { url } from "../config";
+interface Props {
+  priority?: boolean;
+  src?: string;
+  alt?: string;
+  caption?: string;
+}
+const {
+  priority = false,
+  src = "portfolio/moonex/portrait.jpg",
+  alt = "پرترهٔ نمایشیِ قالب: طراح همراه با سگ، در قاب بیضی",
+  caption = "تصویر نمایشیِ قالب",
+} = Astro.props;
+---
+
+<figure class="studio-portrait" data-motion-reveal>
+  <div
+    class="portrait-frame"
+    style={`--portrait-mask:url(${url("portfolio/moonex/portrait-mask.png")})`}
+  >
+    <img
+      class="portrait-back"
+      src={url("portfolio/moonex/portrait-back.png")}
+      alt=""
+      width="814"
+      height="1006"
+      aria-hidden="true"
+    />
+    <img
+      class="portrait-photo"
+      src={url(src)}
+      alt={alt}
+      width="814"
+      height="1006"
+      loading={priority ? "eager" : "lazy"}
+      fetchpriority={priority ? "high" : "auto"}
+    />
+    <img
+      class="portrait-front"
+      src={url("portfolio/moonex/portrait-front.png")}
+      alt=""
+      width="814"
+      height="1006"
+      aria-hidden="true"
+    />
+  </div>
+  <figcaption>{caption}</figcaption>
+</figure>

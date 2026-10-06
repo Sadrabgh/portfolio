@@ -1,0 +1,57 @@
+---
+import { url } from "../config";
+const { project, presentation = "tile" } = Astro.props;
+const p = project.data;
+const themes: Record<string, string> = {
+  form: "#d8d4c8",
+  luma: "#dce2ca",
+  orbit: "#dbe8e9",
+  medical: "#e0e8e1",
+  velia: "#efedf1",
+  rava: "#ffb24a",
+  avan: "#e2e8e3",
+  mora: "#d0f8e4",
+};
+---
+
+<div
+  class:list={[
+    "project-cover",
+    "cover-" + project.id,
+    "presentation-" + presentation,
+  ]}
+  style={"--cover-bg:" + themes[project.id]}
+>
+  <div class="cover-desktop">
+    <div class="cover-browser" aria-hidden="true">
+      <i></i>
+      <i></i>
+      <i></i>
+      <span>{p.english}</span>
+    </div>
+    <img
+      class="cover-interface"
+      src={url(
+        presentation === "showcase"
+          ? p.previewDesktop
+          : "portfolio/" + project.id + "-overview.webp",
+      )}
+      alt={"طراحی رابط وب‌سایت " + p.title}
+      width="1440"
+      height={presentation === "showcase" ? "1058" : "1600"}
+      loading={presentation === "showcase" ? "eager" : "lazy"}
+      fetchpriority={presentation === "showcase" ? "high" : "auto"}
+    />
+  </div>
+  {presentation === "showcase" && p.previewMobile && (
+    <div class="cover-mobile">
+      <img
+        src={url(p.previewMobile)}
+        alt={"طراحی نسخهٔ موبایل " + p.title}
+        width="390"
+        height="1500"
+        loading="eager"
+      />
+    </div>
+  )}
+</div>

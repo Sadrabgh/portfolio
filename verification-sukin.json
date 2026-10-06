@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-04T06:34:02.842Z",
+  "status": "passed",
+  "checks": 270,
+  "routes": 13,
+  "widths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "errors": [],
+  "failures": [],
+  "checkoutPosts": 0
+}

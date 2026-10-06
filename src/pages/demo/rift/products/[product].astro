@@ -1,0 +1,187 @@
+---
+import Brand from "../../../../layouts/Brand.astro";
+import Cart from "../../../../components/RiftCart.astro";
+import Card from "../../../../components/RiftCard.astro";
+import {
+  garmentStock,
+  garments,
+  sizes,
+  garmentImage,
+  money,
+} from "../../../../data/brands";
+import { url } from "../../../../config";
+export function getStaticPaths() {
+  return garments.map((p) => ({ params: { product: p.id }, props: { p } }));
+}
+const { p } = Astro.props;
+---
+
+<Brand brand="rift" title={p.name} current="catalog">
+  <main id="demo-main" class="wrap">
+    <div class="crumbs">
+      <a href={url("demo/rift/catalog/")}>محصولات</a>
+      <span>/ {p.name}</span>
+    </div>
+    <section class="rift-product" data-product={p.id}>
+      <div class="rift-product-gallery" data-entry>
+        <button
+          class="product-zoom"
+          data-product-zoom
+          aria-label="نمای بزرگ محصول"
+        >
+          <img
+            data-product-image
+            src={url(garmentImage(p.id, p.colors[0].id))}
+            alt={`${p.name} · ${p.colors[0].label}`}
+            width="1024"
+            height="1536"
+            fetchpriority="high"
+          />
+          <span>+ دیدن جزئیات</span>
+        </button>
+        <div class="product-thumbs">
+          {p.colors.map((c) => (
+            <button
+              data-product-thumb={c.id}
+              aria-label={`نمای رنگ ${c.label}`}
+            >
+              <img
+                src={url(garmentImage(p.id, c.id))}
+                alt=""
+                loading="lazy"
+                width="1024"
+                height="1536"
+              />
+            </button>
+          ))}
+          <div>
+            <span class="eyebrow">FORM / TEXTURE</span>
+            <p>{p.fabric}</p>
+          </div>
+        </div>
+      </div>
+      <div class="rift-product-info" data-entry>
+        <span class="eyebrow" dir="ltr">
+          {p.en}
+        </span>
+        <h1>{p.name}</h1>
+        <p class="large-copy">{p.desc}</p>
+        <p class="product-price">{money(p.price)}</p>
+        <fieldset class="variant-group">
+          <legend>
+            رنگ: <span data-color-name>{p.colors[0].label}</span>
+          </legend>
+          <div class="color-options">
+            {p.colors.map((c, i) => (
+              <button
+                data-product-color={c.id}
+                aria-pressed={i === 0}
+                aria-label={c.label}
+              >
+                <i style={`--swatch:${c.hex}`}></i>
+                {c.label}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+        <fieldset class="variant-group">
+          <legend>اندازه</legend>
+          <div class="size-options" dir="ltr">
+            {sizes.map((s) => (
+              <button
+                data-product-size={s}
+                disabled={!garmentStock[p.id][s]}
+                title={
+                  garmentStock[p.id][s]
+                    ? "موجود در سناریوی نمایشی"
+                    : "ناموجود در سناریوی نمایشی"
+                }
+                aria-pressed="false"
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+          <a
+            class="text-link"
+            href={url(`demo/rift/size-guide/?product=${p.id}`)}
+          >
+            راهنمای انتخاب اندازه ↗
+          </a>
+        </fieldset>
+        <p class="status" data-product-status role="status">
+          پیش از افزودن، اندازه را انتخاب کنید. اندازهٔ غیرفعال در این سناریو
+          ناموجود است.
+        </p>
+        <button class="button rift-add" data-add-cart disabled>
+          افزودن به سبد +
+        </button>
+        <p class="muted small">
+          محصول و قیمت مفهومی · خرید واقعی انجام نمی‌شود.
+        </p>
+        <div class="product-specs">
+          <details open>
+            <summary>ساختار و جزئیات</summary>
+            <ul>
+              {p.features.map((f) => (
+                <li>{f}</li>
+              ))}
+            </ul>
+            <p>
+              فرم: {p.fit}
+              <br />
+              پارچه: {p.fabric}
+            </p>
+          </details>
+          <details>
+            <summary>نگهداری در این سناریو</summary>
+            <p>
+              شست‌وشوی ملایم با رنگ‌های مشابه. اطلاعات صرفاً بخشی از سناریوی
+              محصول مفهومی هستند.
+            </p>
+          </details>
+          <details>
+            <summary>فرایند سفارش نمایشی</summary>
+            <p>
+              سبد روی همین مرورگر نگهداری می‌شود. اطلاعات فرم سفارش ذخیره یا
+              ارسال نمی‌شوند؛ در پایان، رسید نمایشی می‌بینید.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-head">
+        <h2>کنار هم، یک ترکیب.</h2>
+        <a class="text-link" href={url("demo/rift/catalog/")}>
+          کالکشن کامل ↗
+        </a>
+      </div>
+      <div class="rift-grid related">
+        {garments
+          .filter((x) => x.id !== p.id)
+          .map((x) => (
+            <Card p={x} />
+          ))}
+      </div>
+    </section>
+  </main>
+  <dialog
+    class="product-image-dialog"
+    data-image-dialog
+    aria-label="نمای بزرگ محصول"
+  >
+    <div class="dialog-head">
+      <p>{p.name}</p>
+      <button class="dialog-close" data-image-close aria-label="بستن">
+        ×
+      </button>
+    </div>
+    <img
+      data-zoom-image
+      src={url(garmentImage(p.id, p.colors[0].id))}
+      alt={p.name}
+    />
+  </dialog>
+  <Cart />
+</Brand>

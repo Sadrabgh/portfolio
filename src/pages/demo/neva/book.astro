@@ -1,0 +1,241 @@
+---
+import Demo from "../../../layouts/Brand.astro";
+
+import { doctors } from "../../../data/brands";
+import { url } from "../../../config";
+import Icon from "../../../components/Icon.astro";
+---
+
+<Demo brand="neva" title="دریافت نوبت" current="book">
+  <main id="demo-main">
+    <div class="d-wrap booking-heading">
+      <span class="demo-kicker">انتخاب نوبت / چهار قدم روشن</span>
+      <h1>زمان مناسب شما.</h1>
+      <p>نوبت‌دهی نمایشی · تقویم شمسی · به وقت تهران</p>
+    </div>
+    <div
+      class="d-wrap booking-layout d-booking-app"
+      data-booking-app
+      data-appointments-url={url("demo/neva/appointments/")}
+    >
+      <section class="booking-main d-panel">
+        <ol class="booking-steps" aria-label="مراحل دریافت نوبت">
+          <li data-step-indicator="1" aria-current="step">
+            <b>۱</b>پزشک
+          </li>
+          <li data-step-indicator="2">
+            <b>۲</b>روز و ساعت
+          </li>
+          <li data-step-indicator="3">
+            <b>۳</b>اطلاعات
+          </li>
+          <li data-step-indicator="4">
+            <b>۴</b>بازبینی
+          </li>
+        </ol>
+        <form id="booking-form" class="d-form" novalidate>
+          <section data-booking-step="1">
+            <h2 tabindex="-1" data-step-title>
+              انتخاب پزشک
+            </h2>
+            <p class="d-note">
+              نوع خدمت و هزینهٔ فرضی را پیش از انتخاب بررسی کنید.
+            </p>
+            <div class="booking-choices" role="group" aria-label="انتخاب پزشک">
+              {doctors.map((d) => (
+                <button
+                  class="booking-doctor"
+                  data-book-doctor={d.id}
+                  type="button"
+                  aria-pressed="false"
+                >
+                  <img
+                    class="booking-doctor-photo"
+                    src={url(d.image)}
+                    alt=""
+                    width="1024"
+                    height="1536"
+                    loading="lazy"
+                  />
+                  <strong>
+                    {d.name}
+                    <br />
+                    <span>{d.specialty} · {d.duration.toLocaleString("fa-IR")} دقیقه</span>
+                  </strong>
+                  <span>{d.fee.toLocaleString("fa-IR")} تومان</span>
+                </button>
+              ))}
+            </div>
+          </section>
+          <section data-booking-step="2" hidden>
+            <h2 tabindex="-1" data-step-title>
+              انتخاب روز و ساعت
+            </h2>
+            <p class="d-note" data-selected-doctor-note></p>
+            <div class="booking-calendar-head">
+              <strong data-calendar-heading></strong>
+              <div class="demo-filters">
+                <button type="button" data-week="-1">
+                  هفتهٔ قبل
+                </button>
+                <button type="button" data-week="1">
+                  هفتهٔ بعد
+                </button>
+              </div>
+            </div>
+            <div
+              class="booking-days"
+              data-calendar-days
+              role="region"
+              aria-label="روزهای قابل بررسی"
+              tabindex="0"
+            ></div>
+            <p class="calendar-scroll-hint">برای دیدن ادامهٔ هفته، روزها را افقی بکشید یا با صفحه‌کلید جابه‌جا شوید.</p>
+            <h3 class="booking-subtitle" data-slot-heading>
+              زمان‌های آزاد
+            </h3>
+            <div
+              class="booking-slots"
+              data-time-slots
+              role="group"
+              aria-label="انتخاب ساعت"
+            ></div>
+            <p class="d-note" data-slot-status role="status"></p>
+            <button class="d-link text-link" data-book-nearest type="button">
+              انتخاب نزدیک‌ترین زمان آزاد
+            </button>
+          </section>
+          <section data-booking-step="3" class="d-form" hidden>
+            <h2 tabindex="-1" data-step-title>
+              اطلاعات آزمایشی
+            </h2>
+            <p class="d-note">
+              نام و شماره فقط برای بازبینی همین فرم استفاده می‌شوند و ذخیره
+              نمی‌شوند.
+            </p>
+            <label for="patient-name">
+              نام آزمایشی
+              <input
+                id="patient-name"
+                aria-describedby="patient-name-error"
+                name="name"
+                required
+                minlength="2"
+                maxlength="80"
+                autocomplete="name"
+              />
+              <span
+                class="d-error"
+                id="patient-name-error"
+                data-book-error="name"
+              ></span>
+            </label>
+            <label for="patient-phone">
+              شمارهٔ همراه آزمایشی
+              <input
+                id="patient-phone"
+                aria-describedby="patient-phone-error"
+                name="phone"
+                type="tel"
+                inputmode="tel"
+                dir="ltr"
+                required
+                maxlength="15"
+                placeholder="09123456789"
+                autocomplete="tel"
+              />
+              <span
+                class="d-error"
+                id="patient-phone-error"
+                data-book-error="phone"
+              ></span>
+            </label>
+          </section>
+          <section data-booking-step="4" hidden>
+            <h2 tabindex="-1" data-step-title>
+              بازبینی نوبت
+            </h2>
+            <div class="d-summary" data-booking-review></div>
+            <div class="d-actions">
+              <button class="d-link" type="button" data-book-edit="2">
+                تغییر زمان
+              </button>
+              <button class="d-link" type="button" data-book-edit="3">
+                ویرایش اطلاعات
+              </button>
+            </div>
+            <p class="d-note">
+              فقط پزشک، زمان و شناسهٔ نوبت نمایشی روی این مرورگر نگهداری
+              می‌شوند. نوبت واقعی ثبت نمی‌شود.
+            </p>
+          </section>
+          <p class="d-error" data-book-status role="status"></p>
+          <div class="d-actions booking-nav" data-booking-navigation>
+            <button
+              class="d-button secondary"
+              data-book-back
+              type="button"
+              hidden
+            >
+              مرحلهٔ قبل
+            </button>
+            <button class="d-button" data-book-next type="submit" disabled>
+              ادامه
+            </button>
+          </div>
+        </form>
+        <section data-book-success class="booking-result" hidden tabindex="-1">
+          <span class="completion-icon"><Icon name="check" size={28} /></span>
+          <h2>نوبت نمایشی آماده شد.</h2>
+          <p data-book-success-details></p>
+          <p>
+            شناسه: <code data-book-success-code></code>
+          </p>
+          <p class="d-note">این تأییدیه برای مراجعهٔ واقعی معتبر نیست.</p>
+          <div class="d-actions">
+            <a class="d-button" href={url("demo/neva/appointments/")}>
+              مشاهدهٔ نوبت‌های من
+            </a>
+            <a class="d-link" href={url("demo/neva/")}>
+              بازگشت به کلینیک
+            </a>
+          </div>
+        </section>
+      </section>
+      <aside class="booking-summary">
+        <details data-book-summary open>
+          <summary>خلاصهٔ انتخاب شما</summary>
+          {doctors.map((d) => <div class="booking-selected-profile" data-summary-profile={d.id} hidden><img src={url(d.image)} alt="" width="1024" height="1536" loading="lazy" /><div><strong>{d.name}</strong><span>{d.room}</span></div></div>)}
+          <dl>
+            <div>
+              <dt>پزشک</dt>
+              <dd data-summary-doctor>هنوز انتخاب نشده</dd>
+            </div>
+            <div>
+              <dt>روز و ساعت</dt>
+              <dd data-summary-time>هنوز انتخاب نشده</dd>
+            </div>
+            <div>
+              <dt>مدت و هزینهٔ فرضی</dt>
+              <dd data-summary-fee>پس از انتخاب پزشک</dd>
+            </div>
+          </dl>
+          <p class="d-note">تغییر مرحله، انتخاب‌های شما را پاک نمی‌کند.</p>
+        </details>
+        <div class="booking-step-context"><span class="eyebrow" data-summary-step>قدم ۱ از ۴</span><p data-summary-hint>خدمت، مدت و هزینه را کنار هم بررسی کنید.</p></div>
+        <div class="flow-assurance"><Icon name="shield" size={20} /><span>نام و شمارهٔ آزمایشی در مرورگر ذخیره نمی‌شوند. فقط انتخاب نوبت نمایشی باقی می‌ماند.</span></div>
+      </aside>
+    </div>
+    <noscript>
+      <div class="d-wrap d-empty">
+        <p>برای آزمایش رزرو، جاوااسکریپت مرورگر را فعال کنید.</p>
+        <a class="d-link" href={url("demo/neva/#doctors")}>
+          بررسی پزشکان
+        </a>
+      </div>
+    </noscript>
+  </main>
+  <script>
+    import "../../../scripts/medical-demo";
+  </script>
+</Demo>

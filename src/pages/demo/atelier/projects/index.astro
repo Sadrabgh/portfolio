@@ -1,0 +1,65 @@
+---
+import Brand from "../../../../layouts/Brand.astro";
+import { architecture } from "../../../../data/brands";
+import { url } from "../../../../config";
+---
+
+<Brand brand="atelier" title="آرشیو پروژه‌ها" current="projects">
+  <main id="demo-main" class="wrap section">
+    <span class="eyebrow">ATELIER NO / PROJECT INDEX</span>
+    <div class="section-head">
+      <h1>آرشیو فضاها.</h1>
+      <p>مطالعات مفهومی / ۲۰۲۶</p>
+    </div>
+    <div class="filters" role="group" aria-label="نوع پروژه">
+      {[
+        ["all", "همه"],
+        ["cultural", "فرهنگی"],
+        ["residential", "مسکونی"],
+        ["commercial", "فضای کار"],
+      ].map(([v, t]) => (
+        <button data-house-filter={v} aria-pressed={v === "all"}>
+          {t}
+        </button>
+      ))}
+    </div>
+    <p class="status" id="house-filter-status" role="status">
+      ۳ پروژه
+    </p>
+    <div class="atelier-archive">
+      {architecture.map((p, i) => (
+        <article data-house={p.type} data-reveal>
+          <a href={url(`demo/atelier/projects/${p.id}/`)} class="image-zoom">
+            <img src={url(p.image)} alt={p.name} width="1536" height="1024" />
+          </a>
+          <div>
+            <span class="eyebrow">
+              0{i + 1} / {p.en}
+            </span>
+            <h2>
+              <a href={url(`demo/atelier/projects/${p.id}/`)}>{p.name} ↗</a>
+            </h2>
+            <p>{p.intro}</p>
+            <dl class="project-facts">
+              <div>
+                <dt>کاربری</dt>
+                <dd>{p.label}</dd>
+              </div>
+              <div>
+                <dt>مساحت مفهومی</dt>
+                <dd>{p.area} مترمربع</dd>
+              </div>
+              <div>
+                <dt>بستر</dt>
+                <dd>{p.location}</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+      ))}
+    </div>
+  </main>
+  <script>
+    import "../../../../scripts/form-demo";
+  </script>
+</Brand>

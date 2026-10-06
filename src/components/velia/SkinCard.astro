@@ -1,0 +1,66 @@
+---
+import SkinIcon from "./SkinIcon.astro";
+import { url } from "../../config";
+import { skinMoney, type SkinProduct } from "../../data/velia";
+interface Props {
+  product: SkinProduct;
+  index?: number;
+}
+const { product: p, index = 0 } = Astro.props;
+---
+
+<article
+  class:list={["skin-card", "tone-" + p.tone]}
+  data-skin-card={p.id}
+  data-category={p.category}
+>
+  <a
+    class="skin-card-image"
+    href={url(`demo/velia/products/${p.id}/`)}
+    aria-label={`مشاهدهٔ ${p.name}`}
+  >
+    {p.badge && <span class="velia-product-badge">{p.badge}</span>}
+    <img
+      class:list={{ "skin-packshot": !p.cardImage }}
+      src={url(`art/velia/${p.cardImage || p.image}.webp`)}
+      alt={p.name + " آلبا"}
+      width="600"
+      height="650"
+      loading={index < 4 ? "eager" : "lazy"}
+    />
+    <span class="skin-card-discover">
+      دیدن محصول <SkinIcon name="arrow" size={16} />
+    </span>
+  </a>
+  <div class="skin-card-copy">
+    <span class="skin-card-volume">{p.size}</span>
+    <h3>
+      <a href={url(`demo/velia/products/${p.id}/`)}>{p.name}</a>
+    </h3>
+    <p>{p.note}</p>
+    <div class="skin-card-bottom">
+      <span class="skin-price">
+        {p.oldPrice && <del>{skinMoney(p.oldPrice)}</del>}
+        {skinMoney(p.price)} <small>تومان</small>
+      </span>
+      <button
+        class="skin-icon-button skin-favourite"
+        data-favourite={p.id}
+        aria-label={`ذخیرهٔ ${p.name}`}
+        aria-pressed="false"
+        type="button"
+      >
+        <SkinIcon name="heart" size={20} />
+      </button>
+    </div>
+    <button
+      class="skin-quick-add"
+      data-add-product={p.id}
+      type="button"
+      disabled={!p.stock}
+    >
+      <span data-add-label>{p.stock ? "افزودن به سبد" : "فعلاً ناموجود"}</span>
+      <SkinIcon name={p.stock ? "plus" : "minus"} size={17} />
+    </button>
+  </div>
+</article>

@@ -1,0 +1,25 @@
+---
+import Heepzy from "../../../layouts/Heepzy.astro";
+import { shopUrl } from "../../../data/heepzy";
+---
+
+<Heepzy title="رسید سفارش نمونه">
+  <div class="hp-container">
+    <header class="hp-page-heading">
+      <span class="hp-eyebrow" dir="ltr">
+        YOUR SAMPLE ORDER
+      </span>
+      <h1>قدم بعدی ثبت شد.</h1>
+      <p>
+        این رسید متعلق به یک سفارش نمایشی است؛ پرداخت یا ارسال واقعی انجام
+        نمی‌شود.
+      </p>
+    </header>
+    <div data-receipt-page></div>
+    <p class="hp-empty" data-receipt-empty>
+      رسیدی در این زبانه پیدا نشد.
+      <br />
+      <a href={shopUrl("catalog/")}>شروع یک انتخاب تازه ←</a>
+    </p>
+  </div>
+</Heepzy>

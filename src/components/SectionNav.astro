@@ -1,0 +1,9 @@
+---
+interface Props { items: { id: string; label: string }[]; label: string; }
+const { items, label } = Astro.props;
+---
+<nav class="study-section-nav" aria-label={label} data-section-nav>
+  <div class="wrap">
+    {items.map((item, i) => <a href={`#${item.id}`} data-section-link><span dir="ltr">0{i + 1}</span>{item.label}</a>)}
+  </div>
+</nav>

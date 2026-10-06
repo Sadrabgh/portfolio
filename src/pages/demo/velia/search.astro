@@ -1,0 +1,19 @@
+---
+import Velia from "../../../layouts/Velia.astro";
+import Catalog from "../../../components/velia/Catalog.astro";
+---
+
+<Velia title="جست‌وجوی محصولات" current="shop">
+  <main id="skin-main" class="skin-wrap skin-shop">
+    <div class="skin-shop-intro">
+      <div>
+        <span class="skin-eyebrow" dir="ltr">
+          FIND YOUR NEXT FAVOURITE
+        </span>
+        <h1>دنبال چه انتخابی می‌گردی؟</h1>
+        <p>با نام، دسته یا بافت محصول شروع کن؛ مثلاً «کرم» یا «سرم».</p>
+      </div>
+    </div>
+    <Catalog searchPage />
+  </main>
+</Velia>

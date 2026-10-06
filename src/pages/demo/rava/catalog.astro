@@ -1,0 +1,114 @@
+---
+import Heepzy from "../../../layouts/Heepzy.astro";
+import Card from "../../../components/heepzy/Card.astro";
+import { shoes, moods, colourFamilies, shoeSizes } from "../../../data/heepzy";
+---
+
+<Heepzy title="همهٔ کفش‌ها">
+  <div class="hp-container">
+    <header class="hp-page-heading">
+      <span class="hp-eyebrow" dir="ltr">
+        FIND YOUR EVERYDAY
+      </span>
+      <h1>جفت بعدی تو.</h1>
+      <p>
+        ۱۲ مدل، دو رنگ برای هر مدل. با رنگ، سایز و حال‌وهوا انتخابت را دقیق‌تر
+        کن.
+      </p>
+    </header>
+    <div class="hp-catalog-layout" data-catalog>
+      <form class="hp-filters" data-filter-form>
+        <h2>انتخاب دقیق‌تر</h2>
+        <div class="hp-filters-fields">
+          <label>
+            جست‌وجوی مدل
+            <input
+              name="q"
+              type="search"
+              maxlength="120"
+              placeholder="نام فارسی یا انگلیسی"
+            />
+          </label>
+          <label>
+            حال‌وهوا
+            <select name="mood">
+              {moods.map((m) => (
+                <option value={m.id}>{m.label}</option>
+              ))}
+            </select>
+          </label>
+          <label>
+            مجموعه
+            <select name="collection">
+              <option value="all">همه</option>
+              <option value="drops">دراپ‌ها · ۲۵٪</option>
+              <option value="fresh">تازه‌ها</option>
+            </select>
+          </label>
+          <label>
+            رنگ
+            <select name="colour">
+              <option value="all">همهٔ رنگ‌ها</option>
+              {colourFamilies.map(([id, label]) => (
+                <option value={id}>{label}</option>
+              ))}
+            </select>
+          </label>
+          <label>
+            سایز اروپایی
+            <select name="size">
+              <option value="all">همهٔ سایزها</option>
+              {shoeSizes.map((s) => (
+                <option value={s}>
+                  {new Intl.NumberFormat("fa-IR").format(s)}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            حداقل قیمت · تومان
+            <input name="min" inputmode="numeric" placeholder="۰" />
+          </label>
+          <label>
+            حداکثر قیمت · تومان
+            <input name="max" inputmode="numeric" placeholder="۲۰٬۰۰۰٬۰۰۰" />
+          </label>
+          <label>
+            ترتیب نمایش
+            <select name="sort">
+              <option value="featured">پیشنهاد راوا</option>
+              <option value="price-asc">قیمت: کم به زیاد</option>
+              <option value="price-desc">قیمت: زیاد به کم</option>
+              <option value="newest">تازه‌ترین</option>
+            </select>
+          </label>
+          <label class="hp-checkbox">
+            <input name="available" type="checkbox" value="1" />
+            فقط ترکیب‌های موجود
+          </label>
+        </div>
+        <button type="reset">پاک کردن فیلترها</button>
+      </form>
+      <div>
+        <div class="hp-catalog-bar">
+          <span data-filter-count role="status" aria-live="polite">
+            ۱۲ مدل
+          </span>
+          <span>قیمت‌ها و موجودی نمونه‌اند.</span>
+        </div>
+        <div class="hp-grid" data-catalog-grid>
+          {shoes.map((p) => (
+            <Card product={p} />
+          ))}
+        </div>
+        <div class="hp-empty" data-filter-empty hidden>
+          <h2>هنوز جفتش را پیدا نکردیم.</h2>
+          <p>یکی از فیلترها را کم کن یا جست‌وجوی دیگری بنویس.</p>
+          <button type="button" class="hp-text-button" data-clear-filters>
+            نمایش همهٔ کفش‌ها
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</Heepzy>

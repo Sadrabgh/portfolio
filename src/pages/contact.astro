@@ -1,0 +1,181 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import SocialLinks from "../components/SocialLinks.astro";
+import { site, url } from "../config";
+---
+
+<Base title="تماس و شروع پروژه">
+  <section class="page-intro contact-intro container" data-motion-reveal>
+    <h1>بیایید دربارهٔ پروژهٔ شما گفت‌وگو کنیم.</h1>
+    <SocialLinks round />
+  </section>
+  <section class="contact-layout container">
+    <aside class="contact-aside">
+      <div data-motion-reveal>
+        <span class="eyebrow">همکاری</span>
+        <p>
+          طراحی و توسعهٔ وب
+          <br />
+          پروژه‌های اختصاصی
+        </p>
+      </div>
+      <div data-motion-reveal data-delay="100">
+        <span class="eyebrow">ارتباط</span>
+        <a href={site.email ? "mailto:" + site.email : "#contact-form"}>
+          {site.email || "فرم شروع گفت‌وگو"}
+          <br />
+          دربارهٔ پروژهٔ شما
+        </a>
+      </div>
+      <div data-motion-reveal data-delay="200">
+        <span class="eyebrow">نمونه‌کارها</span>
+        <a href={url("work/")}>
+          پنج پروژهٔ مستقل
+          <br />
+          مرور تجربه‌های طراحی
+        </a>
+      </div>
+    </aside>
+    <form
+      class="contact-form"
+      id="contact-form"
+      novalidate
+      data-endpoint={site.formEndpoint}
+      data-email={site.email}
+      data-motion-reveal
+      data-delay="100"
+    >
+      <div class="form-section-heading">دربارهٔ پروژه و هدف‌هایتان بگویید.</div>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="name">نام شما چیست؟</label>
+          <input
+            id="name"
+            name="name"
+            autocomplete="name"
+            maxlength="100"
+            required
+            aria-describedby="name-error"
+          />
+          <p class="field-error" id="name-error"></p>
+        </div>
+        <div class="form-field">
+          <label for="company">
+            نام کسب‌وکار شما چیست؟ <small>اختیاری</small>
+          </label>
+          <input
+            id="company"
+            name="company"
+            autocomplete="organization"
+            maxlength="100"
+          />
+        </div>
+        <div class="form-field">
+          <label for="contact">ایمیل یا شمارهٔ تماس شما؟</label>
+          <input
+            id="contact"
+            name="contact"
+            autocomplete="email"
+            maxlength="160"
+            required
+            aria-describedby="contact-error"
+          />
+          <p class="field-error" id="contact-error"></p>
+        </div>
+        <div class="form-field">
+          <label for="message">از پروژه و هدف‌هایتان بگویید.</label>
+          <textarea
+            id="message"
+            name="message"
+            minlength="20"
+            maxlength="4000"
+            required
+            aria-describedby="message-error"
+          ></textarea>
+          <p class="field-error" id="message-error"></p>
+        </div>
+        <div class="form-field">
+          <label for="timeline">
+            چه زمانی را در نظر دارید؟ <small>اختیاری</small>
+          </label>
+          <select id="timeline" name="timeline">
+            <option>زمان مشخصی ندارم</option>
+            <option>در یک ماه آینده</option>
+            <option>در دو تا سه ماه آینده</option>
+            <option>در حال برنامه‌ریزی هستم</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="budget">
+            بودجهٔ پروژه چقدر است؟ <small>اختیاری</small>
+          </label>
+          <input id="budget" name="budget" maxlength="100" />
+        </div>
+        <div class="form-field">
+          <label for="service">چه نوع پروژه‌ای در نظر دارید؟</label>
+          <select
+            id="service"
+            name="service"
+            required
+            aria-describedby="service-error"
+          >
+            <option value="">انتخاب کنید</option>
+            <option value="01">سایت معرفی و کسب‌وکار</option>
+            <option value="02">سایت فروشگاهی</option>
+            <option value="03">تجربهٔ سه‌بعدی</option>
+            <option value="04">حرکت و تعامل / سایر</option>
+          </select>
+          <p class="field-error" id="service-error"></p>
+        </div>
+        <div hidden aria-hidden="true">
+          <label for="website">Website</label>
+          <input name="website" id="website" tabindex="-1" autocomplete="off" />
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="button" type="submit" disabled>
+          {site.formEndpoint
+            ? "ارسال درخواست"
+            : site.email
+              ? "آماده‌کردن ایمیل"
+              : "ساخت خلاصهٔ درخواست"}{" "}
+          <Icon name="arrow" size={22} />
+        </button>
+      </div>
+      <p class="form-note">
+        {site.formEndpoint
+          ? "درخواست از همین فرم ارسال می‌شود."
+          : site.email
+            ? "درخواست در برنامهٔ ایمیل باز می‌شود."
+            : "در این نسخه، ارسال مستقیم فعال نیست. خلاصهٔ درخواست را می‌توانید کپی یا دانلود کنید."}{" "}
+        <a href={url("privacy/")}>حریم خصوصی</a>
+      </p>
+      <p class="form-status" role="status" aria-live="polite"></p>
+      <noscript>
+        <p>برای آماده‌کردن درخواست، جاوااسکریپت را فعال کنید.</p>
+      </noscript>
+      <div class="request-result" hidden>
+        <h3>خلاصهٔ درخواست آماده است.</h3>
+        <p>این درخواست هنوز ارسال نشده است.</p>
+        <pre></pre>
+        <div class="form-actions">
+          <button class="button button-small" type="button" data-download>
+            ذخیرهٔ درخواست
+          </button>
+          <button class="text-link" type="button" data-copy>
+            کپی متن
+          </button>
+          {site.email && (
+            <a data-mail class="text-link" href={"mailto:" + site.email}>
+              بازکردن ایمیل
+            </a>
+          )}
+        </div>
+      </div>
+    </form>
+  </section>
+  <script>
+    import "../scripts/contact";
+  </script>
+</Base>

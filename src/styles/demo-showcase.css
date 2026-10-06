@@ -1,0 +1,354 @@
+/* Brand-specific art direction. Interaction state remains native and immediate. */
+.demo-showcase { --enter: cubic-bezier(.22,1,.36,1); }
+.demo-showcase :is(.button,button) { touch-action: manipulation; }
+.demo-showcase :is(.button,button):active:not(:disabled) { transform: scale(.98); transition-duration: 0s; }
+.demo-showcase :is(.button,button) { transition: transform 140ms var(--enter), color 180ms, background-color 180ms, border-color 180ms; }
+.demo-showcase .brand-header { border-bottom: 1px solid var(--line); }
+.demo-showcase .demo-context { font-size: .75rem; }
+.demo-showcase[data-demo-page='inner'] main > h1 { max-width: 950px; letter-spacing: -.035em; }
+.demo-showcase .section-nav { backdrop-filter: blur(12px); }
+.demo-showcase dialog { opacity: 0; transform: translateY(10px) scale(.99); transition: opacity 160ms var(--enter), transform 160ms var(--enter), display 160ms allow-discrete, overlay 160ms allow-discrete; }
+.demo-showcase dialog[open] { opacity: 1; transform: none; transition-duration: 240ms; }
+.demo-showcase dialog::backdrop { background: #07141099; opacity: 0; transition: opacity 160ms var(--enter), display 160ms allow-discrete, overlay 160ms allow-discrete; }
+.demo-showcase dialog[open]::backdrop { opacity: 1; transition-duration: 240ms; }
+@starting-style { .demo-showcase dialog[open] { opacity: 0; transform: translateY(10px) scale(.99); } .demo-showcase dialog[open]::backdrop { opacity: 0; } }
+
+/* ATELIER / a printed journal, with images given architectural scale. */
+.atelier-journal { padding-top: 26px; }
+.journal-masthead { display: flex; justify-content: space-between; gap: 20px; padding-bottom: 16px; font-size: .6875rem; letter-spacing: .06em; }
+.journal-cover { position: relative; height: clamp(560px,49vw,740px); overflow: hidden; background: var(--paper); }
+.journal-cover > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 43% 60%; }
+.journal-title { position: absolute; inset: 0 0 auto auto; width: min(440px,42%); background: var(--bg); padding: 34px 36px 30px; }
+.journal-title h1 { font-size: clamp(2.8rem,4.8vw,4.8rem); font-weight: 430; line-height: 1.45; letter-spacing: -.055em; margin: 12px 0 20px; }
+.journal-title h1 em { font-style: normal; color: var(--accent); }
+.journal-title p { font-size: .875rem; line-height: 2; margin: 0; }
+.journal-title .text-link { margin-top: 16px; font-size: .875rem; border-bottom: 1px solid var(--accent); }
+.journal-mark { display: block; font-family: Arial,sans-serif; font-size: clamp(3rem,5vw,5rem); font-weight: 500; letter-spacing: -.1em; line-height: 1; padding-top: 28px; }
+.journal-caption { position: absolute; left: 24px; bottom: 24px; background: #f5f2ea; color: #302e29; padding: 14px 20px; display: flex; flex-direction: column; gap: 6px; font-size: .75rem; }
+.journal-caption > span:first-child { letter-spacing: .08em; font-size: .625rem; }
+.journal-tools { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 76px; padding-block: 12px; font-size: .8125rem; border-bottom: 1px solid var(--line); }
+.journal-views { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.journal-views :is(button,a) { display: inline-flex; align-items: center; justify-content: center; gap: 12px; background: transparent; border: 1px solid var(--line); color: var(--ink); padding: 8px 18px; min-height: 44px; }
+.journal-views button[aria-pressed='true'] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.demo-showcase .atelier-project-rail { margin-top: 0; padding-block: 0; border-top: 0; }
+.demo-showcase .atelier-project-rail > a { padding-block: 24px; }
+.demo-showcase .atelier-project .image-zoom { position: relative; }
+.demo-showcase .atelier-project .image-zoom::after { content: 'مطالعهٔ فضا ↗'; position: absolute; inset: auto 16px 16px auto; padding: 8px 14px; background: var(--bg); color: var(--ink); font-size: .75rem; }
+.material-study { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; padding-block: 72px; border-block: 1px solid var(--line); }
+.material-study h2 { margin-top: 12px; }
+.material-palette { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+.material-palette figure { margin: 0; }
+.material-swatch { height: 150px; background: var(--material); border: 1px solid var(--line); }
+.material-swatch[data-material='0'] { background-image: repeating-linear-gradient(0deg,transparent 0 24px,#fff4 24px 26px), repeating-linear-gradient(90deg,transparent 0 70px,#0002 70px 72px); }
+.material-swatch[data-material='1'] { background-image: repeating-linear-gradient(90deg,transparent 0 12px,#0001 12px 13px); }
+.material-swatch[data-material='2'] { background-image: linear-gradient(120deg,#fff7,transparent 45%,#fff4); }
+.material-palette figcaption { padding-top: 14px; display: flex; flex-direction: column; gap: 8px; font-size: .8125rem; }
+.material-palette figcaption span { font-size: .625rem; color: var(--muted); }
+.demo-showcase .atelier-detail-title h1 { font-size: clamp(3.2rem,7vw,7rem); font-weight: 420; letter-spacing: -.055em; }
+.demo-showcase .atelier-detail-cover { margin-inline: var(--gutter); height: clamp(400px,53vw,800px); }
+.demo-showcase .atelier-detail-cover img { width: 100%; height: 100%; object-fit: cover; }
+.demo-showcase .atelier-plan { border-radius: 0; }
+.photo-continuity { position: fixed; inset: auto; z-index: 10000; pointer-events: none; object-fit: cover; margin: 0; padding: 0; border: 0; transform-origin: top left; max-width: none; max-height: none; }
+.demo-showcase .photo-dialog[open] { transform: none; }
+.photo-continuity::backdrop { background: transparent; pointer-events: none; }
+
+/* RIFT / campaign poster and a shoppable two-piece editorial. */
+.demo-showcase .rift-poster { display: block; position: relative; min-height: 760px; overflow: hidden; background: #d4d4cf; }
+.demo-showcase .rift-poster .rift-campaign-image { position: absolute; inset: 0; height: calc(100% - 56px); min-height: 0; margin: 0; }
+.demo-showcase .rift-poster .rift-campaign-image > img { width: 100%; height: 100%; object-fit: cover; object-position: center 56%; }
+.demo-showcase .rift-poster .rift-campaign-copy { position: relative; width: min(680px,50%); margin-left: auto; margin-right: 0; padding: 70px 32px 92px 28px; color: #181b16; background: transparent; min-height: 704px; justify-content: start; }
+.rift-poster .rift-campaign-copy .eyebrow { color: #181b16; background: #d9f36f; align-self: start; padding: 8px 12px; font-size: .625rem; }
+.demo-showcase .rift-poster h1 { font-size: clamp(4rem,7.3vw,7.4rem); line-height: 1.38; letter-spacing: -.055em; font-weight: 850; margin-block: 18px; }
+.demo-showcase .rift-poster h1 > span { display: inline-block; background: #d9f36f; padding: 0 14px 8px; line-height: 1.25; }
+.demo-showcase .rift-poster h1 > br { display: block; }
+.rift-poster .rift-campaign-copy > p { color: #181b16; font-size: 1rem; width: fit-content; padding: 6px 10px; background: #eeeee7e8; }
+.rift-poster .hero-actions { gap: 18px; }
+.rift-poster .hero-actions .button { background: #181b16; color: #fff; border-color: #181b16; }
+.rift-poster .hero-actions .text-link { background: #eeeee7e8; color: #181b16; padding-inline: 12px; }
+.rift-poster .campaign-number { margin-top: 30px; color: #181b16; background: #eeeee7e8; width: fit-content; padding: 8px 12px; gap: 30px; }
+.demo-showcase .rift-poster .rift-look-tag { inset: auto auto 28px var(--gutter); min-width: 210px; transform: rotate(-3deg); background: #d9f36f; color: #181b16; border: 1px solid #181b16; box-shadow: none; }
+.demo-showcase .rift-poster .rift-strip { position: absolute; inset: auto 0 0; min-height: 56px; background: #181b16; color: #d9f36f; letter-spacing: .12em; font-size: .75rem; }
+.demo-showcase .rift-category-rail { padding-block: 26px; }
+.rift-lookbook .section-head h2 { font-size: clamp(2rem,4.2vw,4rem); font-weight: 800; letter-spacing: -.045em; }
+.look-edition { font: 600 .75rem Arial,sans-serif; border: 1px solid var(--line); padding: 12px; }
+.look-layout { display: grid; grid-template-columns: 1.35fr 1fr; gap: 0; border: 1px solid var(--line); }
+.look-photo { margin: 0; min-width: 0; position: relative; background: var(--paper); }
+.look-photo > img { width: 100%; height: 100%; min-height: 740px; object-fit: cover; object-position: 38% center; }
+.look-photo figcaption { position: absolute; inset: auto 0 0; display: flex; gap: 12px; justify-content: space-between; padding: 16px 24px; background: #181b16; color: #fff; font-size: .6875rem; }
+.look-pin { position: absolute; display: flex; gap: 10px; align-items: center; padding: 8px 12px; border: 1px solid #181b16; background: #f5f4ed; color: #181b16; min-height: 44px; font-size: .8125rem; box-shadow: 4px 4px 0 #181b16; }
+.look-pin span { font: 600 .625rem Arial,sans-serif; }
+.look-pin.pin-0 { top: 38%; left: 18%; }
+.look-pin.pin-1 { top: 68%; left: 37%; }
+.look-builder { background: var(--bg); padding: 30px; min-width: 0; }
+.look-intro { margin: 0 0 24px; font-size: .875rem; line-height: 2; }
+.look-item { padding-block: 20px; border-top: 1px solid var(--line); }
+.look-item-head { display: flex; align-items: center; gap: 20px; }
+.look-item-head img { width: 76px; height: 100px; object-fit: cover; background: var(--paper); }
+.look-item-head h3 { margin: 6px 0; font-size: 1.2rem; }
+.look-item-head .eyebrow { font-size: .625rem; }
+.look-item-head > div > span:last-child { font-size: .875rem; }
+.look-item fieldset { border: 0; padding: 0; margin: 18px 0 0; }
+.look-item legend { font-size: .75rem; margin-bottom: 8px; }
+.look-item legend span { color: var(--muted); padding-inline-start: 10px; }
+.look-colors,.look-sizes { display: flex; gap: 8px; flex-wrap: wrap; }
+.look-colors button,.look-sizes button { background: transparent; color: var(--ink); border: 1px solid var(--line); min-height: 44px; min-width: 44px; padding: 8px 12px; font-size: .75rem; }
+.look-colors button { display: inline-flex; align-items: center; gap: 10px; }
+.look-colors button > span { background: var(--swatch); width: 14px; height: 14px; border: 1px solid #888; }
+.look-sizes { justify-content: flex-end; }
+.look-colors button[aria-pressed='true'],.look-sizes button[aria-pressed='true'] { border-color: var(--ink); box-shadow: inset 0 -3px 0 var(--ink); }
+.look-sizes button:disabled { opacity: .5; text-decoration: line-through; }
+.look-total { border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; margin-top: 10px; padding-block: 20px; font-size: .8125rem; }
+.look-builder > .button { width: 100%; }
+.look-builder .status { min-height: 26px; margin-block: 12px 0; font-size: .75rem; }
+.demo-showcase .rift-editorial { margin-block: 40px; grid-template-columns: 1fr 1fr; }
+.demo-showcase .rift-editorial > div { padding: clamp(32px,7vw,100px); background: var(--ink); color: var(--bg); }
+.demo-showcase .rift-editorial > div p { color: var(--bg); opacity: .8; }
+.demo-showcase .rift-editorial > div > .eyebrow { color: var(--bg); }
+.demo-showcase .rift-editorial .button { background: #d9f36f; color: #181b16; border-color: #d9f36f; }
+.demo-showcase .rift-collections { gap: 24px; }
+.demo-showcase .rift-collections > a { min-height: 280px; display: flex; flex-direction: column; justify-content: flex-end; border: 1px solid var(--ink); }
+.demo-showcase .rift-collections > a:first-child { background: #d9f36f; color: #181b16; }
+.demo-showcase .rift-collections > a:first-child :is(.eyebrow,p) { color: #343f0b; }
+.demo-showcase .rift-collections > a:last-child { background: var(--paper); }
+.demo-showcase .rift-collections h3 { font-size: clamp(2.5rem,4.5vw,4.5rem); }
+.demo-showcase .rift-collections h3 { display: block; overflow-wrap: anywhere; }
+.demo-showcase .rift-collections h3 svg { display: inline-block; vertical-align: middle; margin-inline-start: 12px; }
+.collection-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding-block: 64px; border-bottom: 1px solid var(--line); }
+.collection-notes h2 { font-size: clamp(2rem,3.5vw,3.5rem); margin-top: 16px; }
+.collection-notes p { font-size: 1rem; line-height: 2.2; max-width: 480px; }
+.demo-showcase .collection-cover > div { background: #d9f36f; color: #181b16; }
+.demo-showcase .collection-cover .eyebrow { color: #181b16; }
+.demo-showcase .rift-product { gap: clamp(32px,6vw,90px); padding-top: 36px; }
+.demo-showcase .rift-product-info h1 { font-size: clamp(2.5rem,4.8vw,4.8rem); font-weight: 800; letter-spacing: -.055em; }
+.demo-showcase .product-specs details { border-radius: 0; }
+
+/* VELO / industrial showroom first, a deliberate configuration studio second. */
+.velo-showroom { padding-top: 42px; }
+.demo-showcase .velo-showroom .velo-stage { position: relative; top: auto; padding: 0; border: 0; background: transparent; }
+.showroom-title { display: flex; align-items: end; justify-content: space-between; gap: 48px; padding-bottom: 36px; }
+.showroom-title h1 { font-size: clamp(3rem,4.1vw,4.2rem); font-weight: 650; letter-spacing: -.055em; line-height: 1.4; margin: 0; }
+.showroom-title h1 span { font-weight: 370; }
+.showroom-intro { max-width: 320px; padding-bottom: 12px; font-size: .875rem; }
+.showroom-intro p { line-height: 2; }
+.demo-showcase .velo-showroom .velo-stage-heading { padding: 14px 24px; background: var(--paper); border: 1px solid var(--line); border-bottom: 0; }
+.demo-showcase .velo-showroom .model-stage { border: 1px solid var(--line); border-radius: 0; background: var(--paper); }
+.demo-showcase .velo-showroom .model-viewport { height: clamp(440px,33vw,520px); border-radius: 0; background-color: var(--paper); background-image: radial-gradient(ellipse at 50% 40%,transparent 30%,var(--bg) 100%),linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size: auto,80px 80px,80px 80px; }
+.demo-showcase .velo-showroom .model-badge { inset: 20px auto auto 24px; background: var(--paper); }
+.model-tools { border-top: 1px solid var(--line); }
+.model-tools summary { cursor: pointer; min-height: 52px; padding: 14px 24px; font-size: .8125rem; }
+.model-tools summary > span { float: left; color: var(--muted); font-size: .6875rem; }
+.demo-showcase .velo-showroom .model-caption { margin: 12px 0 0; }
+.demo-showcase .velo-showroom .velo-stage-foot { padding-inline: 0; }
+.velo-chapters { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); margin-top: 28px; border-block: 1px solid var(--line); }
+.velo-chapters button { border: 0; border-inline-end: 1px solid var(--line); background: transparent; color: var(--ink); min-height: 76px; padding: 16px 24px; display: flex; align-items: center; gap: 18px; position: relative; text-align: start; }
+.velo-chapters button:last-child { border-inline-end: 0; }
+.velo-chapters button > span { font: .6875rem Arial,sans-serif; color: var(--muted); }
+.velo-chapters button strong { font-size: 1rem; font-weight: 500; flex: 1; }
+.velo-chapters button[aria-pressed='true'] { background: var(--paper); }
+.velo-chapters button::after { content: ''; position: absolute; inset: auto 0 -1px; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: right; transition: transform 180ms var(--enter); }
+.velo-chapters button[aria-pressed='true']::after { transform: scaleX(1); }
+.velo-story { display: grid; grid-template-columns: .6fr 1fr 1.2fr; align-items: start; gap: 36px; padding-block: 32px; min-height: 160px; }
+.velo-story .eyebrow { padding-top: 8px; font-size: .625rem; }
+.velo-story h2 { font-size: clamp(1.6rem,2.5vw,2.5rem); font-weight: 500; line-height: 1.6; margin: 0; }
+.velo-story p { font-size: .875rem; color: var(--muted); line-height: 2; margin: 0; }
+.velo-config-layout { padding-block: 90px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: clamp(40px,7vw,110px); scroll-margin-top: 36px; }
+.velo-config-layout > * { min-width: 0; }
+.velo-config-editorial > .eyebrow { overflow-wrap: anywhere; white-space: normal; }
+.velo-config-editorial > h2 { font-size: clamp(3rem,5.2vw,5.3rem); font-weight: 450; letter-spacing: -.04em; margin: 24px 0; line-height: 1.5; }
+.velo-config-editorial > p { max-width: 320px; color: var(--muted); }
+.velo-config-editorial .velo-live-choice { flex-direction: column; align-items: stretch; margin-top: 36px; padding: 26px; background: var(--paper); border: 1px solid var(--line); }
+.velo-config-editorial .velo-live-choice > div { min-width: 0; max-width: 100%; }
+.velo-config-editorial .velo-live-choice > div:first-child { grid-template-columns: minmax(0,1fr); }
+.velo-config-editorial .velo-live-choice strong { font: 500 3.4rem Arial,sans-serif; letter-spacing: -.055em; display: block; margin-top: 16px; }
+.velo-config-editorial .velo-live-choice p { max-width: 360px; }
+.demo-showcase .velo-config-layout .velo-config { padding: 32px; border: 1px solid var(--line); background: var(--paper); }
+.velo-config-layout .velo-config h3 { font-size: 1.75rem; margin-top: 12px; }
+.demo-showcase .velo-config-layout .velo-models button { min-height: 105px; padding: 18px 16px; }
+.demo-showcase .velo-config-layout .velo-colors { gap: 16px; }
+.demo-showcase .velo-details { border-top: 1px solid var(--line); }
+.demo-showcase .velo-model-index article { padding: 26px; border-radius: 0; }
+.model-index-number { display: block; font: .625rem Arial,sans-serif; letter-spacing: .08em; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.demo-showcase .velo-model-index article h2 { font: 500 clamp(2.6rem,4.5vw,4.5rem) Arial,sans-serif; letter-spacing: -.055em; }
+
+/* NEVA / service comparison with a stable, readable appointment flow. */
+.demo-showcase .neva-arrival { padding-block: 52px 48px; gap: clamp(36px,6vw,86px); align-items: center; }
+.demo-showcase .neva-welcome h1 { font-size: clamp(3rem,5.1vw,5.3rem); line-height: 1.5; letter-spacing: -.055em; font-weight: 430; }
+.demo-showcase .neva-welcome h1 span { font-weight: 650; }
+.demo-showcase .neva-arrival-visual { height: 540px; border-radius: 140px 16px 16px 16px; overflow: visible; margin-bottom: 20px; }
+.demo-showcase .neva-arrival-visual > img { height: 100%; border-radius: inherit; object-fit: cover; object-position: 45% center; }
+.demo-showcase .neva-arrival-visual figcaption { bottom: 60px; }
+.demo-showcase .neva-next-card { inset: auto 24px -20px 24px; box-shadow: 0 10px 36px #142b2512; }
+.demo-showcase .care-finder { padding-top: 48px; border-top: 1px solid var(--line); }
+.care-finder h2 { font-size: clamp(2.1rem,3.6vw,3.6rem); font-weight: 500; }
+.care-filter-bar { display: flex; justify-content: space-between; gap: 20px; align-items: center; padding-bottom: 20px; }
+.care-filter-bar .status { margin: 0; }
+.care-comparison { border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
+.care-table-head,.care-row { display: grid; grid-template-columns: 1.3fr .8fr 1fr .65fr; gap: 26px; align-items: center; padding: 18px 26px; }
+.care-table-head { font-size: .6875rem; color: var(--muted); border-bottom: 1px solid var(--line); }
+.care-row { min-height: 170px; border-bottom: 1px solid var(--line); }
+.care-row:last-child { border-bottom: 0; }
+.care-profile { display: flex; align-items: center; gap: 20px; min-width: 0; }
+.care-profile > img { width: 84px; height: 112px; border-radius: 8px; object-fit: cover; object-position: center 25%; }
+.care-profile .eyebrow { font-size: .625rem; }
+.care-profile :is(h2,h3) { font-size: 1.2rem; font-weight: 650; margin: 10px 0 0; }
+.care-profile .text-link { font-size: .75rem; color: var(--muted); }
+.care-facts { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 0; }
+.care-facts dt { font-size: .6875rem; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+.care-facts dd { margin: 4px 0 0; font-size: .8125rem; font-weight: 550; }
+.care-availability { display: flex; flex-direction: column; gap: 8px; }
+.care-availability > span { display: flex; align-items: center; gap: 8px; font-size: .6875rem; color: var(--muted); }
+.care-availability i { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+.care-availability strong { font-size: .8125rem; font-weight: 550; line-height: 1.9; }
+.care-availability small { color: var(--muted); font-size: .625rem; }
+.care-row > .button { min-height: 48px; padding: 10px 14px; font-size: .75rem; white-space: normal; }
+.care-footnote { display: flex; align-items: center; gap: 10px; font-size: .75rem; color: var(--muted); margin-top: 20px; }
+.demo-showcase .booking-calendar { min-width: 0; }
+.demo-showcase [data-calendar-days] { display: flex; gap: 8px; overflow-x: auto; padding: 6px 4px 12px; scroll-snap-type: x proximity; scrollbar-width: thin; }
+.demo-showcase .booking-day { flex: 1 0 76px; min-width: 76px; scroll-snap-align: start; min-height: 106px; }
+.demo-showcase .booking-day > span:last-child { font-size: .625rem; }
+.demo-showcase .booking-panel { min-height: 440px; }
+.demo-showcase #booking-form > [data-booking-step] { min-height: 440px; }
+.demo-showcase .booking-steps { border-bottom: 1px solid var(--line); padding-bottom: 24px; }
+.demo-showcase .booking-steps [data-state='complete'] { color: var(--accent); }
+.demo-showcase .booking-layout > aside { position: sticky; top: 24px; align-self: start; }
+.demo-showcase .booking-footer { border-top: 1px solid var(--line); padding-top: 24px; }
+.calendar-scroll-hint { display: none; font-size: .6875rem; line-height: 1.9; color: var(--muted); }
+.demo-showcase .neva-profile > img { border-radius: 100px 16px 16px 16px; }
+.demo-showcase .neva-profile h1 { font-weight: 500; letter-spacing: -.04em; }
+.demo-showcase .neva-how .how-steps { position: relative; }
+.demo-showcase .neva-how .how-steps article { background: transparent; border-top: 2px solid var(--line); border-radius: 0; padding-inline: 0; }
+.demo-showcase .neva-how .how-steps b { color: var(--accent); background: var(--soft); font: 500 1.4rem Arial,sans-serif; border-radius: 50%; width: 48px; height: 48px; display: grid; place-items: center; }
+.booking-result:not([hidden]) .completion-icon path { stroke-dasharray: 26; animation: neva-check 300ms var(--enter) both; }
+@keyframes neva-check { from { stroke-dashoffset: 26; } to { stroke-dashoffset: 0; } }
+
+@media (hover:hover) and (pointer:fine) {
+  .journal-views a:hover,.look-pin:hover { background: var(--accent); color: var(--on-accent); }
+  .demo-showcase .image-zoom:hover img { transform: scale(1.025); transition: transform 500ms var(--enter); }
+}
+@media (max-width:1100px) {
+  .care-table-head,.care-row { grid-template-columns: 1.2fr .85fr 1fr; gap: 22px; }
+  .care-table-head > span:last-child { display: none; }
+  .care-row > .button { grid-column: 3; justify-self: start; }
+  .care-availability { grid-column: 3; grid-row: 1; }
+  .care-profile,.care-facts { grid-row: span 2; }
+  .look-builder { padding: 24px; }
+  .look-photo > img { min-height: 780px; }
+  .demo-showcase .rift-poster { min-height: 720px; }
+  .demo-showcase .rift-poster .rift-campaign-copy { min-height: 664px; width: 54%; padding-top: 64px; }
+  .velo-story { grid-template-columns: 1fr 1.3fr; }
+  .velo-story .eyebrow { grid-column: 1/-1; }
+}
+@media (max-width:800px) {
+  .demo-js .demo-showcase .brand-nav { opacity: 0; transform: translateY(-8px); transition: opacity 160ms var(--enter), transform 160ms var(--enter), display 160ms allow-discrete; }
+  .demo-js .demo-showcase .brand-nav.is-open { opacity: 1; transform: none; transition-duration: 240ms; }
+  @starting-style { .demo-js .demo-showcase .brand-nav.is-open { opacity: 0; transform: translateY(-8px); } }
+  .collection-notes { gap: 28px; }
+  .journal-title { width: 48%; padding: 24px; }
+  .journal-title h1 { font-size: 2.6rem; }
+  .journal-mark { font-size: 3rem; }
+  .journal-cover { height: 620px; }
+  .material-study { grid-template-columns: 1fr; gap: 28px; }
+  .demo-showcase .rift-poster .rift-campaign-copy { width: 58%; }
+  .demo-showcase .rift-poster h1 { font-size: 4rem; }
+  .look-layout { grid-template-columns: 1fr; }
+  .look-photo > img { min-height: 0; height: 540px; object-position: center; }
+  .look-builder { padding: 28px; }
+  .look-item { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+  .look-item-head { grid-column: 1/-1; }
+  .look-sizes { justify-content: flex-start; }
+  .velo-config-layout { gap: 32px; grid-template-columns: minmax(0,1fr); padding-block: 64px; }
+  .velo-config-editorial > h2 br { display: none; }
+  .velo-config-editorial .velo-live-choice { margin-top: 24px; }
+  .showroom-title { gap: 24px; }
+  .showroom-title h1 { font-size: 3.4rem; }
+  .showroom-intro { max-width: 250px; }
+  .velo-chapters button { padding: 16px; gap: 10px; }
+  .velo-chapters button > svg { display: none; }
+  .demo-showcase .neva-arrival { grid-template-columns: 1fr; gap: 36px; }
+  .demo-showcase .neva-welcome { max-width: 560px; }
+  .demo-showcase .neva-arrival-visual { height: 400px; border-radius: 100px 16px 16px 16px; }
+  .care-table-head { display: none; }
+  .care-row { grid-template-columns: 1fr 1fr; gap: 24px; padding: 24px; }
+  .care-profile { grid-column: 1/-1; grid-row: auto; }
+  .care-facts { grid-row: auto; }
+  .care-availability { grid-column: 2; grid-row: auto; }
+  .care-row > .button { grid-column: 1/-1; justify-self: stretch; }
+  .demo-showcase .booking-layout > aside { position: static; }
+  .demo-showcase .booking-summary:has([data-book-summary]:not([open])) > :is(.booking-step-context,.flow-assurance) { display: none; }
+  .calendar-scroll-hint { display: block; }
+}
+@media (max-width:540px) {
+  .collection-notes { grid-template-columns: 1fr; gap: 8px; }
+  .journal-masthead { flex-direction: column; gap: 8px; }
+  .journal-cover { height: auto; display: flex; flex-direction: column-reverse; overflow: visible; }
+  .journal-cover > img { height: 360px; object-position: 40% center; }
+  .journal-title { position: relative; inset: auto; width: 100%; padding: 18px 0 28px; }
+  .journal-title h1 { font-size: 3rem; margin-block: 12px 16px; }
+  .journal-mark { position: absolute; left: 0; top: 6px; padding: 0; font-size: 2.8rem; color: var(--muted); }
+  .journal-caption { left: 12px; bottom: 12px; padding: 10px 14px; }
+  .journal-tools { flex-direction: column; align-items: start; gap: 12px; padding-block: 20px; }
+  .journal-views { width: 100%; }
+  .journal-views :is(button,a) { padding: 8px 12px; flex: 1; font-size: .75rem; }
+  .journal-views a { flex: 1.7; }
+  .demo-showcase .atelier-project-rail > a { padding-block: 18px; }
+  .material-palette { gap: 10px; }
+  .material-swatch { height: 100px; }
+  .material-palette figcaption { font-size: .75rem; }
+  .demo-showcase .rift-poster { min-height: 800px; }
+  .demo-showcase .rift-poster .rift-campaign-image { height: 100%; }
+  .demo-showcase .rift-poster .rift-campaign-image > img { object-position: 39% center; }
+  .demo-showcase .rift-poster .rift-campaign-copy { width: 100%; padding: 28px var(--gutter) 320px; min-height: 744px; background: linear-gradient(#d4d4cfeb,transparent 65%); }
+  .demo-showcase .rift-poster h1 { font-size: clamp(3.3rem,13vw,4.8rem); line-height: 1.25; margin-block: 16px; }
+  .rift-poster .hero-actions { margin-top: 16px; gap: 12px; }
+  .rift-poster .hero-actions .button { min-height: 48px; padding: 10px 16px; font-size: .8125rem; }
+  .rift-poster .campaign-number { display: none; }
+  .demo-showcase .rift-poster .rift-look-tag { bottom: 90px; left: 20px; padding: 14px; min-width: 170px; }
+  .demo-showcase .rift-poster .rift-strip { font-size: .625rem; gap: 16px; }
+  .demo-showcase .rift-poster .rift-strip > span:last-child { display: none; }
+  .look-edition { font-size: .625rem; }
+  .look-photo > img { height: 440px; object-position: 38% center; }
+  .look-photo figcaption { padding: 14px; flex-wrap: wrap; }
+  .look-pin { font-size: .75rem; padding: 8px; gap: 6px; }
+  .look-pin.pin-0 { left: 8%; }
+  .look-pin.pin-1 { left: 30%; }
+  .look-builder { padding: 20px; }
+  .look-item { display: block; }
+  .look-total strong { font-size: .8125rem; }
+  .demo-showcase .rift-editorial { grid-template-columns: 1fr; }
+  .demo-showcase .rift-editorial > img { height: 420px; }
+  .showroom-title { display: block; padding-bottom: 24px; }
+  .showroom-title .demo-kicker { font-size: .625rem; }
+  .showroom-title h1 { font-size: 3rem; }
+  .showroom-intro { max-width: 100%; margin-top: 20px; padding: 0; }
+  .showroom-intro p { margin-bottom: 16px; }
+  .demo-showcase .velo-showroom .velo-stage-heading { padding: 12px; font-size: .625rem; gap: 12px; flex-wrap: wrap; }
+  .demo-showcase .velo-showroom .model-viewport { height: 340px; background-size: auto,50px 50px,50px 50px; }
+  .model-tools summary { padding: 14px 12px; }
+  .model-tools summary > span { display: none; }
+  .demo-showcase .velo-showroom .model-badge { inset: 12px auto auto 12px; font-size: .625rem; }
+  .velo-chapters { margin-top: 20px; }
+  .velo-chapters button { padding: 14px 8px; min-height: 80px; flex-direction: column; align-items: start; gap: 8px; }
+  .velo-chapters button strong { font-size: .8125rem; }
+  .velo-story { grid-template-columns: 1fr; gap: 16px; min-height: 230px; }
+  .velo-story h2 { font-size: 1.7rem; }
+  .demo-showcase .velo-config-layout .velo-config { padding: 20px; }
+  .demo-showcase .velo-config-layout .velo-models button { padding: 14px 10px; min-height: 100px; }
+  .demo-showcase .neva-arrival { padding-top: 36px; }
+  .demo-showcase .neva-welcome h1 { font-size: 2.8rem; }
+  .demo-showcase .neva-arrival-visual { height: 340px; border-radius: 80px 12px 12px 12px; }
+  .demo-showcase .neva-next-card { inset-inline: 12px; padding: 16px; }
+  .demo-showcase .neva-arrival-visual figcaption { inset-inline: 20px; }
+  .care-filter-bar { display: block; }
+  .care-filter-bar .status { margin-top: 12px; }
+  .care-row { padding: 20px; gap: 20px; }
+  .care-profile { gap: 16px; }
+  .care-profile > img { width: 72px; height: 96px; }
+  .care-facts dd,.care-availability strong { font-size: .75rem; }
+  .care-footnote { align-items: start; line-height: 2; }
+  .care-footnote svg { flex-shrink: 0; margin-top: 4px; }
+}
+html[data-demo-motion='reduce'] .demo-showcase :is(dialog,dialog::backdrop,button,.button,.velo-chapters button::after) { transition: none; }
+html[data-demo-motion='reduce'] .photo-continuity { display: none; }
+html[data-demo-motion='reduce'] .demo-showcase .brand-nav { transition: none; transform: none; }
+html[data-demo-motion='reduce'] .booking-result .completion-icon path { animation: none; }
+@media (prefers-reduced-motion:reduce) { .demo-showcase :is(dialog,dialog::backdrop,button,.button) { transition: none; } }

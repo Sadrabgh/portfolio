@@ -1,0 +1,62 @@
+---
+const quotes = [
+  [
+    "«هر صفحه باید به یک سؤال جواب بدهد: کاربر اینجا چه چیزی را می‌بیند، چه انتخابی دارد و قدم بعدی‌اش چیست؟»",
+    "مسیر روشن",
+    "یادداشت طراحی / تجربهٔ کاربر",
+  ],
+  [
+    "«حرکت زمانی به رابط شخصیت می‌دهد که تغییر را روشن کند؛ از بازشدن یک تصویر تا بازخورد یک انتخاب.»",
+    "حرکت به‌اندازه",
+    "یادداشت طراحی / تعامل",
+  ],
+  [
+    "«کیفیت در ادامهٔ تجربه دیده می‌شود؛ وقتی همان نگاه، از صفحهٔ اول تا کوچک‌ترین وضعیتِ رابط همراه کاربر می‌ماند.»",
+    "جزئیات پیوسته",
+    "یادداشت طراحی / اجرا",
+  ],
+];
+---
+
+<section class="quote-section container" data-motion-reveal>
+  <div
+    class="carousel quote-carousel"
+    data-carousel
+    data-carousel-kind="quotes"
+    role="region"
+    aria-label="یادداشت‌های طراحی"
+    tabindex="0"
+  >
+    <div class="carousel-viewport">
+      <div class="carousel-track">
+        {quotes.map(([text, name, role]) => (
+          <figure class="quote-slide">
+            <blockquote>{text}</blockquote>
+            <figcaption>
+              <strong>{name}</strong>
+              <span>{role}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+    <div class="carousel-dots" hidden data-carousel-dots>
+      {quotes.map((_, i) => (
+        <button
+          type="button"
+          data-carousel-dot={i}
+          aria-label={"یادداشت طراحی " + (i + 1)}
+          aria-pressed={i === 0 ? "true" : "false"}
+        >
+          <span></span>
+        </button>
+      ))}
+    </div>
+    <span
+      class="sr-only"
+      data-carousel-status
+      role="status"
+      aria-live="polite"
+    ></span>
+  </div>
+</section>

@@ -1,0 +1,129 @@
+---
+import { avanUrl } from "../../lib/avan/paths";
+import Intro from "./Intro.astro";
+interface Props {
+  embedded?: boolean;
+}
+const { embedded = false } = Astro.props;
+const fields = [
+  { key: "name", label: "نام و نام خانوادگی", max: 80 },
+  { key: "phone", label: "شمارهٔ تماس نمونه", max: 16, mode: "tel" },
+  { key: "city", label: "شهر", max: 80 },
+  { key: "postal", label: "کد پستی نمونه", max: 16, mode: "numeric" },
+  { key: "address", label: "نشانی نمونه", max: 240 },
+];
+const prefix = embedded ? "av-inline-" : "av-checkout-";
+---
+
+<div data-checkout-root>
+  {!embedded && (
+    <Intro
+      eyebrow="مسیر خرید مهمان"
+      title="یک قدم تا بازبینی انتخاب."
+      description="سفارش آزمایشی است و بدون پرداخت انجام می‌شود. از اطلاعات نمونه استفاده کن."
+    />
+  )}
+  <ol class="steps" aria-label="مرحلهٔ خرید">
+    <li class="active" data-step="0">
+      <b>۱</b>اطلاعات
+    </li>
+    <li data-step="1">
+      <b>۲</b>ارسال و خلاصه
+    </li>
+    <li data-step="2">
+      <b>۳</b>بازبینی
+    </li>
+  </ol>
+  <div class="checkout-layout">
+    <section class="form-panel">
+      <h2 data-checkout-heading tabindex="-1">
+        اطلاعات دریافت‌کننده
+      </h2>
+      <p>اطلاعات فرم تنها تا زمانی که در همین صفحه هستی نگه داشته می‌شود.</p>
+      <form data-checkout-form autocomplete="off" novalidate>
+        <div class="error-summary" data-errors tabindex="-1" hidden />
+        <div data-checkout-info class="form-grid">
+          {fields.map((field) => (
+            <label
+              class:list={{ full: field.key === "address" }}
+              for={prefix + field.key}
+            >
+              {field.label}
+              {field.key === "address" ? (
+                <textarea
+                  id={prefix + field.key}
+                  name={field.key}
+                  rows="3"
+                  maxlength={field.max}
+                  aria-describedby={prefix + field.key + "-error"}
+                  disabled
+                />
+              ) : (
+                <input
+                  id={prefix + field.key}
+                  name={field.key}
+                  inputmode={field.mode as "tel" | "numeric" | undefined}
+                  maxlength={field.max}
+                  aria-describedby={prefix + field.key + "-error"}
+                  disabled
+                />
+              )}
+              <span
+                id={prefix + field.key + "-error"}
+                class="field-error"
+                data-error={field.key}
+              />
+            </label>
+          ))}
+        </div>
+        <div data-checkout-shipping hidden>
+          <h3>ارسال عادی نمونه</h3>
+          <p>
+            هزینهٔ ارسال ۱۰۰٬۰۰۰ تومان است؛ برای مبلغ پس از تخفیف از ۸ میلیون
+            تومان، رایگان می‌شود.
+          </p>
+          <p>
+            زمان تحویل در این نمونه تعیین نمی‌شود و هیچ کالایی ارسال نخواهد شد.
+          </p>
+        </div>
+        <div data-checkout-review hidden>
+          <h3>انتخاب و مبلغ را یک بار دیگر ببین.</h3>
+          <p>
+            با ثبت این سفارش، پرداخت یا خرید واقعی انجام نمی‌شود. اطلاعات
+            دریافت‌کننده در رسید ذخیره نمی‌شود.
+          </p>
+        </div>
+        <p data-checkout-change class="field-error" role="status" />
+        <div class="inline-note">
+          با بازخوانی صفحه، اطلاعات فرم پاک می‌شود. رسید آزمایشی شامل اطلاعات
+          شخصی نیست.
+        </div>
+        <div class="form-actions">
+          <button class="btn" type="submit" data-checkout-next disabled>
+            ادامه و بررسی ارسال
+          </button>
+          <button
+            class="btn secondary"
+            type="button"
+            data-checkout-back
+            hidden
+            disabled
+          >
+            مرحلهٔ قبل
+          </button>
+          <a href={avanUrl("cart/")}>بازگشت به سبد</a>
+        </div>
+      </form>
+    </section>
+    <aside class="order-summary">
+      <h2>انتخاب تو</h2>
+      <div data-checkout-summary>
+        <p>سبد هنوز محصولی ندارد.</p>
+        <a class="card-link" href={avanUrl("shop/")}>
+          انتخاب محصول
+        </a>
+      </div>
+    </aside>
+  </div>
+  <div data-checkout-receipt hidden />
+</div>

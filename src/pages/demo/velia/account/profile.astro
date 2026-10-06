@@ -1,0 +1,71 @@
+---
+import AccountShell from "../../../../components/velia/AccountShell.astro";
+import SkinIcon from "../../../../components/velia/SkinIcon.astro";
+---
+
+<AccountShell title="اطلاعات حساب" current="profile">
+  <form
+    class="velia-panel skin-form-fields"
+    data-demo-form="profile"
+    method="dialog"
+  >
+    <h2 class="skin-field-full">اطلاعات شخصی</h2>
+    <label class="skin-field">
+      <span>نام و نام خانوادگی</span>
+      <input
+        name="name"
+        value="سارا محمدی"
+        required
+        minlength="3"
+        maxlength="70"
+        autocomplete="off"
+      />
+    </label>
+    <label class="skin-field">
+      <span>شمارهٔ همراه</span>
+      <input
+        name="phone"
+        type="tel"
+        value="09123456789"
+        required
+        pattern="[0-9۰-۹٠-٩]{11}"
+        maxlength="11"
+        autocomplete="off"
+        dir="ltr"
+      />
+    </label>
+    <label class="skin-field skin-field-full">
+      <span>ایمیل</span>
+      <input
+        name="email"
+        type="email"
+        value="sara@example.com"
+        required
+        maxlength="100"
+        autocomplete="off"
+        dir="ltr"
+      />
+    </label>
+    <div class="skin-field-full velia-preferences">
+      <h3>خبرهای آلبا</h3>
+      <label>
+        <input type="checkbox" data-demo-preference="news" /> یادداشت‌ها و
+        محصولات تازه
+      </label>
+      <label>
+        <input type="checkbox" data-demo-preference="order" checked /> خبرهای
+        سفارش
+      </label>
+    </div>
+    <div class="skin-field-full">
+      <button class="skin-button" type="submit">
+        پیش‌نمایش تغییرات <SkinIcon name="check" size={19} />
+      </button>
+    </div>
+    <p
+      class="skin-field-full velia-form-status"
+      data-form-status
+      role="status"
+    ></p>
+  </form>
+</AccountShell>

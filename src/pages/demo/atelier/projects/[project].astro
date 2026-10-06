@@ -1,0 +1,232 @@
+---
+import Brand from "../../../../layouts/Brand.astro";
+import Gallery from "../../../../components/AtelierGallery.astro";
+import Study from "../../../../components/StudyStage.astro";
+import SectionNav from "../../../../components/SectionNav.astro";
+import { architecture } from "../../../../data/brands";
+import { url } from "../../../../config";
+export function getStaticPaths() {
+  return architecture.map((p) => ({ params: { project: p.id }, props: { p } }));
+}
+const { p } = Astro.props;
+const next =
+  architecture[
+    (architecture.findIndex((x) => x.id === p.id) + 1) % architecture.length
+  ];
+const palette = {pavilion:["#a24a37","#aca89c","#bccbc7"],coast:["#dedcd3","#383e3e","#979b96"],atrium:["#343b37","#af8763","#91a487"]}[p.id as "pavilion"|"coast"|"atrium"];
+---
+
+<Brand brand="atelier" title={p.name} current="projects">
+  <main id="demo-main">
+    <div class="wrap crumbs">
+      <a href={url("demo/atelier/projects/")}>آرشیو</a>
+      <span>/</span>
+      <span>{p.name}</span>
+    </div>
+    <section class="wrap atelier-detail-title">
+      <div data-entry>
+        <span class="eyebrow">{p.en} / CONCEPT STUDY</span>
+        <h1>{p.name}</h1>
+        <p>{p.intro}</p>
+      </div>
+      <dl class="project-facts">
+        <div>
+          <dt>کاربری</dt>
+          <dd>{p.label}</dd>
+        </div>
+        <div>
+          <dt>مساحت مفهومی</dt>
+          <dd>{p.area} مترمربع</dd>
+        </div>
+        <div>
+          <dt>بستر</dt>
+          <dd>{p.location}</dd>
+        </div>
+      </dl>
+    </section>
+    <div class="atelier-detail-cover" data-entry>
+      <img
+        src={url(p.image)}
+        alt={p.name}
+        width="1536"
+        height="1024"
+        fetchpriority="high"
+      />
+    </div>
+    <SectionNav label="بخش‌های مطالعهٔ پروژه" items={[
+      {id: "project-idea", label: "ایده"}, {id: "project-images", label: "تصاویر"},
+      {id: "project-plan", label: "روابط فضا"}, {id: "project-model", label: "ماکت"},
+    ]} />
+    <section class="wrap section two-col" id="project-idea">
+      <div data-reveal>
+        <span class="eyebrow">۰۱ / ایدهٔ فضایی</span>
+        <h2>{p.intro}</h2>
+      </div>
+      <div data-reveal>
+        <p class="large-copy">{p.description}</p>
+        <div class="tags">
+          {p.materials.map((m) => (
+            <span>{m}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section class="wrap" id="project-images">
+      <Gallery project={p} />
+    </section>
+    <section class="material-study wrap" aria-labelledby="material-title" data-motion-scene><div><span class="eyebrow">MATERIAL NOTES / یادداشت ماده</span><h2 id="material-title">بافت، بخشی از ایده.</h2><p>این پالت، خوانش مفهومی مواد در تصویر است؛ نمونهٔ اجرایی یا مشخصات فنی نیست.</p></div><div class="material-palette">{p.materials.map((material,i)=><figure><div class="material-swatch" data-material={i} style={`--material:${palette[i]}`} aria-hidden="true"></div><figcaption><span dir="ltr">M / 0{i+1}</span><strong>{material}</strong></figcaption></figure>)}</div></section>
+    <section class="wrap section two-col" id="project-plan">
+      <div>
+        <span class="eyebrow">۰۲ / روابط فضا</span>
+        <h2>خواندن یک سازمان فضایی.</h2>
+        <p>
+          دیاگرام، رابطهٔ فضاها را به‌صورت مفهومی نشان می‌دهد؛ نقشهٔ اجرایی و
+          مقیاس مهندسی ندارد.
+        </p>
+        <ol class="atelier-process">
+          {p.process.map((t) => (
+            <li>{t}</li>
+          ))}
+        </ol>
+      </div>
+      <figure class="atelier-plan">
+        <svg
+          viewBox="0 0 600 420"
+          role="img"
+          aria-label={`دیاگرام فضایی ${p.name}`}
+        >
+          <defs>
+            <pattern
+              id="plan-grid"
+              width="20"
+              height="20"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M20 0H0V20"
+                fill="none"
+                stroke="currentColor"
+                opacity=".08"
+              />
+            </pattern>
+          </defs>
+          <rect width="600" height="420" fill="url(#plan-grid)" />
+          {p.id === "pavilion" ? (
+            <>
+              <path
+                d="M50 100H550V310H50Z M220 150H350V260H220Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="7"
+              />
+              {[80, 140, 200, 380, 440, 500].map((x) => (
+                <rect
+                  x={x}
+                  y="100"
+                  width="16"
+                  height="210"
+                  fill="#b72e33"
+                  opacity=".55"
+                />
+              ))}
+            </>
+          ) : p.id === "coast" ? (
+            <>
+              <path
+                d="M60 90H500V250H60Z M160 170H540V340H160Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="7"
+              />
+              <path
+                d="M90 300H145 M90 320H145 M90 340H145 M320 180V250"
+                stroke="currentColor"
+                stroke-width="4"
+              />
+            </>
+          ) : (
+            <>
+              <path
+                d="M60 70H540V350H60Z M205 130H395V290H205Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="7"
+              />
+              {[110, 155, 445, 490].map((x) => (
+                <>
+                  <rect
+                    x={x}
+                    y="115"
+                    width="25"
+                    height="50"
+                    fill="currentColor"
+                    opacity=".2"
+                  />
+                  <rect
+                    x={x}
+                    y="255"
+                    width="25"
+                    height="50"
+                    fill="currentColor"
+                    opacity=".2"
+                  />
+                </>
+              ))}
+            </>
+          )}
+          <path
+            d="M60 380H540"
+            stroke="#b72e33"
+            stroke-width="2"
+            stroke-dasharray="8 5"
+          />
+          <text
+            x="300"
+            y="405"
+            text-anchor="middle"
+            font-size="15"
+            fill="currentColor"
+          >
+            محور حرکت و نور
+          </text>
+          {p.rooms.map((t, i) => (
+            <text
+              x={90 + i * 140}
+              y={i % 2 === 0 ? 55 : 370}
+              text-anchor="middle"
+              font-size="15"
+              fill="currentColor"
+            >
+              {t}
+            </text>
+          ))}
+        </svg>
+        <figcaption>مطالعهٔ روابط / {p.en}</figcaption>
+      </figure>
+    </section>
+    <section class="wrap section" id="project-model">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">۰۳ / تجربهٔ حجم</span>
+          <h2>فضا را از زاویهٔ خودتان ببینید.</h2>
+        </div>
+        <p class="muted">سقف، نور و دید قابل تغییرند.</p>
+      </div>
+      <Study
+        kind="architecture"
+        variant={p.id}
+        image={p.image}
+        label={`ماکت مفهومی ${p.name}`}
+      />
+    </section>
+    <section class="wrap section atelier-next">
+      <span class="eyebrow">پروژهٔ بعد / {next.en}</span>
+      <a href={url(`demo/atelier/projects/${next.id}/`)}>
+        <h2>{next.name} ↗</h2>
+      </a>
+      <a class="text-link" href={url("demo/atelier/inquiry/")}>
+        گفت‌وگو دربارهٔ پروژهٔ مشابه
+      </a>
+    </section>
+  </main>
+</Brand>

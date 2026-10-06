@@ -1,0 +1,86 @@
+---
+import Brand from "../../../layouts/Brand.astro";
+import Card from "../../../components/RiftCard.astro";
+import Cart from "../../../components/RiftCart.astro";
+import { garments } from "../../../data/brands";
+---
+
+<Brand brand="rift" title="همهٔ محصولات" current="catalog">
+  <main id="demo-main" class="wrap section">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">CATALOG / DROP 001</span>
+        <h1>فرمِ انتخاب تو.</h1>
+      </div>
+      <p>۴ محصول · ۸ رنگ</p>
+    </div>
+    <form class="rift-filter-bar catalog-filters" data-catalog aria-label="فیلتر و مرتب‌سازی محصولات">
+      <label>
+        گروه
+        <select name="category">
+          <option value="all">همه</option>
+          <option value="outer">لایهٔ بیرونی</option>
+          <option value="layers">لایهٔ میانی</option>
+          <option value="essentials">روزمره</option>
+        </select>
+      </label>
+      <label>
+        رنگ
+        <select name="color">
+          <option value="all">همهٔ رنگ‌ها</option>
+          <option value="black">مشکی</option>
+          <option value="silver">نقره‌ای</option>
+          <option value="rose">تمشکی</option>
+          <option value="ink">زغالی</option>
+          <option value="white">سفید</option>
+          <option value="graphite">گرافیتی</option>
+          <option value="stone">سنگی</option>
+        </select>
+      </label>
+      <label>
+        اندازه
+        <select name="size">
+          <option value="all">همهٔ اندازه‌ها</option>
+          {["S", "M", "L", "XL"].map((s) => (
+            <option value={s}>{s}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        بازهٔ قیمت
+        <select name="budget">
+          <option value="all">همهٔ قیمت‌ها</option>
+          <option value="2000000">تا ۲ میلیون تومان</option>
+          <option value="3000000">تا ۳ میلیون تومان</option>
+        </select>
+      </label>
+      <label>
+        ترتیب
+        <select name="sort">
+          <option value="default">انتخاب کالکشن</option>
+          <option value="low">قیمت کمتر</option>
+          <option value="high">قیمت بیشتر</option>
+        </select>
+      </label>
+      <button type="reset" class="text-link">
+        پاک‌کردن فیلترها
+      </button>
+    </form>
+    <p class="status" data-catalog-status role="status">
+      ۴ محصول
+    </p>
+    <div class="rift-grid" data-catalog-grid>
+      {garments.map((p) => (
+        <Card p={p} heading="h2" />
+      ))}
+    </div>
+    <div class="empty" data-catalog-empty hidden>
+      <h2>این ترکیب نتیجه‌ای ندارد.</h2>
+      <p>رنگ یا گروه دیگری را انتخاب کنید.</p>
+      <button class="button" data-catalog-reset>
+        نمایش همه
+      </button>
+    </div>
+  </main>
+  <Cart />
+</Brand>

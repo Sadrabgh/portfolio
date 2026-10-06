@@ -1,0 +1,80 @@
+---
+import { site, url } from "../config";
+import Logo from "./Logo.astro";
+import SocialLinks from "./SocialLinks.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+const { compact = false } = Astro.props;
+---
+
+<footer class:list={["site-footer", { "compact-footer": compact }]}>
+  {!compact && (
+    <div class="footer-main container">
+      <div class="footer-pitch" data-motion-reveal>
+        <h2>
+          یک قدم بالاتر
+          <br />
+          برای کسب‌وکار شما.
+        </h2>
+        <h2>
+          شروع با <a href={url("contact/")}>یک سلام!</a>
+        </h2>
+        <p>طراحی رابط، تجربهٔ کاربر و توسعهٔ وب</p>
+        <a
+          class="footer-contact"
+          href={site.email ? "mailto:" + site.email : url("contact/")}
+        >
+          {site.email || "دربارهٔ پروژه‌تان بگویید."}
+        </a>
+      </div>
+      <div class="footer-links" data-motion-reveal data-delay="100">
+        <h3>همکاری</h3>
+        <a href={url("services/")}>خدمات</a>
+        <a href={url("services/#approach")}>روند انجام کار</a>
+        <a href={url("contact/")}>شروع پروژه</a>
+        <a href={url("privacy/")}>حریم خصوصی</a>
+      </div>
+      <div class="footer-links" data-motion-reveal data-delay="200">
+        <h3>استودیو</h3>
+        <a href={url("work/")}>نمونه‌کارها</a>
+        <a href={url("about/")}>درباره</a>
+        <a href={url("demo/atelier/")}>آتلیه نو</a>
+        <a href={url("demo/rift/")}>RIFT</a>
+        <a href={url("demo/velo/")}>VELO</a>
+        <a href={url("demo/neva/")}>نِوا</a>
+      </div>
+    </div>
+  )}
+  <div class="footer-bottom container">
+    {compact ? (
+      <a class="footer-brand" href={url()}>
+        استودیو طراحی
+      </a>
+    ) : (
+      <a class="footer-brand" href={url()} aria-label="خانه">
+        <Logo horizontal />
+      </a>
+    )}
+    <p>© {new Date().getFullYear()} استودیو طراحی. پروژه‌های مستقل و نمایشی.</p>
+    {compact ? (
+      <a href={url("contact/")} class="footer-bottom-contact">
+        شروع گفت‌وگو ↗
+      </a>
+    ) : (
+      <SocialLinks />
+    )}
+  </div>
+  <div class="footer-preferences container">
+    <ThemeToggle />
+    <button
+      class="motion-toggle"
+      data-motion-toggle
+      type="button"
+      aria-pressed="false"
+    >
+      <span class="motion-switch" aria-hidden="true"></span>کاهش حرکت
+    </button>
+    <a href="#top" class="back-top">
+      بازگشت به بالا ↑
+    </a>
+  </div>
+</footer>

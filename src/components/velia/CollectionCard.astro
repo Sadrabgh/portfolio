@@ -1,0 +1,33 @@
+---
+import { skinProducts } from "../../data/velia";
+import { url } from "../../config";
+import SkinIcon from "./SkinIcon.astro";
+const { collection: c } = Astro.props;
+---
+
+<a
+  class:list={["velia-collection-card", "tone-" + c.tone]}
+  href={url(`demo/velia/collections/${c.id}/`)}
+>
+  <div class="velia-collection-art">
+    {c.ids.map((id: string) => (
+      <img
+        src={url(
+          `art/velia/${skinProducts.find((p) => p.id === id)?.cardImage || skinProducts.find((p) => p.id === id)?.image}.webp`,
+        )}
+        alt=""
+        width="300"
+        height="340"
+        loading="lazy"
+      />
+    ))}
+  </div>
+  <span class="skin-eyebrow" dir="ltr">
+    {c.english}
+  </span>
+  <h3>{c.name}</h3>
+  <p>{c.copy}</p>
+  <span class="velia-card-link">
+    کشف این روتین <SkinIcon name="arrow" size={19} />
+  </span>
+</a>

@@ -1,0 +1,296 @@
+---
+import Heepzy from "../../../layouts/Heepzy.astro";
+import Card from "../../../components/heepzy/Card.astro";
+import Product from "../../../components/heepzy/Product.astro";
+import Icon from "../../../components/heepzy/Icon.astro";
+import { shoes, moods, art, shoeImage, shopUrl } from "../../../data/heepzy";
+const reviews = [
+  [
+    "سارا کیانی",
+    `از عکس تا انتخاب سایز، همه‌چیز واضح بود. ${shoes[0].name} همان حال‌وهوایی را دارد که برای استایل روزمره‌ام می‌خواستم.`,
+  ],
+  [
+    "آراد راد",
+    `${shoes[1].name} را برای روزهای شلوغ انتخاب کردم. فرم ساده و رنگ روشنش با بیشتر لباس‌هایم هماهنگ می‌شود.`,
+  ],
+  [
+    "نیلوفر مهر",
+    `دیدن محصول از چند زاویه و مقایسهٔ رنگ‌ها انتخاب را راحت‌تر کرد. ${shoes[4].name} نارنجی انتخاب مورد علاقهٔ من است.`,
+  ],
+];
+---
+
+<Heepzy home>
+  <section class="hp-hero" aria-label="راحتی با تعریفی تازه">
+    <picture class="hp-hero-picture">
+      <source media="(max-width:767px)" srcset={art("rava-hero-mobile")} />
+      <img
+        src={art("rava-hero")}
+        alt={`کفش ${shoes[0].name} قهوه‌ای و مدل با پوشش کرم، در فضای سبز و معماری اختصاصی راوا`}
+        width="1536"
+        height="1024"
+        fetchpriority="high"
+      />
+    </picture>
+    <div class="hp-hero-title">
+      <h1>
+        راهت را<span>به ریتم خودت برو.</span>
+      </h1>
+      <p>
+        از اولین قدم تا آخرین قرار.
+        <br />
+        راوا، همراه ریتم هر روز تو.
+      </p>
+      <a class="hp-button" href={shopUrl("catalog/")}>
+        انتخاب قدم بعدی <Icon size={18} />
+      </a>
+    </div>
+    <div class="hp-hero-aside">
+      <p>
+        فرم جسور، راحتی روزمره.
+        <br />
+        جزئیاتی که تفاوت را می‌سازند.
+      </p>
+      <div class="hp-chips">
+        <span>راحتی</span>
+        <span>استایل</span>
+        <span>حرکت</span>
+      </div>
+    </div>
+    <a class="hp-hero-sale" href={shopUrl("catalog/?collection=drops")}>
+      <strong>دراپ تازه · ۲۵٪</strong>
+      <span>سه انتخاب با قیمت ویژهٔ نمونه</span>
+    </a>
+    <div class="hp-hero-proof">
+      <div class="hp-avatars">
+        {[1, 2, 3].map((i) => (
+          <img src={art(`avatar-${i}`, true)} alt="" width="400" height="400" />
+        ))}
+      </div>
+      <span>
+        ۴٫۸ از ۵<br />
+        بازخوردهای نمونه
+      </span>
+    </div>
+    <a class="hp-scroll" href="#hp-lifestyle">
+      استایل را کشف کن
+    </a>
+  </section>
+  <section class="hp-lifestyle hp-container" id="hp-lifestyle" data-rava-reveal>
+    <div class="hp-lifestyle-copy">
+      <span class="hp-eyebrow" dir="ltr">
+        MADE FOR YOUR RHYTHM
+      </span>
+      <h2>
+        شهر عوض می‌شود.
+        <br />
+        ریتم تو، با توست.
+      </h2>
+      <p class="hp-muted">
+        از قدم‌های روزمره تا مسیرهای تازه؛ هر جفت برای همراهی با حال‌وهوای تو
+        طراحی شده.
+      </p>
+      <a class="hp-button" href={shopUrl("about/")}>
+        داستان راوا <Icon size={18} />
+      </a>
+    </div>
+    <div class="hp-collage">
+      {[1, 2, 3, 4, 5].map((i) => (
+        <img
+          src={art(`lifestyle-${i}`)}
+          alt={
+            [
+              "استایل شهری با کفش روشن",
+              "حرکت آزاد در فضای باز",
+              `شلوار قرمز و کفش ${shoes[0].name}`,
+              "قدم‌های تازه با کتانی روشن",
+              "پرترهٔ استایل خیابانی",
+            ][i - 1]
+          }
+          width="1024"
+          height="1536"
+          loading="lazy"
+        />
+      ))}
+    </div>
+  </section>
+  <section class="hp-section hp-container" data-home-catalog>
+    <div class="hp-section-heading">
+      <h2>
+        یک ارتقای کوچک،
+        <br />
+        برای استایل هر روزت.
+      </h2>
+      <p>
+        از کلاسیک‌های ساده تا فرم‌های جسور؛ جفتی را پیدا کن که ریتم روزت را
+        دنبال می‌کند.
+      </p>
+    </div>
+    <div class="hp-mood-tabs" role="group" aria-label="حال‌وهوای کفش">
+      {moods.map((m) => (
+        <button
+          type="button"
+          data-home-mood={m.id}
+          aria-pressed={m.id === "all" ? "true" : "false"}
+          disabled
+        >
+          {m.label}
+        </button>
+      ))}
+    </div>
+    <div class="hp-grid">
+      {shoes.map((p, i) => (
+        <div data-home-card={p.id} hidden={i >= 6}>
+          <Card product={p} />
+        </div>
+      ))}
+    </div>
+    <div class="hp-catalog-more">
+      <a class="hp-text-button" href={shopUrl("catalog/")} data-home-more>
+        دیدن همهٔ ۱۲ انتخاب <Icon size={17} />
+      </a>
+    </div>
+    <p class="hp-fine" data-home-count role="status" aria-live="polite"></p>
+  </section>
+  <section class="hp-section hp-featured-section">
+    <div class="hp-container">
+      <Product product={shoes[4]} featured context="featured" />
+    </div>
+  </section>
+  <section class="hp-section hp-container">
+    <div class="hp-reviews-heading" data-rava-reveal>
+      <h2>
+        هر جفت، یک داستان.
+        <br />
+        این هم داستان آن‌ها.
+      </h2>
+      <div class="hp-proof-line">
+        <div class="hp-avatars">
+          {[1, 2, 3].map((i) => (
+            <img
+              src={art(`avatar-${i}`, true)}
+              alt=""
+              width="400"
+              height="400"
+              loading="lazy"
+            />
+          ))}
+        </div>
+        <p>
+          <span>★★★★★</span> ۴٫۸ / ۵<br />
+          سه روایت از استایل روزمره
+        </p>
+      </div>
+    </div>
+    <div class="hp-review-grid">
+      {reviews.map(([name, text], i) => (
+        <article class="hp-review">
+          <span class="hp-quote-mark" aria-hidden="true">
+            “
+          </span>
+          <p>{text}</p>
+          <div class="hp-review-author">
+            <img
+              src={art(`avatar-${i + 1}`, true)}
+              alt=""
+              width="400"
+              height="400"
+              loading="lazy"
+            />
+            <div>
+              <strong>{name}</strong>
+              <small>روایت نمایشی</small>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="hp-review-note">
+      نام‌ها، امتیازها و دیدگاه‌ها برای نمایش این نمونه‌کار ساخته شده‌اند.
+    </p>
+  </section>
+  <section class="hp-campaign">
+    <img
+      src={art("rava-campaign")}
+      alt={`کتانی ${shoes[3].name} نقره‌ای در کمپین اختصاصی راوا، روی معماری سبز و نور گرم`}
+      width="1536"
+      height="1024"
+      loading="lazy"
+    />
+    <div class="hp-campaign-copy" data-rava-reveal>
+      <h2 lang="en" dir="ltr">
+        OWN YOUR
+        <br />
+        PACE
+      </h2>
+      <p>
+        <bdi>{shoes[3].name}</bdi> برای روزهایی که یک‌جا نمی‌مانند.
+        <br />
+        از گوشهٔ آشنای شهر تا مسیر بعدی تو.
+      </p>
+      <a class="hp-text-button" href={shopUrl("product/circuit/")}>
+        <bdi>{shoes[3].name}</bdi> را کشف کن <Icon size={17} />
+      </a>
+    </div>
+    <span class="hp-campaign-caption" lang="en">
+      RAVA FIELD NOTES / 04
+    </span>
+  </section>
+  <section class="hp-drops hp-container" data-rava-reveal>
+    <div class="hp-drops-copy">
+      <span class="hp-eyebrow" dir="ltr">
+        NEW ROUTES / NEW RHYTHMS
+      </span>
+      <h2>
+        انتخاب بعدی تو،
+        <br />
+        همین حالا رسیده.
+      </h2>
+      <p class="hp-muted">
+        سه مدل، سه حال‌وهوا، یک شروع تازه. دراپ این فصل را با جزئیات و رنگ‌های
+        اختصاصی ببین.
+      </p>
+      <a class="hp-button" href={shopUrl("catalog/?collection=drops")}>
+        دیدن دراپ‌ها <Icon size={18} />
+      </a>
+    </div>
+    <div class="hp-drop-tiles">
+      <a href={shopUrl("product/dawn/")}>
+        <img
+          src={art("drop-1")}
+          alt={`${shoes[11].name}، استایل تازهٔ فصل`}
+          width="1536"
+          height="1024"
+          loading="lazy"
+        />
+      </a>
+      <a href={shopUrl("product/flux/")}>
+        <img
+          src={shoeImage(shoes[4])}
+          alt={`${shoes[4].name} سفید و نارنجی`}
+          width="1000"
+          height="1000"
+          loading="lazy"
+        />
+      </a>
+      <a href={shopUrl("product/route/")}>
+        <img
+          src={art("drop-2")}
+          alt={`${shoes[0].name} در استایل خیابانی`}
+          width="1536"
+          height="1024"
+          loading="lazy"
+        />
+      </a>
+      <a href={shopUrl("product/dawn/")}>
+        <img
+          src={shoeImage(shoes[11])}
+          alt={`${shoes[11].name} صورتی`}
+          width="1000"
+          height="1000"
+          loading="lazy"
+        />
+      </a>
+    </div>
+  </section>
+</Heepzy>

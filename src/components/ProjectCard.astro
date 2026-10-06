@@ -1,0 +1,78 @@
+---
+import { url } from "../config";
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  project: CollectionEntry<"projects">;
+  index?: number;
+}
+const { project, index = 0 } = Astro.props;
+const p = project.data;
+const descriptions: Record<string, string> = {
+  form: "طراحی وب برای معماری",
+  luma: "تجربهٔ خرید با تعامل دقیق",
+  orbit: "پیکربندی دوچرخهٔ سه‌بعدی",
+  medical: "انتخاب پزشک و نوبت‌دهی شمسی",
+};
+---
+
+<article
+  class:list={["project-card", `project-${project.id}`]}
+  data-project-card
+  data-project={project.id}
+  data-title={p.title}
+  data-index={index}
+  aria-labelledby={`card-title-${project.id}`}
+>
+  <div class="project-glass">
+    <div class="glass-back" aria-hidden="true"></div>
+    <div class="glass-edge glass-edge-left" aria-hidden="true"></div>
+    <div class="glass-edge glass-edge-right" aria-hidden="true"></div>
+    <div class="glass-edge glass-edge-top" aria-hidden="true"></div>
+    <div class="glass-edge glass-edge-bottom" aria-hidden="true"></div>
+    <div class="project-front">
+      <a
+        class="project-visual"
+        href={url(`work/${project.id}/`)}
+        aria-label={`بررسی ${p.title}`}
+        draggable="false"
+      >
+        <div
+          class="project-media"
+          data-project-image
+          style={`view-transition-name:project-${project.id}`}
+        >
+          <img
+            class="project-card-fallback"
+            src={url(p.previewDesktop || p.cover)}
+            alt={`نمای رابط ${p.title}`}
+            width="1440"
+            height="1058"
+            loading="lazy"
+            draggable="false"
+          />
+        </div>
+      </a>
+      <div class="project-caption">
+        <div class="project-caption-top">
+          <span>{p.label}</span>
+          <span class="concept-tag">مستقل</span>
+        </div>
+        <h3 id={`card-title-${project.id}`}>
+          <a href={url(`work/${project.id}/`)}>{p.title}</a>
+        </h3>
+        <p>{descriptions[project.id] || p.summary}</p>
+        <div class="project-caption-bottom">
+          <a
+            class="project-link project-case"
+            href={url(`work/${project.id}/`)}
+          >
+            مشاهدهٔ پروژه
+          </a>
+          <a class="project-link project-demo" href={url(p.demo)}>
+            آزمایش دمو
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

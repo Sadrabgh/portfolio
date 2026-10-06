@@ -1,0 +1,21 @@
+---
+import { url } from "../../config";
+import Photo from "./Photo.astro";
+---
+
+<picture>
+  <source
+    type="image/avif"
+    srcset={[320, 640, 900]
+      .map((width) => `${url(`images/avan/hero/h01-${width}.avif`)} ${width}w`)
+      .join(", ")}
+    sizes="(max-width:767px) 280px, 45vw"
+  />
+  <Photo
+    source="/images/avan/products/h01-graphite-front.webp"
+    alt="هدفون گرافیتی آوان H01، با بالشتک نرم و جزئیات مسی"
+    class="product-art"
+    eager
+    sizes="(max-width:767px) 280px, 45vw"
+  />
+</picture>

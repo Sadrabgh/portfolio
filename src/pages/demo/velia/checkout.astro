@@ -1,0 +1,230 @@
+---
+import Velia from "../../../layouts/Velia.astro";
+import SkinBag from "../../../components/velia/SkinBag.astro";
+import SkinIcon from "../../../components/velia/SkinIcon.astro";
+import { url } from "../../../config";
+---
+
+<Velia title="تکمیل انتخاب تو" current="checkout">
+  <main id="skin-main" class="skin-wrap" data-checkout-page>
+    <div class="skin-page-heading" data-checkout-heading>
+      <nav class="skin-breadcrumb" aria-label="مسیر صفحه">
+        <a href={url("demo/velia/cart/")}>سبد خرید</a>
+        <SkinIcon name="back" size={15} />
+        <span aria-current="page">تکمیل سفارش</span>
+      </nav>
+      <h1>روتین تازه‌ات، همین‌جاست.</h1>
+    </div>
+    <div data-checkout-empty class="skin-no-results" hidden>
+      <SkinIcon name="bag" size={43} />
+      <h2>اول، یک انتخاب خوب.</h2>
+      <p>سبد خریدت خالی است. پیش از ادامه، یک محصول انتخاب کن.</p>
+      <a class="skin-button" href={url("demo/velia/shop/")}>
+        دیدن محصولات <SkinIcon name="arrow" size={20} />
+      </a>
+    </div>
+    <div class="skin-checkout-layout" data-checkout-layout>
+      <form
+        class="skin-checkout-form"
+        data-checkout-form
+        method="dialog"
+        autocomplete="off"
+      >
+        <div class="skin-checkout-steps" aria-label="مراحل سفارش">
+          <span data-checkout-step="1" data-active>
+            <b>۱</b> اطلاعات
+          </span>
+          <span data-checkout-step="2">
+            <b>۲</b> بازبینی
+          </span>
+          <span data-checkout-step="3">
+            <b>۳</b> پایان
+          </span>
+        </div>
+        <p class="skin-checkout-demo">
+          این سفارش آزمایشی است؛ پرداخت و ارسال واقعی انجام نمی‌شود. می‌توانی
+          فرم را با اطلاعات ساختگی امتحان کنی.
+        </p>
+        <section data-checkout-panel="1">
+          <h2>اطلاعات گیرنده</h2>
+          <div class="skin-form-fields">
+            <label class="skin-field">
+              <span>نام و نام خانوادگی</span>
+              <input
+                name="name"
+                required
+                minlength="3"
+                maxlength="70"
+                placeholder="مثلاً سارا محمدی"
+                aria-describedby="skin-name-error"
+              />
+              <small id="skin-name-error" data-error-for="name"></small>
+            </label>
+            <label class="skin-field">
+              <span>شمارهٔ همراه</span>
+              <input
+                name="phone"
+                type="tel"
+                inputmode="tel"
+                required
+                maxlength="15"
+                placeholder="۰۹۱۲۳۴۵۶۷۸۹"
+                aria-describedby="skin-phone-error"
+              />
+              <small id="skin-phone-error" data-error-for="phone"></small>
+            </label>
+            <label class="skin-field">
+              <span>شهر</span>
+              <input
+                name="city"
+                required
+                minlength="2"
+                maxlength="50"
+                placeholder="مثلاً تهران"
+                aria-describedby="skin-city-error"
+              />
+              <small id="skin-city-error" data-error-for="city"></small>
+            </label>
+            <label class="skin-field">
+              <span>کد پستی</span>
+              <input
+                name="postal"
+                inputmode="numeric"
+                required
+                maxlength="12"
+                placeholder="۱۰ رقم"
+                aria-describedby="skin-postal-error"
+              />
+              <small id="skin-postal-error" data-error-for="postal"></small>
+            </label>
+            <label class="skin-field skin-field-full">
+              <span>نشانی</span>
+              <textarea
+                name="address"
+                required
+                minlength="10"
+                maxlength="300"
+                rows="3"
+                placeholder="خیابان، کوچه، پلاک و واحد"
+                aria-describedby="skin-address-error"
+              ></textarea>
+              <small id="skin-address-error" data-error-for="address"></small>
+            </label>
+          </div>
+          <fieldset class="velia-delivery-options">
+            <legend>شیوهٔ ارسال</legend>
+            <label>
+              <input type="radio" name="delivery" value="standard" checked />
+              <span>
+                <b>استاندارد</b>
+                <small>۲ تا ۴ روز کاری · ۶۵٬۰۰۰ تومان، از حد نصاب رایگان</small>
+              </span>
+            </label>
+            <label>
+              <input type="radio" name="delivery" value="express" />
+              <span>
+                <b>سریع</b>
+                <small>
+                  ۱ تا ۲ روز کاری · ۱۱۰٬۰۰۰ تومان، از حد نصاب ۴۵٬۰۰۰ تومان
+                </small>
+              </span>
+            </label>
+          </fieldset>
+          <div class="skin-checkout-actions">
+            <button class="skin-button" type="button" data-checkout-next>
+              بازبینی سفارش <SkinIcon name="arrow" size={20} />
+            </button>
+            <a class="skin-text-button" href={url("demo/velia/cart/")}>
+              بازگشت به سبد
+            </a>
+          </div>
+        </section>
+        <section data-checkout-panel="2" hidden>
+          <h2 tabindex="-1" data-review-heading>
+            همه‌چیز درست است؟
+          </h2>
+          <div class="skin-order-review">
+            <dl>
+              <div>
+                <dt>گیرنده</dt>
+                <dd data-review-name></dd>
+              </div>
+              <div>
+                <dt>شمارهٔ همراه</dt>
+                <dd data-review-phone></dd>
+              </div>
+              <div>
+                <dt>نشانی</dt>
+                <dd data-review-address></dd>
+              </div>
+              <div>
+                <dt>ارسال</dt>
+                <dd data-review-delivery>ارسال استاندارد · نمایشی</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="skin-checkout-actions">
+            <button class="skin-button" type="button" data-checkout-confirm>
+              ثبت سفارش آزمایشی <SkinIcon name="check" size={20} />
+            </button>
+            <button class="skin-text-button" type="button" data-checkout-back>
+              ویرایش اطلاعات
+            </button>
+          </div>
+        </section>
+      </form>
+      <aside class="skin-checkout-summary">
+        <h2>خلاصهٔ انتخاب‌ها</h2>
+        <SkinBag mode="checkout" />
+      </aside>
+    </div>
+    <section class="skin-receipt" data-order-receipt hidden>
+      <div class="skin-receipt-mark">
+        <SkinIcon name="check" size={39} />
+      </div>
+      <h2 tabindex="-1" data-receipt-heading>
+        سفارش نمونه با موفقیت ثبت شد.
+      </h2>
+      <p>
+        مسیر خرید آزمایشی با موفقیت تمام شد. هیچ پرداخت یا سفارش واقعی انجام
+        نشده است.
+      </p>
+      <dl>
+        <div>
+          <dt>شمارهٔ سفارش آزمایشی</dt>
+          <dd data-order-id dir="ltr"></dd>
+        </div>
+        <div>
+          <dt>تعداد محصولات</dt>
+          <dd data-order-quantity></dd>
+        </div>
+        <div>
+          <dt>مبلغ نمایشی</dt>
+          <dd>
+            <span data-order-total></span> تومان
+          </dd>
+        </div>
+      </dl>
+      <a class="skin-button" href={url("demo/velia/shop/")}>
+        بازگشت به مجموعه <SkinIcon name="arrow" size={20} />
+      </a>
+      <a
+        class="velia-text-link"
+        data-receipt-link
+        href={url("demo/velia/account/order/")}
+      >
+        جزئیات و پیگیری سفارش <SkinIcon name="arrow" size={18} />
+      </a>
+    </section>
+  </main>
+  <noscript>
+    <style>
+      .velia [data-checkout-layout] {
+        display: none !important;
+      }
+      .velia [data-checkout-empty] {
+        display: block !important;
+      }
+    </style>
+  </noscript>
+</Velia>

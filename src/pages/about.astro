@@ -1,0 +1,65 @@
+---
+import Base from "../layouts/Base.astro";
+import StudioPortrait from "../components/StudioPortrait.astro";
+import Expertise from "../components/Expertise.astro";
+import Experience from "../components/Experience.astro";
+import ProjectQuotes from "../components/ProjectQuotes.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+import { site, url } from "../config";
+---
+
+<Base title="دربارهٔ طراح">
+  <section class="about-profile container">
+    <div class="about-profile-copy">
+      <div data-motion-reveal>
+        <h1>{site.ownerName || "استودیو طراحی"}</h1>
+        <p class="about-role">
+          طراح رابط و تجربهٔ کاربر
+          <br />
+          توسعه‌دهندهٔ وب
+        </p>
+      </div>
+      <div class="about-biography" data-motion-reveal data-delay="100">
+        <span class="eyebrow">زندگی‌نامه</span>
+        <p>
+          طراحی برای تجربه‌های بهتر.
+          <br />
+          از ساختار یک صفحه تا جزئیات حرکت و اجرای آن، تجربه را یکپارچه می‌سازم.
+        </p>
+      </div>
+      <div class="about-contact" data-motion-reveal data-delay="200">
+        <span class="eyebrow">تماس</span>
+        <a href={url("contact/")}>
+          شروع یک گفت‌وگو
+          <br />
+          دربارهٔ پروژهٔ شما
+        </a>
+        {site.email && (
+          <a href={"mailto:" + site.email} dir="ltr">
+            {site.email}
+          </a>
+        )}
+      </div>
+      <div class="about-services" data-motion-reveal data-delay="300">
+        <span class="eyebrow">حوزه‌های طراحی</span>
+        {[
+          ["طراحی رابط", "01"],
+          ["توسعهٔ وب", "02"],
+          ["حرکت و تعامل", "03"],
+          ["تجربهٔ سه‌بعدی", "04"],
+          ["طراحی واکنش‌گرا", "05"],
+        ].map(([t, n]) => (
+          <a href={url("services/")}>
+            <span>{t}</span>
+            <small dir="ltr">{n}</small>
+          </a>
+        ))}
+      </div>
+    </div>
+    <StudioPortrait priority />
+  </section>
+  <Expertise />
+  <Experience />
+  <ProjectQuotes />
+  <ContactCTA />
+</Base>

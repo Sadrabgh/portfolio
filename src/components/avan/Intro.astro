@@ -1,0 +1,5 @@
+---
+interface Props {eyebrow?:string;title:string;description:string;}
+const {eyebrow='مجموعهٔ آوان',title,description}=Astro.props;
+---
+<div class="page-intro"><small class="eyebrow">{eyebrow}</small><h1>{title}</h1><p>{description}</p></div>

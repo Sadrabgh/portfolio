@@ -1,0 +1,277 @@
+---
+import Mora from "../../../layouts/Mora.astro";
+import {
+  products,
+  collections,
+  articles,
+  link,
+  money,
+} from "../../../data/mora";
+import Home from "../../../components/mora/Home.astro";
+import Shop from "../../../components/mora/Shop.astro";
+import Product from "../../../components/mora/Product.astro";
+import Checkout from "../../../components/mora/Checkout.astro";
+import Information from "../../../components/mora/Information.astro";
+import Photo from "../../../components/mora/Photo.astro";
+import Card from "../../../components/mora/Card.astro";
+import Icon from "../../../components/mora/Icon.astro";
+export function getStaticPaths() {
+  return [
+    "",
+    "shop",
+    ...products.map((p) => "product/" + p.id),
+    "collections",
+    ...collections.map((c) => "collections/" + c.id),
+    "wishlist",
+    "compare",
+    "cart",
+    "checkout",
+    "order",
+    "account",
+    "studio",
+    "journal",
+    ...articles.map((a) => "journal/" + a.id),
+    "help/shipping",
+    "help/returns",
+    "help/faq",
+    "help/care",
+    "contact",
+  ].map((page) => ({ params: { page: page || undefined }, props: { page } }));
+}
+const { page } = Astro.props;
+const product = products.find((p) => "product/" + p.id === page);
+const collection = collections.find((c) => "collections/" + c.id === page);
+const article = articles.find((a) => "journal/" + a.id === page);
+const titles: Record<string, string> = {
+  "": "خانه‌ای به سبک تو",
+  shop: "محصولات مورا",
+  collections: "کالکشن‌ها",
+  wishlist: "انتخاب‌های ذخیره‌شده",
+  compare: "مقایسهٔ مدل‌ها",
+  cart: "سبد انتخاب تو",
+  checkout: "سفارش آزمایشی",
+  order: "رسید سفارش",
+  account: "سفارش من",
+  studio: "استودیو مورا",
+  journal: "یادداشت‌ها",
+  contact: "ارتباط با مورا",
+  "help/shipping": "ارسال و تحویل",
+  "help/returns": "بازگشت و شرایط",
+  "help/care": "مراقبت از متریال",
+  "help/faq": "پرسش‌های رایج",
+};
+---
+
+<Mora
+  title={product?.code || collection?.name || article?.title || titles[page]}
+  page={page || "home"}
+>
+  {page === "" && <Home />}
+  {page === "shop" && <Shop />}
+  {product && <Product product={product} />}
+  {page === "checkout" && <Checkout />}
+  {[
+    "studio",
+    "contact",
+    "help/shipping",
+    "help/returns",
+    "help/faq",
+    "help/care",
+  ].includes(page) && <Information page={page} />}
+  {page === "collections" && (
+    <section class="mr-wrap mr-information">
+      <div class="mr-intro">
+        <span class="mr-eyebrow">A ROOM, YOUR WAY</span>
+        <h1>حال‌وهوای خانهٔ تو.</h1>
+        <p>سه ترکیب برای شروع. انتخاب نهایی، به سبک خودت.</p>
+      </div>
+      <div class="mr-collection-grid">
+        {collections.map((c) => (
+          <a
+            class="mr-collection-card"
+            href={link("collections/" + c.id + "/")}
+          >
+            <Photo name={c.image} alt={c.name} />
+            <div>
+              <h2>{c.name}</h2>
+              <Icon />
+            </div>
+            <p>{c.subtitle}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+  {collection && (
+    <section class="mr-wrap mr-information">
+      <div class="mr-breadcrumb">
+        <a href={link("collections/")}>کالکشن‌ها</a>
+        <span>/</span>
+        <span>{collection.name}</span>
+      </div>
+      <div class="mr-collection-hero">
+        <div class="mr-intro">
+          <span class="mr-eyebrow">THE MORA COLLECTION</span>
+          <h1>{collection.name}</h1>
+          <p>{collection.subtitle}</p>
+          <p>
+            مجموع مدل‌های موجود:{" "}
+            {money(
+              products
+                .filter((p) => collection.ids.includes(p.id) && p.stock > 0)
+                .reduce((sum, p) => sum + p.price, 0),
+            )}
+          </p>
+          <button class="mr-btn" data-bundle={collection.id}>
+            افزودن مدل‌های موجود <Icon name="plus" />
+          </button>
+          <small>
+            از هر مدل موجود یک عدد؛ مدل ناموجود به سبد اضافه نمی‌شود.
+          </small>
+        </div>
+        <Photo name={collection.image} alt={collection.name} eager />
+      </div>
+      <p class="mr-demo-note">
+        عکس، الهام چیدمان است؛ قطعات قابل انتخاب در فهرست زیر آمده‌اند.
+      </p>
+      <div class="mr-grid">
+        {products
+          .filter((p) => collection.ids.includes(p.id))
+          .map((product) => (
+            <Card product={product} />
+          ))}
+      </div>
+    </section>
+  )}
+  {page === "journal" && (
+    <section class="mr-wrap mr-information">
+      <div class="mr-intro">
+        <span class="mr-eyebrow">THE MORA JOURNAL</span>
+        <h1>خانه، از نزدیک.</h1>
+        <p>یادداشت‌هایی برای انتخاب، چیدمان و مراقبت.</p>
+      </div>
+      <div class="mr-journal-grid">
+        {articles.map((a) => (
+          <a class="mr-article-card" href={link("journal/" + a.id + "/")}>
+            <Photo name={a.image} alt={a.title} />
+            <span class="mr-eyebrow">{a.tag}</span>
+            <h2>{a.title}</h2>
+            <p>{a.summary}</p>
+            <span class="mr-text-link">
+              خواندن یادداشت <Icon />
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+  {article && (
+    <article class="mr-wrap mr-information">
+      <div class="mr-intro">
+        <span class="mr-eyebrow">{article.tag} / MORA JOURNAL</span>
+        <h1>{article.title}</h1>
+        <p>{article.summary}</p>
+      </div>
+      <div class="mr-studio-photo">
+        <Photo name={article.image} alt={article.title} eager />
+      </div>
+      <div class="mr-prose mr-article-prose">
+        {article.paragraphs.map((text, i) => (
+          <section>
+            <h2>
+              {
+                [
+                  "از زندگی شروع کن.",
+                  "فضا را ببین.",
+                  "جزئیات را بخوان.",
+                  "آرام انتخاب کن.",
+                ][i]
+              }
+            </h2>
+            <p>{text}</p>
+          </section>
+        ))}
+        <a class="mr-btn mr-outline" href={link("shop/")}>
+          دیدن محصولات <Icon />
+        </a>
+      </div>
+    </article>
+  )}
+  {page === "wishlist" && (
+    <section class="mr-wrap mr-information">
+      <div class="mr-intro">
+        <span class="mr-eyebrow">KEEP THE GOOD ONES.</span>
+        <h1>انتخاب‌های نگه‌داشتنی.</h1>
+        <p>مدل‌هایی که برای بعد ذخیره کرده‌ای.</p>
+      </div>
+      <div class="mr-grid" data-wishlist>
+        {products.map((product) => (
+          <Card product={product} />
+        ))}
+      </div>
+      <div class="mr-empty" data-wishlist-empty hidden>
+        <h2>هنوز انتخابی ذخیره نشده.</h2>
+        <p>با نشان قلب، مدل دلخواهت را اینجا نگه دار.</p>
+        <a class="mr-btn" href={link("shop/")}>
+          دیدن محصولات <Icon />
+        </a>
+      </div>
+      <noscript>
+        <p>برای دیدن فهرست شخصی، جاوااسکریپت را فعال کنید.</p>
+      </noscript>
+    </section>
+  )}
+  {page === "compare" && (
+    <section class="mr-wrap mr-information">
+      <div class="mr-intro">
+        <span class="mr-eyebrow">SIDE BY SIDE.</span>
+        <h1>جزئیات، کنار هم.</h1>
+        <p>تا سه مدل را از نظر ابعاد، متریال و قیمت مقایسه کن.</p>
+      </div>
+      <div data-compare-content class="mr-empty">
+        <h2>یک مدل برای شروع انتخاب کن.</h2>
+        <p>نشان مقایسه در کارت محصول، مدل را به این صفحه اضافه می‌کند.</p>
+        <a class="mr-btn" href={link("shop/")}>
+          کشف محصولات <Icon />
+        </a>
+      </div>
+    </section>
+  )}
+  {page === "cart" && (
+    <section class="mr-wrap mr-information">
+      <div class="mr-intro">
+        <span class="mr-eyebrow">YOUR EVERYDAY PICKS.</span>
+        <h1>سبد انتخاب تو.</h1>
+        <p>مدل و تعداد را یک بار دیگر ببین.</p>
+      </div>
+      <div data-cart-content class="mr-empty">
+        <h2>سبد تو هنوز خالی است.</h2>
+        <a class="mr-btn" href={link("shop/")}>
+          دیدن محصولات <Icon />
+        </a>
+      </div>
+    </section>
+  )}
+  {["order", "account"].includes(page) && (
+    <section class="mr-wrap mr-information">
+      <div class="mr-intro">
+        <span class="mr-eyebrow">MORA / DEMO ORDER</span>
+        <h1>
+          {page === "order" ? "خانه، یک قدم نزدیک‌تر." : "سفارش نمونهٔ تو."}
+        </h1>
+        <p>
+          {page === "order"
+            ? "رسید آزمایشی انتخاب‌ها؛ هیچ مبلغی پرداخت نشده است."
+            : "آخرین رسید آزمایشی همین نشست، بدون نیاز به ساخت حساب."}
+        </p>
+      </div>
+      <div data-order-content class="mr-empty">
+        <h2>هنوز رسیدی ثبت نشده.</h2>
+        <p>بعد از ثبت سفارش آزمایشی، خلاصهٔ غیرشخصی آن را اینجا می‌بینی.</p>
+        <a class="mr-btn" href={link("shop/")}>
+          کشف محصولات <Icon />
+        </a>
+      </div>
+    </section>
+  )}
+</Mora>

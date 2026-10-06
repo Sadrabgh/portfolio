@@ -1,0 +1,33 @@
+---
+import { url } from "../config";
+import ProjectCover from "./ProjectCover.astro";
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  project: CollectionEntry<"projects">;
+  index?: number;
+  slider?: boolean;
+}
+const { project, slider = false } = Astro.props;
+const p = project.data;
+---
+
+<article
+  class:list={["portfolio-tile", { "slider-tile": slider }]}
+  data-portfolio-item
+  data-category={p.category}
+>
+  <a
+    class="tile-image"
+    href={url("work/" + project.id + "/")}
+    aria-label={"مشاهدهٔ پروژهٔ " + p.title}
+    data-cursor="مشاهده"
+  >
+    <ProjectCover project={project} />
+  </a>
+  <div class="tile-meta">
+    <span>{p.label}</span>
+    <h3>
+      <a href={url("work/" + project.id + "/")}>{p.title}</a>
+    </h3>
+  </div>
+</article>

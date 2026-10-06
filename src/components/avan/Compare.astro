@@ -1,0 +1,82 @@
+---
+import { products, formatMoney, minimumPrice } from "../../data/avan";
+import { avanUrl } from "../../lib/avan/paths";
+import Photo from "./Photo.astro";
+import Spec from "./Spec.astro";
+import Intro from "./Intro.astro";
+const selected = products.slice(0, 3);
+---
+
+<Intro
+  eyebrow="انتخاب کنار انتخاب"
+  title="تفاوت‌ها را روشن ببین."
+  description="تا سه مدل هم‌گروه را با واحدها و قابلیت‌های مشخص مقایسه کن."
+/>
+<div class="compare-toolbar">
+  <label>
+    <input type="checkbox" data-only-differences disabled />
+    برجسته‌کردن تفاوت‌ها
+  </label>
+  <label>
+    افزودن مدل
+    <select data-compare-select disabled>
+      {products
+        .filter((p) => p.compareGroup)
+        .map((p) => (
+          <option value={p.id}>{p.code}</option>
+        ))}
+    </select>
+  </label>
+  <button type="button" class="btn secondary" data-compare-selected disabled>
+    افزودن به مقایسه
+  </button>
+  <a href={avanUrl("shop/")}>انتخاب مدل از محصولات</a>
+</div>
+<p class="mobile-scroll-hint">
+  برای دیدن مدل‌های دیگر، جدول را به طرفین بکشید.
+</p>
+<div data-compare-content>
+  <div class="table-scroll" tabindex="0" aria-label="جدول مقایسهٔ هدفون‌ها">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">مشخصات</th>
+          {selected.map((p) => (
+            <th scope="col">
+              <Photo
+                source={p.variants[0].images[0]}
+                alt={p.title}
+                class="product-art"
+                sizes="170px"
+              />
+              <bdi dir="ltr">{p.code}</bdi>
+              <p>{p.title}</p>
+              <a href={avanUrl(`product/${p.id}/`)}>انتخاب رنگ</a>
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">قیمت از</th>
+          {selected.map((p) => (
+            <td>{formatMoney(minimumPrice(p))}</td>
+          ))}
+        </tr>
+        {products[0].specs.map((s) => (
+          <tr>
+            <th scope="row">{s.label}</th>
+            {selected.map((p) => (
+              <td>
+                <Spec spec={p.specs.find((t) => t.key === s.key)!} />
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="inline-note">
+  «کاربرد ندارد» با «ندارد» متفاوت است. مشخصات این فروشگاه، دادهٔ نمونه هستند.
+</div>

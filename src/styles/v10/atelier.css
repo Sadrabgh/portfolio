@@ -1,0 +1,355 @@
+body.brand.atelier {
+  --bg: #f7f6f2;
+  --paper: #eeede7;
+  --ink: #262626;
+  --line: #ccccc6;
+  --muted: #62625f;
+  --accent: #b72e33;
+  --on-accent: #fff;
+}
+.atelier .brand-mark b {
+  font-size: 2.875rem;
+  display: flex;
+  gap: 5px;
+}
+.red-dot {
+  height: 10px;
+  width: 10px;
+  align-self: start;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.atelier-hero-photo {
+  position: relative;
+  margin: 24px 24px 0;
+  overflow: hidden;
+  height: clamp(400px, 52vw, 720px);
+}
+.atelier-hero-photo > img {
+  height: 100%;
+  width: 100%;
+  object-position: center 55%;
+}
+.hero-image-link {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  background: #f7f6f2ec;
+  color: #262626;
+  padding: 18px 24px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.hero-image-link span {
+  font-size: 0.875rem;
+}
+.hero-image-link strong {
+  font-size: 1.5rem;
+}
+.atelier-hero-title {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  position: relative;
+  padding-block: 50px 30px;
+  align-items: center;
+}
+.atelier-hero-title h1 {
+  font-size: clamp(2.6rem, 5.3vw, 5.3rem);
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+.atelier-hero-title em {
+  font-style: normal;
+  color: var(--accent);
+}
+.atelier-hero-title p {
+  max-width: 490px;
+}
+.atelier-index {
+  grid-column: 1/-1;
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+  direction: ltr;
+  text-align: right;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+}
+.atelier-projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 70px;
+  row-gap: 60px;
+}
+.atelier-project.project-1 {
+  margin-top: 160px;
+}
+.atelier-project.project-2 {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  column-gap: 40px;
+}
+.atelier-project.project-2 > a:first-child {
+  grid-row: 1/5;
+}
+.atelier-project img {
+  aspect-ratio: 4/3;
+  width: 100%;
+}
+.atelier-project.project-2 img {
+  aspect-ratio: 16/9;
+}
+.atelier-project-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: var(--muted);
+  gap: 20px;
+  padding-block: 16px;
+}
+.atelier-project h3 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.75rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 15px;
+}
+.atelier-project p {
+  max-width: 500px;
+}
+.atelier-principles {
+  background: var(--paper);
+}
+.principle-list article {
+  display: flex;
+  gap: 30px;
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+}
+.principle-list article > b {
+  font-size: 0.875rem;
+  direction: ltr;
+  color: var(--accent);
+}
+.principle-list p {
+  color: var(--muted);
+}
+.atelier-invite h2 {
+  font-size: clamp(2rem, 4vw, 4rem);
+}
+.atelier-invite .button {
+  margin-top: 20px;
+}
+.atelier-archive {
+  margin-top: 40px;
+}
+.atelier-archive article {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 50px;
+  padding-block: 40px;
+  border-top: 1px solid var(--line);
+  align-items: center;
+}
+.atelier-archive img {
+  aspect-ratio: 3/2;
+}
+.project-facts {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+}
+.project-facts div {
+  min-width: 95px;
+}
+.project-facts dt {
+  color: var(--muted);
+}
+.project-facts dd {
+  margin: 6px 0 0;
+}
+.atelier-detail-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  padding: 35px 0 50px;
+}
+.atelier-detail-title h1 {
+  font-size: clamp(3rem, 6vw, 6rem);
+}
+.atelier-detail-cover img {
+  width: 100%;
+  max-height: 850px;
+}
+.large-copy {
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  line-height: 2;
+}
+.atelier-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.atelier-gallery img {
+  aspect-ratio: 4/3;
+}
+.atelier-gallery span {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.875rem;
+  padding-block: 15px;
+}
+.atelier-gallery b {
+  font-weight: 400;
+}
+.photo-dialog {
+  width: 1000px;
+  max-width: calc(100vw - 32px);
+}
+.photo-dialog img {
+  max-height: 65vh;
+  width: 100%;
+  object-fit: contain;
+}
+.atelier-plan {
+  padding: 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.atelier-plan svg {
+  width: 100%;
+}
+.atelier-plan figcaption {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.atelier-process {
+  padding-inline-start: 25px;
+}
+.atelier-process li {
+  padding: 15px;
+  border-bottom: 1px solid var(--line);
+}
+.atelier-next {
+  border-top: 1px solid var(--line);
+}
+.studio-image img {
+  width: 100%;
+  max-height: 680px;
+}
+.studio-image figcaption {
+  margin-top: 12px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.service-rows {
+  margin-top: 70px;
+}
+.service-rows article {
+  display: grid;
+  grid-template-columns: 60px 1fr 1.2fr;
+  gap: 30px;
+  border-top: 1px solid var(--line);
+  padding: 35px 0;
+}
+.service-rows article > span {
+  color: var(--accent);
+  direction: ltr;
+}
+.atelier details {
+  border-top: 1px solid var(--line);
+  padding-block: 18px;
+}
+.atelier summary {
+  cursor: pointer;
+  min-height: 32px;
+}
+.atelier details + .button {
+  margin-top: 24px;
+}
+@media (max-width: 760px) {
+  .atelier-hero-photo {
+    margin: 12px 12px 0;
+    height: 420px;
+  }
+  .hero-image-link {
+    right: 16px;
+    bottom: 16px;
+    padding: 12px 18px;
+    min-width: 180px;
+  }
+  .hero-image-link strong {
+    font-size: 1.3125rem;
+  }
+  .atelier-hero-title {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-block: 30px 10px;
+  }
+  .atelier-hero-title h1 {
+    font-size: 3rem;
+  }
+  .atelier-index {
+    grid-column: auto;
+  }
+  .atelier-projects {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .atelier-project.project-1 {
+    margin-top: 0;
+  }
+  .atelier-project.project-2 {
+    display: block;
+    grid-column: auto;
+  }
+  .atelier-project.project-2 img {
+    aspect-ratio: 4/3;
+  }
+  .atelier-project h3 {
+    font-size: 1.625rem;
+  }
+  .atelier-archive article {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding-block: 25px;
+  }
+  .atelier-detail-title {
+    display: block;
+    padding-top: 15px;
+  }
+  .atelier-detail-title .project-facts {
+    margin-top: 30px;
+  }
+  .atelier-detail-cover img {
+    min-height: 300px;
+    object-fit: cover;
+  }
+  .atelier-gallery {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .service-rows article {
+    grid-template-columns: 40px 1fr;
+    gap: 15px;
+  }
+  .service-rows article > div {
+    grid-column: 2;
+  }
+  .atelier-next {
+    padding-block: 35px;
+  }
+  .atelier .model-viewport {
+    min-height: 360px;
+  }
+}
+html[data-demo-theme="dark"] body.brand.atelier {
+  --accent: #ff858c;
+  --on-accent: #33191d;
+}

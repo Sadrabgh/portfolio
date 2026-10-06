@@ -1,0 +1,165 @@
+---
+import { getCollection } from "astro:content";
+import { url } from "../config";
+interface Props {
+  project?: string;
+  variant?: "projects" | "case" | "layers";
+}
+const { project, variant = "projects" } = Astro.props;
+const entries = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const chosen = entries.find((p) => p.id === project) || entries[0];
+const records = (variant === "case" ? [chosen] : entries).map((p) => ({
+  id: p.id,
+  title: p.data.title,
+  label: p.data.label,
+  image: url(p.data.previewDesktop || p.data.cover),
+  mobile: url(p.data.previewMobile || p.data.cover),
+  href: url(`work/${p.id}/`),
+  demo: url(p.data.demo),
+}));
+const uid = `stage-${variant}-${project || "all"}`;
+---
+
+<section
+  class={`spatial-stage spatial-${variant}`}
+  data-spatial-stage
+  data-variant={variant}
+  data-state="static"
+  data-project={chosen.id}
+  data-records={JSON.stringify(records)}
+  aria-label={
+    variant === "layers"
+      ? "لایه‌های ساخت یک رابط"
+      : variant === "case"
+        ? `نمای تعاملی ${chosen.data.title}`
+        : "نمای سه‌بعدی نمونه‌کارها"
+  }
+>
+  <div class="stage-topline">
+    <span>
+      {variant === "layers"
+        ? "ساختار / رابط / تعامل"
+        : variant === "case"
+          ? "بررسی نمای پروژه"
+          : "پروژه‌های مستقل"}
+    </span>
+    <span class="stage-kind">نمای ثابت</span>
+  </div>
+  <div
+    class="stage-viewport"
+    id={uid}
+    data-project-image={variant === "case" ? "" : undefined}
+    style={
+      variant === "case"
+        ? `view-transition-name:project-${chosen.id}`
+        : undefined
+    }
+  >
+    <div class="stage-fallback" aria-hidden="true">
+      <img
+        src={url(chosen.data.previewDesktop || chosen.data.cover)}
+        alt=""
+        width="1440"
+        height="1058"
+        fetchpriority={variant === "layers" ? "auto" : "high"}
+        loading={variant === "layers" ? "lazy" : "eager"}
+      />
+    </div>
+    <canvas class="stage-canvas" aria-hidden="true"></canvas>
+    <span class="stage-hint">
+      {variant === "layers"
+        ? "فاصلهٔ لایه‌ها را تغییر دهید"
+        : "برای تغییر زاویه، افقی بکشید"}
+    </span>
+  </div>
+  {variant === "projects" && (
+    <div class="stage-projects" role="group" aria-label="انتخاب نمونه‌کار">
+      {records.map((p, i) => (
+        <button
+          type="button"
+          data-stage-project={p.id}
+          aria-label={`انتخاب ${p.title}`}
+          aria-pressed={i === 0}
+          aria-controls={uid}
+        >
+          <span dir="ltr">
+            {({form:"ATELIER NO",luma:"RIFT",orbit:"VELO",medical:"NEVA"}[p.id] || p.id.toUpperCase())}
+          </span>
+        </button>
+      ))}
+    </div>
+  )}
+  {variant === "case" && (
+    <div class="stage-views" role="group" aria-label="اندازهٔ نمای پروژه">
+      <button
+        type="button"
+        data-stage-view="desktop"
+        aria-pressed="true"
+        aria-controls={uid}
+      >
+        نمای دسکتاپ
+      </button>
+      <button
+        type="button"
+        data-stage-view="mobile"
+        aria-pressed="false"
+        aria-controls={uid}
+      >
+        نمای موبایل
+      </button>
+    </div>
+  )}
+  {variant === "layers" ? (
+    <div class="stage-layer-control">
+      <label for={`${uid}-gap`}>فاصلهٔ لایه‌ها</label>
+      <input
+        id={`${uid}-gap`}
+        data-stage-gap
+        type="range"
+        min="0"
+        max="100"
+        value="70"
+      />
+      <output data-stage-gap-value>۷۰٪</output>
+    </div>
+  ) : (
+    <div class="stage-caption">
+      <div>
+        <strong data-stage-title>{chosen.data.title}</strong>
+        <span data-stage-label>{chosen.data.label}</span>
+      </div>
+      {variant === "projects" && (
+        <a
+          class="stage-case-link"
+          data-stage-link
+          href={url(`work/${chosen.id}/`)}
+        >
+          بررسی پروژه
+        </a>
+      )}
+    </div>
+  )}
+  <details class="stage-settings">
+    <summary>تنظیم نما</summary>
+    <div class="stage-setting-buttons">
+      <button type="button" data-stage-rotate="left">
+        چرخش چپ
+      </button>
+      <button type="button" data-stage-rotate="right">
+        چرخش راست
+      </button>
+      <button type="button" data-stage-reset>
+        بازنشانی
+      </button>
+      <button type="button" data-stage-static aria-pressed="true">
+        نمای ثابت
+      </button>
+    </div>
+  </details>
+  <p class="sr-only stage-status" role="status" aria-live="polite"></p>
+</section>
+<script>
+  import "../scripts/spatial";
+</script>

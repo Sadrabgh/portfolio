@@ -1,0 +1,352 @@
+---
+import "../styles/yekan-bakh.css";
+import "../styles/heepzy.css";
+import Icon from "../components/heepzy/Icon.astro";
+import Product from "../components/heepzy/Product.astro";
+import Summary from "../components/heepzy/Summary.astro";
+import { shoes, shopUrl, art } from "../data/heepzy";
+import { url } from "../config";
+interface Props {
+  title?: string;
+  home?: boolean;
+}
+const { title = "استایل تو، قدم بعدی تو", home = false } = Astro.props;
+const nav = [
+  ["", "خانه"],
+  ["about/", "داستان ما"],
+  ["catalog/?collection=drops", "دراپ‌ها"],
+  ["catalog/?collection=fresh", "تازه‌ها"],
+];
+---
+
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#173a32" />
+    <meta
+      name="description"
+      content="راوا، فروشگاه مفهومی کفش با تجربهٔ خرید تعاملی و تصاویر اختصاصی."
+    />
+    <title>{title} — RAVA</title>
+    <link rel="icon" href={url("art/heepzy/rava-mark.svg")} />
+    <style is:inline>
+      @view-transition {
+        navigation: auto;
+      }
+    </style>
+    <script is:inline>
+      // Native multi-page continuity. No router, global demo state or private-data storage.
+      (() => {
+        const reduced = () =>
+          matchMedia("(prefers-reduced-motion: reduce)").matches;
+        function cardImage(destination) {
+          if (!destination?.includes("/demo/rava/product/")) return null;
+          const link = Array.from(
+            document.querySelectorAll("a.hp-card-photo"),
+          ).find(
+            (a) =>
+              new URL(a.href).pathname ===
+              new URL(destination, location.href).pathname,
+          );
+          return link?.querySelector("img");
+        }
+        window.addEventListener("pageswap", (event) => {
+          if (!event.viewTransition) return;
+          event.viewTransition.ready.catch(() => {});
+          event.viewTransition.updateCallbackDone.catch(() => {});
+          event.viewTransition.finished.catch(() => {});
+          if (reduced()) {
+            event.viewTransition.skipTransition();
+            return;
+          }
+          const image = cardImage(event.activation?.entry?.url);
+          if (image) {
+            const main = document.querySelector(
+              ".hp-product-page [data-product-image]",
+            );
+            if (main) main.style.viewTransitionName = "none";
+            image.style.viewTransitionName = "rava-product";
+            event.viewTransition.finished
+              .finally(() => {
+                image.style.viewTransitionName = "none";
+                if (main) main.style.viewTransitionName = "";
+              })
+              .catch(() => {}); // A skipped/unsupported transition uses normal navigation.
+          }
+        });
+        window.addEventListener("pagereveal", (event) => {
+          if (!event.viewTransition) return;
+          event.viewTransition.ready.catch(() => {});
+          event.viewTransition.updateCallbackDone.catch(() => {});
+          event.viewTransition.finished.catch(() => {});
+          if (reduced()) {
+            event.viewTransition.skipTransition();
+            return;
+          }
+          const image = document.querySelector(".hp-product-page")
+            ? null
+            : cardImage(
+                Reflect.get(window, "navigation")?.activation?.from?.url,
+              );
+          if (image) {
+            image.style.viewTransitionName = "rava-product";
+            event.viewTransition.finished
+              .finally(() => (image.style.viewTransitionName = "none"))
+              .catch(() => {});
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body class:list={["hp", { "hp-home": home }]}>
+    <a class="hp-skip" href="#hp-main">
+      رفتن به محتوا
+    </a>
+    <header class="hp-header">
+      <a class="hp-logo" href={shopUrl()} dir="ltr" lang="en">
+        RAVA
+        <svg class="hp-brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M8 30V19a12 12 0 0 1 24 0v11M15 30V20a5 5 0 0 1 10 0v10M25 22l8 8" />
+        </svg>
+      </a>
+      <nav class="hp-nav" aria-label="اصلی">
+        {nav.map(([path, label]) => (
+          <a
+            href={shopUrl(path)}
+            aria-current={
+              Astro.url.pathname === shopUrl(path) ? "page" : undefined
+            }
+          >
+            {label}
+            {path.includes("fresh") && <span class="hp-new-dot"></span>}
+          </a>
+        ))}
+      </nav>
+      <div class="hp-header-actions">
+        <a
+          class="hp-icon hp-search-link"
+          href={shopUrl("catalog/")}
+          aria-label="جست‌وجوی کفش"
+        >
+          <Icon name="search" />
+        </a>
+        <a
+          class="hp-icon"
+          href={shopUrl("favourites/")}
+          aria-label="علاقه‌مندی‌ها"
+        >
+          <Icon name="heart" />
+          <span class="hp-badge" data-favourites-count hidden></span>
+        </a>
+        <button
+          type="button"
+          class="hp-icon"
+          data-open-cart
+          disabled
+          aria-label="باز کردن سبد خرید"
+        >
+          <Icon name="cart" />
+          <span class="hp-badge" data-cart-count hidden></span>
+        </button>
+        <details class="hp-guest">
+          <summary class="hp-icon" aria-label="منوی مهمان">
+            <Icon name="user" />
+          </summary>
+          <div>
+            <strong>سلام، مهمان راوا</strong>
+            <a href={shopUrl("favourites/")}>علاقه‌مندی‌ها</a>
+            <a href={shopUrl("cart/")} data-cart-link>
+              سبد خرید
+            </a>
+            <a href={shopUrl("order/")}>آخرین سفارش نمونه</a>
+            <a href={shopUrl("size-guide/")}>راهنمای سایز</a>
+          </div>
+        </details>
+        <button
+          class="hp-icon hp-menu-button"
+          type="button"
+          data-open-menu
+          disabled
+          aria-label="منوی اصلی"
+        >
+          <Icon name="menu" />
+        </button>
+      </div>
+    </header>
+    <div class="hp-storage-note" data-storage-note hidden role="status">
+      <span data-storage-message></span>
+      <button type="button" data-storage-retry>
+        تلاش دوباره
+      </button>
+    </div>
+    <noscript>
+      <div class="hp-noscript">
+        برای انتخاب رنگ و سایز، علاقه‌مندی و خرید نمونه، جاوااسکریپت را فعال کن.
+        تصاویر و صفحات راهنما قابل مشاهده‌اند.
+      </div>
+    </noscript>
+    <main id="hp-main">
+      <slot />
+    </main>
+    <footer class="hp-footer">
+      <div class="hp-footer-brand" dir="ltr">
+        <span class="hp-footer-kicker">IN YOUR OWN RHYTHM · EST. 2026</span>
+        <span class="hp-big-logo" lang="en">
+          RAVA
+        </span>
+        <img
+          src={art("footer-cutout")}
+          width="400"
+          height="400"
+          alt=""
+          loading="lazy"
+        />
+      </div>
+      <div class="hp-footer-panel">
+        <div class="hp-footer-heading">
+          <h2>
+            راه تازه.
+            <br />
+            ریتم همیشگی تو.
+          </h2>
+          <p>
+            راوا برای حرکت ساخته شده.
+            <br />
+            جفت بعدی‌ات را پیدا کن و مسیرت را بساز.
+          </p>
+          <a
+            class="hp-icon"
+            href={shopUrl("catalog/")}
+            aria-label="دیدن همهٔ کفش‌ها"
+          >
+            <Icon />
+          </a>
+        </div>
+        <nav aria-label="پاورقی">
+          {nav.map(([path, label]) => (
+            <a href={shopUrl(path)}>{label}</a>
+          ))}
+          <a href={shopUrl("size-guide/")}>راهنمای سایز</a>
+        </nav>
+        <div class="hp-footer-bottom">
+          <span>© ۲۰۲۶ راوا · نمونهٔ مفهومی</span>
+          <div>
+            <a href={shopUrl("help/terms/")}>شرایط استفاده</a>
+            <a href={shopUrl("help/privacy/")}>حریم خصوصی</a>
+            <a href={url("work/rava/")}>دربارهٔ این نمونه‌کار ↗</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <dialog
+      class="hp-dialog hp-drawer"
+      data-cart-dialog
+      aria-labelledby="hp-cart-title"
+    >
+      <div class="hp-dialog-heading">
+        <h2 id="hp-cart-title">
+          سبد تو <span data-cart-count></span>
+        </h2>
+        <button
+          type="button"
+          class="hp-icon"
+          data-close-dialog
+          aria-label="بستن سبد"
+        >
+          <Icon name="close" />
+        </button>
+      </div>
+      <div data-cart-rows></div>
+      <p class="hp-empty" data-cart-empty>
+        سبدت هنوز خالی است.
+        <br />
+        <a href={shopUrl("catalog/")}>انتخاب قدم بعدی ←</a>
+      </p>
+      <div data-cart-filled hidden>
+        <Summary />
+        <a class="hp-text-button" href={shopUrl("cart/")} data-cart-link>
+          مشاهدهٔ صفحهٔ سبد
+        </a>
+      </div>
+    </dialog>
+    <dialog
+      class="hp-dialog hp-quick"
+      data-quick-dialog
+      aria-labelledby="hp-quick-title"
+    >
+      <div class="hp-dialog-heading">
+        <h2 id="hp-quick-title">انتخاب رنگ و سایز</h2>
+        <button
+          type="button"
+          class="hp-icon"
+          data-close-dialog
+          aria-label="بستن انتخاب محصول"
+        >
+          <Icon name="close" />
+        </button>
+      </div>
+      <div data-quick-content></div>
+    </dialog>
+    {shoes.map((p) => (
+      <template data-product-template={p.id}>
+        <Product product={p} context="quick" />
+      </template>
+    ))}
+    <dialog
+      class="hp-dialog hp-zoom-dialog"
+      data-zoom-dialog
+      aria-label="نمای بزرگ محصول"
+    >
+      <button
+        type="button"
+        class="hp-icon"
+        data-close-dialog
+        aria-label="بستن تصویر"
+      >
+        <Icon name="close" />
+      </button>
+      <img data-zoom-image alt="" width="1000" height="1000" />
+    </dialog>
+    <dialog
+      class="hp-dialog hp-mobile-menu"
+      data-menu-dialog
+      aria-label="منوی اصلی"
+    >
+      <div class="hp-dialog-heading">
+        <span class="hp-logo" lang="en">
+          RAVA
+        </span>
+        <button
+          class="hp-icon"
+          type="button"
+          data-close-dialog
+          aria-label="بستن منو"
+        >
+          <Icon name="close" />
+        </button>
+      </div>
+      <nav>
+        {nav.map(([path, label]) => (
+          <a href={shopUrl(path)}>{label}</a>
+        ))}
+        <a href={shopUrl("catalog/")}>همهٔ کفش‌ها</a>
+        <a href={shopUrl("size-guide/")}>راهنمای سایز</a>
+      </nav>
+    </dialog>
+    <div class="hp-toast" data-toast hidden role="status" aria-live="polite">
+      <span></span>
+      <button type="button" data-undo hidden>
+        برگرداندن
+      </button>
+      <button type="button" data-dismiss-toast aria-label="بستن پیام">
+        ×
+      </button>
+    </div>
+    <script>
+      import "../scripts/heepzy";
+    </script>
+  </body>
+</html>

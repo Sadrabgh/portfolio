@@ -1,0 +1,63 @@
+---
+import Velia from "../../../layouts/Velia.astro";
+import SkinIcon from "../../../components/velia/SkinIcon.astro";
+import { url } from "../../../config";
+---
+
+<Velia title="پیگیری سفارش" current="help">
+  <main id="skin-main" class="skin-wrap">
+    <div class="skin-page-heading velia-page-intro">
+      <span class="skin-eyebrow" dir="ltr">
+        FOLLOW YOUR SELECTION
+      </span>
+      <h1>انتخاب‌هایت کجای مسیرند؟</h1>
+      <p>شمارهٔ رسید آزمایشی را وارد کن و وضعیت نمونه را ببین.</p>
+    </div>
+    <div class="velia-tracking-layout">
+      <form class="velia-panel" data-tracking-form method="dialog">
+        <SkinIcon name="box" size={40} />
+        <h2>پیگیری یک سفارش</h2>
+        <label class="skin-field">
+          <span>شمارهٔ سفارش</span>
+          <input
+            name="order"
+            type="text"
+            required
+            maxlength="30"
+            placeholder="AL-10248"
+            dir="ltr"
+            autocomplete="off"
+            aria-describedby="tracking-help"
+          />
+        </label>
+        <small id="tracking-help">
+          برای آزمایش، شمارهٔ AL-10248 را امتحان کن.
+        </small>
+        <button class="skin-button" type="submit">
+          دیدن وضعیت <SkinIcon name="arrow" size={19} />
+        </button>
+        <p data-tracking-status class="velia-form-status" role="status"></p>
+      </form>
+      <section
+        class="velia-panel velia-tracking-result"
+        data-tracking-result
+        hidden
+      >
+        <span class="skin-eyebrow">وضعیت سفارش نمونه</span>
+        <h2 data-tracking-id dir="ltr"></h2>
+        <div class="velia-tracking-graphic">
+          <SkinIcon name="box" size={46} />
+          <span class="velia-status-pill" data-tracking-state></span>
+        </div>
+        <p>این وضعیت نمایشی است؛ پرداخت یا ارسال واقعی انجام نشده است.</p>
+        <a
+          class="velia-text-link"
+          data-tracking-link
+          href={url("demo/velia/account/order/")}
+        >
+          دیدن جزئیات سفارش <SkinIcon name="arrow" size={18} />
+        </a>
+      </section>
+    </div>
+  </main>
+</Velia>

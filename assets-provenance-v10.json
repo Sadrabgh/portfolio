@@ -1,0 +1,540 @@
+{
+  "generation_records": {
+    "method": "built-in image_gen",
+    "generation_policy": "One call per asset; no retries or variants",
+    "requested_count": 20,
+    "completed_count": 20,
+    "assets": [
+      {
+        "id": "A1",
+        "name": "pavilion",
+        "prompt": "Use case: photorealistic-natural\nAsset type: architectural editorial gallery photograph\nPrimary request: An original contemporary cultural pavilion of tall red handmade brick piers, a rhythm of narrow vertical openings and a concrete roof, a long low angular building, courtyard trees, deep dark red brick and charcoal glazing, strong perspective.\nStyle/medium: premium natural architectural editorial photography, plausible built architecture, tactile fine material detail.\nComposition/framing: one wide landscape photograph, target 1536x1024, strong carefully composed perspective, full building context.\nLighting/mood: crisp dusk natural light.\nConstraints: original fictional design; opaque background; no people, no text, no logos, no watermarks; no web mockup or graphic layout.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-f4482bc0-6c0a-4b30-91a0-7c68766e4705.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/a1-pavilion.png",
+        "dimensions": {
+          "width": 1536,
+          "height": 1024
+        },
+        "sha256": "79580a2b777e7364539c0c1e1c15d3f9a2f4a11f6c6287e6bcf1e7833449000b",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "A2",
+        "name": "pavilion-interior",
+        "prompt": "Use case: photorealistic-natural\nAsset type: architectural editorial gallery photograph\nPrimary request: Plausible interior of an original contemporary red-brick cultural pavilion with tall dark red handmade brick piers, concrete roof, brick columns and tall narrow slit windows casting bands of daylight, a quiet exhibition space.\nStyle/medium: premium natural carefully composed architectural photography, tactile fine brick and concrete detail, sophisticated restrained composition.\nComposition/framing: one wide landscape photograph, target 1536x1024, coherent architectural perspective.\nLighting/mood: natural daylight bands, quiet exhibition atmosphere.\nConstraints: opaque background; no people, no art labels, no text, no logos, no watermarks; no web mockup or graphic layout.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-2557e623-bd5b-416c-a309-8f1f5a713c93.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/a2-pavilion-interior.png",
+        "dimensions": {
+          "width": 1536,
+          "height": 1024
+        },
+        "sha256": "a13615debe16dac98b6f15342f1bdf42c93fa98fa657264456e8489b53f55f0a",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "A3",
+        "name": "coast",
+        "prompt": "Use case: photorealistic-natural\nAsset type: architectural editorial gallery photograph\nPrimary request: An original coastal house made of two stacked rectangular white concrete volumes with deep terraces and thin black glazing frames, on a grey rock landscape above a blue-grey sea.\nStyle/medium: premium natural architectural editorial photography, plausible built architecture, tactile fine white concrete and rock details.\nComposition/framing: one wide landscape photograph, target 1536x1024, carefully composed view showing both stacked volumes and coastal setting.\nLighting/mood: crisp midday natural light.\nConstraints: original fictional design; opaque background; no people, no text, no logos, no watermarks; no web mockup or graphic layout.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-0ed2bd26-9f5d-45aa-aeed-e07445b50c39.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/a3-coast.png",
+        "dimensions": {
+          "width": 1536,
+          "height": 1024
+        },
+        "sha256": "15916808a36c8f4282f85a565355eb4113c32fae9b9d33501ff91c62cdd6a58f",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "A4",
+        "name": "coast-interior",
+        "prompt": "Use case: photorealistic-natural\nAsset type: architectural editorial gallery photograph\nPrimary request: Plausible interior of an original coastal house built as two stacked rectangular white concrete volumes with deep terraces and thin black glazing frames. White concrete planes, a wide black framed sea-view window, sculptural staircase and restrained furniture.\nStyle/medium: premium natural detailed architectural photography, tactile fine concrete, glass and furniture detail.\nComposition/framing: one wide landscape photograph, target 1536x1024, sophisticated composition showing the sculptural stair and sea-view window.\nLighting/mood: crisp natural daylight from the blue-grey sea.\nConstraints: opaque background; no people, no text, no logos, no watermarks; no web mockup or graphic layout.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-d35343a4-5d68-4826-92d0-8056a31229bf.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/a4-coast-interior.png",
+        "dimensions": {
+          "width": 1536,
+          "height": 1024
+        },
+        "sha256": "6af06da11590b64b29feb6518c4aa2b769aca503a00aeafc96b807f536cbc44d",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "A5",
+        "name": "atrium",
+        "prompt": "Use case: photorealistic-natural\nAsset type: architectural editorial gallery photograph\nPrimary request: An original urban workspace inside a tall glazed rectangular atrium, steel charcoal frames, warm wood decks and a planted inner court, carefully layered levels.\nStyle/medium: premium natural architectural editorial photography, plausible built space, tactile fine steel, timber and glazing detail.\nComposition/framing: one wide landscape photograph, target 1536x1024, sophisticated layered composition showing the tall atrium and multiple timber levels.\nLighting/mood: natural daylight, quiet contemporary workspace atmosphere.\nConstraints: opaque background; no people, no text, no logos, no watermarks; no web mockup or graphic layout.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-ee7b581a-7c90-4c78-8828-ccde0a22eeea.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/a5-atrium.png",
+        "dimensions": {
+          "width": 1536,
+          "height": 1024
+        },
+        "sha256": "10cf69c30369d2613be931b0b27d4ea869251bc89d7be34796d9143469511c29",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "A6",
+        "name": "atrium-interior",
+        "prompt": "Use case: photorealistic-natural\nAsset type: architectural editorial gallery photograph\nPrimary request: Detail view of an original tall glazed rectangular workspace atrium from a timber meeting floor, black structural steel, desks, plants and long daylight shadows. Warm wood decks frame a planted inner court, with layered levels visible beyond.\nStyle/medium: premium natural carefully composed architectural editorial photography, tactile fine timber, steel, glass and foliage detail.\nComposition/framing: one wide landscape photograph, target 1536x1024, viewpoint from the timber meeting floor.\nLighting/mood: natural daylight and long shadows.\nConstraints: opaque background; no people, no text, no logos, no watermarks; no web mockup or graphic layout.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-c91c9db2-25d2-4a08-9280-fc703d8cf8d3.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/a6-atrium-interior.png",
+        "dimensions": {
+          "width": 1536,
+          "height": 1024
+        },
+        "sha256": "5edcf2fa7f98a9abf6502116a163c4a92729a4d8cd9b8bd290dfdb8d170fb1b2",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "R1",
+        "name": "shell-black",
+        "prompt": "Use case: product-mockup\nAsset type: photographic streetwear product catalog image\nPrimary request: A complete cropped lightweight technical hooded jacket in black ripstop fabric, zipper front, two zip pockets and articulated sleeves. Minimal clean garment construction, plain hood, straight front zipper, identical matching hardware and no extra branding.\nStyle/medium: premium realistic photographic catalog with fine ripstop textile, precise stitching, zipper and seam detail.\nScene/backdrop: light neutral grey seamless studio background, opaque.\nComposition/framing: one square image, target 1024x1024 or larger, front three-quarter view, the complete jacket cleanly displayed hanging on an invisible mannequin, no human, enough clear margin around the whole garment.\nLighting/mood: soft directional studio light and realistic soft shadow.\nConstraints: no visible mannequin, no human, no text, no logos, no watermarks; no collage, no web mockup.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-f0ebd4fa-9d1c-4b38-bdd0-5201bd56bec7.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/r1-shell-black.png",
+        "dimensions": {
+          "width": 1254,
+          "height": 1254
+        },
+        "sha256": "71d10163b342b3bb48442b6ad37dce791d9ce4176b7460afd8f00528c392d118",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "R2",
+        "name": "shell-silver",
+        "prompt": "Use case: product-mockup\nAsset type: photographic streetwear product catalog image\nPrimary request: A complete cropped lightweight technical hooded jacket in light silver-grey ripstop fabric, zipper front, two zip pockets and articulated sleeves. Minimal clean garment construction, plain hood, straight front zipper, identical matching hardware and no extra branding.\nStyle/medium: premium realistic photographic catalog with fine ripstop textile, precise stitching, zipper and seam detail.\nScene/backdrop: light neutral grey seamless studio background, opaque.\nComposition/framing: one square image, target 1024x1024 or larger, front three-quarter view, the complete jacket cleanly displayed hanging on an invisible mannequin, no human, enough clear margin around the whole garment.\nLighting/mood: soft directional studio light and realistic soft shadow.\nConstraints: no visible mannequin, no human, no text, no logos, no watermarks; no collage, no web mockup.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-d4670889-8ae1-4475-8415-805c4f725cde.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/r2-shell-silver.png",
+        "dimensions": {
+          "width": 1254,
+          "height": 1254
+        },
+        "sha256": "973f01a57a7950d73c9862fc04ac1dda2f4e9f9a78767419d9040304e566bfab",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "R3",
+        "name": "hoodie-rose",
+        "prompt": "Use case: product-mockup\nAsset type: photographic streetwear product catalog image\nPrimary request: A complete oversized heavyweight pullover hoodie in deep raspberry rose cotton fleece, large front kangaroo pocket, dropped shoulder and ribbed cuffs. Plain hood with simple matching drawcords, broad ribbed hem, no graphics or extra branding.\nStyle/medium: premium realistic photographic catalog with fine fleece textile, precise stitching and rib detail.\nScene/backdrop: light neutral grey seamless studio background, opaque.\nComposition/framing: one square image, target 1024x1024 or larger, front three-quarter view, the complete hoodie cleanly displayed hanging on an invisible mannequin, no human, enough clear margin around the whole garment.\nLighting/mood: soft directional studio light and realistic soft shadow.\nConstraints: no visible mannequin, no human, no text, no logos, no watermarks; no collage, no web mockup.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-41847d48-ddee-4572-b4fb-dd18a4a02011.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/r3-hoodie-rose.png",
+        "dimensions": {
+          "width": 1254,
+          "height": 1254
+        },
+        "sha256": "71a8bb22e62d0fa4df5f56e78b5c4ac7d526e59962f7c8b522c57949e20cfd35",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "R4",
+        "name": "hoodie-ink",
+        "prompt": "Use case: product-mockup\nAsset type: photographic streetwear product catalog image\nPrimary request: A complete oversized heavyweight pullover hoodie in charcoal black cotton fleece, large front kangaroo pocket, dropped shoulder and ribbed cuffs. Plain hood with simple matching drawcords, broad ribbed hem, no graphics or extra branding.\nStyle/medium: premium realistic photographic catalog with fine fleece textile, precise stitching and rib detail.\nScene/backdrop: light neutral grey seamless studio background, opaque.\nComposition/framing: one square image, target 1024x1024 or larger, front three-quarter view, the complete hoodie cleanly displayed hanging on an invisible mannequin, no human, enough clear margin around the whole garment.\nLighting/mood: soft directional studio light and realistic soft shadow.\nConstraints: no visible mannequin, no human, no text, no logos, no watermarks; no collage, no web mockup.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-ed8583ea-8745-4217-86c4-21470f7b4722.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/r4-hoodie-ink.png",
+        "dimensions": {
+          "width": 1254,
+          "height": 1254
+        },
+        "sha256": "4da6e3c28e694e37f19a795157b2dbb375c37d6e2c93bf0e5dc25ebd40338962",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "R5",
+        "name": "tee-white",
+        "prompt": "Use case: product-mockup\nAsset type: photographic streetwear product catalog image\nPrimary request: A complete boxy short-sleeve heavyweight white cotton tee, broad rib crewneck and dropped shoulder. Plain front and back, straight hem, no graphics or extra branding.\nStyle/medium: premium realistic photographic catalog with fine heavyweight cotton textile, precise stitching and rib neckline detail.\nScene/backdrop: light neutral grey seamless studio background, opaque.\nComposition/framing: one square image, target 1024x1024 or larger, front three-quarter view, the complete tee cleanly displayed hanging on an invisible mannequin, no human, enough clear margin around the whole garment.\nLighting/mood: soft directional studio light and realistic soft shadow.\nConstraints: no visible mannequin, no human, no text, no logos, no watermarks; no collage, no web mockup.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-c3e66906-cad3-4d56-a187-e696c33f615e.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/r5-tee-white.png",
+        "dimensions": {
+          "width": 1254,
+          "height": 1254
+        },
+        "sha256": "c0ddbe2392ea1ef869406d3bae1b8a94122f9fe6a9a40aa56620f52fb33ea727",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "R6",
+        "name": "tee-black",
+        "prompt": "Use case: product-mockup\nAsset type: photographic streetwear product catalog image\nPrimary request: A complete boxy short-sleeve heavyweight jet black cotton tee, broad rib crewneck and dropped shoulder. Plain front and back, straight hem, no graphics or extra branding.\nStyle/medium: premium realistic photographic catalog with fine heavyweight cotton textile, precise stitching and rib neckline detail.\nScene/backdrop: light neutral grey seamless studio background, opaque.\nComposition/framing: one square image, target 1024x1024 or larger, front three-quarter view, the complete tee cleanly displayed hanging on an invisible mannequin, no human, enough clear margin around the whole garment.\nLighting/mood: soft directional studio light and realistic soft shadow.\nConstraints: no visible mannequin, no human, no text, no logos, no watermarks; no collage, no web mockup.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-e5d94c0b-e71a-4e4d-8a15-84db63753b0e.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/r6-tee-black.png",
+        "dimensions": {
+          "width": 1254,
+          "height": 1254
+        },
+        "sha256": "b50c953f04fb5ba311880dc2c39d7b10cec16106dce9c7a2d98f6ee6bec73253",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "R7",
+        "name": "cargo-graphite",
+        "prompt": "Use case: product-mockup\nAsset type: photographic streetwear product catalog image\nPrimary request: A complete pair of straight-leg cargo pants in graphite twill, precise patch side cargo pockets with clean rectangular flaps and articulated knee seams, plain waistband with belt loops, matching hardware, no extra branding.\nStyle/medium: premium realistic photographic catalog with fine twill textile, precise stitching, pockets and seam detail.\nScene/backdrop: light neutral grey seamless studio background, opaque.\nComposition/framing: one portrait image, target 1024x1536, front three-quarter view, the complete pants cleanly displayed hanging on an invisible mannequin, no human, clear margins showing waistband and both hems.\nLighting/mood: soft directional studio light and realistic soft shadow.\nConstraints: no visible mannequin, no human, no text, no logos, no watermarks; no collage, no web mockup.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-31289af1-3527-4f0a-896b-d562509cba26.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/r7-cargo-graphite.png",
+        "dimensions": {
+          "width": 1024,
+          "height": 1536
+        },
+        "sha256": "cf8e6c28d1ce7662d568ce114728b7c5cba11ab14df69c41b3b9907c48548815",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "R8",
+        "name": "cargo-stone",
+        "prompt": "Use case: product-mockup\nAsset type: photographic streetwear product catalog image\nPrimary request: A complete pair of straight-leg cargo pants in cool light-grey twill with absolutely no beige tint, precise patch side cargo pockets with clean rectangular flaps and articulated knee seams, plain waistband with belt loops, matching hardware, no extra branding.\nStyle/medium: premium realistic photographic catalog with fine twill textile, precise stitching, pockets and seam detail.\nScene/backdrop: light neutral grey seamless studio background, opaque.\nComposition/framing: one portrait image, target 1024x1536, front three-quarter view, the complete pants cleanly displayed hanging on an invisible mannequin, no human, clear margins showing waistband and both hems.\nLighting/mood: soft directional studio light and realistic soft shadow.\nConstraints: no visible mannequin, no human, no text, no logos, no watermarks; no collage, no web mockup.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-151029c3-240c-414b-b896-0fb5ee7dbdb0.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/r8-cargo-stone.png",
+        "dimensions": {
+          "width": 1024,
+          "height": 1536
+        },
+        "sha256": "f224a4615bcca9137506203a8d170e67d2d269e5e4e85b5ea588b42d95107a85",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "R9",
+        "name": "campaign",
+        "prompt": "Use case: photorealistic-natural\nAsset type: editorial fashion campaign photograph\nPrimary request: A full-length fictional adult female fashion model wearing a cropped lightweight black ripstop technical hooded jacket with straight zipper front, two zip pockets and articulated sleeves, and graphite twill straight-leg cargo pants with precise rectangular flap patch side pockets and articulated knee seams. She walks confidently and calmly through an urban concrete courtyard.\nStyle/medium: premium natural editorial fashion campaign photography, realistic detailed textiles and natural skin.\nComposition/framing: one wide landscape image, target 1536x1024, full-length model including feet with clear context of concrete courtyard, confident composed walk.\nLighting/mood: dramatic natural sunlight.\nConstraints: fictional adult only; opaque background; no text, no logos, no brands, no watermarks; no web mockup or graphic layout.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-fa6470f3-6d3b-46e2-b033-dda849bb9b5f.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/r9-campaign.png",
+        "dimensions": {
+          "width": 1536,
+          "height": 1024
+        },
+        "sha256": "1427c1f628f5cf3b87272235c43d17ba72bfbc07e678e2ef9a114b47c1bf6d81",
+        "opaque": true,
+        "status": "generated and visually inspected; review artifact",
+        "generation_calls": 1,
+        "inspection_notes": "Full-length campaign matches composition. Tiny light chest-mark artifact resembles indistinct branding despite explicit no-brand prompt; retained under one-generation/no-retries constraint for owner review."
+      },
+      {
+        "id": "R10",
+        "name": "campaign-detail",
+        "prompt": "Use case: photorealistic-natural\nAsset type: editorial fashion campaign detail photograph\nPrimary request: Close editorial torso view of a fictional adult male model wearing a deep raspberry rose oversized heavyweight cotton fleece pullover hoodie, large front kangaroo pocket, dropped shoulders, ribbed cuffs, plain hood with simple matching drawcords and broad ribbed hem. His hand rests casually near the pocket.\nStyle/medium: premium natural editorial fashion photography, realistic finely detailed fleece and ribbing.\nScene/backdrop: concrete and black environment, opaque.\nComposition/framing: one portrait frame, target 1024x1536, close torso view emphasizing garment and casual hand gesture.\nLighting/mood: natural directional editorial light.\nConstraints: fictional adult only; no text, no logos, no brands, no watermarks; no web mockup or graphic layout.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-20089e45-f5fd-4ef2-93a2-e6bc35e3775c.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/r10-campaign-detail.png",
+        "dimensions": {
+          "width": 1024,
+          "height": 1536
+        },
+        "sha256": "7d2b483a7abad4a0e4282a1797327157ed07c596d27af4748eb4289150396b1a",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "N1",
+        "name": "clinic",
+        "prompt": "Use case: photorealistic-natural\nAsset type: clinical editorial interior photograph\nPrimary request: A new modern clinic reception with crisp white materials, deep petrol teal accents, translucent fluted glazing, daylight, welcoming restrained contemporary interiors.\nStyle/medium: premium photorealistic natural clinical and interior editorial photography, tactile fine material details.\nComposition/framing: one wide landscape image, target 1536x1024, sophisticated welcoming reception composition.\nLighting/mood: fresh natural daylight in a white and teal environment.\nConstraints: original fictional clinic, opaque background; no people, no clinical instruments, no credentials, no text, no names, no signage, no logos, no watermarks; no web mockup.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-bbb540bc-fcf8-4861-8cd0-72180be26c47.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/n1-clinic.png",
+        "dimensions": {
+          "width": 1536,
+          "height": 1024
+        },
+        "sha256": "8a5b5f2c03cf12fea4ba5a7585f5a244bb6dbe70a0da6e90490ba75dacb977c4",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "N2",
+        "name": "general",
+        "prompt": "Use case: photorealistic-natural\nAsset type: fictional clinical team portrait\nPrimary request: A fictional Iranian/Middle Eastern adult man around 38 in plain teal clinical scrubs, short hair and a gentle expression. Chest-up vertical portrait with natural skin texture.\nScene/backdrop: neutral white and deep petrol teal softly blurred contemporary clinic background, opaque.\nStyle/medium: premium photorealistic natural clinical/editorial portrait photography.\nComposition/framing: one portrait image, target 1024x1536, chest-up, direct calm presence.\nLighting/mood: soft natural daylight, welcoming clinical atmosphere.\nConstraints: fictional identity only; no stethoscope, no instruments, no badges, no credentials, no text, no names, no logos, no watermarks; no web mockup.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-f83ed28f-f297-4044-a72f-ed56c9a69b1c.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/n2-general.png",
+        "dimensions": {
+          "width": 1024,
+          "height": 1536
+        },
+        "sha256": "aa0c0b3e61bfbaef7c73864f4d9e1b289edf93aec2d2633ffdd47f49d93ada57",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "N3",
+        "name": "skin",
+        "prompt": "Use case: photorealistic-natural\nAsset type: fictional clinical team portrait\nPrimary request: A fictional Iranian/Middle Eastern adult woman around 35 with a dark teal modest headscarf and a plain white coat. Chest-up vertical portrait, natural skin texture and a gentle professional expression.\nScene/backdrop: neutral white and deep petrol teal softly blurred contemporary clinic background, opaque.\nStyle/medium: premium photorealistic natural clinical/editorial portrait photography.\nComposition/framing: one portrait image, target 1024x1536, chest-up, direct calm presence.\nLighting/mood: soft natural daylight, welcoming clinical atmosphere.\nConstraints: fictional identity only; no instruments, no badges, no credentials, no text, no names, no logos, no watermarks; no web mockup.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-4818f262-207c-4596-a28e-fd5696f157c9.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/n3-skin.png",
+        "dimensions": {
+          "width": 1024,
+          "height": 1536
+        },
+        "sha256": "6b78a8a2dff817114bd6cc8a51327483ea2a3ce5c6e3025e396d3bc78c67e5d9",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      },
+      {
+        "id": "N4",
+        "name": "dental",
+        "prompt": "Use case: photorealistic-natural\nAsset type: fictional clinical team portrait\nPrimary request: A distinct fictional Iranian/Middle Eastern adult woman around 42 with a light grey modest headscarf and plain navy clinical clothing. Chest-up vertical portrait, natural skin texture and a gentle professional expression. Distinct mature face with individual features.\nScene/backdrop: neutral white and deep petrol teal softly blurred contemporary clinic background, opaque.\nStyle/medium: premium photorealistic natural clinical/editorial portrait photography.\nComposition/framing: one portrait image, target 1024x1536, chest-up, direct calm presence.\nLighting/mood: soft natural daylight, welcoming clinical atmosphere.\nConstraints: fictional identity only; no instruments, no badges, no credentials, no text, no names, no logos, no watermarks; no web mockup.",
+        "source_path": "/workspace/scratch/3bbbcac68d02/generated_images/exec-527ae357-576d-4bd1-a49f-a9c3592516eb.png",
+        "path": "/workspace/scratch/3bbbcac68d02/brand-assets-v10/n4-dental.png",
+        "dimensions": {
+          "width": 1024,
+          "height": 1536
+        },
+        "sha256": "934933d652a1849d3917f940b23765b0933eacfd2116134b384832d03dd31b7d",
+        "opaque": true,
+        "status": "generated and visually inspected",
+        "generation_calls": 1,
+        "inspection_notes": "Subject, composition, material detail and opaque background inspected from generated output."
+      }
+    ],
+    "total_generation_calls": 20,
+    "retries": 0,
+    "inspection_caveats": [
+      "R9 contains a tiny light chest-mark artifact that resembles indistinct branding; owner review needed. No regeneration performed."
+    ]
+  },
+  "production_files": [
+    {
+      "path": "public/art/v10/atrium-interior.webp",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "f44672316b226372e0479220ed8f725b9cc400cc8bf2f0783d65501661f62130",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/atrium.webp",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "ab1beeec0962d8e99037d857e9a8736281bc2683af69b3e2ae6427494be0718d",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/campaign-detail.webp",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "98a4c09f6ec7780a42b76231d89658b7b10b1652da47fb602966f176cb2e78bc",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/campaign.webp",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "aecb0b951ed9135e2447d3affbc1dfc03cb7c994e5abf7fb966e7aa55ca635c4",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/cargo-graphite.webp",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "18dd79983e5c61a8b401d7e30c0fb5bc39ca4362a6915cd354cf5ce17bd24d75",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/cargo-stone.webp",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "b8a36b2109fc0403273f676612bba80723cbacaa6fcc05cdcf520b0d4fa80fbf",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/coast-interior.webp",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "84166f74fa37bd539d8b0e8e753c4273e34af786494b212616a3ad2b905218f7",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/coast.webp",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "a9d78e4508725056f055e1842a3d4e8adfa0f21d77c7ac91268987b7f504d605",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/hoodie-ink.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "b18ae7ef8c5ef8265bd0465a93b6849b3bee0cce735f7bc3d0391d90a499ae35",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/hoodie-rose.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "ba58b8294df992978d054d58b5b05516ea8c90d929ec4b685dd64f6510dbcb3d",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/neva-clinic.webp",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "dd39b46be297c6462ca2b969072f8721a339200936c845e9e28b5296fe45cc89",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/neva-dental.webp",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "4df8abc2e9bccd375aba0c20e51b4cbdabfd8670eb4b7cf17bb80a80bdf20022",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/neva-general.webp",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "72b5702c79c7bc05ffa1f185c35a3eb402ff1aed9ea0220c31dca2dda6098cab",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/neva-skin.webp",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "83efd68fb111aa17c9c6f9454caf4668c04acaed0929c1291084a5e5989fcd75",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/pavilion-interior.webp",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "fa448cdd0d3d291cdc032d8f61795cb933b1d672a4b4919e4b5212a4bb692920",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/pavilion.webp",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "618a1b853cb5dd8a90e0ea101104ae8838579974a2349442fbca4cc790821405",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/shell-black.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "3cb0d5fc725c885b43a636cb8a4e2fe71a5642ef917d18f2bfd7699de8e64b0d",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/shell-silver.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "ffdda091891b8c1e3b5b5e85d0d99c292ec8fca7a6b3cf657b0eef877286b305",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/tee-black.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "71558f543436a573215c91d7771cdb4205e0b833e4b3096e6ead78573f164920",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/tee-white.webp",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "d3c2575d9d24162035873c86352f2d800915907f02c593c9d948e7b1a33fe7cf",
+      "type": "generated image, WebP conversion"
+    },
+    {
+      "path": "public/art/v10/velo-city-chalk.webp",
+      "width": 1198,
+      "height": 800,
+      "sha256": "11fdb483c170bb2f63f2cadadd441c0451d7614b7337cfc699e81dbdb6d1ab02",
+      "type": "procedural Three.js render"
+    },
+    {
+      "path": "public/art/v10/velo-city-cyan.webp",
+      "width": 1198,
+      "height": 800,
+      "sha256": "1edf94381c872c57429c082520948efbb597cce511ed80ce5245f3fc8188b1d2",
+      "type": "procedural Three.js render"
+    },
+    {
+      "path": "public/art/v10/velo-city-ink.webp",
+      "width": 1198,
+      "height": 800,
+      "sha256": "671cd772e083912aa17ab693121f671020ce6e357f8a6e57cc316d7784604372",
+      "type": "procedural Three.js render"
+    },
+    {
+      "path": "public/art/v10/velo-step-chalk.webp",
+      "width": 1198,
+      "height": 800,
+      "sha256": "fff9567f741e9ed67746ec1d45bc8b78acb64f71ed659b0f35c42aefb019c9cf",
+      "type": "procedural Three.js render"
+    },
+    {
+      "path": "public/art/v10/velo-step-cyan.webp",
+      "width": 1198,
+      "height": 800,
+      "sha256": "5f1195e4fc0ba8c6211c47991c8c32fcddd3dd77e16b86e07d5db33a5d87734a",
+      "type": "procedural Three.js render"
+    },
+    {
+      "path": "public/art/v10/velo-step-ink.webp",
+      "width": 1198,
+      "height": 800,
+      "sha256": "d7357bda45c3de2e99f51c92619023e684c7d40e0e2d70b339483d5b42fa3ca1",
+      "type": "procedural Three.js render"
+    },
+    {
+      "path": "public/art/v10/velo-tour-chalk.webp",
+      "width": 1198,
+      "height": 800,
+      "sha256": "d5fb2ba13a21329e2fb6641c2cd013536447b7a303b196163d56ed793d3b7e27",
+      "type": "procedural Three.js render"
+    },
+    {
+      "path": "public/art/v10/velo-tour-cyan.webp",
+      "width": 1198,
+      "height": 800,
+      "sha256": "6afac973ebbc3a460c6f29620c2d5c8089da4f22a7b4b3588c47c61686c6bb14",
+      "type": "procedural Three.js render"
+    },
+    {
+      "path": "public/art/v10/velo-tour-ink.webp",
+      "width": 1198,
+      "height": 800,
+      "sha256": "ee3b536f7a3c83a802ef55ef3a89a5e550af815fa21ee5ac3f4c446c20662639",
+      "type": "procedural Three.js render"
+    }
+  ]
+}

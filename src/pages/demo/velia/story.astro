@@ -1,0 +1,109 @@
+---
+import Velia from "../../../layouts/Velia.astro";
+import SkinIcon from "../../../components/velia/SkinIcon.astro";
+import { url } from "../../../config";
+---
+
+<Velia title="از طبیعت، برای لحظه‌های تو" current="story">
+  <main id="skin-main" class="skin-wrap">
+    <div class="skin-page-heading">
+      <nav class="skin-breadcrumb" aria-label="مسیر صفحه">
+        <a href={url("demo/velia/shop/")}>محصولات</a>
+        <SkinIcon name="back" size={15} />
+        <span aria-current="page">داستان ما</span>
+      </nav>
+    </div>
+    <section class="skin-story-hero">
+      <div class="skin-story-copy">
+        <span class="skin-eyebrow">NATURE, IN YOUR EVERYDAY.</span>
+        <h1>
+          کمی طبیعت.
+          <br />
+          کمی زمان برای خودت.
+        </h1>
+        <p>
+          مراقبت از خودت می‌تواند یک لحظهٔ ساده باشد؛ شستن روز از صورت، لمس یک
+          بافت نرم، و مکثی کوتاه پیش از شروع دوباره. این مجموعه برای همین
+          لحظه‌ها طراحی شده است.
+        </p>
+        <a class="skin-button" href={url("demo/velia/shop/")}>
+          کشف مجموعه <SkinIcon name="arrow" size={20} />
+        </a>
+      </div>
+      <figure class="skin-story-image">
+        <img
+          src={url("art/velia/hero.webp")}
+          alt="پاک‌کنندهٔ آلبا در ترکیب اختصاصی شاخه‌های زیتون و شکوفه"
+          width="1300"
+          height="1200"
+        />
+      </figure>
+    </section>
+    <section class="skin-story-principles">
+      <article>
+        <SkinIcon name="leaf" size={36} />
+        <h2>الهام از طبیعت</h2>
+        <p>
+          رنگ‌های آرام، بافت‌های طبیعی و حضور گیاهان، زبان بصری مجموعه را شکل
+          می‌دهند.
+        </p>
+      </article>
+      <article>
+        <SkinIcon name="nature" size={36} />
+        <h2>مراقبت ساده</h2>
+        <p>
+          دسته‌بندی روشن و انتخاب‌های محدود، پیدا‌کردن مرحلهٔ بعدی روتین را
+          آسان‌تر می‌کنند.
+        </p>
+      </article>
+      <article>
+        <SkinIcon name="recycle" size={36} />
+        <h2>انتخاب با دقت</h2>
+        <p>
+          حجم محصول، اطلاعات بسته‌بندی و هزینهٔ نهایی، پیش از تکمیل سفارش در
+          دسترس‌اند.
+        </p>
+      </article>
+    </section>
+    <section class="skin-faq">
+      <h2>پیش از انتخاب.</h2>
+      <details>
+        <summary>آلبا یعنی چه؟</summary>
+        <p>آلبا در زبان ایتالیایی یعنی «سپیده‌دم»؛ نامی برای شروع آرام روز و یک روتین ساده.</p>
+      </details>
+      <details>
+        <summary>این فروشگاه سفارش واقعی می‌پذیرد؟</summary>
+        <p>
+          آلبا یک برند مفهومی اختصاصی برای این نمونه‌کار است. نام‌ها، بسته‌بندی
+          و تصاویر برای این پروژه طراحی شده‌اند. سبد و مسیر سفارش برای آزمایش
+          رابط ساخته شده‌اند؛ پرداختی دریافت و کالایی ارسال نمی‌شود.
+        </p>
+      </details>
+      <details>
+        <summary>هزینهٔ ارسال چگونه محاسبه می‌شود؟</summary>
+        <p>
+          در این نمونه، هزینهٔ ارسال ۶۵٬۰۰۰ تومان است. اگر جمع محصولات پیش از
+          تخفیف به ۱٬۲۰۰٬۰۰۰ تومان برسد، ارسال استاندارد رایگان می‌شود. ارسال
+          سریع ۴۵٬۰۰۰ تومان به این هزینه اضافه می‌کند. هزینهٔ نهایی همیشه در سبد
+          نمایش داده می‌شود.
+        </p>
+      </details>
+      <details>
+        <summary>چطور محصولی را برای بعد ذخیره کنم؟</summary>
+        <p>
+          قلب کنار محصول را انتخاب کن. انتخاب‌ها در همین مرورگر نگه داشته
+          می‌شوند و از بخش «ذخیره‌ها» در دسترس‌اند. با انتخاب دوبارهٔ قلب
+          می‌توانی محصول را از فهرست برداری.
+        </p>
+      </details>
+      <details>
+        <summary>اطلاعات فرم خرید ذخیره می‌شوند؟</summary>
+        <p>
+          نام، شماره و نشانی فرم آزمایشی به جایی ارسال یا در مرورگر ذخیره
+          نمی‌شوند. شناسه و تعداد محصولات سبد و رسید، انتخاب‌های ذخیره‌شده و
+          حالت رنگ نگه داشته می‌شوند.
+        </p>
+      </details>
+    </section>
+  </main>
+</Velia>

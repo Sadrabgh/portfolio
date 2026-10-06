@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-03T17:48:45.044Z",
+  "checks": [
+    {
+      "name": "menu-open-state-immediate",
+      "passed": true
+    },
+    {
+      "name": "menu-close-focus-and-inert-immediate",
+      "passed": true
+    },
+    {
+      "name": "menu-visual-exit",
+      "passed": true
+    },
+    {
+      "name": "gallery-focus-immediate",
+      "passed": true
+    },
+    {
+      "name": "image-flight-duration",
+      "passed": true
+    },
+    {
+      "name": "gallery-flight-cleans-up",
+      "passed": true
+    },
+    {
+      "name": "gallery-close-state-and-focus-immediate",
+      "passed": true
+    },
+    {
+      "name": "camera-retarget-and-settle",
+      "passed": true
+    },
+    {
+      "name": "camera-narrative-coordinates",
+      "passed": true
+    },
+    {
+      "name": "reduced-camera-immediate-and-static",
+      "passed": true
+    },
+    {
+      "name": "step-focus-immediate",
+      "passed": true
+    },
+    {
+      "name": "rtl-step-motion",
+      "passed": true
+    },
+    {
+      "name": "back-keeps-calendar-selection",
+      "passed": true
+    },
+    {
+      "name": "reduced-step-no-flight",
+      "passed": true
+    },
+    {
+      "name": "no-js-mobile-navigation-readable",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

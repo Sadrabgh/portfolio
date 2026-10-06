@@ -1,0 +1,73 @@
+---
+import Velia from "../../../../layouts/Velia.astro";
+import ArticleCard from "../../../../components/velia/ArticleCard.astro";
+import SkinIcon from "../../../../components/velia/SkinIcon.astro";
+import { skinArticles } from "../../../../data/velia";
+import { url } from "../../../../config";
+export function getStaticPaths() {
+  return skinArticles.map((article) => ({
+    params: { article: article.id },
+    props: { article },
+  }));
+}
+const { article: a } = Astro.props;
+---
+
+<Velia title={a.title} current="journal">
+  <main id="skin-main" class="skin-wrap">
+    <nav class="skin-breadcrumb velia-top-breadcrumb" aria-label="مسیر صفحه">
+      <a href={url("demo/velia/journal/")}>مجلهٔ آلبا</a>
+      <SkinIcon name="back" size={15} />
+      <span aria-current="page">{a.tag}</span>
+    </nav>
+    <article class="velia-reading">
+      <header>
+        <span class="skin-eyebrow">
+          {a.tag} · {a.time} مطالعه
+        </span>
+        <h1>{a.title}</h1>
+        <p>{a.intro}</p>
+        <small>تحریریهٔ نمونهٔ آلبا · ۱۲ مهر ۱۴۰۵</small>
+      </header>
+      <div
+        class:list={[
+          "velia-reading-image",
+          { "is-pack": a.image !== "editorial" },
+        ]}
+      >
+        <img
+          src={url(`art/velia/${a.image}.webp`)}
+          alt="ترکیب اختصاصی محصولات آلبا"
+          width="1200"
+          height="800"
+        />
+      </div>
+      <div class="velia-prose">
+        {a.sections.map(([title, copy]: string[]) => (
+          <section>
+            <h2>{title}</h2>
+            <p>{copy}</p>
+          </section>
+        ))}
+        <a class="skin-button" href={url("demo/velia/collections/")}>
+          روتین‌های آماده را ببین <SkinIcon name="arrow" size={19} />
+        </a>
+      </div>
+    </article>
+    <section class="velia-section">
+      <div class="velia-section-heading">
+        <h2>چند خط دیگر.</h2>
+        <a href={url("demo/velia/journal/")}>
+          همهٔ یادداشت‌ها <SkinIcon name="arrow" size={18} />
+        </a>
+      </div>
+      <div class="velia-article-grid">
+        {skinArticles
+          .filter((x) => x.id !== a.id)
+          .map((article) => (
+            <ArticleCard article={article} />
+          ))}
+      </div>
+    </section>
+  </main>
+</Velia>

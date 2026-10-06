@@ -1,0 +1,43 @@
+---
+const { name = "arrow", size = 20 } = Astro.props;
+const paths: Record<string, string> = {
+  arrow: "M17 7H7m0 0v10m0-10 10 10",
+  right: "m9 5 7 7-7 7",
+  plus: "M12 5v14M5 12h14",
+  close: "m6 6 12 12M18 6 6 18",
+  menu: "M4 8h16M4 16h16",
+  check: "m5 12 4 4L19 6",
+  code: "m8 6-6 6 6 6m8-12 6 6-6 6m-3-14-2 16",
+  spark: "m12 2 2.7 7.3L22 12l-7.3 2.7L12 22l-2.7-7.3L2 12l7.3-2.7Z",
+  mail: "M3 5h18v14H3zM3 5l9 8 9-8",
+  down: "M12 4v16m-6-6 6 6 6-6",
+  sun: "M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5",
+  moon: "M20.5 13.2A8.5 8.5 0 0 1 10.8 3.5 8.5 8.5 0 1 0 20.5 13.2Z",
+  motion: "M3 6h18M3 12h18M3 18h18M7 4v4m10 2v4M9 16v4",
+  bag: "M5 7h14l1 14H4L5 7Zm4 0V5a3 3 0 0 1 6 0v2",
+  heart: "M20.8 4.6a5 5 0 0 0-7.1 0L12 6.3l-1.7-1.7a5 5 0 0 0-7.1 7.1L12 20.5l8.8-8.8a5 5 0 0 0 0-7.1Z",
+  calendar: "M4 5h16v16H4V5Zm0 5h16M8 3v4m8-4v4M8 14h2m4 0h2m-8 3h2",
+  clock: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 4v5l3 2",
+  shield: "M12 3 4 6v6c0 4 8 9 8 9s8-5 8-9V6l-8-3Zm-4 9 3 3 5-5",
+  layers: "m12 3 10 6-10 6L2 9l10-6ZM2 13l10 6 10-6M2 17l10 6 10-6",
+  search: "M10.5 3a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15Zm5.5 13 5 5",
+  grid: "M3 3h7v7H3V3Zm11 0h7v7h-7V3ZM3 14h7v7H3v-7Zm11 0h7v7h-7v-7Z",
+  medical: "M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3Z",
+  leaf: "M20 3C9 3 3 7 3 14a7 7 0 0 0 7 7c7 0 10-7 10-18ZM5 19l10-10",
+  settings: "M3 6h18M3 18h18M7 3v6m10 6v6M3 12h18m10-3v6",
+};
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  <path d={paths[name] || paths.arrow} />
+</svg>

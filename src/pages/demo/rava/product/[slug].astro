@@ -1,0 +1,71 @@
+---
+import Heepzy from "../../../../layouts/Heepzy.astro";
+import Product from "../../../../components/heepzy/Product.astro";
+import Card from "../../../../components/heepzy/Card.astro";
+import { shoes, shopUrl, type Shoe } from "../../../../data/heepzy";
+export function getStaticPaths() {
+  return shoes.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+interface Props {
+  product: Shoe;
+}
+const { product: p } = Astro.props;
+---
+
+<Heepzy title={`کفش ${p.name}`}>
+  <div class="hp-container hp-product-page">
+    <nav class="hp-breadcrumb" aria-label="مسیر صفحه">
+      <a href={shopUrl()}>خانه</a>
+      <span>/</span>
+      <a href={shopUrl("catalog/")}>کفش‌ها</a>
+      <span>/</span>
+      <span>{p.name}</span>
+    </nav>
+    <h1 class="hp-sr-only">
+      کفش {p.name}
+      {p.name !== p.en ? ` · ${p.en}` : ""}
+    </h1>
+    <Product product={p} />
+    <section class="hp-product-details">
+      <h2>جزئیاتی برای انتخاب بهتر</h2>
+      <dl>
+        <div>
+          <dt>رویه</dt>
+          <dd>{p.material}</dd>
+        </div>
+        <div>
+          <dt>زیره</dt>
+          <dd>{p.sole}</dd>
+        </div>
+        <div>
+          <dt>سایزبندی</dt>
+          <dd>اروپایی · ۳۷ تا ۴۵</dd>
+        </div>
+      </dl>
+      <p class="hp-fine">
+        مشخصات، امتیاز و موجودی برای این فروشگاه مفهومی ساخته شده‌اند.
+      </p>
+    </section>
+    <section>
+      <div class="hp-section-heading">
+        <h2>شاید این جفت‌ها هم برای تو باشند.</h2>
+        <a class="hp-text-button" href={shopUrl("catalog/")}>
+          همهٔ کفش‌ها
+        </a>
+      </div>
+      <div class="hp-grid">
+        {shoes
+          .filter(
+            (x) => x.id !== p.id && x.moods.some((m) => p.moods.includes(m)),
+          )
+          .slice(0, 3)
+          .map((product) => (
+            <Card product={product} />
+          ))}
+      </div>
+    </section>
+  </div>
+</Heepzy>

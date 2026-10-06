@@ -1,0 +1,54 @@
+---
+import Heepzy from "../../../layouts/Heepzy.astro";
+import { shoeSizes, shopUrl } from "../../../data/heepzy";
+---
+
+<Heepzy title="راهنمای سایز">
+  <header class="hp-container hp-page-heading">
+    <span class="hp-eyebrow" dir="ltr">
+      FIND YOUR FIT
+    </span>
+    <h1>سایزت را پیدا کن.</h1>
+    <p>
+      اندازه‌ها برای راهنمایی در این نمونه‌کار هستند. سایز و موجودی هر رنگ را در
+      صفحهٔ همان محصول بررسی کن.
+    </p>
+  </header>
+  <article class="hp-article">
+    <h2>طول پا را اندازه بگیر</h2>
+    <p>
+      روی یک کاغذ بایست، فاصلهٔ پاشنه تا بلندترین انگشت را اندازه بگیر و پای
+      بزرگ‌تر را ملاک قرار بده. اندازه‌گیری با جوراب مورد استفاده، مقایسه را
+      دقیق‌تر می‌کند.
+    </p>
+    <table>
+      <caption>جدول تقریبی سایز اروپایی</caption>
+      <thead>
+        <tr>
+          <th scope="col">سایز EU</th>
+          <th scope="col">طول پا · سانتی‌متر</th>
+        </tr>
+      </thead>
+      <tbody>
+        {shoeSizes.map((s, i) => (
+          <tr>
+            <th scope="row">{new Intl.NumberFormat("fa-IR").format(s)}</th>
+            <td>
+              {new Intl.NumberFormat("fa-IR", {
+                maximumFractionDigits: 1,
+              }).format(23.5 + i * 0.6)}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <h2>میان دو سایز هستی؟</h2>
+    <p>
+      در این نمونه، برای پاهای بین دو اندازه، سایز بزرگ‌تر پیشنهاد می‌شود. این
+      جدول جایگزین اندازه‌گیری یا جدول واقعی سازندهٔ کفش نیست.
+    </p>
+    <a class="hp-text-button" href={shopUrl("catalog/")}>
+      بازگشت به کفش‌ها ←
+    </a>
+  </article>
+</Heepzy>

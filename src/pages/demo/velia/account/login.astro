@@ -1,0 +1,53 @@
+---
+import Velia from "../../../../layouts/Velia.astro";
+import SkinIcon from "../../../../components/velia/SkinIcon.astro";
+import { url } from "../../../../config";
+---
+
+<Velia title="ورود به حساب" current="account">
+  <main id="skin-main" class="skin-wrap">
+    <section class="velia-login-layout">
+      <div class="velia-login-art">
+        <img
+          src={url("art/velia/hero.webp")}
+          alt="ترکیب گیاهی پاک‌کنندهٔ آلبا"
+          width="900"
+          height="900"
+        />
+        <span>
+          یک فضای کوچک،
+          <br />
+          فقط برای تو.
+        </span>
+      </div>
+      <div class="velia-login-panel velia-panel">
+        <SkinIcon name="user" size={34} />
+        <span class="skin-eyebrow" dir="ltr">
+          WELCOME TO ALBA
+        </span>
+        <h1>خوش آمدی.</h1>
+        <p>
+          سفارش‌ها، نشانی‌ها و انتخاب‌های ذخیره‌شده را در فضای شخصی خودت ببین.
+        </p>
+        <div class="velia-demo-login-note">
+          <b>پیش‌نمایش حساب کاربری</b>
+          <p>
+            این فروشگاه نمونه‌کار است. با حساب ساختگی سارا وارد می‌شوی و نیازی
+            به شماره، رمز یا اطلاعات شخصی نیست.
+          </p>
+        </div>
+        <button
+          class="skin-button"
+          data-demo-login
+          data-login-redirect
+          type="button"
+        >
+          ورود به حساب نمونه <SkinIcon name="arrow" size={19} />
+        </button>
+        <a class="velia-text-link" href={url("demo/velia/shop/")}>
+          ادامهٔ خرید بدون حساب <SkinIcon name="arrow" size={18} />
+        </a>
+      </div>
+    </section>
+  </main>
+</Velia>

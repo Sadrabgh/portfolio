@@ -1,0 +1,104 @@
+---
+import SkinIcon from "./SkinIcon.astro";
+import { url } from "../../config";
+const { current = "home" } = Astro.props;
+---
+
+<footer class="skin-footer skin-wrap velia-footer">
+  <div class="skin-footer-intro">
+    <b dir="ltr">alba.</b>
+    <p>
+      مراقبت کمتر پیچیده.
+      <br />
+      لحظه‌های بیشتر برای خودت.
+    </p>
+    <a class="velia-footer-story" href={url("demo/velia/story/")}>
+      داستان آلبا <SkinIcon name="arrow" size={18} />
+    </a>
+  </div>
+  <nav aria-label="کشف فروشگاه">
+    <h2>کشف آلبا</h2>
+    <a href={url("demo/velia/shop/")}>تمام محصولات</a>
+    <a href={url("demo/velia/collections/")}>روتین‌های آماده</a>
+    <a href={url("demo/velia/journal/")}>مجله</a>
+    <a href={url("demo/velia/favourites/")}>علاقه‌مندی‌ها</a>
+  </nav>
+  <nav aria-label="خدمات مشتریان">
+    <h2>کنار تو هستیم</h2>
+    <a href={url("demo/velia/contact/")}>تماس و پشتیبانی</a>
+    <a href={url("demo/velia/faq/")}>پرسش‌های متداول</a>
+    <a href={url("demo/velia/help/shipping/")}>ارسال و تحویل</a>
+    <a href={url("demo/velia/help/returns/")}>بازگشت و تعویض</a>
+    <a href={url("demo/velia/tracking/")}>پیگیری سفارش</a>
+  </nav>
+  <div class="velia-footer-news">
+    <h2>یک نامه، برای لحظه‌های تو</h2>
+    <p>انتخاب‌های تازه و یادداشت‌های کوتاه آلبا.</p>
+    <form data-demo-form="newsletter" method="dialog">
+      <label class="skin-sr" for="velia-news-email">
+        ایمیل
+      </label>
+      <input
+        id="velia-news-email"
+        name="email"
+        type="email"
+        required
+        maxlength="100"
+        placeholder="ایمیل تو"
+        autocomplete="off"
+      />
+      <button
+        type="submit"
+        class="skin-icon-button"
+        aria-label="عضویت در خبرنامهٔ نمونه"
+      >
+        <SkinIcon name="arrow" />
+      </button>
+      <p data-form-status role="status"></p>
+    </form>
+  </div>
+  <div class="skin-footer-bottom">
+    <span>آلبا · نمونه‌کار فروشگاهی با برند و تصاویر اختصاصی</span>
+    <div>
+      <a href={url("demo/velia/help/privacy/")}>حریم خصوصی</a>
+      <a href={url("demo/velia/help/terms/")}>شرایط استفاده</a>
+      <a href={url("work/velia/")}>دربارهٔ طراحی پروژه ↗</a>
+    </div>
+    <small>قیمت‌ها و سفارش‌ها نمایشی‌اند؛ پرداخت واقعی انجام نمی‌شود.</small>
+  </div>
+</footer>
+<nav class="skin-mobile-nav" aria-label="ناوبری موبایل">
+  <a
+    href={url("demo/velia/")}
+    aria-current={current === "home" ? "page" : undefined}
+  >
+    <SkinIcon name="home" size={21} />
+    <span>خانه</span>
+  </a>
+  <a
+    href={url("demo/velia/shop/")}
+    aria-current={current === "shop" ? "page" : undefined}
+  >
+    <SkinIcon name="grid" size={21} />
+    <span>محصولات</span>
+  </a>
+  <a
+    href={url("demo/velia/favourites/")}
+    aria-current={current === "favourites" ? "page" : undefined}
+  >
+    <SkinIcon name="heart" size={21} />
+    <span>ذخیره‌ها</span>
+  </a>
+  <a href={url("demo/velia/cart/")} data-bag-open>
+    <SkinIcon name="bag" size={21} />
+    <span>سبد خرید</span>
+  </a>
+  <a
+    href={url("demo/velia/account/")}
+    data-account-entry
+    aria-current={current === "account" ? "page" : undefined}
+  >
+    <SkinIcon name="user" size={21} />
+    <span>حساب من</span>
+  </a>
+</nav>

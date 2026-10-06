@@ -1,0 +1,95 @@
+---
+import AccountShell from "../../../../components/velia/AccountShell.astro";
+import SkinIcon from "../../../../components/velia/SkinIcon.astro";
+---
+
+<AccountShell title="نشانی‌های من" current="addresses">
+  <section class="velia-panel">
+    <div class="velia-section-heading">
+      <h2>جایی برای دریافت انتخاب‌ها</h2>
+      <button class="velia-text-link" type="button" data-address-new>
+        <SkinIcon name="plus" size={19} />
+        نشانی جدید
+      </button>
+    </div>
+    <div class="velia-address-grid" data-address-list>
+      <article class="velia-address-card" data-address-card="home">
+        <div>
+          <SkinIcon name="home" size={23} />
+          <h3>خانه</h3>
+          <span class="velia-status-pill">پیش‌فرض</span>
+        </div>
+        <p data-address-text>تهران، خیابان نمونه، کوچهٔ سرو، پلاک ۱۲، واحد ۳</p>
+        <small>سارا محمدی · ۰۹۱۲۳۴۵۶۷۸۹</small>
+        <div class="velia-address-actions">
+          <button data-address-edit="home" type="button">
+            ویرایش
+          </button>
+          <button data-address-remove="home" type="button">
+            حذف
+          </button>
+        </div>
+      </article>
+      <article class="velia-address-card" data-address-card="office">
+        <div>
+          <SkinIcon name="pin" size={23} />
+          <h3>محل کار</h3>
+        </div>
+        <p data-address-text>تهران، خیابان نمونه، ساختمان سپید، طبقهٔ ۲</p>
+        <small>سارا محمدی · ۰۹۱۲۳۴۵۶۷۸۹</small>
+        <div class="velia-address-actions">
+          <button data-address-edit="office" type="button">
+            ویرایش
+          </button>
+          <button data-address-remove="office" type="button">
+            حذف
+          </button>
+        </div>
+      </article>
+    </div>
+    <p data-address-status role="status" class="velia-form-status"></p>
+  </section>
+  <form
+    class="velia-panel skin-form-fields"
+    data-address-form
+    method="dialog"
+    hidden
+  >
+    <h2 class="skin-field-full" data-address-form-title tabindex="-1">
+      نشانی جدید
+    </h2>
+    <label class="skin-field">
+      <span>عنوان نشانی</span>
+      <input
+        name="label"
+        required
+        minlength="2"
+        maxlength="30"
+        placeholder="مثلاً خانه"
+      />
+    </label>
+    <label class="skin-field">
+      <span>شهر</span>
+      <input name="city" required minlength="2" maxlength="50" value="تهران" />
+    </label>
+    <label class="skin-field skin-field-full">
+      <span>نشانی کامل</span>
+      <textarea
+        name="address"
+        required
+        minlength="10"
+        maxlength="300"
+        rows="3"
+      ></textarea>
+    </label>
+    <div class="skin-field-full velia-form-bottom">
+      <button class="skin-button" type="submit">
+        پیش‌نمایش نشانی <SkinIcon name="check" size={19} />
+      </button>
+      <button class="skin-text-button" type="button" data-address-cancel>
+        انصراف
+      </button>
+    </div>
+    <p data-form-status role="status" class="skin-field-full"></p>
+  </form>
+</AccountShell>

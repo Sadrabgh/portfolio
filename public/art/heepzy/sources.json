@@ -1,0 +1,1044 @@
+{
+  "brand": "RAVA / راوا",
+  "tool": "built-in image_gen",
+  "designReference": "https://dribbble.com/shots/27418656-Shoes-E-Commerce-Landing-Page-Heepzy",
+  "images": [
+    {
+      "id": "h01-brown-1",
+      "file": "h01-brown-1.webp",
+      "derived": [
+        "h01-brown-1.webp",
+        "h01-brown-1-400.webp"
+      ],
+      "brief": "H01 Ground: dark chocolate suede, two curved stitched arcs, caramel lug gum outsole; neutral square three-quarter studio catalogue photograph.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-2a242fc3-086d-49f3-b0d6-9ed786a5f2f6.png",
+      "sha256": "5b5ed08c686d546572d5528c63d2568e0871294f386a1c32b6f7dcb2a1ff2c8a",
+      "createdAt": "2026-10-04T11:51:44.931Z",
+      "original": "output/heepzy/assets-originals/h01-brown-1.png",
+      "active": true
+    },
+    {
+      "id": "h02-cream-1",
+      "file": "h02-cream-1.webp",
+      "derived": [
+        "h02-cream-1.webp",
+        "h02-cream-1-400.webp"
+      ],
+      "brief": "Use case: product-mockup. ONE square premium ecommerce studio catalogue photograph of invented Heepzy H02 'CLOUD': creamy ivory knitted low sneaker, wide rounded toe, tonal knit ribbing, delicate beige reinforced lace loops, sculpted thick foam sole with six small triangular hollow notches along the lower edge. Single shoe, three-quarter side view toe pointing left; centered entire shoe fills 76% of frame horizontally with clear margin. Pure light warm grey #f7f7f5 seamless background, neutral softbox light and soft contact shadow. Realistic tactile material, meticulous believable shoe construction. No sports-brand logos, text, words, watermarks, props, human, collage. Canonical shoe design for later viewpoint and color variants.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-d6187dee-98dd-4e78-abb4-d4a8e8a1a3fc.png",
+      "sha256": "a5890b7d067e5021c481a0732a9d8e29d4f3ac9b464cc4e4afc0bda6ddfc698b",
+      "createdAt": "2026-10-04T11:54:24.712Z",
+      "original": "output/heepzy/assets-originals/h02-cream-1.png",
+      "active": true
+    },
+    {
+      "id": "h03-grey-1",
+      "file": "h03-grey-1.webp",
+      "derived": [
+        "h03-grey-1.webp",
+        "h03-grey-1-400.webp"
+      ],
+      "brief": "Use case: product-mockup. ONE square premium ecommerce studio catalogue photograph of invented Heepzy H03 'VIBE': cool grey chunky technical street sneaker, breathable grey mesh underlay, dark pewter sculpted rubber cage with three distinct oval windows, silver lace loops, volumetric segmented grey foam outsole. Single shoe, three-quarter side view toe pointing left; centered entire shoe fills 76% of frame horizontally with clear margin. Pure light warm grey #f7f7f5 seamless background, neutral softbox light and soft contact shadow. Realistic tactile material, meticulous believable shoe construction. No sports-brand logos, text, words, watermarks, props, human, collage. Canonical shoe design for later viewpoint and color variants.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-02778bb7-9c11-435e-845e-e2a155d65963.png",
+      "sha256": "05f58f37c0df7aa4bde17caa47381bd40b2ab3442a058166bd66684ca920c27f",
+      "createdAt": "2026-10-04T11:54:27.752Z",
+      "original": "output/heepzy/assets-originals/h03-grey-1.png",
+      "active": true
+    },
+    {
+      "id": "h04-silver-1",
+      "file": "h04-silver-1.webp",
+      "derived": [
+        "h04-silver-1.webp",
+        "h04-silver-1-400.webp"
+      ],
+      "brief": "Use case: product-mockup. ONE square premium ecommerce studio catalogue photograph of invented Heepzy H04 'PACE': silver and charcoal running sneaker, black mesh underlay, silver organic curved layered supports, thin black laces, streamlined sculpted pale-grey midsole with black grippy tread. Single shoe, three-quarter side view toe pointing left; centered entire shoe fills 76% of frame horizontally with clear margin. Pure light warm grey #f7f7f5 seamless background, neutral softbox light and soft contact shadow. Realistic tactile material, meticulous believable shoe construction. No sports-brand logos, text, words, watermarks, props, human, collage. Canonical shoe design for later viewpoint and color variants.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-1a61a372-6297-497c-8c93-c29bbdd3b38f.png",
+      "sha256": "87cc82169813ceb5bb844aa79531febd17e151bb9cb6aba28e98051e3766ff12",
+      "createdAt": "2026-10-04T11:54:30.693Z",
+      "original": "output/heepzy/assets-originals/h04-silver-1.png",
+      "active": true
+    },
+    {
+      "id": "h05-orange-1",
+      "file": "h05-orange-1.webp",
+      "derived": [
+        "h05-orange-1.webp",
+        "h05-orange-1-400.webp"
+      ],
+      "brief": "Use case: product-mockup. ONE square premium ecommerce studio catalogue photograph of invented Heepzy H05 'AIRFORM': bright white leather and pale grey mesh low basketball-inspired sneaker, vivid tangerine orange curved inset panel surrounding the heel and across the midfoot (an abstract rounded patch, NOT a swoosh or logo), white laces, orange upper lace eyelets, white thick stitched rubber midsole with orange lower heel stripe and orange tread. Single shoe, three-quarter side view toe pointing left; centered entire shoe fills 76% of frame horizontally with clear margin. Pure light warm grey #f7f7f5 seamless background, neutral softbox light and soft contact shadow. Realistic tactile material, meticulous believable shoe construction. No sports-brand logos, text, words, watermarks, props, human, collage. Canonical shoe design for later viewpoint and color variants.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-67ad515b-3f15-47ee-a254-f33b65044c19.png",
+      "sha256": "9a9356eb6a278dfae4fdfd1c210bb303d2e3d347d1ddbe61df60568835eb4e85",
+      "createdAt": "2026-10-04T11:56:10.523Z",
+      "original": "output/heepzy/assets-originals/h05-orange-1.png",
+      "active": true
+    },
+    {
+      "id": "h06-white-1",
+      "file": "h06-white-1.webp",
+      "derived": [
+        "h06-white-1.webp",
+        "h06-white-1-400.webp"
+      ],
+      "brief": "Use case: product-mockup. ONE square premium ecommerce studio catalogue photograph of invented Heepzy H06 'CORE': minimalist pure white smooth leather low court sneaker, subtle tiny perforations and two curved stitched arcs on the outer side, white flat laces, small warm ivory heel tab, flat light caramel gum outsole. Single shoe, three-quarter side view toe pointing left; centered entire shoe fills 76% of frame horizontally with clear margin. Pure light warm grey #f7f7f5 seamless background, neutral softbox light and soft contact shadow. Realistic tactile material, meticulous believable shoe construction. No sports-brand logos, text, words, watermarks, props, human, collage. Canonical shoe design for later viewpoint and color variants.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-7f4a54d8-b569-40f9-9cbe-5b3042ce74cf.png",
+      "sha256": "6c90e1c5ac4c0803cef09e2ae416b3e206da1578f4f39d9f9287c75d7e56004b",
+      "createdAt": "2026-10-04T11:56:13.454Z",
+      "original": "output/heepzy/assets-originals/h06-white-1.png",
+      "active": true
+    },
+    {
+      "id": "hero",
+      "file": "hero.webp",
+      "derived": [
+        "hero.webp",
+        "hero-400.webp"
+      ],
+      "brief": "Use case: ads-marketing. Generate a NEW photorealistic luxury streetwear ecommerce hero photograph, wide landscape 3:2. Image 1 is the exact invented brown Heepzy H01 shoe design to preserve; image 2 is composition reference only, not an edit target. Dark charcoal studio wall with subtle grey directional light and dark stone floor. A monumental giant version of the H01 chocolate suede sneaker dominates the left foreground, toe partly cropped at lower left and shoe rising diagonally toward center, thick caramel lug sole visible along its right edge. On the right an adult woman in black long sleeve crop top and relaxed light grey wide leg trousers stands full-body, slight lean back, wearing a matching pair of H01 brown shoes. Natural sophisticated expression, realistic proportion, editorial styling. Low camera, dramatic product scale, crisp suede texture. Preserve the shoe's two curved stitched side arcs and caramel lug sole, no brand stripes. Critical layout: upper left quarter mostly empty dark wall for our title; top strip empty for navigation; modest empty space on far right for short copy. No typography, slogans, logos, watermark, border, or website UI. Full bleed single photograph, reference mood and dramatic shoe/human contrast.",
+      "referenceAssets": [
+        "h01-brown-1"
+      ],
+      "source": "imagegen:exec-e43dd8b2-e65f-49c0-a0ef-c4cffd6237ef.png",
+      "sha256": "f9bcc98fd47591c05ec12af893b53e8b6be0fce1149e857240fc839e41820b29",
+      "createdAt": "2026-10-04T11:58:14.511Z",
+      "original": "output/heepzy/assets-originals/hero.png",
+      "active": false
+    },
+    {
+      "id": "featured",
+      "file": "featured.webp",
+      "derived": [
+        "featured.webp",
+        "featured-400.webp"
+      ],
+      "brief": "Use case: photorealistic-natural. ONE square editorial product photograph for invented Heepzy H05 Airform. Input image is the exact white, grey-mesh and orange sneaker identity to preserve; keep the orange abstract rounded side panel, orange eyelets, white laces and orange tread. Two feet of an adult with warm brown skin wearing the matching left and right sneakers with plain white socks, ankles and lower shins only, legs raised diagonally from lower right toward upper left, soles subtly turned outward. Both shoes fully visible. Smooth neutral grey studio background, fashion campaign softbox light, realistic skin and material. Close composition like a premium footwear featured product panel. No logos or text, no extra shoes, no body beyond lower shins, no collage or graphics.",
+      "referenceAssets": [
+        "h05-orange-1"
+      ],
+      "source": "imagegen:exec-c663a517-a332-45a1-9bc7-2f202692fbb0.png",
+      "sha256": "6c89d645201e021722b69b5fffa633bd327aef0edb633269c3c57785b73d1536",
+      "createdAt": "2026-10-04T11:58:17.501Z",
+      "original": "output/heepzy/assets-originals/featured.png",
+      "active": true
+    },
+    {
+      "id": "hero-mobile",
+      "file": "hero-mobile.webp",
+      "original": "output/heepzy/assets-originals/hero-mobile.png",
+      "derived": [
+        "hero-mobile.webp",
+        "hero-mobile-400.webp"
+      ],
+      "brief": "Use case: compositing. Recompose the first reference campaign photograph into a NEW PORTRAIT 2:3 mobile website hero. Preserve the exact adult woman, black top, loose grey trousers, chocolate suede H01 shoe identity and charcoal studio setting. Place the monumental brown H01 shoe along the LEFT foreground but fit it within the portrait width. Place the woman smaller in the RIGHT half, visible FULL BODY from head through BOTH matching brown shoes on the floor. Both shoes she wears MUST be entirely inside the frame, no cut-off feet or limbs. Her head around 38 percent down from the top, feet around 90 percent down. Leave the upper 28 percent of the frame dark empty wall for our mobile heading and nav. Dark dramatic studio light, strong realistic shoe texture, matching caramel deep lug outsole and two curved stitched arcs from reference 2. Natural believable anatomy. No text, no logos, no website UI. This is an alternate composition of the same approved campaign, not a different product.",
+      "referenceAssets": [
+        "hero",
+        "h01-brown-1"
+      ],
+      "source": "imagegen:exec-51f2a935-0965-4583-a57a-d2ab09638dab.png",
+      "sha256": "634f75b7a68c6daa814201524f43b6ca4bd62b5ad35119ed36763027c94ffd4c",
+      "createdAt": "2026-10-04T12:23:50.983Z",
+      "active": false
+    },
+    {
+      "id": "campaign",
+      "file": "campaign.webp",
+      "original": "output/heepzy/assets-originals/campaign.png",
+      "derived": [
+        "campaign.webp",
+        "campaign-400.webp"
+      ],
+      "brief": "Use case: ads-marketing. NEW wide landscape 3:2 premium streetwear campaign photograph. Reference is exact invented Heepzy H04 Pace silver-and-black mesh running sneaker with silver organic layered curved side supports and pale grey sculpted midsole; preserve its identity in both shoes. Adult male model in relaxed olive/brown trousers and a simple olive t-shirt sitting on sunlit red sandstone ledge, photographed extremely low angle with legs extending toward camera and shoe outsoles large in the foreground. Man occupies left upper area; dramatic teal-blue sky fills the upper RIGHT half as EMPTY negative space for our ELEVATE heading. Feet fully show realistic matching shoes, silver/black upper visible as well as black patterned tread. Editorial natural sunlight, warm rock against blue sky, tactile fabric, crisp premium photograph. No logos, typography, graphics, or watermark.",
+      "referenceAssets": [
+        "h04-silver-1"
+      ],
+      "source": "imagegen:exec-45c03264-ce01-49b7-9eac-88d67154bc15.png",
+      "sha256": "eadd7e2806216c47ec01b6d0f95724b9e43d6a525114b9ee6c73417e5f141ba6",
+      "createdAt": "2026-10-04T12:23:53.862Z",
+      "active": false
+    },
+    {
+      "id": "h07-black-1",
+      "file": "h07-black-1.webp",
+      "original": "output/heepzy/assets-originals/h07-black-1.png",
+      "derived": [
+        "h07-black-1.webp",
+        "h07-black-1-400.webp"
+      ],
+      "brief": "ONE square premium ecommerce studio catalogue photograph. A single invented Heepzy shoe, three-quarter side view toe pointing left; centered entire shoe fills 76% horizontally with margin. Pure light warm grey #f7f7f5 seamless background, neutral softbox light, soft contact shadow. Realistic material and believable construction. No brand logos, text, words, watermarks, people, props or collage. Canonical identity for later variants. Subject: H07 AFTERHOURS. Sleek black low sneaker with black suede side panels, smooth black leather toe and heel, two subtle curved stitched side arcs, black laces, flat thick matte charcoal rubber outsole.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-1fe2819a-220c-4636-9a73-c714c57bc86e.png",
+      "sha256": "63a9ccae2b4316c9a0291293579576eb1bb8540b0ea31a7ac599ac65e13cc597",
+      "createdAt": "2026-10-04T12:26:58.649Z",
+      "active": true
+    },
+    {
+      "id": "h08-sage-1",
+      "file": "h08-sage-1.webp",
+      "original": "output/heepzy/assets-originals/h08-sage-1.png",
+      "derived": [
+        "h08-sage-1.webp",
+        "h08-sage-1-400.webp"
+      ],
+      "brief": "ONE square premium ecommerce studio catalogue photograph. A single invented Heepzy shoe, three-quarter side view toe pointing left; centered entire shoe fills 76% horizontally with margin. Pure light warm grey #f7f7f5 seamless background, neutral softbox light, soft contact shadow. Realistic material and believable construction. No brand logos, text, words, watermarks, people, props or collage. Canonical identity for later variants. Subject: H08 TERRAIN. Sage green trail sneaker with olive mesh, sage suede angular reinforcements, cream rope laces, coral-orange tiny lace loops, rugged pale beige segmented lug outsole. Premium outdoor streetwear silhouette.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-675bfcbf-031a-4d8b-be4f-f17cea5947c2.png",
+      "sha256": "cb7ea48ed1e9b0c765169682e9217b88676f23ffff5e73b134fe8c472497e5d1",
+      "createdAt": "2026-10-04T12:27:01.510Z",
+      "active": true
+    },
+    {
+      "id": "h09-bone-1",
+      "file": "h09-bone-1.webp",
+      "original": "output/heepzy/assets-originals/h09-bone-1.png",
+      "derived": [
+        "h09-bone-1.webp",
+        "h09-bone-1-400.webp"
+      ],
+      "brief": "ONE square premium ecommerce studio catalogue photograph. A single invented Heepzy shoe, three-quarter side view toe pointing left; centered entire shoe fills 76% horizontally with margin. Pure light warm grey #f7f7f5 seamless background, neutral softbox light, soft contact shadow. Realistic material and believable construction. No brand logos, text, words, watermarks, people, props or collage. Canonical identity for later variants. Subject: H09 EASE. One sculptural bone-ivory foam slide sandal, wide soft rounded upper strap, open toe, deep ergonomic footbed and softly sculpted thick foam sole, tiny oval perforations on the outer strap. Minimal premium design, no extra sandals.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-d39cb199-8331-4a79-9259-64796b977bfb.png",
+      "sha256": "a0f4cd97cbab62b0c421aac9699386cc970bffa403ad3fecd5fd1f60a22db3d0",
+      "createdAt": "2026-10-04T12:27:04.383Z",
+      "active": true
+    },
+    {
+      "id": "h10-navy-1",
+      "file": "h10-navy-1.webp",
+      "original": "output/heepzy/assets-originals/h10-navy-1.png",
+      "derived": [
+        "h10-navy-1.webp",
+        "h10-navy-1-400.webp"
+      ],
+      "brief": "ONE square premium ecommerce studio catalogue photograph. A single invented Heepzy shoe, three-quarter side view toe pointing left; centered entire shoe fills 76% horizontally with margin. Pure light warm grey #f7f7f5 seamless background, neutral softbox light, soft contact shadow. Realistic material and believable construction. No brand logos, text, words, watermarks, people, props or collage. Canonical identity for later variants. Subject: H10 CANVAS. Navy blue woven canvas low sneaker, ivory cotton laces and metal lace eyelets, plain navy side panels with curved stitching, ivory rubber toe cap and flat ivory rubber outsole with fine warm gum lower line. Modern simple court silhouette.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-1d472b91-c95b-4c77-b5d6-22dcc2c9fedd.png",
+      "sha256": "07850ab9df5f10e9c8b9058f660c5e561299f38c669f27c9f9c63718f4708a94",
+      "createdAt": "2026-10-04T12:29:30.011Z",
+      "active": true
+    },
+    {
+      "id": "h11-sand-1",
+      "file": "h11-sand-1.webp",
+      "original": "output/heepzy/assets-originals/h11-sand-1.png",
+      "derived": [
+        "h11-sand-1.webp",
+        "h11-sand-1-400.webp"
+      ],
+      "brief": "ONE square premium ecommerce studio catalogue photograph. A single invented Heepzy shoe, three-quarter side view toe pointing left; centered entire shoe fills 76% horizontally with margin. Pure light warm grey #f7f7f5 seamless background, neutral softbox light, soft contact shadow. Realistic material and believable construction. No brand logos, text, words, watermarks, people, props or collage. Canonical identity for later variants. Subject: H11 ROAM. Sand beige suede mid-top lightweight hiking shoe, olive mesh ankle collar, brass metal lace hooks, brown and cream rope laces, deep dark charcoal chunky lug outsole with layered cream midsole. One premium shoe.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-b925d09b-43fb-4b15-872f-3b89f459a7e4.png",
+      "sha256": "5c19d4f1666affca9c25fe810c4809f65786a9fcc89fd592adf8130c3a8e5ab0",
+      "createdAt": "2026-10-04T12:29:33.069Z",
+      "active": true
+    },
+    {
+      "id": "h12-pink-1",
+      "file": "h12-pink-1.webp",
+      "original": "output/heepzy/assets-originals/h12-pink-1.png",
+      "derived": [
+        "h12-pink-1.webp",
+        "h12-pink-1-400.webp"
+      ],
+      "brief": "ONE square premium ecommerce studio catalogue photograph. A single invented Heepzy shoe, three-quarter side view toe pointing left; centered entire shoe fills 76% horizontally with margin. Pure light warm grey #f7f7f5 seamless background, neutral softbox light, soft contact shadow. Realistic material and believable construction. No brand logos, text, words, watermarks, people, props or collage. Canonical identity for later variants. Subject: H12 BLOOM. Dusty rose pink retro chunky sneaker, pale pink mesh underlay, soft muted rose suede layered curved panels, ivory laces, ivory sculpted thick foam midsole and dusty pink rubber tread. Refined contemporary streetwear.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-8a463324-8cce-4f54-a1a9-04747a341706.png",
+      "sha256": "a2393f650aa5f32c3d82cc785b93958f9be2ae804c603c365d3ea7b62db81786",
+      "createdAt": "2026-10-04T12:29:36.019Z",
+      "active": true
+    },
+    {
+      "id": "h01-sand-1",
+      "file": "h01-sand-1.webp",
+      "original": "output/heepzy/assets-originals/h01-sand-1.png",
+      "derived": [
+        "h01-sand-1.webp",
+        "h01-sand-1-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Create ONE square colorway variant of the exact invented Heepzy shoe in the reference. Change chocolate suede and espresso leather to warm sandy beige suede and taupe leather. Keep the caramel gum lug outsole unchanged. Invariants: same shape, same panels, same stitches, same three-quarter camera pose toe pointing left, same proportions and framing, same studio lighting, soft contact shadow and light warm grey #f7f7f5 background. Do not redesign or replace the model. No text, logo, words, watermarks, props or collage.",
+      "referenceAssets": [
+        "h01-brown-1"
+      ],
+      "source": "imagegen:exec-b5fc08ee-3082-4e6b-b378-8ac4831582b2.png",
+      "sha256": "3cf3863a0ed3307865c04c6deb3aeeefa67fb3a9d65d317ca7b6b16995b6130a",
+      "createdAt": "2026-10-04T12:34:40.484Z",
+      "active": true
+    },
+    {
+      "id": "h02-slate-1",
+      "file": "h02-slate-1.webp",
+      "original": "output/heepzy/assets-originals/h02-slate-1.png",
+      "derived": [
+        "h02-slate-1.webp",
+        "h02-slate-1-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Create ONE square colorway variant of the exact invented Heepzy shoe in the reference. Change ivory knit upper and foam sole to slate smoky grey knit and medium grey foam, retain exact knit ribbing and triangular sole notches. Invariants: same shape, same panels, same stitches, same three-quarter camera pose toe pointing left, same proportions and framing, same studio lighting, soft contact shadow and light warm grey #f7f7f5 background. Do not redesign or replace the model. No text, logo, words, watermarks, props or collage.",
+      "referenceAssets": [
+        "h02-cream-1"
+      ],
+      "source": "imagegen:exec-91370f76-d46d-4666-88d9-4630c2cbb4b9.png",
+      "sha256": "892014ea6c7be3cdf8fc20778cd6fe2f4c38640c0ee9c9de962bcb0e6af85950",
+      "createdAt": "2026-10-04T12:34:42.325Z",
+      "active": true
+    },
+    {
+      "id": "h03-ivory-1",
+      "file": "h03-ivory-1.webp",
+      "original": "output/heepzy/assets-originals/h03-ivory-1.png",
+      "derived": [
+        "h03-ivory-1.webp",
+        "h03-ivory-1-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Create ONE square colorway variant of the exact invented Heepzy shoe in the reference. Change cool grey mesh and cage to warm ivory mesh and beige-grey cage, retain the same oval windows and segmented outsole geometry. Invariants: same shape, same panels, same stitches, same three-quarter camera pose toe pointing left, same proportions and framing, same studio lighting, soft contact shadow and light warm grey #f7f7f5 background. Do not redesign or replace the model. No text, logo, words, watermarks, props or collage.",
+      "referenceAssets": [
+        "h03-grey-1"
+      ],
+      "source": "imagegen:exec-a0a456c0-2562-4f21-9148-5b0cceb15176.png",
+      "sha256": "788f50bdbe648070e4f1bfcff1bea1ce5f594f2464dd164b6c6d3518d05f754b",
+      "createdAt": "2026-10-04T12:34:44.355Z",
+      "active": true
+    },
+    {
+      "id": "h04-graphite-1",
+      "file": "h04-graphite-1.webp",
+      "original": "output/heepzy/assets-originals/h04-graphite-1.png",
+      "derived": [
+        "h04-graphite-1.webp",
+        "h04-graphite-1-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Create ONE square colorway variant of the exact invented Heepzy shoe in the reference. Change silver curved reinforcements to matte graphite charcoal, retain black mesh, black laces and pale grey sculpted outsole. Invariants: same shape, same panels, same stitches, same three-quarter camera pose toe pointing left, same proportions and framing, same studio lighting, soft contact shadow and light warm grey #f7f7f5 background. Do not redesign or replace the model. No text, logo, words, watermarks, props or collage.",
+      "referenceAssets": [
+        "h04-silver-1"
+      ],
+      "source": "imagegen:exec-c477bff5-ad95-4516-aff8-a1f35ab007bf.png",
+      "sha256": "5d00b3bcc0b22776f537888de544cfbc1fc61d3a93d8f963cff6bf832196ebcb",
+      "createdAt": "2026-10-04T12:45:10.798Z",
+      "active": true
+    },
+    {
+      "id": "h05-blue-1",
+      "file": "h05-blue-1.webp",
+      "original": "output/heepzy/assets-originals/h05-blue-1.png",
+      "derived": [
+        "h05-blue-1.webp",
+        "h05-blue-1-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Create ONE square colorway variant of the exact invented Heepzy shoe in the reference. Change ONLY tangerine orange side patch, orange eyelets, heel stripe and orange tread to muted cobalt blue. White leather, grey mesh, white laces and all structure remain identical. Invariants: same shape, same panels, same stitches, same three-quarter camera pose toe pointing left, same proportions and framing, same studio lighting, soft contact shadow and light warm grey #f7f7f5 background. Do not redesign or replace the model. No text, logo, words, watermarks, props or collage.",
+      "referenceAssets": [
+        "h05-orange-1"
+      ],
+      "source": "imagegen:exec-1191978c-3d9e-4b2e-a8ea-78efbbc45453.png",
+      "sha256": "a8ec54f67d5b0d28fd36919c9ebe3f193d2fc139cc7f31557c6d8af5d2b8a9da",
+      "createdAt": "2026-10-04T12:45:12.558Z",
+      "active": true
+    },
+    {
+      "id": "h06-black-1",
+      "file": "h06-black-1.webp",
+      "original": "output/heepzy/assets-originals/h06-black-1.png",
+      "derived": [
+        "h06-black-1.webp",
+        "h06-black-1-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Create ONE square colorway variant of the exact invented Heepzy shoe in the reference. Change white leather, white laces and ivory heel tab to black leather, black laces and charcoal heel tab. Keep caramel gum outsole identical. Invariants: same shape, same panels, same stitches, same three-quarter camera pose toe pointing left, same proportions and framing, same studio lighting, soft contact shadow and light warm grey #f7f7f5 background. Do not redesign or replace the model. No text, logo, words, watermarks, props or collage.",
+      "referenceAssets": [
+        "h06-white-1"
+      ],
+      "source": "imagegen:exec-d623da70-56c4-4bd0-a04f-8a1d493ffc73.png",
+      "sha256": "dc6b64e0ca3fe6c3428d9e4dd0543cd9172b716fb650de53a8bd987b9751db70",
+      "createdAt": "2026-10-04T12:45:14.508Z",
+      "active": true
+    },
+    {
+      "id": "h07-burgundy-1",
+      "file": "h07-burgundy-1.webp",
+      "original": "output/heepzy/assets-originals/h07-burgundy-1.png",
+      "derived": [
+        "h07-burgundy-1.webp",
+        "h07-burgundy-1-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Create ONE square colorway variant of the exact invented Heepzy shoe in the reference. Change black suede and leather upper to deep burgundy wine suede and leather, dark burgundy laces, keep charcoal outsole shape and finish. Invariants: same shape, same panels, same stitches, same three-quarter camera pose toe pointing left, same proportions and framing, same studio lighting, soft contact shadow and light warm grey #f7f7f5 background. Do not redesign or replace the model. No text, logo, words, watermarks, props or collage.",
+      "referenceAssets": [
+        "h07-black-1"
+      ],
+      "source": "imagegen:exec-f23a4f81-9e09-4888-b1cb-9bdd4fc0773a.png",
+      "sha256": "5128db8859dc232ec52b208680a1d5847758f5054cbf74b8f478f2dceb80ec33",
+      "createdAt": "2026-10-04T12:45:16.407Z",
+      "active": true
+    },
+    {
+      "id": "h08-sand-1",
+      "file": "h08-sand-1.webp",
+      "original": "output/heepzy/assets-originals/h08-sand-1.png",
+      "derived": [
+        "h08-sand-1.webp",
+        "h08-sand-1-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Create ONE square colorway variant of the exact invented Heepzy shoe in the reference. Change sage green suede and olive mesh to sand beige suede and taupe mesh, keep cream rope laces, coral lace loops and rugged beige sole exactly. Invariants: same shape, same panels, same stitches, same three-quarter camera pose toe pointing left, same proportions and framing, same studio lighting, soft contact shadow and light warm grey #f7f7f5 background. Do not redesign or replace the model. No text, logo, words, watermarks, props or collage.",
+      "referenceAssets": [
+        "h08-sage-1"
+      ],
+      "source": "imagegen:exec-93d046ca-a1c0-42a8-b999-7c639ec64c65.png",
+      "sha256": "e2a51d7b6fca1916fb6fdb240b720d67d85c745d75f9e0cdcf5df6e0d68d8253",
+      "createdAt": "2026-10-04T12:45:18.305Z",
+      "active": true
+    },
+    {
+      "id": "h09-charcoal-1",
+      "file": "h09-charcoal-1.webp",
+      "original": "output/heepzy/assets-originals/h09-charcoal-1.png",
+      "derived": [
+        "h09-charcoal-1.webp",
+        "h09-charcoal-1-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Create ONE square colorway variant of the exact invented Heepzy shoe in the reference. Change the entire ivory foam slide to matte charcoal grey foam. Preserve strap, open toe, oval perforations, footbed and sole exactly. Invariants: same shape, same panels, same stitches, same three-quarter camera pose toe pointing left, same proportions and framing, same studio lighting, soft contact shadow and light warm grey #f7f7f5 background. Do not redesign or replace the model. No text, logo, words, watermarks, props or collage.",
+      "referenceAssets": [
+        "h09-bone-1"
+      ],
+      "source": "imagegen:exec-013b29fe-8eba-41b2-b684-d4a05c41f459.png",
+      "sha256": "ac391b483dddba89627a57dedd2c5516b418d7843a876f9b75daaf486c91468b",
+      "createdAt": "2026-10-04T12:45:20.156Z",
+      "active": true
+    },
+    {
+      "id": "h10-ecru-1",
+      "file": "h10-ecru-1.webp",
+      "original": "output/heepzy/assets-originals/h10-ecru-1.png",
+      "derived": [
+        "h10-ecru-1.webp",
+        "h10-ecru-1-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Create ONE square colorway variant of the exact invented Heepzy shoe in the reference. Change navy canvas to warm ecru ivory canvas. Keep ivory laces, metal eyelets, rubber toe cap and gum lower sole line. Invariants: same shape, same panels, same stitches, same three-quarter camera pose toe pointing left, same proportions and framing, same studio lighting, soft contact shadow and light warm grey #f7f7f5 background. Do not redesign or replace the model. No text, logo, words, watermarks, props or collage.",
+      "referenceAssets": [
+        "h10-navy-1"
+      ],
+      "source": "imagegen:exec-8bc66be0-6232-4a98-bfce-6fcbfb43ee59.png",
+      "sha256": "579c5d726dd29036573b82e66ce05077774d488f9d962fa8ba1c739509bc187f",
+      "createdAt": "2026-10-04T12:45:22.108Z",
+      "active": true
+    },
+    {
+      "id": "h11-olive-1",
+      "file": "h11-olive-1.webp",
+      "original": "output/heepzy/assets-originals/h11-olive-1.png",
+      "derived": [
+        "h11-olive-1.webp",
+        "h11-olive-1-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Create ONE square colorway variant of the exact invented Heepzy shoe in the reference. Change sandy suede upper to olive khaki suede and mesh collar to darker olive. Keep rope laces, brass hooks and charcoal lug sole. Invariants: same shape, same panels, same stitches, same three-quarter camera pose toe pointing left, same proportions and framing, same studio lighting, soft contact shadow and light warm grey #f7f7f5 background. Do not redesign or replace the model. No text, logo, words, watermarks, props or collage.",
+      "referenceAssets": [
+        "h11-sand-1"
+      ],
+      "source": "imagegen:exec-0344e109-d450-4d20-83d7-dd1fa3737a69.png",
+      "sha256": "5ac35679fd3675c6085d6cc7bab4031f6af3f4dc50fe59378ed946e98b7ba5fb",
+      "createdAt": "2026-10-04T12:45:24.020Z",
+      "active": true
+    },
+    {
+      "id": "h12-lilac-1",
+      "file": "h12-lilac-1.webp",
+      "original": "output/heepzy/assets-originals/h12-lilac-1.png",
+      "derived": [
+        "h12-lilac-1.webp",
+        "h12-lilac-1-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Create ONE square colorway variant of the exact invented Heepzy shoe in the reference. Change dusty pink suede and mesh to muted lilac lavender suede and mesh, lower pink tread to muted lilac. Keep ivory laces and sculpted ivory midsole. Invariants: same shape, same panels, same stitches, same three-quarter camera pose toe pointing left, same proportions and framing, same studio lighting, soft contact shadow and light warm grey #f7f7f5 background. Do not redesign or replace the model. No text, logo, words, watermarks, props or collage.",
+      "referenceAssets": [
+        "h12-pink-1"
+      ],
+      "source": "imagegen:exec-6c66e969-83ae-43e6-b7b6-8ddbf01c9974.png",
+      "sha256": "82a51b9b715e2a766e881e94b56c985fa77e01667d7b495acc35770112fd4e64",
+      "createdAt": "2026-10-04T12:45:25.806Z",
+      "active": true
+    },
+    {
+      "id": "h01-brown-2",
+      "file": "h01-brown-2.webp",
+      "original": "output/heepzy/assets-originals/h01-brown-2.png",
+      "derived": [
+        "h01-brown-2.webp",
+        "h01-brown-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h01-brown-1"
+      ],
+      "source": "imagegen:exec-3491d370-ff59-4981-80fb-adb1037366bc.png",
+      "sha256": "7cc2cc31b49f7586b84983559a29e82b84f66e9aa65a2bc9b00cbba1c9b7bd87",
+      "createdAt": "2026-10-04T14:14:04.270Z",
+      "active": true
+    },
+    {
+      "id": "h01-sand-2",
+      "file": "h01-sand-2.webp",
+      "original": "output/heepzy/assets-originals/h01-sand-2.png",
+      "derived": [
+        "h01-sand-2.webp",
+        "h01-sand-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h01-sand-1"
+      ],
+      "source": "imagegen:exec-8b40317f-54c9-4cd9-bd38-1930d9bdde2e.png",
+      "sha256": "1ac59c5738e0e08e4b2d13479b088b1271d214eb7f9a224d0a7ddcea364d6b40",
+      "createdAt": "2026-10-04T14:14:05.413Z",
+      "active": true
+    },
+    {
+      "id": "h02-cream-2",
+      "file": "h02-cream-2.webp",
+      "original": "output/heepzy/assets-originals/h02-cream-2.png",
+      "derived": [
+        "h02-cream-2.webp",
+        "h02-cream-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h02-cream-1"
+      ],
+      "source": "imagegen:exec-fbbb6aa2-2f60-4853-97ed-8fa7b52309fd.png",
+      "sha256": "5ec0645cd5c5969519b887c6a4cadf7c90253c9f5a6841b985e142189310f2ce",
+      "createdAt": "2026-10-04T14:14:06.526Z",
+      "active": true
+    },
+    {
+      "id": "h02-slate-2",
+      "file": "h02-slate-2.webp",
+      "original": "output/heepzy/assets-originals/h02-slate-2.png",
+      "derived": [
+        "h02-slate-2.webp",
+        "h02-slate-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h02-slate-1"
+      ],
+      "source": "imagegen:exec-c9613572-4551-4b1d-868c-cb36e8290a4c.png",
+      "sha256": "71061e99d6466662f280507fdbed990843f8347fcb77e6c303fc025b3d7515e9",
+      "createdAt": "2026-10-04T14:14:08.442Z",
+      "active": true
+    },
+    {
+      "id": "h03-grey-2",
+      "file": "h03-grey-2.webp",
+      "original": "output/heepzy/assets-originals/h03-grey-2.png",
+      "derived": [
+        "h03-grey-2.webp",
+        "h03-grey-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h03-grey-1"
+      ],
+      "source": "imagegen:exec-c927a7f9-2339-42aa-8b22-e74b34cfc1f3.png",
+      "sha256": "87ccbdd1f881d3f046c684c4e28fb57f2f9b174c5c5370df14a53fba792bfb4c",
+      "createdAt": "2026-10-04T14:14:09.556Z",
+      "active": true
+    },
+    {
+      "id": "h03-ivory-2",
+      "file": "h03-ivory-2.webp",
+      "original": "output/heepzy/assets-originals/h03-ivory-2.png",
+      "derived": [
+        "h03-ivory-2.webp",
+        "h03-ivory-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h03-ivory-1"
+      ],
+      "source": "imagegen:exec-e0e4a514-c4dd-4a4f-9aa9-6566b7e53c99.png",
+      "sha256": "17857defaa67c07d8451d290bb1a492b0e8e270fdf6172f74a19280c4cfdbf89",
+      "createdAt": "2026-10-04T14:14:11.435Z",
+      "active": true
+    },
+    {
+      "id": "lifestyle-1",
+      "file": "lifestyle-1.webp",
+      "original": "output/heepzy/assets-originals/lifestyle-1.png",
+      "derived": [
+        "lifestyle-1.webp",
+        "lifestyle-1-400.webp"
+      ],
+      "brief": "Use case: editorial-footwear. Create ONE premium photorealistic fashion editorial photograph for an invented footwear brand. Preserve the exact shoe design and colorway from the supplied product reference: shape, materials, panels, laces and outsole. No real-brand logos, text, watermark or collage. Natural believable anatomy, adult models only. Vertical 2:3 crop of an adult's lower legs wearing the referenced white leather gum-sole Core shoes and light ivory trousers, sitting on pale modern concrete steps. Bright soft daylight, quiet white architecture, airy off-white tones, shoes clearly visible, fashion magazine framing.",
+      "referenceAssets": [
+        "h06-white-1"
+      ],
+      "source": "imagegen:exec-2bac4a8d-818d-46fa-b3ba-29f4f4c8c690.png",
+      "sha256": "3af0ad9220ccbdfc1c6ea8a538cf35b5fc37c2ad871b5a4bc0a6beaf8dd75a27",
+      "createdAt": "2026-10-04T14:22:30.630Z",
+      "active": true
+    },
+    {
+      "id": "lifestyle-2",
+      "file": "lifestyle-2.webp",
+      "original": "output/heepzy/assets-originals/lifestyle-2.png",
+      "derived": [
+        "lifestyle-2.webp",
+        "lifestyle-2-400.webp"
+      ],
+      "brief": "Use case: editorial-footwear. Create ONE premium photorealistic fashion editorial photograph for an invented footwear brand. Preserve the exact shoe design and colorway from the supplied product reference: shape, materials, panels, laces and outsole. No real-brand logos, text, watermark or collage. Natural believable anatomy, adult models only. Vertical 2:3 energetic low angle of an adult in olive trousers mid-step against a clear sky-blue backdrop, wearing the exact silver and black Pace shoes. Cropped waist downward, playful motion with both shoes physically connected to legs, crisp natural light, blue sky filling upper half.",
+      "referenceAssets": [
+        "h04-silver-1"
+      ],
+      "source": "imagegen:exec-7c42f788-11af-4c86-b821-70eff713b798.png",
+      "sha256": "02c18030cb0175c597744b2bf5673f358e3822cf2146cdc40c00a64e81a021b4",
+      "createdAt": "2026-10-04T14:22:32.561Z",
+      "active": true
+    },
+    {
+      "id": "lifestyle-3",
+      "file": "lifestyle-3.webp",
+      "original": "output/heepzy/assets-originals/lifestyle-3.png",
+      "derived": [
+        "lifestyle-3.webp",
+        "lifestyle-3-400.webp"
+      ],
+      "brief": "Use case: editorial-footwear. Create ONE premium photorealistic fashion editorial photograph for an invented footwear brand. Preserve the exact shoe design and colorway from the supplied product reference: shape, materials, panels, laces and outsole. No real-brand logos, text, watermark or collage. Natural believable anatomy, adult models only. Vertical 2:3 close crop of an adult's lower legs in vibrant red wide-leg trousers, wearing the exact chocolate-brown suede and caramel lug-sole Ground shoes. Clean pale studio floor and wall, one shoe prominent diagonally in foreground, soft studio light, sculptural bold fashion composition.",
+      "referenceAssets": [
+        "h01-brown-1"
+      ],
+      "source": "imagegen:exec-77a4ed7f-6021-4721-937b-7151ea234cdf.png",
+      "sha256": "745c41af5552761b5271a9a73b62a63c64909c47423f93b9a8b6c8983e21e0f5",
+      "createdAt": "2026-10-04T14:22:34.586Z",
+      "active": true
+    },
+    {
+      "id": "lifestyle-4",
+      "file": "lifestyle-4.webp",
+      "original": "output/heepzy/assets-originals/lifestyle-4.png",
+      "derived": [
+        "lifestyle-4.webp",
+        "lifestyle-4-400.webp"
+      ],
+      "brief": "Use case: editorial-footwear. Create ONE premium photorealistic fashion editorial photograph for an invented footwear brand. Preserve the exact shoe design and colorway from the supplied product reference: shape, materials, panels, laces and outsole. No real-brand logos, text, watermark or collage. Natural believable anatomy, adult models only. Vertical 2:3 close-up of an adult sitting in white trousers tying the exact white-grey and orange Airform shoe. Hands with natural fingers, elegant minimal daylight composition, bright pale warm background, the footwear and hand gesture fill the frame.",
+      "referenceAssets": [
+        "h05-orange-1"
+      ],
+      "source": "imagegen:exec-df4332d4-3389-4a12-bd62-7c271a2f2cd0.png",
+      "sha256": "ec935c0553cc718689fc1ec178b2df7c3e4a6e91cacdcb3576f9a088fc5e285a",
+      "createdAt": "2026-10-04T14:22:36.599Z",
+      "active": true
+    },
+    {
+      "id": "lifestyle-5",
+      "file": "lifestyle-5.webp",
+      "original": "output/heepzy/assets-originals/lifestyle-5.png",
+      "derived": [
+        "lifestyle-5.webp",
+        "lifestyle-5-400.webp"
+      ],
+      "brief": "Use case: editorial-fashion. Create ONE vertical 2:3 fashion editorial portrait of the same adult woman in the reference, black sleeveless top and loose grey trousers, in a quiet light-grey contemporary studio. Waist-up close portrait with thoughtful calm expression, hair tied back, soft window light, editorial natural skin, original invented fashion brand atmosphere. No logos, text, watermark or collage.",
+      "referenceAssets": [
+        "hero"
+      ],
+      "source": "imagegen:exec-a5f85242-4d0c-42a3-a13f-9896366eaa99.png",
+      "sha256": "a4a15f53e5eafac791c3ec2e37245a9e856f24a8530271b3da3eba0e75be831c",
+      "createdAt": "2026-10-04T14:22:38.443Z",
+      "active": true
+    },
+    {
+      "id": "drop-1",
+      "file": "drop-1.webp",
+      "original": "output/heepzy/assets-originals/drop-1.png",
+      "derived": [
+        "drop-1.webp",
+        "drop-1-400.webp"
+      ],
+      "brief": "Use case: editorial-footwear. Create ONE premium photorealistic fashion editorial photograph for an invented footwear brand. Preserve the exact shoe design and colorway from the supplied product reference: shape, materials, panels, laces and outsole. No real-brand logos, text, watermark or collage. Natural believable anatomy, adult models only. Landscape 3:2 tight footwear fashion editorial: adult lower legs in ivory trousers wearing the exact dusty-pink and ivory chunky Bloom shoes while sitting on a warm grey sculptural stool. Airy pale warm background, pink suede texture crisp, shoe silhouette complete.",
+      "referenceAssets": [
+        "h12-pink-1"
+      ],
+      "source": "imagegen:exec-17bdf690-1096-4eaa-b619-02747208437c.png",
+      "sha256": "0a6c39799fcea75cfa74bf32bbf361cdf2059134db7deb4ade78918661b7313f",
+      "createdAt": "2026-10-04T14:30:45.539Z",
+      "active": true
+    },
+    {
+      "id": "drop-2",
+      "file": "drop-2.webp",
+      "original": "output/heepzy/assets-originals/drop-2.png",
+      "derived": [
+        "drop-2.webp",
+        "drop-2-400.webp"
+      ],
+      "brief": "Use case: editorial-footwear. Create ONE premium photorealistic fashion editorial photograph for an invented footwear brand. Preserve the exact shoe design and colorway from the supplied product reference: shape, materials, panels, laces and outsole. No real-brand logos, text, watermark or collage. Natural believable anatomy, adult models only. Landscape 3:2 tight footwear fashion editorial: adult lower legs in blue jeans wearing the exact chocolate-brown suede and caramel lug Ground shoes on a sunny warm concrete urban step. Low camera, dynamic diagonal composition, natural warm light, shoes sharp.",
+      "referenceAssets": [
+        "h01-brown-1"
+      ],
+      "source": "imagegen:exec-c18d9239-8397-4556-8419-b40489d7536a.png",
+      "sha256": "a935882fbd40b363419776631eac54f66877b912809f73f6370e0b5106200c2a",
+      "createdAt": "2026-10-04T14:30:47.528Z",
+      "active": true
+    },
+    {
+      "id": "avatar-1",
+      "file": "avatar-1.webp",
+      "original": "output/heepzy/assets-originals/avatar-1.png",
+      "derived": [
+        "avatar-1.webp",
+        "avatar-1-400.webp"
+      ],
+      "brief": "Use case: fictional-avatar. ONE square professional casual fashion editorial headshot of a fictional adult woman with warm olive skin and dark hair tied back, muted orange wall. Head and shoulders, friendly calm natural expression, centered face, simple solid background, realistic skin texture, soft daylight, original fictional adult person. No logos, text, watermark, hats, UI or collage.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-ffb55efd-71fa-4959-a906-9a65e6d8a78d.png",
+      "sha256": "3efde687479990230521948dc9d6236982762919a84ab4aabc6d4d472e568df8",
+      "createdAt": "2026-10-04T14:30:49.484Z",
+      "active": true
+    },
+    {
+      "id": "avatar-2",
+      "file": "avatar-2.webp",
+      "original": "output/heepzy/assets-originals/avatar-2.png",
+      "derived": [
+        "avatar-2.webp",
+        "avatar-2-400.webp"
+      ],
+      "brief": "Use case: fictional-avatar. ONE square professional casual fashion editorial headshot of a fictional adult man with medium brown skin and short curly hair, muted blue wall. Head and shoulders, friendly calm natural expression, centered face, simple solid background, realistic skin texture, soft daylight, original fictional adult person. No logos, text, watermark, hats, UI or collage.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-7faf6b2d-e1ee-4090-94bc-2b39db0c2b3e.png",
+      "sha256": "4d8d5258a43a4d1739d8e2e4deb57cff28adc5f69bd4acde97255df02d09412e",
+      "createdAt": "2026-10-04T14:30:51.425Z",
+      "active": true
+    },
+    {
+      "id": "avatar-3",
+      "file": "avatar-3.webp",
+      "original": "output/heepzy/assets-originals/avatar-3.png",
+      "derived": [
+        "avatar-3.webp",
+        "avatar-3-400.webp"
+      ],
+      "brief": "Use case: fictional-avatar. ONE square professional casual fashion editorial headshot of a fictional adult woman with light brown skin and short dark wavy hair, sage-grey wall. Head and shoulders, friendly calm natural expression, centered face, simple solid background, realistic skin texture, soft daylight, original fictional adult person. No logos, text, watermark, hats, UI or collage.",
+      "referenceAssets": [],
+      "source": "imagegen:exec-89873066-ad43-44c3-bce0-7c77c222cf62.png",
+      "sha256": "aa783572a2a11342ae40b4878fd8071e54fbf69ed2e712b3488ccac0af31d294",
+      "createdAt": "2026-10-04T14:30:53.409Z",
+      "active": true
+    },
+    {
+      "id": "footer-cutout",
+      "file": "footer-cutout.webp",
+      "original": "output/heepzy/assets-originals/footer-cutout.png",
+      "derived": [
+        "footer-cutout.webp",
+        "footer-cutout-400.webp"
+      ],
+      "brief": "Use case: background-removal and product-cutout. Preserve the exact invented sage-green suede and olive-mesh Terrain shoe in the reference, same cream rope laces, coral loops, rugged beige outsole and all panel geometry. One isolated shoe photographed from a gently elevated three-quarter angle, complete silhouette centered with generous transparent margin. Remove the background entirely: true alpha transparency, no floor, no cast shadow, no colored background, no text or logos. Premium photorealistic footwear cutout.",
+      "referenceAssets": [
+        "h08-sage-1"
+      ],
+      "source": "imagegen:exec-1539a0ed-b121-4dde-802a-c27b8ed912d2.png",
+      "sha256": "926324fcb0512d35600b9e5547847434b9ef6c2351ba89b3cdd84ccb8deb8793",
+      "createdAt": "2026-10-04T14:30:55.370Z",
+      "active": true
+    },
+    {
+      "id": "h04-silver-2",
+      "file": "h04-silver-2.webp",
+      "original": "output/heepzy/assets-originals/h04-silver-2.png",
+      "derived": [
+        "h04-silver-2.webp",
+        "h04-silver-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h04-silver-1"
+      ],
+      "source": "imagegen:exec-956c63bb-58cf-4509-abd4-6f0f52f4c402.png",
+      "sha256": "be5c09efe960d969c160efbc02ad9a041a1d3f357fe4b7ae28970ee67f9b9d5c",
+      "createdAt": "2026-10-04T14:41:07.533Z",
+      "active": true
+    },
+    {
+      "id": "h04-graphite-2",
+      "file": "h04-graphite-2.webp",
+      "original": "output/heepzy/assets-originals/h04-graphite-2.png",
+      "derived": [
+        "h04-graphite-2.webp",
+        "h04-graphite-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h04-graphite-1"
+      ],
+      "source": "imagegen:exec-75258c5f-8945-4a99-8574-2e8c93046177.png",
+      "sha256": "e69be4f86be014a82fccbb887c3c05bb91161514672349125bc883705dcc308c",
+      "createdAt": "2026-10-04T14:41:08.640Z",
+      "active": true
+    },
+    {
+      "id": "h05-orange-2",
+      "file": "h05-orange-2.webp",
+      "original": "output/heepzy/assets-originals/h05-orange-2.png",
+      "derived": [
+        "h05-orange-2.webp",
+        "h05-orange-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h05-orange-1"
+      ],
+      "source": "imagegen:exec-252bddcb-2ea2-45ea-9f6e-eab57a3a9589.png",
+      "sha256": "ad5e0bafcaf2c42537b3756223a17062715cb0633db1587c2f4f1b016de8c53e",
+      "createdAt": "2026-10-04T14:41:09.745Z",
+      "active": true
+    },
+    {
+      "id": "h05-blue-2",
+      "file": "h05-blue-2.webp",
+      "original": "output/heepzy/assets-originals/h05-blue-2.png",
+      "derived": [
+        "h05-blue-2.webp",
+        "h05-blue-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h05-blue-1"
+      ],
+      "source": "imagegen:exec-cd564f33-f734-4157-bd2d-2f0b6f265057.png",
+      "sha256": "9149422af0339c3bd43f5b1fd7f414f0c1c536094958fceee84d0699b6ba62c7",
+      "createdAt": "2026-10-04T14:41:10.841Z",
+      "active": true
+    },
+    {
+      "id": "h06-white-2",
+      "file": "h06-white-2.webp",
+      "original": "output/heepzy/assets-originals/h06-white-2.png",
+      "derived": [
+        "h06-white-2.webp",
+        "h06-white-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h06-white-1"
+      ],
+      "source": "imagegen:exec-b3450ebe-ec06-41c5-a265-8678b6d1b8f6.png",
+      "sha256": "3fca55c8ef6849a2bf760ec1991096e9641f7e787020c953732505fc774cf266",
+      "createdAt": "2026-10-04T14:41:11.949Z",
+      "active": true
+    },
+    {
+      "id": "h06-black-2",
+      "file": "h06-black-2.webp",
+      "original": "output/heepzy/assets-originals/h06-black-2.png",
+      "derived": [
+        "h06-black-2.webp",
+        "h06-black-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h06-black-1"
+      ],
+      "source": "imagegen:exec-9c0c4628-6149-4fff-843a-de2399f72752.png",
+      "sha256": "721cfd1f1d2bb97265880cedc23a11889e2fd38df5525b83cb4d24fd5578d410",
+      "createdAt": "2026-10-04T14:41:13.043Z",
+      "active": true
+    },
+    {
+      "id": "h05-orange-3",
+      "file": "h05-orange-3.webp",
+      "original": "output/heepzy/assets-originals/h05-orange-3.png",
+      "derived": [
+        "h05-orange-3.webp",
+        "h05-orange-3-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. ONE square premium studio photograph of the EXACT white and tangerine orange invented Heepzy shoe in the reference. Preserve its same geometry, panels, coloured abstract curved side patch, white leather, grey mesh, white laces and tread. Photograph the entire shoe tilted to reveal its entire sole underneath in a distinct outsole view, single shoe fully inside the square frame, warm grey background. Soft diffused studio lighting, realistic textures. No logos, text, watermarks, collage, redesign or props.",
+      "referenceAssets": [
+        "h05-orange-1"
+      ],
+      "source": "imagegen:exec-05963242-2e4e-4cc0-9582-178f8a8b1b56.png",
+      "sha256": "ccdfe71d5bccb15db3c8803cb7ef1cbb3557d2f4b5c582fdacbfca6456a5d63c",
+      "createdAt": "2026-10-04T14:49:06.141Z",
+      "active": true
+    },
+    {
+      "id": "h05-orange-4",
+      "file": "h05-orange-4.webp",
+      "original": "output/heepzy/assets-originals/h05-orange-4.png",
+      "derived": [
+        "h05-orange-4.webp",
+        "h05-orange-4-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. ONE square premium studio photograph of the EXACT white and tangerine orange invented Heepzy shoe in the reference. Preserve its same geometry, panels, coloured abstract curved side patch, white leather, grey mesh, white laces and tread. Photograph a macro close-up of its side panel stitching, white leather, grey mesh and coloured patch at the heel; a detail image rather than a full shoe. Soft diffused studio lighting, realistic textures. No logos, text, watermarks, collage, redesign or props.",
+      "referenceAssets": [
+        "h05-orange-1"
+      ],
+      "source": "imagegen:exec-dca71315-f5ac-42e5-b018-904d485a9b3e.png",
+      "sha256": "1088db76efcbb6e224978722716ed2e8106804958ebda03ef596b5e9f6547a0e",
+      "createdAt": "2026-10-04T14:49:08.018Z",
+      "active": true
+    },
+    {
+      "id": "h05-blue-3",
+      "file": "h05-blue-3.webp",
+      "original": "output/heepzy/assets-originals/h05-blue-3.png",
+      "derived": [
+        "h05-blue-3.webp",
+        "h05-blue-3-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. ONE square premium studio photograph of the EXACT white and muted cobalt blue invented Heepzy shoe in the reference. Preserve its same geometry, panels, coloured abstract curved side patch, white leather, grey mesh, white laces and tread. Photograph the entire shoe tilted to reveal its entire sole underneath in a distinct outsole view, single shoe fully inside the square frame, warm grey background. Soft diffused studio lighting, realistic textures. No logos, text, watermarks, collage, redesign or props.",
+      "referenceAssets": [
+        "h05-blue-1"
+      ],
+      "source": "imagegen:exec-1dfefba0-5051-4efd-bcca-d22e589977ca.png",
+      "sha256": "2932e2ad61cbeaeb5b1fbbd8eaa8f7952315a53cd88155bbca9a84103568f8b5",
+      "createdAt": "2026-10-04T14:49:09.862Z",
+      "active": true
+    },
+    {
+      "id": "h05-blue-4",
+      "file": "h05-blue-4.webp",
+      "original": "output/heepzy/assets-originals/h05-blue-4.png",
+      "derived": [
+        "h05-blue-4.webp",
+        "h05-blue-4-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. ONE square premium studio photograph of the EXACT white and muted cobalt blue invented Heepzy shoe in the reference. Preserve its same geometry, panels, coloured abstract curved side patch, white leather, grey mesh, white laces and tread. Photograph a macro close-up of its side panel stitching, white leather, grey mesh and coloured patch at the heel; a detail image rather than a full shoe. Soft diffused studio lighting, realistic textures. No logos, text, watermarks, collage, redesign or props.",
+      "referenceAssets": [
+        "h05-blue-1"
+      ],
+      "source": "imagegen:exec-700e5680-2f3b-4a50-a5ce-b7e0bae45000.png",
+      "sha256": "95de3676c94cbea1219d187c61c024e7a19fac0aaeb95473349fdb4f47cfca69",
+      "createdAt": "2026-10-04T14:49:11.649Z",
+      "active": true
+    },
+    {
+      "id": "h07-black-2",
+      "file": "h07-black-2.webp",
+      "original": "output/heepzy/assets-originals/h07-black-2.png",
+      "derived": [
+        "h07-black-2.webp",
+        "h07-black-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h07-black-1"
+      ],
+      "source": "imagegen:exec-1848c9b1-4cbe-4345-84a9-5f5958fc20ad.png",
+      "sha256": "119fa9a558be6dba7de88823764262588e07af8423302ffdf0498434090c39a0",
+      "createdAt": "2026-10-04T20:04:09.856Z"
+    },
+    {
+      "id": "h07-burgundy-2",
+      "file": "h07-burgundy-2.webp",
+      "original": "output/heepzy/assets-originals/h07-burgundy-2.png",
+      "derived": [
+        "h07-burgundy-2.webp",
+        "h07-burgundy-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h07-burgundy-1"
+      ],
+      "source": "imagegen:exec-bc62d182-34c4-4a7e-9abf-431695e72c29.png",
+      "sha256": "230ea049640bc17b3a192f8fd8e9127a71fb7cfc5d42ca04249d40d841a45cd5",
+      "createdAt": "2026-10-04T20:04:20.665Z"
+    },
+    {
+      "id": "h08-sage-2",
+      "file": "h08-sage-2.webp",
+      "original": "output/heepzy/assets-originals/h08-sage-2.png",
+      "derived": [
+        "h08-sage-2.webp",
+        "h08-sage-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h08-sage-1"
+      ],
+      "source": "imagegen:exec-0a750a2f-3656-49f4-88a4-ebb2172a354c.png",
+      "sha256": "14ce18768dc0d6da6bc8490c2c8ca6e95dba5fda3b7c32782af3b2f3bfbf9d7a",
+      "createdAt": "2026-10-04T20:04:34.083Z"
+    },
+    {
+      "id": "h08-sand-2",
+      "file": "h08-sand-2.webp",
+      "original": "output/heepzy/assets-originals/h08-sand-2.png",
+      "derived": [
+        "h08-sand-2.webp",
+        "h08-sand-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h08-sand-1"
+      ],
+      "source": "imagegen:exec-c0a3bf2e-15b9-4d15-b1d6-d1dcd2669403.png",
+      "sha256": "8d26adb23786f333b3036e7a6f90347dadd203e0cb652b94bd2f9a84a842e152",
+      "createdAt": "2026-10-04T20:04:43.805Z"
+    },
+    {
+      "id": "h09-bone-2",
+      "file": "h09-bone-2.webp",
+      "original": "output/heepzy/assets-originals/h09-bone-2.png",
+      "derived": [
+        "h09-bone-2.webp",
+        "h09-bone-2-400.webp"
+      ],
+      "brief": "Use case: precise-object-edit. Produce ONE square studio product photograph of the EXACT invented footwear model and colorway shown in the reference, photographed from a clearly DIFFERENT rear three-quarter camera angle: heel near the left foreground and toe pointing away to the right. Preserve exact silhouette, panel geometry, stitching, materials, colours, laces and sole construction. Show one entire single shoe inside the frame with generous margin. Light warm grey #f7f7f5 seamless studio background, identical soft diffused lighting and subtle contact shadow. No changes to shoe design, no brand logos, text, watermark, props or collage. Photorealistic premium footwear photography.",
+      "referenceAssets": [
+        "h09-bone-1"
+      ],
+      "source": "imagegen:exec-e98967cd-9282-4594-a0a1-90dc981f4ccd.png",
+      "sha256": "d7247f37c8ce0d116840e555459a03131dffdbc5d34200f6f67ed2b9b2fc4223",
+      "createdAt": "2026-10-04T20:04:52.437Z"
+    },
+    {
+      "id": "rava-hero",
+      "file": "rava-hero.webp",
+      "original": "output/heepzy/assets-originals/rava-hero.png",
+      "derived": [
+        "rava-hero.webp",
+        "rava-hero-400.webp"
+      ],
+      "brief": "Create a brand-exclusive photoreal footwear fashion campaign photograph for invented brand RAVA. Wide landscape 3:2. Preserve the exact invented brown sneaker in the reference: brown suede/leather sculpted panels, two tonal curved stitched leather side arcs, gum lug sole, brown laces; no text or logos. Entirely NEW art direction: deep forest green architectural studio with a sweeping curved arch, sculptural pale travertine step, warm amber side-light, tactile materials, editorial refined city movement mood. A beautifully large brown sneaker rests on the pale step in lower RIGHT foreground, complete silhouette, natural product detail. Behind it, an adult woman with dark hair wearing a cream oversized overshirt and forest green wide trousers sits casually on a green architectural ledge, BOTH feet wearing the exact brown sneaker visible, anatomically natural body. Subject and shoe stay in RIGHT 55 percent of frame, left 40 percent is calm dark forest negative space for website copy, top 15 percent calm dark forest for navigation. Not a giant surreal floating shoe, not grey reference studio, not advertising imitation. Rich realistic shadows, warm bounce light, expensive custom photography. No lettering, no watermark, no unrelated brands.",
+      "referenceAssets": [
+        "h01-brown-1"
+      ],
+      "source": "imagegen:exec-ea8a1951-abf9-4420-b259-060a9a88e383.png",
+      "sha256": "42d9084e0a4a4542d05c700e34f099a927523f4dfd8a15506fd1ffdb8907025c",
+      "active": true,
+      "createdAt": "2026-10-04T20:11:04.687Z"
+    },
+    {
+      "id": "rava-hero-mobile",
+      "file": "rava-hero-mobile.webp",
+      "original": "output/heepzy/assets-originals/rava-hero-mobile.png",
+      "derived": [
+        "rava-hero-mobile.webp",
+        "rava-hero-mobile-400.webp"
+      ],
+      "brief": "Brand-exclusive RAVA footwear editorial photograph, portrait 2:3 mobile hero. Deep forest green curved architectural studio, travertine step, warm amber light. Preserve the reference brown suede/leather sneaker with two tonal curved stitched side arcs and gum lug sole, no text or logos. Adult woman in cream oversized overshirt and deep forest wide trousers seated on a green architectural ledge, natural realistic anatomy. Both feet and entire pair of shoes visible comfortably above bottom edge. One large matching brown sneaker on pale stone in lower left foreground, not oversized surreal. Upper 25 percent calm dark forest negative space, main composition middle and bottom, feet not cut off. Soft refined fashion campaign made uniquely for invented RAVA brand, no copying any reference campaign. No lettering or logos.",
+      "referenceAssets": [
+        "h01-brown-1"
+      ],
+      "source": "imagegen:exec-252c3689-c08d-488d-8553-87c87785e288.png",
+      "sha256": "1072dc088c8f49d155034d64f399420ef515b74aeddb548a377a9734896d2f92",
+      "active": true,
+      "createdAt": "2026-10-04T20:11:04.692Z"
+    },
+    {
+      "id": "rava-campaign",
+      "file": "rava-campaign.webp",
+      "original": "output/heepzy/assets-originals/rava-campaign.png",
+      "derived": [
+        "rava-campaign.webp",
+        "rava-campaign-400.webp"
+      ],
+      "brief": "Create brand-exclusive RAVA PACE footwear campaign photography, wide landscape 3:2. Preserve exact reference invented silver layered mesh running sneaker with distinctive wavy silver panels and grey segmented sole, no logos. New original art direction: sculptural deep forest green concrete stairs with a curved cylindrical wall, ivory/travertine floor, amber afternoon light slanting across textured architecture. Adult male wearing cream trousers and understated terracotta shirt, seated on stairs in LEFT side of frame, camera low with complete pair of silver shoes prominent in left foreground, anatomically normal feet. Right 45 percent is calm dark green architectural negative space for white campaign typography; top clear. Modern city movement editorial, high-end realistic photography, cohesive deep green/cream/warm amber palette, no teal sky or red rock scene, no text, no watermark, no real-brand marks.",
+      "referenceAssets": [
+        "h04-silver-1"
+      ],
+      "source": "imagegen:exec-5ab9b028-d059-4ba4-a440-a370eebe8b17.png",
+      "sha256": "0e034babfc3fda0eb59af681dd71f421a4a804bd6db45ded28e0842acab471c8",
+      "active": true,
+      "createdAt": "2026-10-04T20:11:04.700Z"
+    }
+  ]
+}

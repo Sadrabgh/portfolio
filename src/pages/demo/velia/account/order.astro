@@ -1,0 +1,87 @@
+---
+import AccountShell from "../../../../components/velia/AccountShell.astro";
+import SkinIcon from "../../../../components/velia/SkinIcon.astro";
+import { url } from "../../../../config";
+---
+
+<AccountShell title="جزئیات سفارش" current="orders">
+  <section class="velia-panel" data-order-detail>
+    <div class="velia-section-heading">
+      <div>
+        <span class="skin-eyebrow">شمارهٔ سفارش نمونه</span>
+        <h2 data-order-detail-id dir="ltr">
+          AL-10248
+        </h2>
+      </div>
+      <span class="velia-status-pill" data-order-detail-status>
+        در حال آماده‌سازی
+      </span>
+    </div>
+    <ol class="velia-order-timeline">
+      <li data-complete>
+        <span>۱</span>
+        <b>ثبت سفارش</b>
+        <small>انتخاب‌ها دریافت شد</small>
+      </li>
+      <li data-timeline-preparing>
+        <span>۲</span>
+        <b>آماده‌سازی</b>
+        <small>بسته‌بندی با حوصله</small>
+      </li>
+      <li>
+        <span>۳</span>
+        <b>تحویل به ارسال</b>
+        <small>در انتظار مرحلهٔ بعد</small>
+      </li>
+      <li>
+        <span>۴</span>
+        <b>تحویل به تو</b>
+        <small>پایان مسیر</small>
+      </li>
+    </ol>
+    <div data-order-detail-lines></div>
+    <dl class="skin-totals">
+      <div>
+        <dt>جمع محصولات</dt>
+        <dd>
+          <span data-order-detail-subtotal></span> تومان
+        </dd>
+      </div>
+      <div>
+        <dt>تخفیف</dt>
+        <dd>
+          <span data-order-detail-discount></span> تومان
+        </dd>
+      </div>
+      <div>
+        <dt>ارسال</dt>
+        <dd data-order-detail-shipping></dd>
+      </div>
+      <div class="skin-total-final">
+        <dt>مبلغ نمایشی</dt>
+        <dd>
+          <span data-order-detail-total></span> تومان
+        </dd>
+      </div>
+    </dl>
+    <div class="velia-order-actions">
+      <button class="skin-button" type="button" data-order-rebuy>
+        خرید دوباره <SkinIcon name="bag" size={19} />
+      </button>
+      <button class="skin-text-button" data-return-request type="button">
+        درخواست بازگشت نمونه
+      </button>
+      <a class="velia-text-link" href={url("demo/velia/account/orders/")}>
+        همهٔ سفارش‌ها <SkinIcon name="arrow" size={18} />
+      </a>
+    </div>
+    <p data-return-status role="status" class="velia-form-status"></p>
+  </section>
+  <div class="skin-no-results" data-order-not-found hidden>
+    <SkinIcon name="box" size={42} />
+    <h2>این سفارش در حساب نمونه پیدا نشد.</h2>
+    <a class="skin-button" href={url("demo/velia/account/orders/")}>
+      دیدن سفارش‌های من
+    </a>
+  </div>
+</AccountShell>

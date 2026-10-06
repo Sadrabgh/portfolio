@@ -1,0 +1,51 @@
+---
+import Velia from "../../../../layouts/Velia.astro";
+import SkinIcon from "../../../../components/velia/SkinIcon.astro";
+import { supportPages } from "../../../../data/velia";
+import { url } from "../../../../config";
+export function getStaticPaths() {
+  return supportPages.map((page) => ({
+    params: { page: page.id },
+    props: { page },
+  }));
+}
+const { page: p } = Astro.props;
+---
+
+<Velia title={p.title} current="help">
+  <main id="skin-main" class="skin-wrap">
+    <div class="skin-page-heading velia-page-intro">
+      <span class="skin-eyebrow" dir="ltr">
+        HERE TO HELP
+      </span>
+      <h1>{p.title}</h1>
+      <p>{p.intro}</p>
+    </div>
+    <div class="velia-help-layout">
+      <nav aria-label="راهنمای مشتریان">
+        <a href={url("demo/velia/faq/")}>پرسش‌های متداول</a>
+        {supportPages.map((x) => (
+          <a
+            href={url(`demo/velia/help/${x.id}/`)}
+            aria-current={x.id === p.id ? "page" : undefined}
+          >
+            {x.title}
+            <SkinIcon name="arrow" size={17} />
+          </a>
+        ))}
+        <a href={url("demo/velia/contact/")}>تماس و پشتیبانی</a>
+      </nav>
+      <article class="velia-prose velia-panel">
+        {p.sections.map(([title, copy]: string[]) => (
+          <section>
+            <h2>{title}</h2>
+            <p>{copy}</p>
+          </section>
+        ))}
+        <a class="velia-text-link" href={url("demo/velia/contact/")}>
+          هنوز پرسشی داری؟ <SkinIcon name="arrow" size={19} />
+        </a>
+      </article>
+    </div>
+  </main>
+</Velia>

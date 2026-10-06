@@ -1,0 +1,53 @@
+---
+import Heepzy from "../../../layouts/Heepzy.astro";
+import { art, shopUrl, shoes } from "../../../data/heepzy";
+---
+
+<Heepzy title="داستان راوا">
+  <header class="hp-container hp-page-heading">
+    <span class="hp-eyebrow" dir="ltr">
+      THE WAY WE MOVE
+    </span>
+    <h1>از کفش، به سبک زندگی.</h1>
+    <p>
+      راوا از ریتم حرکت می‌آید؛ کفش‌هایی برای راهی که هر روز به شیوهٔ خودت
+      می‌سازی.
+    </p>
+  </header>
+  <article class="hp-article">
+    <img
+      class="hp-about-image"
+      src={art("rava-campaign")}
+      width="1536"
+      height="1024"
+      alt={`کفش ${shoes[3].name} در استایل فضای باز`}
+    />
+    <h2>استایل، به شیوهٔ خودت.</h2>
+    <p>
+      دوازده مدل با دو رنگ، از فرم‌های کلاسیک تا حجم‌های جسور. هر مدل در یک
+      دنیای تصویری مستقل ساخته شده تا انتخاب رنگ و دیدن جزئیات بخشی از تجربه
+      باشد.
+    </p>
+    <h2>دربارهٔ این نسخه</h2>
+    <p>
+      این وب‌سایت نمونه‌کار مفهومی و تعاملی است. محصولات، قیمت‌ها و بازخوردها
+      نمایشی‌اند؛ مسیر خرید به یک رسید نمونه می‌رسد و پرداخت واقعی ندارد.
+    </p>
+    <p>
+      ساختار هشت‌بخشی با الهام از{" "}
+      <a
+        href="https://dribbble.com/shots/27418656-Shoes-E-Commerce-Landing-Page-Heepzy"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        طرح Heepzy در Dribbble
+      </a>
+      ، اثر Sahil Dobariya برای Heloxone® Design Studio شکل گرفته است. هویت
+      راوا، نشان، رنگ‌ها، متن‌ها، تصاویر اصلی و موشن‌ها مستقلاً برای این
+      نمونه‌کار طراحی شده‌اند.
+    </p>
+    <a class="hp-button" href={shopUrl("catalog/")}>
+      انتخاب قدم بعدی ←
+    </a>
+  </article>
+</Heepzy>

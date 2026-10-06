@@ -1,0 +1,65 @@
+---
+import Brand from "../../../layouts/Brand.astro";
+import Study from "../../../components/StudyStage.astro";
+import { url } from "../../../config";
+---
+
+<Brand brand="velo" title="طراحی و جزئیات" current="design">
+  <main id="demo-main" class="wrap section">
+    <span class="eyebrow">FORM FOLLOWS MOVEMENT</span>
+    <h1>
+      یک ساختار،
+      <br />
+      با جزئیات قابل دیدن.
+    </h1>
+    <p class="large-copy">
+      VELO یک مطالعهٔ طراحی صنعتی است. مدل سه‌بعدی از فریم، چرخ‌ها، پره‌ها،
+      ترمز، زنجیر، فرمان و تجهیزات ساخته شده است.
+    </p>
+    <section class="section">
+      <Study
+        kind="bike"
+        variant="tour"
+        image="art/v10/velo-tour-cyan.webp"
+        label="اجزای دوچرخهٔ مفهومی VELO TOUR"
+      />
+    </section>
+    <section class="two-col section">
+      <div>
+        <h2>آنچه در مدل می‌بینید.</h2>
+        <p>
+          نمای اجزا، ساختار را برای مطالعه باز می‌کند. نقاط تعاملی شما را به
+          دوربین مناسب هر بخش می‌برند.
+        </p>
+        <a class="button" href={url("demo/velo/")}>
+          پیکربندی محصول ↗
+        </a>
+      </div>
+      <div class="velo-design-rows">
+        {[
+          [
+            "01",
+            "ساختار فریم",
+            "لوله‌ها، اتصالات و محفظهٔ باتری با هندسهٔ مستقل ساخته شده‌اند.",
+          ],
+          [
+            "02",
+            "حرکت",
+            "رینگ، تایر، پره، دیسک، محور و پدال‌ها در رابطه با یکدیگر قرار دارند.",
+          ],
+          [
+            "03",
+            "استفادهٔ شهری",
+            "فرمان، ترمز، چراغ و تجهیزات TOUR زبان مشترک محصول را ادامه می‌دهند.",
+          ],
+        ].map(([n, t, s]) => (
+          <article data-reveal>
+            <span>{n}</span>
+            <h3>{t}</h3>
+            <p>{s}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Brand>

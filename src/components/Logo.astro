@@ -1,0 +1,30 @@
+---
+const { horizontal = false } = Astro.props;
+---
+
+<span class:list={["studio-logo", { "studio-logo-horizontal": horizontal }]}>
+  <svg
+    viewBox="0 0 69 69"
+    width="69"
+    height="69"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M12 10Q34.5 1 57 10v27c0 16-22.5 25-22.5 25S12 53 12 37V10Z"
+      stroke="currentColor"
+      stroke-width="3"
+    />
+    <path
+      d="m23 25 5 20 6.5-13 6.5 13 5-20M23 25l11.5 7L46 25"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <span class="logo-type">
+    استودیو
+    <br />
+    طراحی
+  </span>
+</span>

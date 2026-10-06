@@ -1,0 +1,122 @@
+---
+import Brand from "../../../layouts/Brand.astro";
+import { architecture } from "../../../data/brands";
+import { url } from "../../../config";
+import Icon from "../../../components/Icon.astro";
+---
+
+<Brand brand="atelier" title="فضا، نور، زندگی">
+  <main id="demo-main">
+    <section class="atelier-journal wrap" data-atelier-cover>
+      <div class="journal-masthead"><span>دفترِ فضا / آتلیهٔ نو</span><span dir="ltr">VOL. 01 — SELECTED ARCHITECTURE / 2026</span></div>
+      <div class="journal-cover">
+        <img data-cover-image data-entry src={url(architecture[0].image)} alt="پاویون سرخ؛ ستون‌های آجری و حیاط روشن" width="1536" height="1024" fetchpriority="high" />
+        <div class="journal-title" data-entry>
+          <span class="eyebrow">یادداشت اول / نور و ماده</span>
+          <h1>زندگی،<br />میان <em>نور و ماده.</em></h1>
+          <p>معماری از لحظه‌های کوچک آغاز می‌شود.<br />یک آستانه، یک سایه، جایی برای مکث.</p>
+          <a class="text-link" href={url("demo/atelier/projects/pavilion/")}>خواندن روایت پاویون <Icon name="arrow" size={18} /></a>
+          <span class="journal-mark" aria-hidden="true" dir="ltr">NO.</span>
+        </div>
+        <div class="journal-caption"><span dir="ltr">01 / RED PAVILION</span><span data-cover-caption>حیاط / ریتمِ آجر و سایه</span></div>
+      </div>
+      <div class="journal-tools"><span>یک فضا، از سه زاویه.</span><div class="journal-views" role="group" aria-label="زاویهٔ دید پاویون">{[[architecture[0].image,"بیرون","پاویون سرخ؛ ستون‌های آجری و حیاط روشن","حیاط / ریتمِ آجر و سایه"],[architecture[0].interior,"درون","فضای داخلی مفهومی پاویون سرخ","گالری / نور در امتداد حرکت"]].map(([image,label,alt,caption],i)=><button disabled data-cover-view={url(image)} data-cover-alt={alt} data-cover-caption-value={caption} aria-pressed={i===0}>{label}</button>)}<a href={url("demo/atelier/projects/pavilion/#project-model")}>حجم سه‌بعدی <Icon name="arrow" size={16}/></a></div></div>
+      <nav class="atelier-project-rail" aria-label="انتخاب یک روایت">
+        {architecture.map((p,i)=><a href={url(`demo/atelier/projects/${p.id}/`)}><span class="rail-number" dir="ltr">0{i+1}</span><span><strong>{p.name}</strong><small>{p.label} / {p.location}</small></span><Icon name="arrow" size={18} /></a>)}
+      </nav>
+    </section>
+    <section class="section wrap" id="selected-projects" data-motion-scene>
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">آرشیو / انتخاب آتلیه</span>
+          <h2>سه فضا، سه روایت.</h2>
+        </div>
+        <a class="text-link" href={url("demo/atelier/projects/")}>
+          تمام پروژه‌ها ↗
+        </a>
+      </div>
+      <div class="atelier-projects">
+        {architecture.map((p, i) => (
+          <article class={`atelier-project project-${i}`} data-reveal>
+            <a href={url(`demo/atelier/projects/${p.id}/`)} class="image-zoom">
+              <img
+                src={url(p.image)}
+                alt={p.name}
+                loading="lazy"
+                width="1536"
+                height="1024"
+              />
+            </a>
+            <div class="atelier-project-meta">
+              <span dir="ltr">
+                0{i + 1} / {p.en}
+              </span>
+              <span>
+                {p.label} · {p.year}
+              </span>
+            </div>
+            <a href={url(`demo/atelier/projects/${p.id}/`)}>
+              <h3>
+                {p.name} <span>↗</span>
+              </h3>
+            </a>
+            <p>{p.intro}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+    <section class="atelier-principles section" data-motion-scene>
+      <div class="wrap two-col">
+        <div data-reveal>
+          <span class="eyebrow">رویکرد آتلیه</span>
+          <h2>
+            از یک پرسش کوچک
+            <br />
+            تا یک فضای معنادار.
+          </h2>
+          <a class="text-link" href={url("demo/atelier/services/")}>
+            روش کار و خدمات ↗
+          </a>
+        </div>
+        <div class="principle-list atelier-principle-list">
+          {[
+            [
+              "01",
+              "اول زندگی",
+              "پیش از شکل‌دادن به حجم، رفتار و نیاز آدم‌ها را بررسی می‌کنیم.",
+            ],
+            [
+              "02",
+              "دقت در ماده",
+              "بافت، اتصال و نور بخشی از ایدهٔ اصلی فضا هستند.",
+            ],
+            [
+              "03",
+              "رابطه با زمینه",
+              "هر پروژه با اقلیم، همسایگی و ریتم زندگی اطرافش خوانده می‌شود.",
+            ],
+          ].map(([n, t, s]) => (
+            <article data-reveal>
+              <span dir="ltr">{n}</span>
+              <div>
+                <h3>{t}</h3>
+                <p>{s}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section class="atelier-invite wrap section" data-reveal>
+      <div><span class="eyebrow">گفت‌وگو را شروع کنیم</span><h2>
+        فضای بعدی،
+        <br />
+        از یک گفت‌وگو شروع می‌شود.
+      </h2></div>
+      <a class="button" href={url("demo/atelier/inquiry/")}>
+        تعریف پروژهٔ شما ↗
+      </a>
+    </section>
+  </main>
+  <script>import "../../../scripts/atelier-cover";</script>
+</Brand>

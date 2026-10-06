@@ -1,0 +1,31 @@
+---
+import { url } from "../config";
+import Icon from "./Icon.astro";
+---
+
+<section class="contact-cta container" data-motion-reveal>
+  <div class="cta-circle">
+    <svg class="cta-wave" viewBox="0 0 200 180" fill="none" aria-hidden="true">
+      {Array.from({ length: 9 }, (_, i) => (
+        <path
+          d={`M0 ${12 + i * 18} C25 ${-13 + i * 18} 25 ${37 + i * 18} 50 ${12 + i * 18} S75 ${-13 + i * 18} 100 ${12 + i * 18} S125 ${37 + i * 18} 150 ${12 + i * 18} S175 ${-13 + i * 18} 200 ${12 + i * 18}`}
+          stroke="currentColor"
+          stroke-width="8"
+        />
+      ))}
+    </svg>
+    <span class="cta-label">
+      پروژه‌تان را
+      <br />
+      تعریف کنید
+    </span>
+    <a class="contact-orbit" href={url("contact/")}>
+      <span>
+        بیایید
+        <br />
+        صحبت کنیم.
+      </span>
+      <Icon name="arrow" size={48} />
+    </a>
+  </div>
+</section>

@@ -1,0 +1,330 @@
+---
+import { shoes as ravaShoes } from "../../data/heepzy";
+import Base from "../../layouts/Base.astro";
+import ProjectCover from "../../components/ProjectCover.astro";
+import Icon from "../../components/Icon.astro";
+import { getCollection } from "astro:content";
+import { url } from "../../config";
+export async function getStaticPaths() {
+  return (await getCollection("projects")).map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+const { project } = Astro.props;
+const p = project.data;
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const next =
+  projects[
+    (projects.findIndex((x) => x.id === project.id) + 1) % projects.length
+  ];
+const stories: Record<
+  string,
+  { challenge: string; points: string[]; solution: string }
+> = {
+  mora: {
+    challenge: "ترکیب یک مرجع تصویری مبلمان باید به فروشگاه کامل فارسی با هویت مستقل تبدیل می‌شد. حفظ هندسهٔ صفحه در کنار کاتالوگ روشن و مسیر خرید قابل استفاده، مسئلهٔ اصلی بود.",
+    points: ["۸ مدل، ۳ کالکشن و ۱۰ تصویر اختصاصی", "فیلتر، مقایسه، ذخیرهٔ مدل و سبد با محدودیت موجودی", "سفارش سه‌مرحله‌ای و رسید آزمایشی بدون ذخیرهٔ اطلاعات شخصی"],
+    solution: "تیتر بزرگ، تصویر با برش مورب و کارت سبز نعنایی، ترکیب مرجع را در راست‌چین نگه می‌دارند. نام مورا، نشان دو قوس، متن‌ها و تصاویر مستقل‌اند. موشن‌های کوتاه تغییر انتخاب را همراهی می‌کنند و بخش‌های روایی با زمان ۷۰۰ میلی‌ثانیه ظاهر می‌شوند.",
+  },
+  avan: {
+    challenge:
+      "مرجع یک فروشگاه صوتی باید به تجربه‌ای فارسی با هویت مستقل تبدیل می‌شد. چالش، هماهنگی تصویر هر مدل، مشخصات قابل فهم و انتخاب همان رنگ موجود در تمام مسیر خرید بود.",
+    points: [
+      "۱۰ مدل و ۲۰ ترکیب مدل و رنگ با ۴۵ تصویر اختصاصی",
+      "فیلتر قیمت، رنگ و موجودی روی همان ترکیب محصول؛ مقایسهٔ حداکثر سه مدل هم‌گروه",
+      "سفارش مهمان با فرصت بازبینی، رسید بدون اطلاعات شخصی و جایگزین برای ذخیره‌سازی مسدود",
+    ],
+    solution:
+      "پالت نفتی، استخوانی و مسی، نشان AV و کدهای H، E، S و A زبان مشترک مجموعه‌اند. خانه از معرفی محصول به کاربرد روزمره و راهنمای انتخاب می‌رسد. موشن‌های قابل قطع، تغییر تصویر، جابه‌جایی کارت‌ها و مراحل خرید را به هم متصل می‌کنند؛ کنترل‌ها و فوکوس منتظر انیمیشن نمی‌مانند.",
+  },
+  rava: {
+    challenge:
+      "یک مرجع تصویری بلند از فروشگاه کفش باید به تجربه‌ای کامل در فارسی و در اندازه‌های مختلف تبدیل می‌شد. خلق هویت مستقل راوا، حفظ ریتم هشت بخش و هویت یکسان محصول در کنار خرید قابل استفاده، مسئلهٔ اصلی بود.",
+    points: [
+      "دوازده مدل در دو رنگ با تصاویر و موجودی مستقل",
+      "فیلتر رنگ و سایز روی همان ترکیب موجود",
+      "سبد، تخفیف و بازبینی سفارش نمونه بدون ذخیرهٔ اطلاعات شخصی",
+    ],
+    solution:
+      "صفحهٔ اصلی با تصویر بزرگ تیره، کلاژ سبک زندگی، کاتالوگ روشن، محصول منتخب و کمپین اختصاصی سبز راوا ساخته شد. در موبایل، تصویر نخست قاب مستقلی دارد. انتخاب رنگ همهٔ نماها و موجودی را تغییر می‌دهد و محاسبهٔ قیمت در سبد و بررسی سفارش مشترک است.",
+  },
+  velia: {
+    challenge:
+      "سه نمای موبایل از یک فروشگاه مراقبت پوست باید به یک تجربهٔ کامل در دسکتاپ و موبایل تبدیل می‌شدند. چالش، حفظ تصویر محصول، لطافت سطوح و سادگی خرید در کنار متن فارسی و ناوبری راست‌چین بود.",
+    points: [
+      "کاتالوگ پلکانی با جست‌وجو، دسته‌بندی و فیلتر",
+      "انتقال تصویر میان کارت و صفحهٔ محصول",
+      "سبد قابل اصلاح، تخفیف و بازبینی سفارش آزمایشی",
+    ],
+    solution:
+      "در دسکتاپ، مجموعهٔ محصولات کنار یک نمایش ثابت از محصول قرار می‌گیرد. در موبایل، تصویر گیاهی، ارزش‌های مجموعه و پنل خرید به ساختار مرجع نزدیک‌اند. حرکت‌ها انتخاب‌ها و تغییر وضعیت را به هم متصل می‌کنند؛ محتوا با کاهش حرکت نیز کامل است.",
+  },
+  form: {
+    challenge:
+      "یک استودیوی معماری باید کیفیت نگاه خود را پیش از هر توضیحی نشان دهد. چالش، ساختن یک تجربهٔ تصویری آرام و قابل بررسی بود که هر پروژه را با هویت مستقل معرفی کند.",
+    points: [
+      "آرشیو پروژه‌ها با مقیاس‌های متفاوت",
+      "روایت فضا، نور و ماده در صفحهٔ هر پروژه",
+      "مسیر روشن از دیدن نمونه‌کار تا شروع همکاری",
+    ],
+    solution:
+      "یک جلد تصویری، آرشیو با ریتم متفاوت و صفحه‌های پروژه با تصویر، مواد و مطالعهٔ حجم طراحی شد. گالری، تغییر نما و مدل سه‌بعدی، بررسی جزئیات را به بخشی از تجربه تبدیل می‌کنند.",
+  },
+  luma: {
+    challenge:
+      "فروشگاه پوشاک باید هم شخصیت برند را منتقل کند و هم انتخاب محصول را ساده نگه دارد. تصاویر، مشخصات و مسیر خرید باید در یک ترکیب منظم قرار بگیرند.",
+    points: [
+      "پیدا‌کردن محصول با جست‌وجو و فیلتر",
+      "انتخاب رنگ و اندازه در صفحهٔ محصول",
+      "سبد خرید قابل اصلاح و مسیر سفارش نمایشی",
+    ],
+    solution:
+      "یک فروشگاه با تصویرهای بزرگ، صفحات محصول روشن و سبد خرید یکپارچه ساخته شد. انتخاب‌ها در همان محل بازخورد می‌گیرند و وضعیت محصول در مراحل مختلف حفظ می‌شود.",
+  },
+  orbit: {
+    challenge:
+      "نمایش یک محصول سه‌بعدی باید به انتخاب کمک کند. چالش، پیوند‌دادن مدل قابل چرخش، رنگ و مشخصات محصول در یک تجربهٔ قابل استفاده روی دستگاه‌های مختلف بود.",
+    points: [
+      "چرخش و بررسی مدل با ماوس، لمس و کیبورد",
+      "تغییر رنگ و اجزا با بازخورد هم‌زمان",
+      "مقایسه و ذخیرهٔ پیکربندی انتخاب‌شده",
+    ],
+    solution:
+      "پیکربندی محصول در کنار یک صحنهٔ سه‌بعدی قرار گرفت. تغییرات روی مدل دیده می‌شوند و در نبود WebGL، تصویر جایگزین همان انتخاب را نشان می‌دهد.",
+  },
+  medical: {
+    challenge:
+      "کاربر کلینیک باید بتواند پزشک و زمان مناسب را پیدا کند. چالش، کاهش ابهام در جست‌وجو، انتخاب و مرور نوبت در یک نمونهٔ نمایشی بود.",
+    points: [
+      "مرور پزشکان و تخصص‌ها",
+      "انتخاب روز و ساعت در مسیر نوبت‌گیری",
+      "بازبینی و مدیریت نوبت‌های نمایشی",
+    ],
+    solution:
+      "جست‌وجوی پزشک، مقایسهٔ گزینه‌ها و رزرو مرحله‌ای با بازبینی طراحی شد. نوبت‌های این نمونه واقعی نیستند و اطلاعات هویتی آزمایشی ذخیره نمی‌شوند.",
+  },
+};
+const story = stories[project.id];
+const details: Record<
+  string,
+  { title: string; description: string; href: string; services: string }
+> = {
+  mora: {
+    title: "جزئیات روشن، انتخاب آرام.",
+    description: "ابعاد، رنگ، متریال و مراقبت کنار تصویر واقعی هر مدل قرار دارند. کالکشن‌های قابل انتخاب به همان موجودی کاتالوگ متصل‌اند. سبد و بازبینی سفارش، مدل و مبلغ فعلی را حفظ می‌کنند؛ سفارش آزمایشی هیچ پرداخت یا ارسال واقعی ندارد.",
+    href: "demo/mora/product/c01/",
+    services: "فروشگاه مبلمان، کالکشن، مقایسه و سفارش آزمایشی",
+  },
+  avan: {
+    title: "همان رنگ، در تصویر و در انتخاب.",
+    description:
+      "انتخاب رنگ، نماها، قیمت و موجودی همان ترکیب را تغییر می‌دهد. تصویر تازه پس از decode با نمای قبلی ترکیب می‌شود. در فیلتر نیز قیمت و موجودی به یک رنگ مشترک تعلق دارند؛ مقایسه فقط میان مدل‌های یک گروه انجام می‌شود.",
+    href: "demo/avan/product/h01/",
+    services: "فروشگاه صوتی، مقایسه و سفارش آزمایشی",
+  },
+  rava: {
+    title: "یک کفش، از همهٔ زاویه‌ها.",
+    description: `با تغییر رنگ، چهار نمای ${ravaShoes[4].name} و موجودی سایزها هم‌زمان تغییر می‌کنند. سایز قبلی در صورت ناموجود بودن پاک می‌شود. نمای روی پا به‌روشنی به رنگ سفید و نارنجی برمی‌گردد تا تصویر و انتخاب با هم سازگار بمانند.`,
+    href: "demo/rava/product/flux/",
+    services: "فروشگاه کفش، گالری و سفارش نمونه",
+  },
+  velia: {
+    title: "همان محصول، در مسیر انتخاب.",
+    description:
+      "تصویر از کارت به صفحهٔ محصول منتقل می‌شود. تعداد و موجودی در کنار قیمت قرار دارند؛ نتیجهٔ افزودن همان‌جا تأیید می‌شود و سبد در تمام صفحات به همان انتخاب‌ها دسترسی دارد. حذف محصول امکان بازگرداندن دارد.",
+    href: "demo/velia/products/facial-cleanser/",
+    services: "فروشگاه مراقبت پوست، سبد و سفارش آزمایشی",
+  },
+  form: {
+    title: "روایت، در مقیاس‌های مختلف.",
+    description:
+      "جلد، گالری، دیاگرام و ماکت هرکدام بخشی از روایت را نشان می‌دهند. ناوبری بخش‌ها، خواننده را در یک صفحهٔ بلند همراهی می‌کند و مسیر بازگشت به آرشیو همیشه روشن است.",
+    href: "demo/atelier/projects/coast/#project-plan",
+    services: "روایت تصویری و آرشیو پروژه‌ها",
+  },
+  luma: {
+    title: "انتخاب، کنار خودِ محصول.",
+    description:
+      "رنگ و اندازه در کنار تصویر قرار گرفته‌اند. اندازهٔ ناموجود مشخص است؛ انتخاب فعلی روی دکمهٔ افزودن به سبد دیده می‌شود تا کاربر پیش از ادامه، بداند چه چیزی را انتخاب کرده است.",
+    href: "demo/rift/products/shell/",
+    services: "کاتالوگ، صفحهٔ محصول و مسیر خرید",
+  },
+  orbit: {
+    title: "هر تغییر، یک انتخاب قابل دیدن.",
+    description:
+      "مدل و رنگ در قدم‌های روشن انتخاب می‌شوند. جزئیات کم‌کاربرد داخل یک بخش بازشونده قرار گرفته‌اند و خلاصهٔ پیکربندی کنار کنترل‌ها، انتخاب فعلی را نگه می‌دارد.",
+    href: "demo/velo/#configure",
+    services: "ارائهٔ محصول و پیکربندی تعاملی",
+  },
+  medical: {
+    title: "نوبت‌گیری، با فرصت بازبینی.",
+    description:
+      "پزشک، زمان و اطلاعات در مرحله‌های جدا انتخاب می‌شوند. خلاصهٔ نوبت کنار مراحل باقی می‌ماند؛ کاربر می‌تواند پیش از تأیید نمایشی، انتخاب‌های خود را دوباره بررسی کند.",
+    href: "demo/neva/book/",
+    services: "جست‌وجوی پزشک و مسیر نوبت‌گیری",
+  },
+};
+const detail = details[project.id];
+const heading: Record<string, string> = {
+  mora: "مورا",
+  avan: "آوان",
+  rava: "راوا",
+  velia: "آلبا",
+  form: "آتلیه نو",
+  luma: "ریفت",
+  orbit: "ولو",
+  medical: "نوا",
+};
+---
+
+<Base title={p.title} description={p.summary}>
+  <section class="showcase-intro container">
+    <div class="showcase-heading" data-motion-reveal>
+      <h1>
+        {heading[project.id]}
+        <br />
+        <span>طراحی وب‌سایت</span>
+      </h1>
+      <a class="text-link" href={url(p.demo)}>
+        مشاهدهٔ وب‌سایت <Icon name="arrow" size={22} />
+      </a>
+    </div>
+    <dl class="showcase-meta" data-motion-reveal data-delay="100">
+      <div>
+        <dt>پروژه</dt>
+        <dd>
+          <bdi dir="ltr">{p.english}</bdi>
+          <br />
+          <span>مطالعهٔ مستقل طراحی</span>
+        </dd>
+      </div>
+      <div>
+        <dt>نقش</dt>
+        <dd>
+          طراحی رابط و تجربهٔ کاربر
+          <br />
+          توسعه و انیمیشن
+        </dd>
+      </div>
+      <div>
+        <dt>خدمات</dt>
+        <dd>{detail.services}</dd>
+      </div>
+      <div>
+        <dt>سال</dt>
+        <dd>
+          {p.year}
+          <br />
+          مستقل و نمایشی
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <figure class="showcase-cover container" data-motion-reveal>
+    <ProjectCover project={project} presentation="showcase" />
+  </figure>
+  <section class="showcase-summary container" data-motion-reveal>
+    <p>{p.summary}</p>
+    <a class="text-link" href={url(p.demo)}>
+      بازکردن وب‌سایت <Icon name="arrow" size={24} />
+    </a>
+  </section>
+  <section class="case-story container">
+    <div class="case-story-row">
+      <h2 data-motion-reveal>چالش</h2>
+      <div data-motion-reveal data-delay="100">
+        <p>{story.challenge}</p>
+        <ul>
+          {story.points.map((t) => (
+            <li>{t}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="case-note" data-motion-reveal>
+      <span dir="ltr">{p.english}</span>
+      <p>یک پروژهٔ مستقل برای بررسی طراحی، حرکت و مسیرهای کاربردی.</p>
+    </div>
+    <div class="case-story-row">
+      <h2 data-motion-reveal>راه‌حل</h2>
+      <p data-motion-reveal data-delay="100">
+        {story.solution}
+        {["avan", "mora"].includes(project.id) && (
+          <>
+            <br />
+            <a
+              class="text-link"
+              href={project.id === "mora" ? "https://dribbble.com/shots/24721917-Dune-Furniture-Ecommerce-Website-by-Orbix-Studio" : "https://dribbble.com/shots/23445176-Headphone-Ecommerce-landing-page"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              مرجع ساختار صفحه در Dribbble <Icon name="arrow" size={18} />
+            </a>
+          </>
+        )}
+      </p>
+    </div>
+  </section>
+  <section class="case-detail container">
+    <a
+      href={url(detail.href)}
+      data-motion-reveal
+      aria-label={"بررسی جزئیات رابط " + p.title}
+    >
+      <img
+        src={url("portfolio/" + project.id + "-detail.webp")}
+        alt={detail.title + " نمای واقعی رابط " + p.title}
+        width="1440"
+        height="1000"
+        loading="lazy"
+      />
+    </a>
+    <div data-motion-reveal data-delay="100">
+      <span class="eyebrow">یک تصمیم، از نزدیک</span>
+      <h2>{detail.title}</h2>
+      <p>{detail.description}</p>
+      <a class="text-link" href={url(detail.href)}>
+        بررسی این بخش <Icon name="arrow" size={20} />
+      </a>
+    </div>
+  </section>
+  <section class="showcase-screens container">
+    <a href={url(p.demo)} class="desktop-capture" data-motion-reveal>
+      <img
+        src={url(p.previewDesktop || p.cover)}
+        alt={"نمای کامل وب‌سایت " + p.title}
+        width="1440"
+        height="1058"
+        loading="lazy"
+      />
+    </a>
+    <div class="showcase-mobile-row">
+      <p data-motion-reveal>
+        همان تجربه،
+        <br />
+        در اندازهٔ موبایل.
+      </p>
+      {p.previewMobile && (
+        <a href={url(p.demo)} data-motion-reveal data-delay="100">
+          <img
+            src={url(p.previewMobile)}
+            alt={"نسخهٔ موبایل " + p.title}
+            width="390"
+            height="1500"
+            loading="lazy"
+          />
+        </a>
+      )}
+    </div>
+  </section>
+  <section class="showcase-next container" data-motion-reveal>
+    <span class="eyebrow">پروژهٔ بعدی</span>
+    <a href={url("work/" + next.id + "/")}>
+      <h2>{next.data.title}</h2>
+      <Icon name="arrow" size={70} />
+    </a>
+  </section>
+</Base>

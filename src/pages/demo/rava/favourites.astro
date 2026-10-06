@@ -1,0 +1,29 @@
+---
+import Heepzy from "../../../layouts/Heepzy.astro";
+import Card from "../../../components/heepzy/Card.astro";
+import { shoes, shopUrl } from "../../../data/heepzy";
+---
+
+<Heepzy title="علاقه‌مندی‌های تو">
+  <div class="hp-container hp-section" data-favourites-page>
+    <header class="hp-page-heading">
+      <span class="hp-eyebrow" dir="ltr">
+        SAVED FOR YOUR NEXT STEP
+      </span>
+      <h1>انتخاب‌های دوست‌داشتنی.</h1>
+      <p data-favourites-status role="status">
+        انتخاب‌هایت در همین مرورگر نگه‌داری می‌شوند.
+      </p>
+    </header>
+    <div class="hp-grid">
+      {shoes.map((p) => (
+        <Card product={p} />
+      ))}
+    </div>
+    <div class="hp-empty" data-favourites-empty hidden>
+      هنوز کفشی را ذخیره نکرده‌ای.
+      <br />
+      <a href={shopUrl("catalog/")}>جفت بعدی‌ات را پیدا کن ←</a>
+    </div>
+  </div>
+</Heepzy>

@@ -1,0 +1,72 @@
+---
+import Brand from "../../../layouts/Brand.astro";
+import { url } from "../../../config";
+---
+
+<Brand brand="atelier" title="استودیو" current="studio">
+  <main id="demo-main">
+    <section class="wrap split-heading">
+      <div data-entry>
+        <span class="eyebrow">THE STUDIO / ATELIER NO</span>
+        <h1>
+          آتلیه‌ای برای
+          <br />
+          دیدن دوباره.
+        </h1>
+      </div>
+      <p class="large-copy" data-entry>
+        ما معماری را از رابطهٔ آدم‌ها با فضا شروع می‌کنیم. از مقیاس یک دستگیره
+        تا ریتم یک حیاط، جزئیات باید بخشی از یک ایدهٔ روشن باشند.
+      </p>
+    </section>
+    <figure class="studio-image wrap section">
+      <img
+        src={url("art/v10/atrium-interior.webp")}
+        alt="مطالعهٔ مفهومی فضای کار آتلیه"
+        width="1536"
+        height="1024"
+      />
+      <figcaption>فضای کار مشترک / تصویر مفهومی</figcaption>
+    </figure>
+    <section class="wrap section two-col">
+      <h2>
+        سه اصل ثابت،
+        <br />
+        پاسخ‌های متفاوت.
+      </h2>
+      <div class="principle-list">
+        {[
+          [
+            "01",
+            "دیدن",
+            "زمینه، رفتار و محدودیت‌ها را پیش از ترسیم بررسی می‌کنیم.",
+          ],
+          [
+            "02",
+            "آزمودن",
+            "ایده را با دیاگرام، ماکت و مطالعهٔ نور به پرسش می‌کشیم.",
+          ],
+          [
+            "03",
+            "دقیق‌کردن",
+            "روابط اصلی را در مقیاس ماده و اتصال ادامه می‌دهیم.",
+          ],
+        ].map(([n, t, s]) => (
+          <article data-reveal>
+            <b>{n}</b>
+            <div>
+              <h3>{t}</h3>
+              <p>{s}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+    <section class="wrap section">
+      <h2>برای شناخت بیشتر، فضاها را ببینید.</h2>
+      <a class="button" href={url("demo/atelier/projects/")}>
+        آرشیو پروژه‌ها ↗
+      </a>
+    </section>
+  </main>
+</Brand>

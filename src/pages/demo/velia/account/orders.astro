@@ -1,0 +1,30 @@
+---
+import AccountShell from "../../../../components/velia/AccountShell.astro";
+---
+
+<AccountShell title="سفارش‌های من" current="orders">
+  <section class="velia-panel">
+    <div class="velia-section-heading">
+      <h2>مسیر انتخاب‌هایت را ببین.</h2>
+      <span>
+        <b data-order-count>۱</b> سفارش نمایشی
+      </span>
+    </div>
+    <div class="velia-order-filters" aria-label="وضعیت سفارش‌ها">
+      <button type="button" data-order-filter="all" aria-pressed="true">
+        همه
+      </button>
+      <button type="button" data-order-filter="preparing" aria-pressed="false">
+        در حال آماده‌سازی
+      </button>
+      <button type="button" data-order-filter="new" aria-pressed="false">
+        ثبت‌شده
+      </button>
+    </div>
+    <div data-orders-list></div>
+    <div class="skin-no-results" data-orders-empty hidden>
+      <h3>سفارشی با این وضعیت نیست.</h3>
+      <p>وضعیت دیگری را انتخاب کن یا به محصولات سر بزن.</p>
+    </div>
+  </section>
+</AccountShell>

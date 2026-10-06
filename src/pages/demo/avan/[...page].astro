@@ -1,0 +1,29 @@
+---
+import Avan from '../../../layouts/Avan.astro';
+import {products} from '../../../data/avan';
+import {avanUrl} from '../../../lib/avan/paths';
+import Home from '../../../components/avan/Home.astro';
+import Shop from '../../../components/avan/Shop.astro';
+import Product from '../../../components/avan/Product.astro';
+import Compare from '../../../components/avan/Compare.astro';
+import Checkout from '../../../components/avan/Checkout.astro';
+import Guide from '../../../components/avan/Guide.astro';
+import Information from '../../../components/avan/Information.astro';
+import Intro from '../../../components/avan/Intro.astro';
+export function getStaticPaths(){return ['', 'shop', ...products.map(p=>'product/'+p.id),'compare','wishlist','cart','checkout','order','about','guide','help/shipping','help/returns','help/faq'].map(page=>({params:{page:page||undefined},props:{page}}));}
+const {page}=Astro.props;
+const product=products.find(p=>'product/'+p.id===page);
+const titles:Record<string,string>={'':'برای لحظه‌های خودت بشنو','shop':'محصولات آوان','compare':'مقایسهٔ مدل‌ها','wishlist':'علاقه‌مندی‌ها','cart':'سبد خرید','checkout':'خرید آزمایشی','order':'رسید سفارش نمونه','about':'دربارهٔ آوان','guide':'راهنمای انتخاب','help/shipping':'ارسال','help/returns':'بازگشت','help/faq':'پرسش‌های رایج'};
+---
+<Avan title={product?product.code:titles[page]} page={page||'home'}>
+ {page===''&&<Home/>}
+ {page==='shop'&&<Shop/>}
+ {product&&<Product product={product}/>}
+ {page==='compare'&&<Compare/>}
+ {page==='checkout'&&<Checkout/>}
+ {page==='guide'&&<Guide/>}
+ {['about','help/shipping','help/returns','help/faq'].includes(page)&&<Information page={page}/>}
+ {page==='wishlist'&&<><Intro title="انتخاب‌هایی که نگه می‌داری." description="مدل‌های دلخواهت را اینجا کنار هم ببین."/><div data-wishlist-content class="empty-state"><h2>هنوز مدلی ذخیره نکرده‌ای.</h2><p>در صفحهٔ هر محصول، مدل دلخواهت را ذخیره کن.</p><a class="btn" href={avanUrl('shop/')}>کشف محصولات</a></div></>}
+ {page==='cart'&&<><Intro title="انتخاب تو، تا آخرین جزئیات." description="مدل، رنگ و تعداد را پیش از ثبت بازبینی کن."/><div data-cart-content class="empty-state"><h2>سبد تو هنوز خالی است.</h2><p>از محصولی شروع کن که به روزهای تو می‌آید.</p><a class="btn" href={avanUrl('shop/')}>دیدن محصولات</a></div></>}
+ {page==='order'&&<><Intro title="رسید سفارش آزمایشی" description="خلاصهٔ غیرشخصی انتخاب و مبلغ سفارش نمونه."/><div data-order-content class="empty-state"><h2>رسیدی برای نمایش وجود ندارد.</h2><p>پس از ثبت سفارش آزمایشی، خلاصهٔ انتخابت را اینجا می‌بینی.</p><a class="btn" href={avanUrl('shop/')}>بازگشت به محصولات</a></div></>}
+</Avan>

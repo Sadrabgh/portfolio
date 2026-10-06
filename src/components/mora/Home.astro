@@ -1,0 +1,284 @@
+---
+import { products, collections, articles, link, money } from "../../data/mora";
+import Photo from "./Photo.astro";
+import Icon from "./Icon.astro";
+import Card from "./Card.astro";
+const p = products[0];
+---
+
+<section class="mr-hero mr-wrap">
+  <div class="mr-hero-heading">
+    <h1>
+      <span>
+        خانه‌ای<sup>®</sup>
+      </span>
+      <span class="mr-line-word">
+        <i></i>به سبک
+      </span>
+      <span>تو.</span>
+    </h1>
+    <p class="mr-hero-caption">مبلمان، نور و جزئیات روزمره</p>
+  </div>
+  <div class="mr-hero-note">
+    <div class="mr-swatches" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <p>
+      با چوب گرم، بافت نرم و رنگ‌های آرام،
+      <br />
+      جایی بساز که شبیه خودت باشد.
+    </p>
+    <a class="mr-btn mr-outline" href={link("studio/")}>
+      داستان مورا <Icon />
+    </a>
+  </div>
+  <div class="mr-hero-photo">
+    <div class="mr-cut-photo">
+      <Photo
+        name="hero"
+        alt="فضای نشیمن اختصاصی مورا با صندلی آجری، دیوار سبز و چوب گردو"
+        eager
+        sizes="(max-width:700px) 94vw, 66vw"
+      />
+      <div class="mr-photo-copy">
+        <span class="mr-eyebrow">THE EVERYDAY COLLECTION</span>
+        <h2>
+          فرم ساده.
+          <br />
+          حس ماندگار.
+        </h2>
+        <span>گرمای روزمره — کالکشن ۰۱</span>
+      </div>
+    </div>
+    <a class="mr-corner-link" href={link("collections/living/")}>
+      <span>
+        کشف
+        <br />
+        کالکشن
+      </span>
+      <Icon />
+    </a>
+  </div>
+  <div class="mr-feature" data-feature>
+    <div class="mr-feature-top">
+      <span class="mr-eyebrow">انتخاب مورا</span>
+      <span class="mr-code" data-feature-code dir="ltr">
+        {p.code}
+      </span>
+    </div>
+    <div class="mr-feature-description">
+      <Icon name="leaf" />
+      <span>
+        بافت نرم.
+        <br />
+        چوب گرم.
+        <br />
+        برای هر روز.
+      </span>
+    </div>
+    <a
+      data-feature-link
+      href={link("product/" + p.id + "/")}
+      class="mr-feature-photo"
+    >
+      <div class="mr-feature-media">
+        <Photo name={p.image} alt={p.name + " " + p.code} sizes="300px" />
+      </div>
+      <span data-feature-name>{p.name}</span>
+    </a>
+    <div class="mr-feature-controls">
+      <div class="mr-slider-tools">
+        <button
+          class="mr-icon mr-outline"
+          data-slide="-1"
+          aria-label="محصول قبلی"
+        >
+          →
+        </button>
+        <span data-slide-count dir="ltr">
+          01 / 04
+        </span>
+        <button class="mr-icon mr-dark" data-slide="1" aria-label="محصول بعدی">
+          ←
+        </button>
+      </div>
+      <div>
+        <span class="mr-feature-price" data-feature-price>
+          {money(p.price)}
+        </span>
+        <div class="mr-feature-actions">
+          <a
+            class="mr-btn"
+            data-feature-buy
+            href={link("product/" + p.id + "/")}
+          >
+            جزئیات
+          </a>
+          <button class="mr-btn mr-outline" data-feature-add data-add={p.id}>
+            افزودن <Icon name="plus" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="mr-wrap mr-section mr-categories">
+  <span class="mr-eyebrow">از کجا شروع کنیم؟</span>
+  <div>
+    {[
+      ["chairs", "صندلی و راحتی"],
+      ["sofas", "مبل"],
+      ["tables", "میز"],
+      ["lighting", "روشنایی"],
+      ["storage", "قفسه"],
+    ].map(([id, name]) => (
+      <a href={link("shop/?category=" + id)}>
+        {name}
+        <Icon />
+      </a>
+    ))}
+  </div>
+</section>
+<section class="mr-wrap mr-section">
+  <div class="mr-section-head">
+    <div>
+      <span class="mr-eyebrow">OBJECTS FOR EVERYDAY</span>
+      <h2>
+        جزئیات خوب،
+        <br />
+        روزهای بهتر.
+      </h2>
+    </div>
+    <a class="mr-btn mr-outline" href={link("shop/")}>
+      همهٔ محصولات <Icon />
+    </a>
+  </div>
+  <div class="mr-grid">
+    {[products[0], products[2], products[1]].map((product) => (
+      <Card product={product} />
+    ))}
+  </div>
+</section>
+<section class="mr-room-section mr-wrap mr-section" data-reveal>
+  <div class="mr-room-image">
+    <Photo name="room" alt="نشیمن روشن با پارچهٔ شیری، چوب طبیعی و نور روز" />
+    <span class="mr-image-label">MORA / ROOM NOTES 02</span>
+  </div>
+  <div class="mr-room-copy">
+    <span class="mr-eyebrow">کمی جا برای آرامش</span>
+    <h2>
+      همه‌چیز،
+      <br />
+      در جای خودش.
+    </h2>
+    <p>
+      خانه قرار نیست شلوغ باشد تا شخصیت داشته باشد. چند انتخاب درست، بافتی
+      دوست‌داشتنی و کمی فضای خالی کافی است.
+    </p>
+    <a class="mr-btn" href={link("collections/calm/")}>
+      جایی برای مکث <Icon />
+    </a>
+    <small>
+      تصویر الهام‌بخش چیدمان؛ محصولات هر کالکشن جداگانه معرفی شده‌اند.
+    </small>
+  </div>
+</section>
+<section class="mr-wrap mr-section" data-reveal>
+  <div class="mr-section-head">
+    <div>
+      <span class="mr-eyebrow">A ROOM, YOUR WAY</span>
+      <h2>
+        سه حال‌وهوا.
+        <br />
+        یک خانهٔ تو.
+      </h2>
+    </div>
+    <p>انتخاب‌هایی که کنار هم خوب می‌نشینند.</p>
+  </div>
+  <div class="mr-collection-grid">
+    {collections.map((c) => (
+      <a class="mr-collection-card" href={link("collections/" + c.id + "/")}>
+        <Photo name={c.image} alt={c.name} />
+        <div>
+          <h3>{c.name}</h3>
+          <Icon />
+        </div>
+        <p>{c.subtitle}</p>
+      </a>
+    ))}
+  </div>
+</section>
+<section class="mr-material-section mr-section">
+  <div class="mr-wrap mr-material-grid">
+    <div>
+      <span class="mr-eyebrow">GOOD MATERIALS. QUIET FORMS.</span>
+      <h2>
+        از نزدیک،
+        <br />
+        تفاوت را حس کن.
+      </h2>
+      <p>
+        متریال بخشی از تجربهٔ خانه است. مشخصات هر قطعه را روشن نوشته‌ایم تا
+        انتخاب، از یک عکس فراتر برود.
+      </p>
+      <a class="mr-text-link" href={link("help/care/")}>
+        راهنمای مراقبت <Icon />
+      </a>
+    </div>
+    <div class="mr-materials">
+      {[
+        ["01", "گردو", "رگه‌های طبیعی و گرمای عمیق"],
+        ["02", "بافت", "نرمی، با شخصیت روزمره"],
+        ["03", "فلز", "فرم دقیق و پرداخت مات"],
+      ].map(([n, title, desc]) => (
+        <div>
+          <span>{n}</span>
+          <h3>{title}</h3>
+          <p>{desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<section class="mr-wrap mr-section" data-reveal>
+  <div class="mr-section-head">
+    <div>
+      <span class="mr-eyebrow">THE MORA JOURNAL</span>
+      <h2>
+        پیش از انتخاب،
+        <br />
+        کمی الهام.
+      </h2>
+    </div>
+    <a class="mr-btn mr-outline" href={link("journal/")}>
+      یادداشت‌ها <Icon />
+    </a>
+  </div>
+  <div class="mr-journal-grid">
+    {articles.map((a) => (
+      <a class="mr-article-card" href={link("journal/" + a.id + "/")}>
+        <Photo name={a.image} alt={a.title} />
+        <span class="mr-eyebrow">{a.tag}</span>
+        <h3>
+          {a.title} <Icon />
+        </h3>
+        <p>{a.summary}</p>
+      </a>
+    ))}
+  </div>
+</section>
+<section class="mr-wrap mr-cta">
+  <div>
+    <span class="mr-eyebrow">MAKE ROOM FOR YOU.</span>
+    <h2>
+      انتخاب بعدی خانه‌ات
+      <br />
+      از اینجا شروع می‌شود.
+    </h2>
+  </div>
+  <a class="mr-btn" href={link("shop/")}>
+    به فروشگاه برو <Icon />
+  </a>
+</section>

@@ -1,0 +1,243 @@
+---
+import Velia from "../../../layouts/Velia.astro";
+import SkinIcon from "../../../components/velia/SkinIcon.astro";
+import SkinCard from "../../../components/velia/SkinCard.astro";
+import SkinValues from "../../../components/velia/SkinValues.astro";
+import CollectionCard from "../../../components/velia/CollectionCard.astro";
+import ArticleCard from "../../../components/velia/ArticleCard.astro";
+import {
+  skinProducts,
+  categoryInfo,
+  skinCollections,
+  skinArticles,
+} from "../../../data/velia";
+import { url } from "../../../config";
+const featured = [
+  "facial-cleanser",
+  "daily-moisturiser",
+  "calm-serum",
+  "daily-shield",
+].map((id) => skinProducts.find((p) => p.id === id)!);
+---
+
+<Velia title="مراقبت، با ریتم تو" current="home">
+  <main id="skin-main" class="skin-wrap velia-home">
+    <section class="velia-hero">
+      <div class="velia-hero-copy">
+        <span class="skin-eyebrow" dir="ltr">
+          A LITTLE TIME. JUST FOR YOU.
+        </span>
+        <h1>
+          <span class="velia-hero-line">کمی آرام‌تر.</span>
+          <span class="velia-hero-line">
+            کمی برای <span>خودت.</span>
+          </span>
+        </h1>
+        <p>
+          مراقبت قرار نیست پیچیده باشد.
+          <br />
+          چند انتخاب فکرشده، برای لحظه‌های هر روز تو.
+        </p>
+        <div class="velia-hero-actions">
+          <a class="skin-button" href={url("demo/velia/shop/")}>
+            کشف محصولات <SkinIcon name="arrow" size={20} />
+          </a>
+          <a class="velia-text-link" href={url("demo/velia/collections/")}>
+            روتین خودت را پیدا کن <SkinIcon name="arrow" size={18} />
+          </a>
+        </div>
+        <div class="velia-hero-foot">
+          <SkinIcon name="leaf" size={26} />
+          <span>
+            بافت‌های لطیف. انتخاب‌های ساده.
+            <br />
+            <small>مراقبت روزانه، به سبک آلبا.</small>
+          </span>
+        </div>
+      </div>
+      <div class="velia-hero-art">
+        <span class="velia-art-number" dir="ltr">
+          01 / EVERYDAY RITUAL
+        </span>
+        <a
+          href={url("demo/velia/products/facial-cleanser/")}
+          aria-label="کشف ژل پاک‌کنندهٔ برگ"
+        >
+          <img
+            data-skin-tilt
+            src={url("art/velia/hero.webp")}
+            alt="بطری ژل پاک‌کنندهٔ آلبا میان شاخه‌های زیتون و شکوفه‌های سفید"
+            width="1100"
+            height="1100"
+            fetchpriority="high"
+          />
+        </a>
+        <div class="velia-hero-caption">
+          <span>
+            از طبیعت،
+            <br />
+            به روتین تو
+          </span>
+          <a
+            class="skin-icon-button"
+            href={url("demo/velia/products/facial-cleanser/")}
+            aria-label="مشاهدهٔ محصول منتخب"
+          >
+            <SkinIcon name="arrow" size={24} />
+          </a>
+        </div>
+      </div>
+    </section>
+    <div class="velia-home-values">
+      <SkinValues />
+      <p>
+        یک تجربهٔ کوچک از مراقبت.
+        <br />
+        <b>برای خودت، با حوصله.</b>
+      </p>
+    </div>
+    <section class="velia-section">
+      <div class="velia-section-heading">
+        <div>
+          <span class="skin-eyebrow" dir="ltr">
+            FIND YOUR EVERYDAY
+          </span>
+          <h2>از کدام لحظه شروع کنیم؟</h2>
+        </div>
+        <a href={url("demo/velia/shop/")}>
+          همهٔ محصولات <SkinIcon name="arrow" size={19} />
+        </a>
+      </div>
+      <div class="velia-category-grid">
+        {categoryInfo.map((c, i) => (
+          <a
+            class:list={["velia-category-card", "tone-" + c.tone]}
+            href={url(`demo/velia/category/${c.id}/`)}
+          >
+            <span dir="ltr">0{i + 1}</span>
+            <img
+              src={url(`art/velia/${c.image}.webp`)}
+              alt=""
+              width="300"
+              height="340"
+              loading="lazy"
+            />
+            <div>
+              <h3>{c.name}</h3>
+              <SkinIcon name="arrow" size={19} />
+            </div>
+            <small>{c.label}</small>
+          </a>
+        ))}
+      </div>
+    </section>
+    <section class="velia-section">
+      <div class="velia-section-heading">
+        <div>
+          <span class="skin-eyebrow" dir="ltr">
+            THE MOST LOVED
+          </span>
+          <h2>انتخاب‌های دوست‌داشتنی.</h2>
+        </div>
+        <a href={url("demo/velia/shop/")}>
+          دیدن مجموعه <SkinIcon name="arrow" size={19} />
+        </a>
+      </div>
+      <div class="skin-product-grid velia-featured-grid">
+        {featured.map((product, index) => (
+          <SkinCard product={product} index={index} />
+        ))}
+      </div>
+    </section>
+    <section class="velia-editorial-banner">
+      <div class="velia-editorial-photo">
+        <img
+          src={url("art/velia/editorial.webp")}
+          alt="محصولات آلبا روی سنگ روشن، کنار حولهٔ کتانی و شاخهٔ زیتون"
+          width="1400"
+          height="900"
+          loading="lazy"
+        />
+      </div>
+      <div>
+        <span class="skin-eyebrow" dir="ltr">
+          LESS, BUT THOUGHTFUL.
+        </span>
+        <h2>
+          یک روتین کوچک.
+          <br />
+          یک حس خوبِ هرروزه.
+        </h2>
+        <p>
+          برای شروع، لازم نیست میزت شلوغ باشد. روتین‌های آلبا چند انتخاب هماهنگ
+          را کنار هم می‌گذارند تا راحت‌تر مجموعهٔ خودت را پیدا کنی.
+        </p>
+        <a class="skin-button" href={url("demo/velia/collections/")}>
+          کشف روتین‌ها <SkinIcon name="arrow" size={20} />
+        </a>
+      </div>
+    </section>
+    <section class="velia-section">
+      <div class="velia-section-heading">
+        <div>
+          <span class="skin-eyebrow" dir="ltr">
+            MADE FOR YOUR MOMENTS
+          </span>
+          <h2>سه مجموعه، سه حال‌وهوا.</h2>
+        </div>
+        <a href={url("demo/velia/collections/")}>
+          همهٔ روتین‌ها <SkinIcon name="arrow" size={19} />
+        </a>
+      </div>
+      <div class="velia-collection-grid">
+        {skinCollections.map((collection) => (
+          <CollectionCard collection={collection} />
+        ))}
+      </div>
+    </section>
+    <section class="velia-section">
+      <div class="velia-section-heading">
+        <div>
+          <span class="skin-eyebrow" dir="ltr">
+            THE ALBA JOURNAL
+          </span>
+          <h2>یادداشت‌هایی برای تو.</h2>
+        </div>
+        <a href={url("demo/velia/journal/")}>
+          مجلهٔ آلبا <SkinIcon name="arrow" size={19} />
+        </a>
+      </div>
+      <div class="velia-article-grid">
+        {skinArticles.slice(0, 3).map((article) => (
+          <ArticleCard article={article} />
+        ))}
+      </div>
+    </section>
+    <section class="velia-service-strip">
+      <a href={url("demo/velia/help/shipping/")}>
+        <SkinIcon name="delivery" size={29} />
+        <div>
+          <b>انتخاب تو، تا درِ خانه</b>
+          <span>جزئیات هزینه و ارسال</span>
+        </div>
+        <SkinIcon name="arrow" size={19} />
+      </a>
+      <a href={url("demo/velia/contact/")}>
+        <SkinIcon name="mail" size={29} />
+        <div>
+          <b>برای پرسش‌هایت، اینجاییم</b>
+          <span>تماس و پشتیبانی</span>
+        </div>
+        <SkinIcon name="arrow" size={19} />
+      </a>
+      <a href={url("demo/velia/faq/")}>
+        <SkinIcon name="leaf" size={29} />
+        <div>
+          <b>با خیال روشن انتخاب کن</b>
+          <span>پرسش‌های متداول</span>
+        </div>
+        <SkinIcon name="arrow" size={19} />
+      </a>
+    </section>
+  </main>
+</Velia>

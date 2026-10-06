@@ -1,0 +1,238 @@
+---
+import "@fontsource-variable/vazirmatn";
+import "../styles/v10/base.css";
+import "../styles/v10/atelier.css";
+import "../styles/v10/rift.css";
+import "../styles/v10/velo.css";
+import "../styles/v10/neva.css";
+import "../styles/demo-upgrade.css";
+import "../styles/demo-refinement.css";
+import "../styles/demo-showcase.css";
+import Icon from "../components/Icon.astro";
+import { url } from "../config";
+interface Props {
+  brand: "atelier" | "rift" | "velo" | "neva";
+  title: string;
+  current?: string;
+}
+const { brand, title, current = "" } = Astro.props;
+const identities = {
+  atelier: {
+    name: "آتلیه نو",
+    en: "ATELIER NO",
+    nav: [
+      ["پروژه‌ها", "projects"],
+      ["استودیو", "studio"],
+      ["خدمات", "services"],
+      ["گفت‌وگو", "inquiry"],
+    ],
+  },
+  rift: {
+    name: "RIFT",
+    en: "RIFT",
+    nav: [
+      ["کالکشن‌ها", "collections"],
+      ["همهٔ محصولات", "catalog"],
+      ["راهنمای اندازه", "size-guide"],
+    ],
+  },
+  velo: {
+    name: "VELO",
+    en: "VELO",
+    nav: [
+      ["پیکربندی", ""],
+      ["مقایسهٔ مدل‌ها", "compare"],
+      ["طراحی و جزئیات", "design"],
+    ],
+  },
+  neva: {
+    name: "نِوا",
+    en: "NEVA",
+    nav: [
+      ["پزشکان", "doctors"],
+      ["خدمات", "services"],
+      ["راهنمای مراجعه", "guide"],
+      ["نوبت‌های من", "appointments"],
+    ],
+  },
+};
+const info = identities[brand];
+const home = url(`demo/${brand}/`);
+const isHome = Astro.url.pathname === home;
+const parent = info.nav.find(([, path]) => path === current && path && Astro.url.pathname !== url(`demo/${brand}/${path}/`));
+const disciplines = { atelier: "معماری / فضا / زندگی", rift: "لباس برای ریتم شهر", velo: "استودیوی حرکت شهری", neva: "یک مسیر روشن برای مراجعه" };
+---
+
+<!doctype html>
+<html lang="fa" dir="rtl" data-demo-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · {info.name}</title>
+    <meta
+      name="description"
+      content={`نمونهٔ تعاملی ${info.name}؛ طراحی مفهومی برای نمونه‌کار.`}
+    />
+    <meta name="robots" content="noindex,nofollow" />
+    <script is:inline>
+      try {
+        const t = localStorage.getItem("demo-theme");
+        document.documentElement.dataset.demoTheme =
+          t === "dark" ? "dark" : "light";
+      } catch {}
+      const rm = matchMedia("(prefers-reduced-motion:reduce)");
+      let mp = "full";
+      try {
+        mp = localStorage.getItem("demo-motion") || "full";
+      } catch {}
+      document.documentElement.dataset.demoMotion =
+        rm.matches || mp === "reduce" ? "reduce" : "full";
+      document.documentElement.classList.add("demo-js");
+      for (const ev of ["pageswap", "pagereveal"])
+        addEventListener(ev, (e) => {
+          const t = e.viewTransition;
+          if (!t) return;
+          t.ready.catch(() => {});
+          t.finished.catch(() => {});
+          t.updateCallbackDone.catch(() => {});
+          if (document.documentElement.dataset.demoMotion === "reduce")
+            t.skipTransition();
+        });
+    </script>
+  </head>
+  <body class:list={["brand", brand, "demo-upgraded", "demo-showcase"]} data-demo-page={isHome ? "home" : "inner"}>
+    <a class="skip" href="#demo-main">
+      رفتن به محتوا
+    </a>
+    <aside class="concept-bar" aria-label="اطلاعات نمونه‌کار">
+      <a href={url("work/")}><Icon name="arrow" size={16} /> بازگشت به نمونه‌کارها</a>
+      <span><span class="concept-dot" aria-hidden="true"></span> نمونهٔ مفهومی و قابل آزمایش</span>
+    </aside>
+    <header class="brand-header">
+      <a
+        class="brand-mark"
+        href={url(`demo/${brand}/`)}
+        aria-label={`خانهٔ ${info.name}`}
+      >
+        {brand === "atelier" ? (
+          <>
+            <b>
+              نو<span class="red-dot"></span>
+            </b>
+            <small>آتلیهٔ معماری</small>
+          </>
+        ) : brand === "neva" ? (
+          <>
+            <span class="neva-symbol"><Icon name="medical" size={34} /></span>
+            <b>نِوا</b>
+            <small>مراقبت با آرامش</small>
+          </>
+        ) : (
+          <b dir="ltr">{info.en}</b>
+        )}
+      </a>
+      <nav aria-label="ناوبری اصلی" class="brand-nav" id={`${brand}-navigation`}>
+        {info.nav.map(([label, path]) => (
+          <a
+            href={url(`demo/${brand}/${path ? path + "/" : ""}`)+(brand==="velo"&&!path?"#configure":"")}
+            aria-current={
+              current === path
+                ? Astro.url.pathname ===
+                  url(`demo/${brand}/${path ? path + "/" : ""}`)
+                  ? "page"
+                  : "location"
+                : undefined
+            }
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+      <div class="header-tools">
+        <button type="button" data-theme-toggle aria-label="تغییر حالت رنگ">
+          <span class="theme-moon"><Icon name="moon" /></span><span class="theme-sun"><Icon name="sun" /></span>
+        </button>
+        <button
+          type="button"
+          data-motion-toggle
+          aria-pressed="false"
+          aria-label="کاهش حرکت"
+        >
+          <Icon name="motion" />
+        </button>
+        {brand === "rift" && (
+          <button type="button" data-cart-open class="header-cart">
+            <Icon name="bag" /><span class="cart-label">سبد</span><span data-cart-count>۰</span>
+          </button>
+        )}
+        {brand === "neva" && (
+          <a class="button" href={url("demo/neva/book/")}>
+            دریافت نوبت
+          </a>
+        )}
+        {brand === "atelier" && <a class="button header-project-cta" href={url("demo/atelier/inquiry/")}>شروع گفت‌وگو <Icon name="arrow" size={16} /></a>}
+        <button
+          class="menu-toggle"
+          data-menu-toggle
+          aria-expanded="false"
+          aria-controls={`${brand}-navigation`}
+          aria-label="منوی صفحات"
+        >
+          <Icon name="menu" />
+        </button>
+      </div>
+    </header>
+    {!isHome && <nav class="demo-context wrap" aria-label="مسیر صفحه"><a href={home}>{info.name}</a><span aria-hidden="true">/</span>{parent && <><a href={url(`demo/${brand}/${parent[1]}/`)}>{parent[0]}</a><span aria-hidden="true">/</span></>}<span aria-current="page">{title}</span></nav>}
+    <slot />
+    <footer class="brand-footer wrap">
+      <div>
+        <a class="footer-word" href={url(`demo/${brand}/`)}>
+          {info.en}
+        </a>
+        <p>
+          {brand === "atelier"
+            ? "فضا، نور، زندگی."
+            : brand === "rift"
+              ? "برای حرکت در شهر."
+              : brand === "velo"
+                ? "شهر را از زاویهٔ تازه ببین."
+                : "یک مسیر روشن برای مراجعه."}
+        </p>
+        <span class="footer-discipline">{disciplines[brand]}</span>
+      </div>
+      <nav class="footer-nav" aria-label={`صفحات ${info.name}`}>
+        <span class="eyebrow">مسیرهای کشف</span>
+        {info.nav.map(([label, path]) => <a href={url(`demo/${brand}/${path ? path + "/" : ""}`)}>{label}<Icon name="arrow" size={16} /></a>)}
+      </nav>
+      <div>
+        <p>این پروژه برای نمایش طراحی و تعامل ساخته شده است.</p>
+        <p>
+          {brand === "neva"
+            ? "پزشکان و تصاویر فرضی‌اند؛ نوبت واقعی یا خدمات درمانی ارائه نمی‌شود."
+            : brand === "rift"
+              ? "محصولات و قیمت‌ها فرضی‌اند؛ سفارشی ارسال و پرداختی دریافت نمی‌شود."
+              : brand === "velo"
+                ? "محصول مفهومی؛ اندازه‌ها و ویژگی‌ها مشخصات مهندسی نیستند."
+                : "تصاویر و مدل‌ها مفهومی‌اند و پروژهٔ اجراشده را مستند نمی‌کنند."}
+        </p>
+        <a
+          href={url(
+            `work/${{ atelier: "form", rift: "luma", velo: "orbit", neva: "medical" }[brand]}/`,
+          )}
+        >
+          مشاهدهٔ مطالعهٔ موردی ↗
+        </a>
+      </div>
+      <div class="footer-signature" aria-hidden="true" dir="ltr"><span>{brand === "atelier" ? "ATELIER NO." : info.en}</span><Icon name="arrow" size={72} /></div>
+    </footer>
+    <noscript>
+      <p class="wrap notice">
+        برای پیکربندی سه‌بعدی، سبد خرید و رزرو نمایشی، جاوااسکریپت را فعال کنید.
+        تصاویر و صفحات قابل مشاهده‌اند.
+      </p>
+    </noscript>
+    <script>
+      import "../scripts/brand-ui";
+    </script>
+  </body>
+</html>

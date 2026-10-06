@@ -1,0 +1,7 @@
+---
+import type {Specification} from '../../data/avan';
+import {displaySpec} from '../../data/avan';
+interface Props {spec:Specification;}
+const {spec:s}=Astro.props;
+---
+{s.unit?<bdi dir="ltr" lang="en">{displaySpec(s)}</bdi>:typeof s.value==='string'&&/[A-Za-z]/.test(s.value)?<bdi dir="auto">{displaySpec(s)}</bdi>:displaySpec(s)}

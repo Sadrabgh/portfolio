@@ -1,0 +1,40 @@
+---
+import Brand from "../../../layouts/Brand.astro";
+import { doctors, money } from "../../../data/brands";
+import { url } from "../../../config";
+import Icon from "../../../components/Icon.astro";
+---
+
+<Brand brand="neva" title="خدمات" current="services">
+  <main id="demo-main" class="wrap section">
+    <span class="eyebrow">خدمات / سناریوی مفهومی</span>
+    <h1>
+      مسیر مناسب
+      <br />
+      برای مراجعهٔ شما.
+    </h1>
+    <div class="neva-services">
+      {doctors.map((d, i) => (
+        <article data-reveal>
+          <span class="service-icon"><Icon name={["medical", "leaf", "spark"][i]} size={24} /></span>
+          <div>
+            <h2>{d.specialty}</h2>
+            <p>{d.about}</p>
+            <ul>
+              {d.services.map((s) => (
+                <li>{s}</li>
+              ))}
+            </ul>
+            <div class="tags">
+              <span>{d.duration.toLocaleString("fa-IR")} دقیقه</span>
+              <span>{money(d.fee)} فرضی</span>
+            </div>
+          </div>
+          <a class="button" href={url(`demo/neva/book/?doctor=${d.id}`)}>
+            انتخاب نوبت ↗
+          </a>
+        </article>
+      ))}
+    </div>
+  </main>
+</Brand>
