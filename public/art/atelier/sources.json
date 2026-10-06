@@ -61,6 +61,1710 @@
       "file": "hero-scroll.mp4",
       "bytes": 3256863,
       "sha256": "7fe0f6ec521b4b51d06dba5c569c2cec853726bb192a6504a137d162b052da67"
+    },
+    {
+      "file": "frames/desktop/000.webp",
+      "sourceFrame": 0,
+      "sourceTimeSeconds": 0.0,
+      "bytes": 92860,
+      "sha256": "3ba54eec2276191501c17acf326f061e6abfb524e60f4b91a353e3f2cd34ad4d"
+    },
+    {
+      "file": "frames/desktop/001.webp",
+      "sourceFrame": 1,
+      "sourceTimeSeconds": 0.041667,
+      "bytes": 89694,
+      "sha256": "e09b78db1394ffb20f85ca0369f60e9bc306edd3a3176ce0ec4b70a1b6ffb50e"
+    },
+    {
+      "file": "frames/desktop/002.webp",
+      "sourceFrame": 2,
+      "sourceTimeSeconds": 0.083333,
+      "bytes": 91776,
+      "sha256": "8361459e56c4c15b0af40417da01b425593501a67aff99284f7d3f1d6e4bfa29"
+    },
+    {
+      "file": "frames/desktop/003.webp",
+      "sourceFrame": 3,
+      "sourceTimeSeconds": 0.125,
+      "bytes": 88984,
+      "sha256": "65ecb0b2a7a43581c236f7126ddd6cb45070c036450676afadcbae87df969210"
+    },
+    {
+      "file": "frames/desktop/004.webp",
+      "sourceFrame": 4,
+      "sourceTimeSeconds": 0.166667,
+      "bytes": 91058,
+      "sha256": "7a2870cca9f14b17984e97e9217639c18fc6776a986b917068466fd052011351"
+    },
+    {
+      "file": "frames/desktop/005.webp",
+      "sourceFrame": 5,
+      "sourceTimeSeconds": 0.208333,
+      "bytes": 86344,
+      "sha256": "81b74cd1ef87e939ba11a761afe265f477d78b3032952f163e0bf1d1635ff2be"
+    },
+    {
+      "file": "frames/desktop/006.webp",
+      "sourceFrame": 6,
+      "sourceTimeSeconds": 0.25,
+      "bytes": 88034,
+      "sha256": "0d38fd724d24e5ff2508d2133e235b30f752636d581fc6fb3d2716ad7995e273"
+    },
+    {
+      "file": "frames/desktop/007.webp",
+      "sourceFrame": 7,
+      "sourceTimeSeconds": 0.291667,
+      "bytes": 85758,
+      "sha256": "2c8a8cea0c8e3730640f563343930b5ad4281735c65fe6c63a8d4a58da459f01"
+    },
+    {
+      "file": "frames/desktop/008.webp",
+      "sourceFrame": 8,
+      "sourceTimeSeconds": 0.333333,
+      "bytes": 88500,
+      "sha256": "3d142d88dec24b813648181e040873fda5feef75180dc78392a9b05b118d52fa"
+    },
+    {
+      "file": "frames/desktop/009.webp",
+      "sourceFrame": 9,
+      "sourceTimeSeconds": 0.375,
+      "bytes": 84204,
+      "sha256": "309d1dfc7385fac17d06a5f86b4e654172eb3401932b606861ef26487857a55d"
+    },
+    {
+      "file": "frames/desktop/010.webp",
+      "sourceFrame": 10,
+      "sourceTimeSeconds": 0.416667,
+      "bytes": 85938,
+      "sha256": "9af44abe3a45d96a317c142e5146a1302f085cb2a9d1a57e1c8ed3c01f49256f"
+    },
+    {
+      "file": "frames/desktop/011.webp",
+      "sourceFrame": 11,
+      "sourceTimeSeconds": 0.458333,
+      "bytes": 83780,
+      "sha256": "0746caa8325cf002792f72d7a802f808fd02771ba7c3cdbabfa564e42b6dc5ae"
+    },
+    {
+      "file": "frames/desktop/012.webp",
+      "sourceFrame": 12,
+      "sourceTimeSeconds": 0.5,
+      "bytes": 86126,
+      "sha256": "a95fbb6d1aec3cbccddefda6ee28154a49a7e2f6b9a4b82972869dee11509e6f"
+    },
+    {
+      "file": "frames/desktop/013.webp",
+      "sourceFrame": 13,
+      "sourceTimeSeconds": 0.541667,
+      "bytes": 81836,
+      "sha256": "0eb3848112f44f8c9eccb7bd183b537ecfd5ff73a9010f25fb3fd004037f7de7"
+    },
+    {
+      "file": "frames/desktop/014.webp",
+      "sourceFrame": 14,
+      "sourceTimeSeconds": 0.583333,
+      "bytes": 83532,
+      "sha256": "ee48c79fe71deec6645a5e0fa128903767d29276f0860a0f158d4c147cbf3d92"
+    },
+    {
+      "file": "frames/desktop/015.webp",
+      "sourceFrame": 15,
+      "sourceTimeSeconds": 0.625,
+      "bytes": 81116,
+      "sha256": "2a97cf80c4dbf3fdb16de21ba121eb1235e88989c50e3f94fa926b31872c6a98"
+    },
+    {
+      "file": "frames/desktop/016.webp",
+      "sourceFrame": 16,
+      "sourceTimeSeconds": 0.666667,
+      "bytes": 83246,
+      "sha256": "fcfb945c8630d76ff6975870f1db8158c44998eec9c34a86150ec558695cda3f"
+    },
+    {
+      "file": "frames/desktop/017.webp",
+      "sourceFrame": 17,
+      "sourceTimeSeconds": 0.708333,
+      "bytes": 78788,
+      "sha256": "9df0d38843034a9c8094a096e91c24a68fa5ff37683ef9fef17f88c88747a9c6"
+    },
+    {
+      "file": "frames/desktop/018.webp",
+      "sourceFrame": 18,
+      "sourceTimeSeconds": 0.75,
+      "bytes": 81864,
+      "sha256": "1047624dc071c6340927400b84e9738de87c04cd29b22196b086c90c4523de57"
+    },
+    {
+      "file": "frames/desktop/019.webp",
+      "sourceFrame": 19,
+      "sourceTimeSeconds": 0.791667,
+      "bytes": 79440,
+      "sha256": "3574693543fb5c373b693dc086c3ff4a6b526d35529560f1c1c66283636daa12"
+    },
+    {
+      "file": "frames/desktop/020.webp",
+      "sourceFrame": 20,
+      "sourceTimeSeconds": 0.833333,
+      "bytes": 82620,
+      "sha256": "d83676d3a66ddfb7ce8d71037cebbac96698d08c911537a550c9eb0d32329b1c"
+    },
+    {
+      "file": "frames/desktop/021.webp",
+      "sourceFrame": 21,
+      "sourceTimeSeconds": 0.875,
+      "bytes": 79332,
+      "sha256": "96bafa3dd14df8faf0af7488858ad2d57ea5e79be69688a270c647826a277aa9"
+    },
+    {
+      "file": "frames/desktop/022.webp",
+      "sourceFrame": 22,
+      "sourceTimeSeconds": 0.916667,
+      "bytes": 80682,
+      "sha256": "b17e3d352524f38798f279b6d2378df934f36b2102aea5da31b29f68b5335e9a"
+    },
+    {
+      "file": "frames/desktop/023.webp",
+      "sourceFrame": 23,
+      "sourceTimeSeconds": 0.958333,
+      "bytes": 78866,
+      "sha256": "c2193f8dad4d946fa5c84fb67f89ef9982bc6865370d8c53b029f4453ac3d146"
+    },
+    {
+      "file": "frames/desktop/024.webp",
+      "sourceFrame": 24,
+      "sourceTimeSeconds": 1.0,
+      "bytes": 80744,
+      "sha256": "56a3444b4d8a0189de2fa0174bf3f4ca74e889d766f2d5822d26b33abbd841c9"
+    },
+    {
+      "file": "frames/desktop/025.webp",
+      "sourceFrame": 25,
+      "sourceTimeSeconds": 1.041667,
+      "bytes": 75960,
+      "sha256": "3702bca3aeb56b8d735d517c79a7b27c72840558645111d9db605041b99edddd"
+    },
+    {
+      "file": "frames/desktop/026.webp",
+      "sourceFrame": 26,
+      "sourceTimeSeconds": 1.083333,
+      "bytes": 77002,
+      "sha256": "dffa718b1a24403dd0f53306a3bbf4c30ddfe236396aeb15239041c1c5ed7934"
+    },
+    {
+      "file": "frames/desktop/027.webp",
+      "sourceFrame": 27,
+      "sourceTimeSeconds": 1.125,
+      "bytes": 74998,
+      "sha256": "27e3d84700509b0b2f58fa391f7d2859d2bddf2c2d5aa56bb1fd6716e7591222"
+    },
+    {
+      "file": "frames/desktop/028.webp",
+      "sourceFrame": 28,
+      "sourceTimeSeconds": 1.166667,
+      "bytes": 76196,
+      "sha256": "ba8180ddc3b8c0cc779d4950c115ae49171343a3613f8509c83e72c321ed21a9"
+    },
+    {
+      "file": "frames/desktop/029.webp",
+      "sourceFrame": 29,
+      "sourceTimeSeconds": 1.208333,
+      "bytes": 72860,
+      "sha256": "5b6e97a6fa29e8c74eafdb64a57e237ce12145d2034336a13a6a157de37f5571"
+    },
+    {
+      "file": "frames/desktop/030.webp",
+      "sourceFrame": 30,
+      "sourceTimeSeconds": 1.25,
+      "bytes": 74538,
+      "sha256": "9aa884c1a14d925445c924cf3bef97e6353a7a2e941069b34e960cb13da73296"
+    },
+    {
+      "file": "frames/desktop/031.webp",
+      "sourceFrame": 31,
+      "sourceTimeSeconds": 1.291667,
+      "bytes": 72706,
+      "sha256": "b8d4b2d74242ebd11ff4a80925e808a2eb36edbf5b51097f52b9b927a33f90b7"
+    },
+    {
+      "file": "frames/desktop/032.webp",
+      "sourceFrame": 32,
+      "sourceTimeSeconds": 1.333333,
+      "bytes": 73888,
+      "sha256": "08cc7c3316239476dd3e8f93e6c7e0113a47c14d8ebc79f39dd82a80e7042adf"
+    },
+    {
+      "file": "frames/desktop/033.webp",
+      "sourceFrame": 33,
+      "sourceTimeSeconds": 1.375,
+      "bytes": 70656,
+      "sha256": "52b956083d37e38ee7a498e38994df9613ac0da0b0513188681c313137522c1f"
+    },
+    {
+      "file": "frames/desktop/034.webp",
+      "sourceFrame": 34,
+      "sourceTimeSeconds": 1.416667,
+      "bytes": 71416,
+      "sha256": "703582ced9172d3f6728bc52f93532b568562511cfc013d5d7f56a806dbde52c"
+    },
+    {
+      "file": "frames/desktop/035.webp",
+      "sourceFrame": 35,
+      "sourceTimeSeconds": 1.458333,
+      "bytes": 69340,
+      "sha256": "6152796d4c054a2e7170fa2ef798ca439ab2fcff05e258d40fb5823bf94166e6"
+    },
+    {
+      "file": "frames/desktop/036.webp",
+      "sourceFrame": 36,
+      "sourceTimeSeconds": 1.5,
+      "bytes": 70276,
+      "sha256": "fcafaeab57c16afbc660e0b5efcf2fff89b83354fbf46fa32893cb1eda023490"
+    },
+    {
+      "file": "frames/desktop/037.webp",
+      "sourceFrame": 37,
+      "sourceTimeSeconds": 1.541667,
+      "bytes": 66734,
+      "sha256": "0b4a49e8d71c6f18f618414e47fcf3f2d6947d7465dac41c43fc93fcfb742c1c"
+    },
+    {
+      "file": "frames/desktop/038.webp",
+      "sourceFrame": 38,
+      "sourceTimeSeconds": 1.583333,
+      "bytes": 67728,
+      "sha256": "a80e58b0e5d996a5e4cd96a135193263719c53ad74df0021192d7078a57cf960"
+    },
+    {
+      "file": "frames/desktop/039.webp",
+      "sourceFrame": 39,
+      "sourceTimeSeconds": 1.625,
+      "bytes": 64354,
+      "sha256": "30c77ad3ce58fe326267581936c8344b434d44c1db75376046c1be061e2daa90"
+    },
+    {
+      "file": "frames/desktop/040.webp",
+      "sourceFrame": 40,
+      "sourceTimeSeconds": 1.666667,
+      "bytes": 63570,
+      "sha256": "6746d9e723fa303b1a15a4c666008411ecdfefbae75886e6c6babf61cdd612d4"
+    },
+    {
+      "file": "frames/desktop/041.webp",
+      "sourceFrame": 41,
+      "sourceTimeSeconds": 1.708333,
+      "bytes": 59094,
+      "sha256": "d7e9d22823a1081336ede5e834e54668633e0739a102caac1e7992726273eb64"
+    },
+    {
+      "file": "frames/desktop/042.webp",
+      "sourceFrame": 42,
+      "sourceTimeSeconds": 1.75,
+      "bytes": 59162,
+      "sha256": "0b3116285a0b285e9dbda3007487a0e2891a592b583f4fae9d1b6b57395abd88"
+    },
+    {
+      "file": "frames/desktop/043.webp",
+      "sourceFrame": 43,
+      "sourceTimeSeconds": 1.791667,
+      "bytes": 56274,
+      "sha256": "0ded2d08d3782cd043920b922a16d1bae54f072807ab5bac32c2dcc139883fb6"
+    },
+    {
+      "file": "frames/desktop/044.webp",
+      "sourceFrame": 44,
+      "sourceTimeSeconds": 1.833333,
+      "bytes": 55348,
+      "sha256": "f0981c271fa1a01612f69e38325a4a8a79290dacd042dad7ca7d3b3620baed18"
+    },
+    {
+      "file": "frames/desktop/045.webp",
+      "sourceFrame": 45,
+      "sourceTimeSeconds": 1.875,
+      "bytes": 51058,
+      "sha256": "42e6c53386c3058de260ce7d9811236634aed13d96b67efb1e5e217df1ceea97"
+    },
+    {
+      "file": "frames/desktop/046.webp",
+      "sourceFrame": 46,
+      "sourceTimeSeconds": 1.916667,
+      "bytes": 51310,
+      "sha256": "a142878483dba18356b039c902df4ef24dea4659f73dba95c2951ab7ef3035ce"
+    },
+    {
+      "file": "frames/desktop/047.webp",
+      "sourceFrame": 47,
+      "sourceTimeSeconds": 1.958333,
+      "bytes": 48450,
+      "sha256": "3721a78cb29718c98229d58bfd15c32e4338684c3239dea5be8b2ee6404c8899"
+    },
+    {
+      "file": "frames/desktop/048.webp",
+      "sourceFrame": 48,
+      "sourceTimeSeconds": 2.0,
+      "bytes": 47234,
+      "sha256": "009dfd6e9ac908fb6119ae6a95cbed1b396439380ed1dc4ed559447607b9cc31"
+    },
+    {
+      "file": "frames/desktop/049.webp",
+      "sourceFrame": 49,
+      "sourceTimeSeconds": 2.041667,
+      "bytes": 44380,
+      "sha256": "d0bbb65171fae7664aae61b280a826c095b29f931a36fcdc3442179361fd6f9a"
+    },
+    {
+      "file": "frames/desktop/050.webp",
+      "sourceFrame": 50,
+      "sourceTimeSeconds": 2.083333,
+      "bytes": 44152,
+      "sha256": "24f03cc03d65aa5b87dd680b7c6bd076e94192dfa6d5e262b92caf34699093c0"
+    },
+    {
+      "file": "frames/desktop/051.webp",
+      "sourceFrame": 51,
+      "sourceTimeSeconds": 2.125,
+      "bytes": 42362,
+      "sha256": "28fe650ffe1c56c3eacf8d107efd9d569d040bc7121b7716b4e5aa9b0b4807e4"
+    },
+    {
+      "file": "frames/desktop/052.webp",
+      "sourceFrame": 52,
+      "sourceTimeSeconds": 2.166667,
+      "bytes": 41716,
+      "sha256": "176c80a0a256f3e41adee66f882be1499d62b51dac5752788d26fcdd07ed569e"
+    },
+    {
+      "file": "frames/desktop/053.webp",
+      "sourceFrame": 53,
+      "sourceTimeSeconds": 2.208333,
+      "bytes": 39262,
+      "sha256": "a044868d7af5aab6c754b7de8095fe9f523728fd3ac5a0de832113e82c42c950"
+    },
+    {
+      "file": "frames/desktop/054.webp",
+      "sourceFrame": 54,
+      "sourceTimeSeconds": 2.25,
+      "bytes": 39352,
+      "sha256": "cf5f8f42e10efa71252d717f41d7317eb23cf24c43e9e98c077ad3713256db98"
+    },
+    {
+      "file": "frames/desktop/055.webp",
+      "sourceFrame": 55,
+      "sourceTimeSeconds": 2.291667,
+      "bytes": 37830,
+      "sha256": "5df6f9d0dbfd740f2c3d9dd4888416bf5d42d5613fe268a3ce385c54eebaac07"
+    },
+    {
+      "file": "frames/desktop/056.webp",
+      "sourceFrame": 56,
+      "sourceTimeSeconds": 2.333333,
+      "bytes": 37298,
+      "sha256": "bd8cf920c0eb57578cb186e80fb67cf0870da4a2b946609b9f053b4d6d16e2fa"
+    },
+    {
+      "file": "frames/desktop/057.webp",
+      "sourceFrame": 57,
+      "sourceTimeSeconds": 2.375,
+      "bytes": 35418,
+      "sha256": "040871bd141feec644f8447a330c9fa95c392fbac20ec9e3014bf0309e61c571"
+    },
+    {
+      "file": "frames/desktop/058.webp",
+      "sourceFrame": 58,
+      "sourceTimeSeconds": 2.416667,
+      "bytes": 35138,
+      "sha256": "48b7b6e2cc721487094b07dab2f9b0d17e5bfd1516b0b28b49817e1f112193d0"
+    },
+    {
+      "file": "frames/desktop/059.webp",
+      "sourceFrame": 59,
+      "sourceTimeSeconds": 2.458333,
+      "bytes": 33746,
+      "sha256": "21315d626709441409e21d68cbdaad84d86c23316b890a1c92ec215bcba4b01a"
+    },
+    {
+      "file": "frames/desktop/060.webp",
+      "sourceFrame": 60,
+      "sourceTimeSeconds": 2.5,
+      "bytes": 34742,
+      "sha256": "72765aaf5bfd885045830441f3cccd8ade080224243d575ab11298aea8bc0a05"
+    },
+    {
+      "file": "frames/desktop/061.webp",
+      "sourceFrame": 61,
+      "sourceTimeSeconds": 2.541667,
+      "bytes": 34648,
+      "sha256": "5c231ac90c46e3a3310b43498b593ae9bd9fc24cb31cebb73fde734480470c26"
+    },
+    {
+      "file": "frames/desktop/062.webp",
+      "sourceFrame": 62,
+      "sourceTimeSeconds": 2.583333,
+      "bytes": 36622,
+      "sha256": "87916c7bf2553b5a2182d825b0c16d3c07fc0f033b7741e24af4f1bac2047858"
+    },
+    {
+      "file": "frames/desktop/063.webp",
+      "sourceFrame": 63,
+      "sourceTimeSeconds": 2.625,
+      "bytes": 36274,
+      "sha256": "a7522f86659f2ade567d68f2c3398a8af87bf9d98608e8d0e1ecac06b9998cf9"
+    },
+    {
+      "file": "frames/desktop/064.webp",
+      "sourceFrame": 64,
+      "sourceTimeSeconds": 2.666667,
+      "bytes": 37002,
+      "sha256": "559e5eacb563252381fad424076c704cd044ec64bbd7e7e074973886974f52e3"
+    },
+    {
+      "file": "frames/desktop/065.webp",
+      "sourceFrame": 65,
+      "sourceTimeSeconds": 2.708333,
+      "bytes": 36838,
+      "sha256": "b2366ac2c0f11fc768a7a002d34ac30b1465777bf2a344cc5f58d3da568efb47"
+    },
+    {
+      "file": "frames/desktop/066.webp",
+      "sourceFrame": 66,
+      "sourceTimeSeconds": 2.75,
+      "bytes": 38226,
+      "sha256": "0c4e7a304ecede6e4807a14d5a4c3dc0485f77b4905a7ab0782efd9d281127ac"
+    },
+    {
+      "file": "frames/desktop/067.webp",
+      "sourceFrame": 67,
+      "sourceTimeSeconds": 2.791667,
+      "bytes": 37786,
+      "sha256": "fe7ad80ab865493a9b2c58a0e5a24fffe94c6202dfe4167759a0999887c7b4e7"
+    },
+    {
+      "file": "frames/desktop/068.webp",
+      "sourceFrame": 68,
+      "sourceTimeSeconds": 2.833333,
+      "bytes": 38752,
+      "sha256": "9214001f95a2384c9d1f7006cb3694f4b0bb2f8fc8fc2ebfffdf256e05adc8f3"
+    },
+    {
+      "file": "frames/desktop/069.webp",
+      "sourceFrame": 69,
+      "sourceTimeSeconds": 2.875,
+      "bytes": 37592,
+      "sha256": "19dc050618cc091de726475db6f43b4d64609ea1a986f0ff271a74ace2ac868d"
+    },
+    {
+      "file": "frames/desktop/070.webp",
+      "sourceFrame": 70,
+      "sourceTimeSeconds": 2.916667,
+      "bytes": 37726,
+      "sha256": "630bc80984fca734713aaf79c0edbaa1ec32552aa0bb2a4b9ac19433388f9926"
+    },
+    {
+      "file": "frames/desktop/071.webp",
+      "sourceFrame": 71,
+      "sourceTimeSeconds": 2.958333,
+      "bytes": 37166,
+      "sha256": "6df8d07c17e4700ed42f5d5d274837fcb6b9851eb720fb83f0d9d32da12ace3d"
+    },
+    {
+      "file": "frames/desktop/072.webp",
+      "sourceFrame": 72,
+      "sourceTimeSeconds": 3.0,
+      "bytes": 37406,
+      "sha256": "30889be1ae0c6998ae02b97ced82ed4fd54e98abda0088a5e4e52e644a08b410"
+    },
+    {
+      "file": "frames/desktop/073.webp",
+      "sourceFrame": 73,
+      "sourceTimeSeconds": 3.041667,
+      "bytes": 37012,
+      "sha256": "9d06a28dea4abd2330e6f13f880341fe0e8d957377d0ab6e470a970d40c5228e"
+    },
+    {
+      "file": "frames/desktop/074.webp",
+      "sourceFrame": 74,
+      "sourceTimeSeconds": 3.083333,
+      "bytes": 36688,
+      "sha256": "b3f1b3e091d853e473fa51f32072ef1ff38f8ef671169b831ff1063fae85ea34"
+    },
+    {
+      "file": "frames/desktop/075.webp",
+      "sourceFrame": 75,
+      "sourceTimeSeconds": 3.125,
+      "bytes": 35846,
+      "sha256": "66dc172f88aa7e5d5c23bb4cac29ef14753de38463c18ed62dd6ab0291388d6d"
+    },
+    {
+      "file": "frames/desktop/076.webp",
+      "sourceFrame": 76,
+      "sourceTimeSeconds": 3.166667,
+      "bytes": 36722,
+      "sha256": "26f2f5151bde6ef85f991246a5858ba612f2decbc68b441eac0e3d701d2ccff2"
+    },
+    {
+      "file": "frames/desktop/077.webp",
+      "sourceFrame": 77,
+      "sourceTimeSeconds": 3.208333,
+      "bytes": 36770,
+      "sha256": "4d311655058a11422c9cc8b71e7c99039f9ad4f07e668ee1d9007ff9b269dc9b"
+    },
+    {
+      "file": "frames/desktop/078.webp",
+      "sourceFrame": 78,
+      "sourceTimeSeconds": 3.25,
+      "bytes": 36104,
+      "sha256": "0699da3ddfe434e56c44da7a8f0919f262ac40233b396ed57e6c8424d94eabea"
+    },
+    {
+      "file": "frames/desktop/079.webp",
+      "sourceFrame": 79,
+      "sourceTimeSeconds": 3.291667,
+      "bytes": 35322,
+      "sha256": "21b8010326d06ea8bff6ca30667f2ed8e88d5bdc380b5d2bebc561b39598b4ca"
+    },
+    {
+      "file": "frames/desktop/080.webp",
+      "sourceFrame": 80,
+      "sourceTimeSeconds": 3.333333,
+      "bytes": 35500,
+      "sha256": "dcb3ec3d6728d05fe7dff402ad9c0d29a8cdfcd1e05aa156ab61e1e5f554fb48"
+    },
+    {
+      "file": "frames/desktop/081.webp",
+      "sourceFrame": 81,
+      "sourceTimeSeconds": 3.375,
+      "bytes": 34868,
+      "sha256": "2702acdbf1e2de69e57d100c61a53cd024942111e13a9117300511de8ac99d67"
+    },
+    {
+      "file": "frames/desktop/082.webp",
+      "sourceFrame": 82,
+      "sourceTimeSeconds": 3.416667,
+      "bytes": 35058,
+      "sha256": "2ab0552d26653a750e7453c88716e2960ab77b7d543b562e4504a05384d41de7"
+    },
+    {
+      "file": "frames/desktop/083.webp",
+      "sourceFrame": 83,
+      "sourceTimeSeconds": 3.458333,
+      "bytes": 34296,
+      "sha256": "a0a0005036eff1a29685c378b354244d5c6b80a13030b0f8b7756b1ac0aeef7c"
+    },
+    {
+      "file": "frames/desktop/084.webp",
+      "sourceFrame": 84,
+      "sourceTimeSeconds": 3.5,
+      "bytes": 34746,
+      "sha256": "bf4097d7468d4c0e59a7e1564eb024a43dc81aab2ab1d1de61a0c44d5039a30d"
+    },
+    {
+      "file": "frames/desktop/085.webp",
+      "sourceFrame": 85,
+      "sourceTimeSeconds": 3.541667,
+      "bytes": 33598,
+      "sha256": "b18635d3db510a837b93837732af708559f3123e9c0c3ffb1c6ea3ceb029b431"
+    },
+    {
+      "file": "frames/desktop/086.webp",
+      "sourceFrame": 86,
+      "sourceTimeSeconds": 3.583333,
+      "bytes": 33918,
+      "sha256": "8bacf6253d95ad7835896af1d0e11de23711a94c961723d1bb159fb78e0a3137"
+    },
+    {
+      "file": "frames/desktop/087.webp",
+      "sourceFrame": 87,
+      "sourceTimeSeconds": 3.625,
+      "bytes": 34596,
+      "sha256": "9dc6697349e9b4004672ad9d2a9e1c65b78eb9c63aaa962444e77889a268988d"
+    },
+    {
+      "file": "frames/desktop/088.webp",
+      "sourceFrame": 88,
+      "sourceTimeSeconds": 3.666667,
+      "bytes": 36454,
+      "sha256": "f8a05226ff0e440af2943f9e2af176b7aa193ac242a74a39d27fff2be380f295"
+    },
+    {
+      "file": "frames/desktop/089.webp",
+      "sourceFrame": 89,
+      "sourceTimeSeconds": 3.708333,
+      "bytes": 36420,
+      "sha256": "1898149736ef4ab213b9fcbc71183d34c504599838dd81f5b34277f1530fa604"
+    },
+    {
+      "file": "frames/desktop/090.webp",
+      "sourceFrame": 90,
+      "sourceTimeSeconds": 3.75,
+      "bytes": 37532,
+      "sha256": "f13b7e6f7e5537914efd9c3c0186aad34b2865e51c07a4a738c3b342c3a39295"
+    },
+    {
+      "file": "frames/desktop/091.webp",
+      "sourceFrame": 91,
+      "sourceTimeSeconds": 3.791667,
+      "bytes": 38806,
+      "sha256": "0dadf038b4e7570a99420e6ba1b283890bfc841d28e783ce2d6da4f09e0839f1"
+    },
+    {
+      "file": "frames/desktop/092.webp",
+      "sourceFrame": 92,
+      "sourceTimeSeconds": 3.833333,
+      "bytes": 40384,
+      "sha256": "ce3a82a2f625f129510e06796616590c02e5938d8122d52a532bc378bd72395f"
+    },
+    {
+      "file": "frames/desktop/093.webp",
+      "sourceFrame": 93,
+      "sourceTimeSeconds": 3.875,
+      "bytes": 39556,
+      "sha256": "1de648ffe9b4280bd02c892020531a55fed3ead390f7200baae7443335a22cee"
+    },
+    {
+      "file": "frames/desktop/094.webp",
+      "sourceFrame": 94,
+      "sourceTimeSeconds": 3.916667,
+      "bytes": 40698,
+      "sha256": "b14424bb50b172c9569eb2d678ed07fed8e281c0a9b1e307f41db71947d80647"
+    },
+    {
+      "file": "frames/desktop/095.webp",
+      "sourceFrame": 95,
+      "sourceTimeSeconds": 3.958333,
+      "bytes": 40520,
+      "sha256": "9ba6a8bf431feddefaf5931940d828fd084cfbb04b353b97f85c73cb59d00fd1"
+    },
+    {
+      "file": "frames/desktop/096.webp",
+      "sourceFrame": 96,
+      "sourceTimeSeconds": 4.0,
+      "bytes": 42692,
+      "sha256": "46c70e9efde4589e8e62a8192aa1640aad62193e15f7c2c0d7dfc012a2c8a649"
+    },
+    {
+      "file": "frames/desktop/097.webp",
+      "sourceFrame": 97,
+      "sourceTimeSeconds": 4.041667,
+      "bytes": 41450,
+      "sha256": "0e97a095c0acc6e4a4035582fddab7cbead5096aa2cd040d7afc1293b7830014"
+    },
+    {
+      "file": "frames/desktop/098.webp",
+      "sourceFrame": 98,
+      "sourceTimeSeconds": 4.083333,
+      "bytes": 42280,
+      "sha256": "a52efb27131c4b6c25f0a50d6447d8f924f7cd446e6c508af88ff9a950761f53"
+    },
+    {
+      "file": "frames/desktop/099.webp",
+      "sourceFrame": 99,
+      "sourceTimeSeconds": 4.125,
+      "bytes": 41430,
+      "sha256": "22ccc0c1d05240d8c398fe2e0f555408c7c4240734d1c125561062288bebae31"
+    },
+    {
+      "file": "frames/desktop/100.webp",
+      "sourceFrame": 100,
+      "sourceTimeSeconds": 4.166667,
+      "bytes": 42388,
+      "sha256": "cc674020232108ae9063143a0dfeeaad4a8962a0e7078eea05a0ca5c3140a868"
+    },
+    {
+      "file": "frames/desktop/101.webp",
+      "sourceFrame": 101,
+      "sourceTimeSeconds": 4.208333,
+      "bytes": 40926,
+      "sha256": "a4a3ea8ecbd902cda664ecf1195534ee26ed65b0bb845988480d0a36a028a5e0"
+    },
+    {
+      "file": "frames/desktop/102.webp",
+      "sourceFrame": 102,
+      "sourceTimeSeconds": 4.25,
+      "bytes": 41896,
+      "sha256": "aefadf9239473fd81fab8c497193b519c336e0a364ad6cb64cd6454bd83bfe7a"
+    },
+    {
+      "file": "frames/desktop/103.webp",
+      "sourceFrame": 103,
+      "sourceTimeSeconds": 4.291667,
+      "bytes": 41370,
+      "sha256": "ab3a15a23c5800bc582ebf8346d4784e4908444c4f988e681ec2c9c75cdbe63a"
+    },
+    {
+      "file": "frames/desktop/104.webp",
+      "sourceFrame": 104,
+      "sourceTimeSeconds": 4.333333,
+      "bytes": 42044,
+      "sha256": "9bd1b4812552101fb1796880a6d8f93ee7c216cdc68a2b83cfc63d922871f0f5"
+    },
+    {
+      "file": "frames/desktop/105.webp",
+      "sourceFrame": 105,
+      "sourceTimeSeconds": 4.375,
+      "bytes": 41866,
+      "sha256": "92ca26c03c4488e0c4b8b9054387776f6e90efbad8b0fe49804b8a22057a3df9"
+    },
+    {
+      "file": "frames/desktop/106.webp",
+      "sourceFrame": 106,
+      "sourceTimeSeconds": 4.416667,
+      "bytes": 41652,
+      "sha256": "41e2a9619f74fe462fbc3f21cf9bc46f35b70b59616d167bbdcafe00ba674f6e"
+    },
+    {
+      "file": "frames/desktop/107.webp",
+      "sourceFrame": 107,
+      "sourceTimeSeconds": 4.458333,
+      "bytes": 40716,
+      "sha256": "a95a7d118154f2ede893e60b4f04534373b00106321747fd9963418376f65368"
+    },
+    {
+      "file": "frames/desktop/108.webp",
+      "sourceFrame": 108,
+      "sourceTimeSeconds": 4.5,
+      "bytes": 41702,
+      "sha256": "3248f28f0c019efbed9c4c4e0c80e7b43a0c37f8208281c0b04ab85ac40bf5ee"
+    },
+    {
+      "file": "frames/desktop/109.webp",
+      "sourceFrame": 109,
+      "sourceTimeSeconds": 4.541667,
+      "bytes": 40282,
+      "sha256": "071cc89c0d1290550e7553e5531d46785d430fcafe42355255ea59b1a81ab40f"
+    },
+    {
+      "file": "frames/desktop/110.webp",
+      "sourceFrame": 110,
+      "sourceTimeSeconds": 4.583333,
+      "bytes": 40814,
+      "sha256": "53b344c36db6fa9c307e6b8a4dbdbf65918b2f5a3579e1dfe42d6afe26cedeae"
+    },
+    {
+      "file": "frames/desktop/111.webp",
+      "sourceFrame": 111,
+      "sourceTimeSeconds": 4.625,
+      "bytes": 41192,
+      "sha256": "c7bd8af3476795f4f81259e0b524b2f6d71346a143fbe3e6d2ac0add2eecac83"
+    },
+    {
+      "file": "frames/desktop/112.webp",
+      "sourceFrame": 112,
+      "sourceTimeSeconds": 4.666667,
+      "bytes": 41948,
+      "sha256": "e9161e74c067149d052e97894f7b136b55feb58015ca04f009b95a39bce4cfac"
+    },
+    {
+      "file": "frames/desktop/113.webp",
+      "sourceFrame": 113,
+      "sourceTimeSeconds": 4.708333,
+      "bytes": 40992,
+      "sha256": "bd59a364951e0ff3a2aab30a3ca3794066eff0a74a25ab4392f99b0ac9502da6"
+    },
+    {
+      "file": "frames/desktop/114.webp",
+      "sourceFrame": 114,
+      "sourceTimeSeconds": 4.75,
+      "bytes": 41190,
+      "sha256": "67099621e72b083836dd4ab1d60a7e22be491bac1f5d7d6656e9c2d442d95786"
+    },
+    {
+      "file": "frames/desktop/115.webp",
+      "sourceFrame": 115,
+      "sourceTimeSeconds": 4.791667,
+      "bytes": 39802,
+      "sha256": "ef20c2dc406206e4d293bc0b60a16bd5b4ed6808e1f00bd03206c89cd8ad3c58"
+    },
+    {
+      "file": "frames/desktop/116.webp",
+      "sourceFrame": 116,
+      "sourceTimeSeconds": 4.833333,
+      "bytes": 40510,
+      "sha256": "c9019debd5b921da85571fd41a3537c74bfa8335964e0d73f4560a464ec5efe4"
+    },
+    {
+      "file": "frames/desktop/117.webp",
+      "sourceFrame": 117,
+      "sourceTimeSeconds": 4.875,
+      "bytes": 39522,
+      "sha256": "8310a7306657dcf68d0c382b6a2162c76f273670864dc08da3c1dbed71fd02c4"
+    },
+    {
+      "file": "frames/desktop/118.webp",
+      "sourceFrame": 118,
+      "sourceTimeSeconds": 4.916667,
+      "bytes": 39312,
+      "sha256": "90696c73c02a2d9e309b7e8ab9535a92d1b585481f3566606202daef58b6ed69"
+    },
+    {
+      "file": "frames/desktop/119.webp",
+      "sourceFrame": 119,
+      "sourceTimeSeconds": 4.958333,
+      "bytes": 39470,
+      "sha256": "bd6c3c3037264fcff1174918f322f8ad93e7237c575699b84752e1fdca5e823a"
+    },
+    {
+      "file": "frames/mobile/000.webp",
+      "sourceFrame": 0,
+      "sourceTimeSeconds": 0.0,
+      "bytes": 45678,
+      "sha256": "558ffd67fce9eda9da4b005a80006b717d97e07ee1bb4d518ac88218399d9bdf"
+    },
+    {
+      "file": "frames/mobile/001.webp",
+      "sourceFrame": 1,
+      "sourceTimeSeconds": 0.041667,
+      "bytes": 45656,
+      "sha256": "337528754417c6d07e32822d358ac3b087cf45ff884f4473845d6215d0ad1c17"
+    },
+    {
+      "file": "frames/mobile/002.webp",
+      "sourceFrame": 2,
+      "sourceTimeSeconds": 0.083333,
+      "bytes": 45994,
+      "sha256": "736efea9047af938b7541afcd1939b1eb863da253686e6a8ddd0d9610da6f92b"
+    },
+    {
+      "file": "frames/mobile/003.webp",
+      "sourceFrame": 3,
+      "sourceTimeSeconds": 0.125,
+      "bytes": 45208,
+      "sha256": "a69d6c841f53506eb556f2b2dd96af01dc1aba469e40b18648a6b22a28a54f44"
+    },
+    {
+      "file": "frames/mobile/004.webp",
+      "sourceFrame": 4,
+      "sourceTimeSeconds": 0.166667,
+      "bytes": 45390,
+      "sha256": "eee030dd1b55a538870709f104c82a975023fc215693494425b927732385b7c2"
+    },
+    {
+      "file": "frames/mobile/005.webp",
+      "sourceFrame": 5,
+      "sourceTimeSeconds": 0.208333,
+      "bytes": 44654,
+      "sha256": "b96e9bb17c4b2a7cc7ba3953cb5503a71110eedbc535fc4ef317e73d327e1c69"
+    },
+    {
+      "file": "frames/mobile/006.webp",
+      "sourceFrame": 6,
+      "sourceTimeSeconds": 0.25,
+      "bytes": 44970,
+      "sha256": "52646ab4d3573f5fa2656efcfa39acc2f7d8111cb03f858b8caab96840147ea2"
+    },
+    {
+      "file": "frames/mobile/007.webp",
+      "sourceFrame": 7,
+      "sourceTimeSeconds": 0.291667,
+      "bytes": 44348,
+      "sha256": "a54e516588399a94f390ea407bd20e7b263264293fcce7359590952d66cb1cef"
+    },
+    {
+      "file": "frames/mobile/008.webp",
+      "sourceFrame": 8,
+      "sourceTimeSeconds": 0.333333,
+      "bytes": 44288,
+      "sha256": "52ddd5f4ce633a0be7915ffc56afa52c2865c2dc6add7798273ea2f45ab02f86"
+    },
+    {
+      "file": "frames/mobile/009.webp",
+      "sourceFrame": 9,
+      "sourceTimeSeconds": 0.375,
+      "bytes": 43726,
+      "sha256": "ff14bc84c322a4ebe1ef90cbf14d359404627334f901e712c8e53155f4c540ee"
+    },
+    {
+      "file": "frames/mobile/010.webp",
+      "sourceFrame": 10,
+      "sourceTimeSeconds": 0.416667,
+      "bytes": 44266,
+      "sha256": "fcae920abee69eea82ba2c513f862eef1d7eb2de1da0d7a64a2c47b16c0be0b8"
+    },
+    {
+      "file": "frames/mobile/011.webp",
+      "sourceFrame": 11,
+      "sourceTimeSeconds": 0.458333,
+      "bytes": 43602,
+      "sha256": "7ad37c7f159203193da1a6b0cf138a1925d2b8033eab308a92d09e4cf05456ed"
+    },
+    {
+      "file": "frames/mobile/012.webp",
+      "sourceFrame": 12,
+      "sourceTimeSeconds": 0.5,
+      "bytes": 43722,
+      "sha256": "51855a5cff36ab2f507e148d0f76368d28b3e2e9b388b371bf0743bed90b8aea"
+    },
+    {
+      "file": "frames/mobile/013.webp",
+      "sourceFrame": 13,
+      "sourceTimeSeconds": 0.541667,
+      "bytes": 42836,
+      "sha256": "5aee9fafcffb6c3855d79d186ec2466750b1734e20c1f4ec42755cf2e41e9063"
+    },
+    {
+      "file": "frames/mobile/014.webp",
+      "sourceFrame": 14,
+      "sourceTimeSeconds": 0.583333,
+      "bytes": 42912,
+      "sha256": "11a7b8feb61bfa9e5c09d5faa150f7bf6d5d879e87ad70856ddb6f65340e34a6"
+    },
+    {
+      "file": "frames/mobile/015.webp",
+      "sourceFrame": 15,
+      "sourceTimeSeconds": 0.625,
+      "bytes": 42232,
+      "sha256": "6ab27c6ba4921db103c27bb1eb42e5f911edfb1c64bd30f8689578e2c897412c"
+    },
+    {
+      "file": "frames/mobile/016.webp",
+      "sourceFrame": 16,
+      "sourceTimeSeconds": 0.666667,
+      "bytes": 42728,
+      "sha256": "6f117a53cc016aa32d850883d8e2367657ad7e2423a08de61a7d392607d3f672"
+    },
+    {
+      "file": "frames/mobile/017.webp",
+      "sourceFrame": 17,
+      "sourceTimeSeconds": 0.708333,
+      "bytes": 42202,
+      "sha256": "a3043ec18ce315a0442a17565aab19109f2e15d4ae3c8c04f4e7518df3260161"
+    },
+    {
+      "file": "frames/mobile/018.webp",
+      "sourceFrame": 18,
+      "sourceTimeSeconds": 0.75,
+      "bytes": 42208,
+      "sha256": "23201a36806240aad0515f39b40e534072e5d08c917848a10e071c19b2535a66"
+    },
+    {
+      "file": "frames/mobile/019.webp",
+      "sourceFrame": 19,
+      "sourceTimeSeconds": 0.791667,
+      "bytes": 42050,
+      "sha256": "e605974f1cb3190f33dfc5a4b92b8b55dd40b0e6dd382c22a87d29cf9bc73f0e"
+    },
+    {
+      "file": "frames/mobile/020.webp",
+      "sourceFrame": 20,
+      "sourceTimeSeconds": 0.833333,
+      "bytes": 42000,
+      "sha256": "4955c4541d25f6d161d946a45cc22c955a012c4d96ae97f97e792ff196df279a"
+    },
+    {
+      "file": "frames/mobile/021.webp",
+      "sourceFrame": 21,
+      "sourceTimeSeconds": 0.875,
+      "bytes": 41852,
+      "sha256": "c8ed7cbbbc84f9480a00e4682c5743689137df2c4bf1a275e258e1f6684a6881"
+    },
+    {
+      "file": "frames/mobile/022.webp",
+      "sourceFrame": 22,
+      "sourceTimeSeconds": 0.916667,
+      "bytes": 42042,
+      "sha256": "b12332a67bcd7ef5d0ba69008ec72005e243a8e9492e40f3e38bf4958463d052"
+    },
+    {
+      "file": "frames/mobile/023.webp",
+      "sourceFrame": 23,
+      "sourceTimeSeconds": 0.958333,
+      "bytes": 41100,
+      "sha256": "b9725b77cd26a150a3db951da3bb75e86a7b2502473c3de4476c7eca1890afa8"
+    },
+    {
+      "file": "frames/mobile/024.webp",
+      "sourceFrame": 24,
+      "sourceTimeSeconds": 1.0,
+      "bytes": 41376,
+      "sha256": "b681e96d1cb1922ca665d3731b5fcda03e8c73b2246ba32a62e12c050a770a29"
+    },
+    {
+      "file": "frames/mobile/025.webp",
+      "sourceFrame": 25,
+      "sourceTimeSeconds": 1.041667,
+      "bytes": 40186,
+      "sha256": "90fdae25bbe2db5fc6cea6992d04cbab5a3dbc95aa1adb151d6a14638d80d07d"
+    },
+    {
+      "file": "frames/mobile/026.webp",
+      "sourceFrame": 26,
+      "sourceTimeSeconds": 1.083333,
+      "bytes": 40080,
+      "sha256": "ffdd748ce98ddf859e53a447fa30d6d82bd292dbab1dc16d91a8db893cb5f21d"
+    },
+    {
+      "file": "frames/mobile/027.webp",
+      "sourceFrame": 27,
+      "sourceTimeSeconds": 1.125,
+      "bytes": 39566,
+      "sha256": "66489fb96c7a3b2d7c7e30dd9268f19aeab2ee2e4938661977e17268ec2609e2"
+    },
+    {
+      "file": "frames/mobile/028.webp",
+      "sourceFrame": 28,
+      "sourceTimeSeconds": 1.166667,
+      "bytes": 39866,
+      "sha256": "c87924b3846e2ca2be2850c0b88b3aa6641b6726257c9b5ce8a3aec837600d1f"
+    },
+    {
+      "file": "frames/mobile/029.webp",
+      "sourceFrame": 29,
+      "sourceTimeSeconds": 1.208333,
+      "bytes": 38954,
+      "sha256": "3ce9b4bf7ad4c3b8069d7af5f2ef54fa3f3986d20372b98916fe8ab30953f3fe"
+    },
+    {
+      "file": "frames/mobile/030.webp",
+      "sourceFrame": 30,
+      "sourceTimeSeconds": 1.25,
+      "bytes": 38896,
+      "sha256": "d3966a9fb1d779706c79ba12d95f6b6f3bc71bf984facfa16c725fc42b33fc95"
+    },
+    {
+      "file": "frames/mobile/031.webp",
+      "sourceFrame": 31,
+      "sourceTimeSeconds": 1.291667,
+      "bytes": 38522,
+      "sha256": "18d1f62160b581a6f072141fcdb9b55fe62db28f68675178255cc25d359f8d5e"
+    },
+    {
+      "file": "frames/mobile/032.webp",
+      "sourceFrame": 32,
+      "sourceTimeSeconds": 1.333333,
+      "bytes": 38306,
+      "sha256": "afec2a55e071ccf35dc733bd96af26ce4f846127216783a6907f0f0f61151aea"
+    },
+    {
+      "file": "frames/mobile/033.webp",
+      "sourceFrame": 33,
+      "sourceTimeSeconds": 1.375,
+      "bytes": 37310,
+      "sha256": "72ea8735e4ea422cd5a13dd0672b2352831817d54048348b94143445023bed6d"
+    },
+    {
+      "file": "frames/mobile/034.webp",
+      "sourceFrame": 34,
+      "sourceTimeSeconds": 1.416667,
+      "bytes": 37576,
+      "sha256": "f8a3021074e4f04f25d0131711ba2e5e64c5adc0e7129bab5802f373b71bb00f"
+    },
+    {
+      "file": "frames/mobile/035.webp",
+      "sourceFrame": 35,
+      "sourceTimeSeconds": 1.458333,
+      "bytes": 36620,
+      "sha256": "d30e5cc4615ecf14081120722f2255a5cc63e00c0ca34355dff9f9c7c86070bc"
+    },
+    {
+      "file": "frames/mobile/036.webp",
+      "sourceFrame": 36,
+      "sourceTimeSeconds": 1.5,
+      "bytes": 36344,
+      "sha256": "7fc4145e7eff04b5c70335f8eb2dae643f84500ec46813b8e61bcbc31472cd1a"
+    },
+    {
+      "file": "frames/mobile/037.webp",
+      "sourceFrame": 37,
+      "sourceTimeSeconds": 1.541667,
+      "bytes": 35312,
+      "sha256": "dc59f6c72faf944a2a3d4b3144bda19db062a67230c539ebb87cd612c199beea"
+    },
+    {
+      "file": "frames/mobile/038.webp",
+      "sourceFrame": 38,
+      "sourceTimeSeconds": 1.583333,
+      "bytes": 35264,
+      "sha256": "4dab8d526078422ca3e0134de5d21a95d609766a814e36c6f31f191acf89ebcd"
+    },
+    {
+      "file": "frames/mobile/039.webp",
+      "sourceFrame": 39,
+      "sourceTimeSeconds": 1.625,
+      "bytes": 34198,
+      "sha256": "1c8000668f1ddfff108abcde250e06fcde8993f088ab1b42c1b7300bbbfe929c"
+    },
+    {
+      "file": "frames/mobile/040.webp",
+      "sourceFrame": 40,
+      "sourceTimeSeconds": 1.666667,
+      "bytes": 32708,
+      "sha256": "05be41c3699a400accf04f53690f93e0002daf8b917fae6c7d03a51c7f63ffc8"
+    },
+    {
+      "file": "frames/mobile/041.webp",
+      "sourceFrame": 41,
+      "sourceTimeSeconds": 1.708333,
+      "bytes": 31462,
+      "sha256": "c479bf133694f47ff7223cc4721597648ca37860ee8d9060734dedd146d8c8dd"
+    },
+    {
+      "file": "frames/mobile/042.webp",
+      "sourceFrame": 42,
+      "sourceTimeSeconds": 1.75,
+      "bytes": 31012,
+      "sha256": "e53317ed3429413387ebba19c8980affcf3199d85abefc274db5e316a399cfb5"
+    },
+    {
+      "file": "frames/mobile/043.webp",
+      "sourceFrame": 43,
+      "sourceTimeSeconds": 1.791667,
+      "bytes": 29832,
+      "sha256": "63e8339678b261b7de6b31c7c4668bd6116be12bf20da2f4c0be72d0cb4adfb7"
+    },
+    {
+      "file": "frames/mobile/044.webp",
+      "sourceFrame": 44,
+      "sourceTimeSeconds": 1.833333,
+      "bytes": 28260,
+      "sha256": "12fd73bcc156b404ff3bec3b59544afd167b62e5ec6b086fcedb557dfa0cff8d"
+    },
+    {
+      "file": "frames/mobile/045.webp",
+      "sourceFrame": 45,
+      "sourceTimeSeconds": 1.875,
+      "bytes": 26874,
+      "sha256": "808c2ccbc9f15d011d54cae59537298a07336ce8c6c2363e164c68ef4a67813e"
+    },
+    {
+      "file": "frames/mobile/046.webp",
+      "sourceFrame": 46,
+      "sourceTimeSeconds": 1.916667,
+      "bytes": 26572,
+      "sha256": "fe474bb00b55193c78ae35a57f516ba4b840675d57df1ea11ff0332a1a8d7433"
+    },
+    {
+      "file": "frames/mobile/047.webp",
+      "sourceFrame": 47,
+      "sourceTimeSeconds": 1.958333,
+      "bytes": 25666,
+      "sha256": "9957f782456a21e5677ec4d7079d478046f28d431fc7576e5cb5e886b53fb635"
+    },
+    {
+      "file": "frames/mobile/048.webp",
+      "sourceFrame": 48,
+      "sourceTimeSeconds": 2.0,
+      "bytes": 24114,
+      "sha256": "f80207fa0f0f0ccb71ee9738d492d8a8962188b8d4955b6ef5b5b5e98e1b52a2"
+    },
+    {
+      "file": "frames/mobile/049.webp",
+      "sourceFrame": 49,
+      "sourceTimeSeconds": 2.041667,
+      "bytes": 23284,
+      "sha256": "04ec1e7681d8a02318aab9fdd74db019e92336d0076f5f1b86399aba6fcd13e1"
+    },
+    {
+      "file": "frames/mobile/050.webp",
+      "sourceFrame": 50,
+      "sourceTimeSeconds": 2.083333,
+      "bytes": 22968,
+      "sha256": "447672244abd397752af34d7b9f76fc2777b6cb3483b3ad8c101a046aa54bfe6"
+    },
+    {
+      "file": "frames/mobile/051.webp",
+      "sourceFrame": 51,
+      "sourceTimeSeconds": 2.125,
+      "bytes": 21988,
+      "sha256": "403efc76eadebea74c4216cc103cafd266e317d94bd02c5bc52f6905b1e9614b"
+    },
+    {
+      "file": "frames/mobile/052.webp",
+      "sourceFrame": 52,
+      "sourceTimeSeconds": 2.166667,
+      "bytes": 21332,
+      "sha256": "447ccba19e4d5dd14d2e3f473df0c9f888d51335e6341cd6cedbc16acc8f202c"
+    },
+    {
+      "file": "frames/mobile/053.webp",
+      "sourceFrame": 53,
+      "sourceTimeSeconds": 2.208333,
+      "bytes": 20530,
+      "sha256": "e63becef5aa5f9ec306d3a5df57d77c8f4b503c52c328443e90e5da308013313"
+    },
+    {
+      "file": "frames/mobile/054.webp",
+      "sourceFrame": 54,
+      "sourceTimeSeconds": 2.25,
+      "bytes": 20498,
+      "sha256": "66e17a80cf2486f79d40d0cf9928c6d717c4e12cc266c6518fdf2bcfb90d01f5"
+    },
+    {
+      "file": "frames/mobile/055.webp",
+      "sourceFrame": 55,
+      "sourceTimeSeconds": 2.291667,
+      "bytes": 19672,
+      "sha256": "3b3031a601592202d1aa7226cce1009f33544fb96a42a418d2ed62fdf30f4876"
+    },
+    {
+      "file": "frames/mobile/056.webp",
+      "sourceFrame": 56,
+      "sourceTimeSeconds": 2.333333,
+      "bytes": 19086,
+      "sha256": "497393e366456dfeee0b2e936b93eb93b3cca30c41f966eb0c0fa780d30fed70"
+    },
+    {
+      "file": "frames/mobile/057.webp",
+      "sourceFrame": 57,
+      "sourceTimeSeconds": 2.375,
+      "bytes": 18556,
+      "sha256": "d1ca862e30b216482a650a7aff3db4e292752a1b63577822c700d2f864becdff"
+    },
+    {
+      "file": "frames/mobile/058.webp",
+      "sourceFrame": 58,
+      "sourceTimeSeconds": 2.416667,
+      "bytes": 18212,
+      "sha256": "906e61e94b4010be36647aa613f8c38d6366ecaa8a62178382131c1e8cab8733"
+    },
+    {
+      "file": "frames/mobile/059.webp",
+      "sourceFrame": 59,
+      "sourceTimeSeconds": 2.458333,
+      "bytes": 17918,
+      "sha256": "13e25c8c9dcea64f855377c5ceb265dd1af11eeafac0e243644559abfe371e97"
+    },
+    {
+      "file": "frames/mobile/060.webp",
+      "sourceFrame": 60,
+      "sourceTimeSeconds": 2.5,
+      "bytes": 18238,
+      "sha256": "2527b246de6ed5c87332b2a99beba59325fe51f4e09b57421a5edaff77387583"
+    },
+    {
+      "file": "frames/mobile/061.webp",
+      "sourceFrame": 61,
+      "sourceTimeSeconds": 2.541667,
+      "bytes": 18550,
+      "sha256": "fd17f56d8c30cd00e3607dd8a7cea7c2596642d55bd5e4648789c4b532c400b9"
+    },
+    {
+      "file": "frames/mobile/062.webp",
+      "sourceFrame": 62,
+      "sourceTimeSeconds": 2.583333,
+      "bytes": 19434,
+      "sha256": "f51e743d903382cbef1802e21e76569c3f9fd2561625657253861d434a1d0113"
+    },
+    {
+      "file": "frames/mobile/063.webp",
+      "sourceFrame": 63,
+      "sourceTimeSeconds": 2.625,
+      "bytes": 18996,
+      "sha256": "77ff4ced5bbc33c288378af9fb17b296af3d28b195202a62680f32f275a4bc7f"
+    },
+    {
+      "file": "frames/mobile/064.webp",
+      "sourceFrame": 64,
+      "sourceTimeSeconds": 2.666667,
+      "bytes": 19242,
+      "sha256": "321f8ad0dfdaf5c95a1afab12392f07615316636e7da5815116844ab36401368"
+    },
+    {
+      "file": "frames/mobile/065.webp",
+      "sourceFrame": 65,
+      "sourceTimeSeconds": 2.708333,
+      "bytes": 19416,
+      "sha256": "6f22c323c63d4aed3368fbf4cd5a61c9894d874ad0f7b02b70d8fb01c53e7ebd"
+    },
+    {
+      "file": "frames/mobile/066.webp",
+      "sourceFrame": 66,
+      "sourceTimeSeconds": 2.75,
+      "bytes": 19850,
+      "sha256": "1a52154bfcda11d062ed08359eb47efbcac8de12a8e6712a1f9d02039422fc36"
+    },
+    {
+      "file": "frames/mobile/067.webp",
+      "sourceFrame": 67,
+      "sourceTimeSeconds": 2.791667,
+      "bytes": 19686,
+      "sha256": "00eefe8c6368e958f7a71005645fe1dbc8b44b2e4d674faac670cc5baa202838"
+    },
+    {
+      "file": "frames/mobile/068.webp",
+      "sourceFrame": 68,
+      "sourceTimeSeconds": 2.833333,
+      "bytes": 19826,
+      "sha256": "276af9c91643dcb68bccb2995afdc25b0995f3849c011717690d9db4578d2492"
+    },
+    {
+      "file": "frames/mobile/069.webp",
+      "sourceFrame": 69,
+      "sourceTimeSeconds": 2.875,
+      "bytes": 19552,
+      "sha256": "418d433081bfb4ee601add7ad6ded9beba7fda68b2765acd66842dc3d930f546"
+    },
+    {
+      "file": "frames/mobile/070.webp",
+      "sourceFrame": 70,
+      "sourceTimeSeconds": 2.916667,
+      "bytes": 19958,
+      "sha256": "f9ce2d13b1b2b0affd6cd2dec3dbdbf16d75902891ecf3d32d8191d860da121e"
+    },
+    {
+      "file": "frames/mobile/071.webp",
+      "sourceFrame": 71,
+      "sourceTimeSeconds": 2.958333,
+      "bytes": 19440,
+      "sha256": "84854115cff942792e7834ff101d6813b5cf80ae7489a8b448e0ae8881cbecee"
+    },
+    {
+      "file": "frames/mobile/072.webp",
+      "sourceFrame": 72,
+      "sourceTimeSeconds": 3.0,
+      "bytes": 19510,
+      "sha256": "335320d1610cbcd36e2cdd492b3d1daca7c9fa5cd9cab1d8179f2cfe69156288"
+    },
+    {
+      "file": "frames/mobile/073.webp",
+      "sourceFrame": 73,
+      "sourceTimeSeconds": 3.041667,
+      "bytes": 19130,
+      "sha256": "7da0a1793c3ea7b76d0114e8e81ccbab6c6974a89ad028374cadcb217fbc8650"
+    },
+    {
+      "file": "frames/mobile/074.webp",
+      "sourceFrame": 74,
+      "sourceTimeSeconds": 3.083333,
+      "bytes": 19126,
+      "sha256": "5fa58f1819e439edef5cea499343545992914a33229f54d0d1c4b6ba6fb41712"
+    },
+    {
+      "file": "frames/mobile/075.webp",
+      "sourceFrame": 75,
+      "sourceTimeSeconds": 3.125,
+      "bytes": 18864,
+      "sha256": "7cfd09c5cae23920eb739ba2b837292408edeab61da65e03f0533331b4c7fe99"
+    },
+    {
+      "file": "frames/mobile/076.webp",
+      "sourceFrame": 76,
+      "sourceTimeSeconds": 3.166667,
+      "bytes": 19076,
+      "sha256": "b15dd44f28b05b16a010bfc5b8134e14787744df6a1a0f0874b5f3204e49f471"
+    },
+    {
+      "file": "frames/mobile/077.webp",
+      "sourceFrame": 77,
+      "sourceTimeSeconds": 3.208333,
+      "bytes": 18852,
+      "sha256": "b87218d3449ed16dbbc0dd99379ac2fb20d25d8f9c63145b297053dd298dc973"
+    },
+    {
+      "file": "frames/mobile/078.webp",
+      "sourceFrame": 78,
+      "sourceTimeSeconds": 3.25,
+      "bytes": 19038,
+      "sha256": "cc7c55bcbf2cc13e5d9cc3d7612f2f6c6d8e5bf4592280327dbab24087bd99bb"
+    },
+    {
+      "file": "frames/mobile/079.webp",
+      "sourceFrame": 79,
+      "sourceTimeSeconds": 3.291667,
+      "bytes": 18462,
+      "sha256": "2c0d62561310d66bd39863627b70d7687e18ad1273dc72868696438eb0719378"
+    },
+    {
+      "file": "frames/mobile/080.webp",
+      "sourceFrame": 80,
+      "sourceTimeSeconds": 3.333333,
+      "bytes": 18446,
+      "sha256": "c370570c78564316f539a9522fddd2827f305f717216e2424a92b7f89909af52"
+    },
+    {
+      "file": "frames/mobile/081.webp",
+      "sourceFrame": 81,
+      "sourceTimeSeconds": 3.375,
+      "bytes": 18082,
+      "sha256": "23389cb8e641af603bd9733bcb537ed1abc22d43fa79f770bc8c358dd370bcc9"
+    },
+    {
+      "file": "frames/mobile/082.webp",
+      "sourceFrame": 82,
+      "sourceTimeSeconds": 3.416667,
+      "bytes": 18230,
+      "sha256": "46e022dfadb536e692ad9e735afd0104e3dc33970c6a9e29eb081969c1f44685"
+    },
+    {
+      "file": "frames/mobile/083.webp",
+      "sourceFrame": 83,
+      "sourceTimeSeconds": 3.458333,
+      "bytes": 17768,
+      "sha256": "7d82c1d4b1dacd9ed0cd8ee1b132998c8135081a622fc08bb07ac551fcb49d59"
+    },
+    {
+      "file": "frames/mobile/084.webp",
+      "sourceFrame": 84,
+      "sourceTimeSeconds": 3.5,
+      "bytes": 17558,
+      "sha256": "726ca6b58775c96d1a63aa706fac057492b9e71249c22374dcb789cc0375b1db"
+    },
+    {
+      "file": "frames/mobile/085.webp",
+      "sourceFrame": 85,
+      "sourceTimeSeconds": 3.541667,
+      "bytes": 17468,
+      "sha256": "07037aed57c7dca76bbf032bab76456e571eea0039be26bd052ba96943b4885d"
+    },
+    {
+      "file": "frames/mobile/086.webp",
+      "sourceFrame": 86,
+      "sourceTimeSeconds": 3.583333,
+      "bytes": 17700,
+      "sha256": "0dd19e43d7b2d35155a738d569a5347fb8be69c6c4f9354a6d9ae2d595d110ff"
+    },
+    {
+      "file": "frames/mobile/087.webp",
+      "sourceFrame": 87,
+      "sourceTimeSeconds": 3.625,
+      "bytes": 17716,
+      "sha256": "f4a0a4629d1b86814fb9c3b1c6649b36e2abbb5e362e8da428fe065045dfe2ba"
+    },
+    {
+      "file": "frames/mobile/088.webp",
+      "sourceFrame": 88,
+      "sourceTimeSeconds": 3.666667,
+      "bytes": 18338,
+      "sha256": "5b9200fdb55c57701f7ae35ec5d21ff0cdd09d1874785af66ca49a59795b52cc"
+    },
+    {
+      "file": "frames/mobile/089.webp",
+      "sourceFrame": 89,
+      "sourceTimeSeconds": 3.708333,
+      "bytes": 18722,
+      "sha256": "7e72aae00b3fb9a50fc0b355d8bd0a6eefd0ba6d51ffca8a85c085bafedb273d"
+    },
+    {
+      "file": "frames/mobile/090.webp",
+      "sourceFrame": 90,
+      "sourceTimeSeconds": 3.75,
+      "bytes": 19168,
+      "sha256": "8ae6c41723917036cd1ba135c1ff58d89e1684e420c135df0fe62dddc9d3f566"
+    },
+    {
+      "file": "frames/mobile/091.webp",
+      "sourceFrame": 91,
+      "sourceTimeSeconds": 3.791667,
+      "bytes": 19836,
+      "sha256": "bcd3f5ecfe56a25ffe23fa1f11ebb191517e2b0a3f03e8f263270261d205cf88"
+    },
+    {
+      "file": "frames/mobile/092.webp",
+      "sourceFrame": 92,
+      "sourceTimeSeconds": 3.833333,
+      "bytes": 20614,
+      "sha256": "6b06bfffd7c252996809cff023bd2d90121b269916e321fecd64cea9183a2171"
+    },
+    {
+      "file": "frames/mobile/093.webp",
+      "sourceFrame": 93,
+      "sourceTimeSeconds": 3.875,
+      "bytes": 20446,
+      "sha256": "c87667a5ae59493a3226d9e9ac780eb17ee6a29add023ec9e575abc62821fee4"
+    },
+    {
+      "file": "frames/mobile/094.webp",
+      "sourceFrame": 94,
+      "sourceTimeSeconds": 3.916667,
+      "bytes": 20608,
+      "sha256": "b5803554b7ca2f6a70f22dd564f3775c8ac01de1ba2a6d2fed235818bd0e66bd"
+    },
+    {
+      "file": "frames/mobile/095.webp",
+      "sourceFrame": 95,
+      "sourceTimeSeconds": 3.958333,
+      "bytes": 20552,
+      "sha256": "46ed47eadbf2f015963d0a40aed8070d2d07a9a00ea20c380b479e04c84def18"
+    },
+    {
+      "file": "frames/mobile/096.webp",
+      "sourceFrame": 96,
+      "sourceTimeSeconds": 4.0,
+      "bytes": 21056,
+      "sha256": "125734808b6954e893765de807586296fc5f30e821c73c751c42e9a353d457cc"
+    },
+    {
+      "file": "frames/mobile/097.webp",
+      "sourceFrame": 97,
+      "sourceTimeSeconds": 4.041667,
+      "bytes": 20770,
+      "sha256": "1b5792dc6ed67c27b9c33857b5e6f9cec10c1ac0f5326b6b52fc7b50e11ae536"
+    },
+    {
+      "file": "frames/mobile/098.webp",
+      "sourceFrame": 98,
+      "sourceTimeSeconds": 4.083333,
+      "bytes": 20992,
+      "sha256": "bf8451eac35692c6a436dc060e06163f072d2e52b25f12e9c0eb9bd7e041dcff"
+    },
+    {
+      "file": "frames/mobile/099.webp",
+      "sourceFrame": 99,
+      "sourceTimeSeconds": 4.125,
+      "bytes": 20600,
+      "sha256": "6b62816bb048038c5708023603060324530c15faf5448c4c221c23a7049a2aac"
+    },
+    {
+      "file": "frames/mobile/100.webp",
+      "sourceFrame": 100,
+      "sourceTimeSeconds": 4.166667,
+      "bytes": 20864,
+      "sha256": "a238134f6773ac24d9b1a91335fc0964c372996c9cdba81a68172ea446b4625e"
+    },
+    {
+      "file": "frames/mobile/101.webp",
+      "sourceFrame": 101,
+      "sourceTimeSeconds": 4.208333,
+      "bytes": 20692,
+      "sha256": "89bfbbcdfa35090fc4f37acf20c775045cfa296fadfa985400fd272e5d8a4def"
+    },
+    {
+      "file": "frames/mobile/102.webp",
+      "sourceFrame": 102,
+      "sourceTimeSeconds": 4.25,
+      "bytes": 20692,
+      "sha256": "16a9c13369d839a82fc651361ddaa75006cd27c171c0b10e823a510919ed094d"
+    },
+    {
+      "file": "frames/mobile/103.webp",
+      "sourceFrame": 103,
+      "sourceTimeSeconds": 4.291667,
+      "bytes": 20592,
+      "sha256": "bd501b5fff1cbb38c3f20e838bcd0516ecf55e4d503a5b26dbfc226efeb20662"
+    },
+    {
+      "file": "frames/mobile/104.webp",
+      "sourceFrame": 104,
+      "sourceTimeSeconds": 4.333333,
+      "bytes": 20602,
+      "sha256": "968ac001f7d5e2bff420d0ce9269cf4bb43e63cde9e1ec9cb977e7bea1858343"
+    },
+    {
+      "file": "frames/mobile/105.webp",
+      "sourceFrame": 105,
+      "sourceTimeSeconds": 4.375,
+      "bytes": 20378,
+      "sha256": "1e950c2a7030fed52332b1761777f01cd56adb6e3651d71d220a081a1b3f7a9f"
+    },
+    {
+      "file": "frames/mobile/106.webp",
+      "sourceFrame": 106,
+      "sourceTimeSeconds": 4.416667,
+      "bytes": 20692,
+      "sha256": "367489e7a6b96b95113f1736b3f19fb22525e02321e09930af2c8187d5b84973"
+    },
+    {
+      "file": "frames/mobile/107.webp",
+      "sourceFrame": 107,
+      "sourceTimeSeconds": 4.458333,
+      "bytes": 20362,
+      "sha256": "8bc61dc8df39e04192c3871a6a0044b19d2e1f72ec94dab2bffcbaabc6f9a711"
+    },
+    {
+      "file": "frames/mobile/108.webp",
+      "sourceFrame": 108,
+      "sourceTimeSeconds": 4.5,
+      "bytes": 20548,
+      "sha256": "2e77a6f6cc26111c66d0475c2a6565dd1c0bae03734a296a4a0a3fe454cbaa8a"
+    },
+    {
+      "file": "frames/mobile/109.webp",
+      "sourceFrame": 109,
+      "sourceTimeSeconds": 4.541667,
+      "bytes": 20450,
+      "sha256": "623e364cf8dfe9314bb469cdca2ecce4283fcc75d521d9de66324e81ce5944ad"
+    },
+    {
+      "file": "frames/mobile/110.webp",
+      "sourceFrame": 110,
+      "sourceTimeSeconds": 4.583333,
+      "bytes": 20562,
+      "sha256": "213c3e20f1c11c611da165ebecf662d9fa1df50c961961a72202cc827d5c5b07"
+    },
+    {
+      "file": "frames/mobile/111.webp",
+      "sourceFrame": 111,
+      "sourceTimeSeconds": 4.625,
+      "bytes": 20394,
+      "sha256": "cedeed679401df8e69ace7610dcf5e52d2144d5caa16964712a801c5321edc9a"
+    },
+    {
+      "file": "frames/mobile/112.webp",
+      "sourceFrame": 112,
+      "sourceTimeSeconds": 4.666667,
+      "bytes": 20576,
+      "sha256": "d1bd77104473200afa596e71b78914f3a6eeb62168f319229311534b1bf8c7e3"
+    },
+    {
+      "file": "frames/mobile/113.webp",
+      "sourceFrame": 113,
+      "sourceTimeSeconds": 4.708333,
+      "bytes": 20264,
+      "sha256": "a68223cf2372f111ebad0085ce200c80aa69bbf57aa22231350196e751246641"
+    },
+    {
+      "file": "frames/mobile/114.webp",
+      "sourceFrame": 114,
+      "sourceTimeSeconds": 4.75,
+      "bytes": 20320,
+      "sha256": "34d0ebf98a90cadd7204825db5de49be99ebd0f1103d7430a41996e3b6a1fce3"
+    },
+    {
+      "file": "frames/mobile/115.webp",
+      "sourceFrame": 115,
+      "sourceTimeSeconds": 4.791667,
+      "bytes": 20196,
+      "sha256": "a3ee3b2e850348c4dedbc5ce223d4b398e9b21e05d30bedb3e3bc229ea28ba0a"
+    },
+    {
+      "file": "frames/mobile/116.webp",
+      "sourceFrame": 116,
+      "sourceTimeSeconds": 4.833333,
+      "bytes": 20312,
+      "sha256": "73da4d46dfcba179ce8245f66b95169c0c750339908bfa957df0b2f41fe9572a"
+    },
+    {
+      "file": "frames/mobile/117.webp",
+      "sourceFrame": 117,
+      "sourceTimeSeconds": 4.875,
+      "bytes": 20104,
+      "sha256": "aef76c81c541e9d57a45dafb2e821c3f643735bf0d37aae82916786d8e406cab"
+    },
+    {
+      "file": "frames/mobile/118.webp",
+      "sourceFrame": 118,
+      "sourceTimeSeconds": 4.916667,
+      "bytes": 19684,
+      "sha256": "4f123e4d5cdab0ba8cbb8387890a1abd8716b126ce705bf4ba45b555a5abc0e9"
+    },
+    {
+      "file": "frames/mobile/119.webp",
+      "sourceFrame": 119,
+      "sourceTimeSeconds": 4.958333,
+      "bytes": 19744,
+      "sha256": "cf495052215c05329f3016ed79dd8449dd00e8ab5a7286c3ae950c8cb694fcb8"
     }
-  ]
+  ],
+  "scrollPlayback": {
+    "method": "WebP frame sequence / Canvas",
+    "framesPerVariant": 120,
+    "sourceFps": 24,
+    "decodedCacheLimit": 10,
+    "decodeConcurrency": 2,
+    "fetchConcurrency": 4,
+    "pausedOffscreen": true,
+    "reducedMotion": "Static poster; no sequence or video requests",
+    "variants": {
+      "desktop": {
+        "width": 1280,
+        "height": 720,
+        "quality": 64,
+        "bytes": 6425568
+      },
+      "mobile": {
+        "width": 768,
+        "height": 432,
+        "quality": 60,
+        "bytes": 3311528
+      }
+    }
+  }
 }

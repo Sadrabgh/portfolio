@@ -1,98 +1,97 @@
-export {};
+import { AtelierSequence } from './atelier-sequence';
 const root = document.documentElement;
 const scene = document.querySelector<HTMLElement>('[data-at-scroll]');
-const video = scene?.querySelector<HTMLVideoElement>('[data-at-video]');
-if (scene && video) {
+const canvas = scene?.querySelector<HTMLCanvasElement>('[data-at-sequence]');
+if (scene && canvas) {
+  const card = canvas.parentElement!;
   const copy = scene.querySelector<HTMLElement>('[data-at-hero-copy]')!;
   const progressBar = scene.querySelector<HTMLElement>('[data-at-progress]')!;
   const chapter = scene.querySelector<HTMLElement>('[data-at-chapter]')!;
   const hint = scene.querySelector<HTMLElement>('[data-at-scroll-hint]')!;
   const callouts = [...scene.querySelectorAll<HTMLElement>('.at-callout')];
   const chapters = ['۰۱ / در میان درختان', '۰۲ / از آستانه تا خانه', '۰۳ / نشیمن رو به بیشه'];
+  const mobile = matchMedia('(max-width:700px)');
+  const motion = matchMedia('(prefers-reduced-motion:reduce)');
+  let renderer: AtelierSequence | undefined;
+  let mobileSource = mobile.matches;
   let frame = 0;
   let reduced = false;
   let failed = false;
-  let lastChapter = -1;
-  let targetTime = 0;
   let active = true;
-  const frameStep = 1 / 24;
+  let lastChapter = -1;
+  let sceneTop = 0;
+  let distance = 1;
 
-  function schedule() {
-    if (!frame && !document.hidden) frame = requestAnimationFrame(update);
+  function measure() {
+    // Geometry changes only on resize/motion changes, not after every style write.
+    sceneTop = scene!.getBoundingClientRect().top + scrollY;
+    distance = Math.max(1, scene!.offsetHeight - card.offsetHeight);
+    schedule();
   }
-  function seekLatest() {
-    if (reduced || failed || !active || document.hidden || video!.readyState < 2 || video!.seeking) return;
-    // Only the latest scroll position is decoded. Never queue obsolete seeks.
-    if (Math.abs(video!.currentTime - targetTime) >= frameStep / 2) video!.currentTime = targetTime;
+  function schedule() {
+    if (!frame && active && !document.hidden && !reduced && !failed) frame = requestAnimationFrame(update);
   }
   function update() {
     frame = 0;
-    if (reduced || failed) return;
-    const rect = scene!.getBoundingClientRect();
-    const cardHeight = scene!.firstElementChild!.getBoundingClientRect().height;
-    const progress = Math.max(0, Math.min(1, -rect.top / Math.max(1, rect.height - cardHeight)));
+    if (reduced || failed || !active) return;
+    const progress = Math.max(0, Math.min(1, (scrollY - sceneTop) / distance));
+    const opacity = String(Math.max(0, 1 - progress * 4));
     progressBar.style.transform = `scaleX(${progress})`;
-    copy.style.opacity = String(Math.max(0, 1 - progress * 4));
-    callouts.forEach(callout => callout.style.opacity = String(Math.max(0, 1 - progress * 4)));
+    copy.style.opacity = opacity;
+    callouts.forEach(callout => callout.style.opacity = opacity);
     copy.style.transform = `translateY(${-Math.min(progress, .3) * 90}px)`;
     const chapterIndex = progress < .32 ? 0 : progress < .52 ? 1 : 2;
-    if (chapterIndex !== lastChapter) {
-      chapter.textContent = chapters[chapterIndex];
-      lastChapter = chapterIndex;
-    }
-    if (Number.isFinite(video!.duration)) targetTime = Math.min(Math.max(0, video!.duration - frameStep), progress * video!.duration);
-    seekLatest();
+    if (chapterIndex !== lastChapter) { chapter.textContent = chapters[chapterIndex]; lastChapter = chapterIndex; }
+    renderer?.setProgress(progress);
   }
   function syncMotion() {
-    reduced = root.dataset.demoMotion === 'reduce' || matchMedia('(prefers-reduced-motion:reduce)').matches;
+    reduced = root.dataset.demoMotion === 'reduce' || motion.matches;
     scene!.dataset.atScrub = reduced || failed ? 'static' : 'full';
     hint.textContent = reduced || failed ? 'کشف پروژه‌های آتلیه' : 'برای کشف فضا اسکرول کنید';
     if (reduced || failed) {
       cancelAnimationFrame(frame);
       frame = 0;
+      renderer?.destroy();
+      renderer = undefined;
       copy.style.removeProperty('opacity');
       callouts.forEach(callout => callout.style.removeProperty('opacity'));
       copy.style.removeProperty('transform');
       progressBar.style.transform = 'scaleX(0)';
       chapter.textContent = 'خانهٔ بیشه / مطالعهٔ مفهومی';
       lastChapter = -1;
-      video!.pause();
-      video!.removeAttribute('data-frame-ready');
-      if (video!.hasAttribute('src')) {
-        video!.removeAttribute('src');
-        video!.load();
-      }
       return;
     }
-    if (!video!.hasAttribute('src')) {
-      video!.src = matchMedia('(max-width:700px)').matches ? video!.dataset.mobileSrc! : video!.dataset.src!;
-      video!.preload = 'auto';
-      video!.load();
+    if (renderer && mobile.matches !== mobileSource) { renderer.destroy(); renderer = undefined; }
+    if (!renderer) {
+      mobileSource = mobile.matches;
+      try {
+        renderer = new AtelierSequence(canvas!, mobileSource ? canvas!.dataset.mobileFrames! : canvas!.dataset.desktopFrames!, mobileSource, () => { failed = true; syncMotion(); });
+      } catch { failed = true; syncMotion(); return; }
     }
-    schedule();
+    renderer.setActive(active);
+    measure();
   }
-  video.addEventListener('loadedmetadata', schedule);
-  video.addEventListener('loadeddata', () => { video.dataset.frameReady = ''; schedule(); });
-  video.addEventListener('seeked', () => { video.dataset.frameReady = ''; seekLatest(); });
-  video.addEventListener('error', () => { failed = true; syncMotion(); });
-  video.addEventListener('play', () => video.pause());
   const visibility = new IntersectionObserver(entries => {
     active = entries[0].isIntersecting;
+    renderer?.setActive(active);
     if (active) schedule();
+    else { cancelAnimationFrame(frame); frame = 0; }
   });
   visibility.observe(scene);
   window.addEventListener('scroll', schedule, { passive: true });
-  window.addEventListener('resize', schedule, { passive: true });
+  window.addEventListener('resize', measure, { passive: true });
+  mobile.addEventListener('change', syncMotion);
+  motion.addEventListener('change', syncMotion);
   window.addEventListener('brand-motion', syncMotion);
-  window.addEventListener('pageshow', schedule);
+  window.addEventListener('pageshow', () => { renderer?.setActive(active); measure(); });
   document.addEventListener('visibilitychange', () => {
+    renderer?.setActive(active);
     if (document.hidden) { cancelAnimationFrame(frame); frame = 0; }
     else schedule();
   });
-  window.addEventListener('pagehide', () => { cancelAnimationFrame(frame); video.pause(); });
+  window.addEventListener('pagehide', () => { cancelAnimationFrame(frame); frame = 0; renderer?.setActive(false); });
   syncMotion();
 }
-
 const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-at-tab]')];
 const panels = [...document.querySelectorAll<HTMLElement>('[data-at-panel]')];
 function chooseTab(index: number) {

@@ -20,7 +20,7 @@ const facts = [
     <section class="at-scroll-scene" data-at-scroll aria-labelledby="at-hero-title">
       <div class="at-hero-card">
         <img class="at-hero-poster" src={url('art/atelier/hero-poster.webp')} width="1280" height="720" alt="خانهٔ چوبی و شیشه‌ای میان سنگ‌ها و درختان؛ مطالعهٔ مفهومی آتلیه نو" fetchpriority="high"/>
-        <video class="at-hero-video" data-at-video data-src={url('art/atelier/hero-scroll.mp4')} data-mobile-src={url('art/atelier/hero-scroll-mobile.mp4')} muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+        <canvas class="at-hero-sequence" data-at-sequence data-desktop-frames={url('art/atelier/frames/desktop/')} data-mobile-frames={url('art/atelier/frames/mobile/')} width="1280" height="720" aria-hidden="true"></canvas>
         <div class="at-hero-shade" aria-hidden="true"></div>
         <span class="at-callout at-callout-wood" aria-hidden="true">چوب، در امتداد زمینه<span></span></span>
         <span class="at-callout at-callout-light" aria-hidden="true">نشیمن، رو به نور<span></span></span>

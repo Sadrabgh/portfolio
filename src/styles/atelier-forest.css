@@ -16,9 +16,11 @@ html[data-demo-theme='dark'] body.brand.atelier.at-site {
 .at-site .wrap, .at-home > section, .at-header, .at-static-nav { width: min(1440px, calc(100% - var(--at-outside)*2)); margin-inline: auto; }
 .at-site .concept-bar { height: 44px; min-height: 44px; padding: 0 var(--at-outside); align-items: center; background: var(--bg); color: var(--muted); border: 0; font-size: .6875rem; }
 .at-site .concept-bar > a { min-height: 44px; }
+.at-site[data-demo-page='home'] .concept-bar { position: absolute; inset: 0 0 auto; z-index: 36; background: transparent; color: #fff; }
+.at-site[data-demo-page='home'] .concept-bar > span { display: none; }
 .at-site .concept-dot { background: #bfd9a8; }
 .at-site .at-header { display: flex; align-items: center; justify-content: space-between; min-height: 124px; padding: 25px var(--at-pad); gap: 20px; border-bottom: 1px solid var(--line); z-index: 35; position: relative; }
-.at-site[data-demo-page='home'] .at-header { position: absolute; top: 72px; inset-inline: calc(var(--at-outside) + var(--at-pad)); width: auto; min-height: 0; padding: 0; border: 0; margin: 0; color: #fff; }
+.at-site[data-demo-page='home'] .at-header { position: absolute; top: 64px; inset-inline: var(--at-pad); width: auto; min-height: 0; padding: 0; border: 0; margin: 0; color: #fff; }
 .at-logo { display: flex; align-items: center; gap: 12px; }
 .at-logo > span { display: grid; gap: 1px; }
 .at-logo strong { font-size: 1.5rem; font-weight: 800; line-height: 1.4; }
@@ -38,12 +40,16 @@ html[data-demo-theme='dark'] body.brand.atelier.at-site {
 .at-menu > p { font-size: .75rem; color: var(--muted); margin-block: 28px 0; }
 .at-static-nav { display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; }
 .at-scroll-scene { position: relative; }
+.at-site .at-home > .at-scroll-scene { width: 100%; max-width: none; margin: 0; }
 .at-scroll-scene[data-at-scrub='full'] { height: 260svh; }
-.at-hero-card { position: sticky; top: 0; height: calc(100svh - 44px); min-height: 660px; overflow: hidden; background: #243126; isolation: isolate; }
-.at-hero-poster, .at-hero-video, .at-hero-shade { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 46% 50%; }
-.at-hero-video { opacity: 0; transition: opacity 150ms; }
-.at-hero-video[data-frame-ready] { opacity: 1; }
-.at-hero-shade { background: linear-gradient(180deg,#10211670 0%,transparent 36%,#101d1440 59%,#07110bc7 100%); z-index: 1; pointer-events: none; }
+.at-hero-card { position: sticky; top: 0; height: 100svh; height: 100dvh; min-height: 0; overflow: hidden; background: #243126; isolation: isolate; }
+.at-hero-poster, .at-hero-sequence, .at-hero-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+.at-hero-poster, .at-hero-sequence { object-fit: cover; object-position: 52% 50%; }
+.at-hero-poster { z-index: 0; }
+.at-hero-sequence { opacity: 0; }
+.at-hero-sequence { z-index: 1; }
+.at-hero-card[data-frame-ready] .at-hero-sequence { opacity: 1; }
+.at-hero-shade { background: linear-gradient(180deg,#10211670 0%,transparent 36%,#101d1440 59%,#07110bc7 100%); z-index: 2; pointer-events: none; }
 .at-hero-copy { position: absolute; inset: auto 32px 148px; z-index: 2; text-align: center; color: #fff; pointer-events: none; }
 .at-overline { display: block; margin-bottom: 20px; font-size: .6875rem; letter-spacing: .12em; font-weight: 450; }
 .at-hero-copy .at-overline { font-size: .625rem; letter-spacing: .22em; margin-bottom: 22px; }
@@ -153,7 +159,7 @@ html[data-demo-theme='dark'] body.brand.atelier.at-site {
   .at-site .concept-bar { padding-inline: 16px; min-height: 40px; }
   .at-site .concept-bar > span { display: none; }
   .at-site .at-header { padding-inline: 12px; min-height: 102px; }
-  .at-site[data-demo-page='home'] .at-header { top: 60px; inset-inline: 32px; }
+  .at-site[data-demo-page='home'] .at-header { top: 56px; inset-inline: 20px; }
   .at-logo { gap: 8px; }
   .at-logo > svg { width: 32px; height: 32px; }
   .at-logo strong { font-size: 1.0625rem; }
@@ -163,10 +169,10 @@ html[data-demo-theme='dark'] body.brand.atelier.at-site {
   .at-header-actions .at-pill > svg { display: none; }
   .at-site .at-menu-trigger { width: 44px; height: 44px; }
   .at-menu-nav a { min-height: 65px; gap: 14px; font-size: 1.7rem; }
-  .at-hero-card { min-height: 590px; }
+  .at-hero-card { min-height: 0; }
   .at-scroll-scene[data-at-scrub='full'] { height: 240svh; }
-  .at-site .at-hero-copy h1 { font-size: clamp(2.5rem,8.7vw,3.75rem); line-height: 1.4; letter-spacing: -.055em; }
-  .at-hero-copy { inset: auto 18px 185px; }
+  .at-site .at-hero-copy h1 { font-size: clamp(2rem,8vw,3.5rem); line-height: 1.35; letter-spacing: -.055em; }
+  .at-hero-copy { inset: auto 18px 160px; }
   .at-hero-copy .at-overline { font-size: .5rem; letter-spacing: .12em; }
   .at-hero-readout { inset: auto 20px 32px; grid-template-columns: 1fr auto; gap: 24px 12px; }
   .at-hero-readout > .at-pill { grid-column: 1/-1; grid-row: 1; justify-self: center; }
@@ -218,6 +224,12 @@ html[data-demo-theme='dark'] body.brand.atelier.at-site {
   .at-site .footer-signature > span { font-size: clamp(2.8rem,11vw,4rem); }
   .at-site .footer-signature > svg { width: 35px; height: 35px; }
   .at-site .brand-footer > div:nth-child(3) { grid-column: auto; }
+}
+@media(min-width:701px) and (max-height:600px) {
+  .at-site[data-demo-page='home'] .at-header { top: 46px; }
+  .at-hero-copy { bottom: 110px; }
+  .at-site .at-hero-copy h1 { font-size: clamp(2rem,8vh,3rem); }
+  .at-hero-copy .at-overline, .at-callout { display: none; }
 }
 @media(prefers-reduced-motion:reduce) {
   .at-project-photo > img { transition: none; }
