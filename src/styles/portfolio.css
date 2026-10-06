@@ -284,6 +284,18 @@ ul {
 .nav-group {
   position: relative;
 }
+.desktop-nav > .nav-link {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  transition: color 160ms var(--interaction-ease);
+}
+.desktop-nav > .nav-link:hover,
+.desktop-nav > .nav-link[aria-current="page"] {
+  color: var(--accent);
+}
 .nav-group summary {
   min-height: 44px;
   display: flex;

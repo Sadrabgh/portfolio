@@ -8,6 +8,10 @@ import "../styles/v10/neva.css";
 import "../styles/demo-upgrade.css";
 import "../styles/demo-refinement.css";
 import "../styles/demo-showcase.css";
+import "@fontsource/amiri/700.css";
+import "../styles/rift-store.css";
+import RiftHeader from "../components/RiftHeader.astro";
+import RiftFooter from "../components/RiftFooter.astro";
 import Icon from "../components/Icon.astro";
 import { url } from "../config";
 interface Props {
@@ -74,6 +78,7 @@ const disciplines = { atelier: "معماری / فضا / زندگی", rift: "لب
       content={`نمونهٔ تعاملی ${info.name}؛ طراحی مفهومی برای نمونه‌کار.`}
     />
     <meta name="robots" content="noindex,nofollow" />
+    {brand === "rift" && <link rel="icon" type="image/svg+xml" href={url("art/rift/favicon.svg")} />}
     <script is:inline>
       try {
         const t = localStorage.getItem("demo-theme");
@@ -100,7 +105,7 @@ const disciplines = { atelier: "معماری / فضا / زندگی", rift: "لب
         });
     </script>
   </head>
-  <body class:list={["brand", brand, "demo-upgraded", "demo-showcase"]} data-demo-page={isHome ? "home" : "inner"}>
+  <body class:list={["brand", brand, "demo-upgraded", "demo-showcase", { "rf-store": brand === "rift" }]} data-demo-page={isHome ? "home" : "inner"}>
     <a class="skip" href="#demo-main">
       رفتن به محتوا
     </a>
@@ -108,6 +113,7 @@ const disciplines = { atelier: "معماری / فضا / زندگی", rift: "لب
       <a href={url("work/")}><Icon name="arrow" size={16} /> بازگشت به نمونه‌کارها</a>
       <span><span class="concept-dot" aria-hidden="true"></span> نمونهٔ مفهومی و قابل آزمایش</span>
     </aside>
+    {brand === "rift" ? <RiftHeader current={current} /> : (
     <header class="brand-header">
       <a
         class="brand-mark"
@@ -160,11 +166,6 @@ const disciplines = { atelier: "معماری / فضا / زندگی", rift: "لب
         >
           <Icon name="motion" />
         </button>
-        {brand === "rift" && (
-          <button type="button" data-cart-open class="header-cart">
-            <Icon name="bag" /><span class="cart-label">سبد</span><span data-cart-count>۰</span>
-          </button>
-        )}
         {brand === "neva" && (
           <a class="button" href={url("demo/neva/book/")}>
             دریافت نوبت
@@ -182,8 +183,10 @@ const disciplines = { atelier: "معماری / فضا / زندگی", rift: "لب
         </button>
       </div>
     </header>
+    )}
     {!isHome && <nav class="demo-context wrap" aria-label="مسیر صفحه"><a href={home}>{info.name}</a><span aria-hidden="true">/</span>{parent && <><a href={url(`demo/${brand}/${parent[1]}/`)}>{parent[0]}</a><span aria-hidden="true">/</span></>}<span aria-current="page">{title}</span></nav>}
     <slot />
+    {brand === "rift" ? <RiftFooter /> : (
     <footer class="brand-footer wrap">
       <div>
         <a class="footer-word" href={url(`demo/${brand}/`)}>
@@ -192,9 +195,7 @@ const disciplines = { atelier: "معماری / فضا / زندگی", rift: "لب
         <p>
           {brand === "atelier"
             ? "فضا، نور، زندگی."
-            : brand === "rift"
-              ? "برای حرکت در شهر."
-              : brand === "velo"
+            : brand === "velo"
                 ? "شهر را از زاویهٔ تازه ببین."
                 : "یک مسیر روشن برای مراجعه."}
         </p>
@@ -209,9 +210,7 @@ const disciplines = { atelier: "معماری / فضا / زندگی", rift: "لب
         <p>
           {brand === "neva"
             ? "پزشکان و تصاویر فرضی‌اند؛ نوبت واقعی یا خدمات درمانی ارائه نمی‌شود."
-            : brand === "rift"
-              ? "محصولات و قیمت‌ها فرضی‌اند؛ سفارشی ارسال و پرداختی دریافت نمی‌شود."
-              : brand === "velo"
+            : brand === "velo"
                 ? "محصول مفهومی؛ اندازه‌ها و ویژگی‌ها مشخصات مهندسی نیستند."
                 : "تصاویر و مدل‌ها مفهومی‌اند و پروژهٔ اجراشده را مستند نمی‌کنند."}
         </p>
@@ -225,9 +224,10 @@ const disciplines = { atelier: "معماری / فضا / زندگی", rift: "لب
       </div>
       <div class="footer-signature" aria-hidden="true" dir="ltr"><span>{brand === "atelier" ? "ATELIER NO." : info.en}</span><Icon name="arrow" size={72} /></div>
     </footer>
+    )}
     <noscript>
       <p class="wrap notice">
-        برای پیکربندی سه‌بعدی، سبد خرید و رزرو نمایشی، جاوااسکریپت را فعال کنید.
+        {brand === "rift" ? "برای جست‌وجو، علاقه‌مندی‌ها و سبد خرید، جاوااسکریپت را فعال کنید." : "برای پیکربندی سه‌بعدی، سبد خرید و رزرو نمایشی، جاوااسکریپت را فعال کنید."}
         تصاویر و صفحات قابل مشاهده‌اند.
       </p>
     </noscript>

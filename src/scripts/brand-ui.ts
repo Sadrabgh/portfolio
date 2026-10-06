@@ -16,10 +16,20 @@ function updateTheme() {
   window.dispatchEvent(new Event("brand-theme"));
 }
 updateTheme();
+let riftThemeFrame = 0;
 theme?.addEventListener("click", () => {
+  const rift = document.body.classList.contains("rf-store");
+  if (rift) {
+    cancelAnimationFrame(riftThemeFrame);
+    root.dataset.rfThemeSwitching = "";
+  }
   root.dataset.demoTheme = root.dataset.demoTheme === "dark" ? "light" : "dark";
   safe("demo-theme", root.dataset.demoTheme!);
   updateTheme();
+  if (rift) {
+    void document.body.offsetHeight;
+    riftThemeFrame = requestAnimationFrame(() => delete root.dataset.rfThemeSwitching);
+  }
 });
 const motion = document.querySelector<HTMLButtonElement>(
   "[data-motion-toggle]",
@@ -69,7 +79,7 @@ function syncMotion() {
               {
                 opacity: 1,
                 y: 0,
-                duration: 0.5,
+                duration: document.body.classList.contains("rf-store") ? 0.7 : 0.5,
                 ease: "power3.out",
                 clearProps: "all",
               },

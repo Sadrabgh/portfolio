@@ -2,102 +2,65 @@
 import Brand from "../../../layouts/Brand.astro";
 import Card from "../../../components/RiftCard.astro";
 import Cart from "../../../components/RiftCart.astro";
-import { garments } from "../../../data/brands";
-import { url } from "../../../config";
 import Icon from "../../../components/Icon.astro";
-import Lookbook from "../../../components/RiftLookbook.astro";
+import { garments, garmentImage } from "../../../data/brands";
+import { url } from "../../../config";
+const edits = garments.filter(p => ["shell", "hoodie", "tee"].includes(p.id));
+const categories = [
+  { title: "ژاکت‌ها", id: "shell", query: "category=outer", tone: "olive" },
+  { title: "هودی‌ها", id: "hoodie", query: "category=layers", tone: "rose" },
+  { title: "تیشرت‌ها", id: "tee", query: "q=" + encodeURIComponent("تیشرت"), tone: "sand" },
+  { title: "شلوارها", id: "cargo", query: "q=" + encodeURIComponent("شلوار"), tone: "stone" },
+];
 ---
-
-<Brand brand="rift" title="لباس برای حرکت در شهر">
+<Brand brand="rift" title="فرم تازه، برای روزهای تو">
   <main id="demo-main">
-    <section class="rift-campaign rift-poster">
-      <div class="rift-campaign-image" data-entry>
-        <img
-          src={url("art/v10/campaign.webp")}
-          alt="کمپین مفهومی RIFT؛ ژاکت مشکی و شلوار کارگو در حیاط بتنی"
-          width="1536"
-          height="1024"
-          fetchpriority="high"
-        />
-        <a class="rift-look-tag" href={url("demo/rift/products/shell/")}><span>THE CITY LOOK / 01</span><strong>ژاکت شِل <Icon name="arrow" size={18} /></strong><small>یک لایه. شروع یک ترکیب.</small></a>
+    <section class="rf-hero">
+      <img class="rf-hero-image" src={url("art/rift/hero.webp")} alt="کمپین اختصاصی ریفت؛ ژاکت نقره‌ای شِل و شلوار سنگی کارگو، روی صندلی چوبی" width="1536" height="1024" fetchpriority="high" />
+      <div class="rf-hero-copy">
+        <span class="eyebrow"><Icon name="spark" size={14} /> انتخاب تازهٔ این فصل</span>
+        <h1>فرم تازه،<br />حال تازه.</h1>
+        <p>لایه‌های سبک، برش‌های آزاد و رنگ‌هایی که کنار هم می‌نشینند. کمد روزمره‌ات را از یک انتخاب خوب شروع کن.</p>
+        <a class="button" href={url("demo/rift/catalog/")}>کالکشن را ببین <Icon name="arrow" size={18} /></a>
+        <span class="rf-hero-edition" dir="ltr">RIFT / THE EVERYDAY EDIT — 2026</span>
       </div>
-      <div class="rift-campaign-copy" data-entry>
-        <span class="eyebrow">DROP 001 / CITY IN MOTION</span>
-        <h1>
-          <span>از ریتم</span>
-          <br />
-          <span>نیفت.</span>
-        </h1>
-        <p>
-          فرم‌های آزاد. جزئیات کاربردی.
-          <br />
-          لایه‌هایی برای حرکت روزمره.
-        </p>
-        <div class="hero-actions"><a class="button" href={url("demo/rift/collections/layers/")}>کشف کالکشن <Icon name="arrow" size={18} /></a><a class="text-link" href={url("demo/rift/catalog/")}>همهٔ فرم‌ها</a></div>
-        <span class="campaign-number" dir="ltr">
-          <span>DROP 001 / 2026</span><span>4 FORMS. YOUR RHYTHM.</span>
-        </span>
-      </div>
-      <div class="rift-strip" aria-hidden="true">
-        <span>MOVE THROUGH THE CITY</span>
-        <b>RIFT</b>
-        <span>FORM / TEXTURE / MOVEMENT</span>
+      <a class="rf-hero-product" href={url("demo/rift/products/shell/?color=silver")}><span>پوشیده‌شده در این ترکیب</span><strong>ژاکت شِل · نقره‌ای <Icon name="arrow" size={16} /></strong></a>
+    </section>
+    <section class="rf-featured" aria-labelledby="rf-new-title">
+      <div class="wrap">
+        <div class="rf-centered-title"><span class="eyebrow" dir="ltr">THE NEW COLLECTION</span><h2 id="rf-new-title">کالکشن تازه</h2></div>
+        <div class="rift-grid rf-featured-grid">{edits.map(p => <Card p={p} editorial />)}</div>
+        <a class="text-link rf-all-products" href={url("demo/rift/catalog/")}>همهٔ فرم‌های ریفت <Icon name="arrow" size={18} /></a>
       </div>
     </section>
-    <nav class="rift-category-rail wrap" aria-label="خرید بر اساس فرم"><span class="eyebrow">YOUR NEXT LAYER</span>{[["outer","لایهٔ بیرونی","01"],["layers","لایهٔ میانی","02"],["essentials","روزمره","03"]].map(([id,label,n])=><a href={url(`demo/rift/catalog/?category=${id}`)}><span dir="ltr">{n}</span>{label}<Icon name="arrow" size={18} /></a>)}</nav>
-    <Lookbook />
-    <section class="section wrap">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">THE FIRST EDIT / 4 FORMS</span>
-          <h2>انتخاب اول.</h2>
-        </div>
-        <a class="text-link" href={url("demo/rift/catalog/")}>
-          تمام محصولات ↗
-        </a>
-      </div>
-      <div class="rift-grid">
-        {garments.map((p) => (
-          <Card p={p} />
-        ))}
+    <section class="rf-category-section" aria-labelledby="rf-category-title">
+      <div class="rf-section-band"><span class="eyebrow" dir="ltr">FIND YOUR EVERYDAY</span><h2 id="rf-category-title">از کجا شروع می‌کنی؟</h2></div>
+      <div class="wrap rf-categories">
+        {categories.map(category => {
+          const product = garments.find(p => p.id === category.id)!;
+          return <a class={"rf-category rf-tone-" + category.tone} href={url("demo/rift/catalog/?" + category.query)}>
+            <div><img src={url(garmentImage(product.id, product.colors[0].id))} alt={product.name} width="1024" height="1024" loading="lazy" /></div>
+            <h3>{category.title}</h3><span>دیدن محصولات <Icon name="arrow" size={17} /></span>
+          </a>;
+        })}
       </div>
     </section>
-    <section class="rift-editorial" data-motion-scene>
-      <img
-        src={url("art/v10/campaign-detail.webp")}
-        alt="جزئیات بافت و سرآستین هودی تمشکی"
-        loading="lazy"
-        width="1024"
-        height="1536"
-      />
-      <div data-reveal>
-        <span class="eyebrow">HEAVY / 02</span>
-        <h2>
-          بافت را
-          <br />
-          از نزدیک ببین.
-        </h2>
-        <p>
-          وزن پارچه، نسبت یقه و حجم آستین؛ شخصیت یک لباس در همین جزئیات ساخته
-          می‌شود.
-        </p>
-        <a class="button" href={url("demo/rift/products/hoodie/")}>
-          هودی هِوی ↗
-        </a>
-      </div>
+    <section class="rf-philosophy wrap" aria-labelledby="rf-philosophy-title">
+      <div data-motion-scene><span class="eyebrow" dir="ltr">LESS, BUT YOURS</span>
+      <h2 id="rf-philosophy-title">چهار فرم. هزار ترکیب.</h2></div>
+      <p>برای ما، لباس خوب از شلوغی فاصله می‌گیرد. یک ژاکت سبک، یک هودی نرم، تیشرتی با نسبت درست و شلواری کاربردی؛ قطعه‌هایی که هر روز دوباره انتخابشان می‌کنی.</p>
+      <a class="text-link" href={url("demo/rift/looks/")}>ترکیب خودت را بساز <Icon name="arrow" size={18} /></a>
     </section>
-    <section class="wrap section" aria-labelledby="rift-collections-title">
-      <div class="section-head"><div><span class="eyebrow">FIND YOUR COMBINATION</span><h2 id="rift-collections-title">از یک لایه شروع کن.</h2></div><a class="text-link" href={url("demo/rift/size-guide/")}>راهنمای انتخاب اندازه <Icon name="arrow" size={18} /></a></div>
-      <div class="rift-collections"><a href={url("demo/rift/collections/layers/")} data-reveal>
-        <span class="eyebrow">01 / LAYERS</span>
-        <h3>لایه‌ها. <Icon name="arrow" /></h3>
-        <p>شِل و هِوی؛ دو حجم برای ترکیب شخصی.</p>
-      </a>
-      <a href={url("demo/rift/collections/essentials/")} data-reveal>
-        <span class="eyebrow">02 / ESSENTIALS</span>
-        <h3>روزمره‌ها. <Icon name="arrow" /></h3>
-        <p>باکس و یوتیلیتی؛ ساختار ساده، جزئیات دقیق.</p>
-      </a></div>
+    <div class="rf-wordmark-strip" aria-label="چهار فرم کالکشن ریفت" dir="ltr"><span>SHELL<span>THE LIGHT LAYER</span></span><span>HEAVY<span>THE SOFT VOLUME</span></span><span>BOX<span>THE DAILY FORM</span></span><span>UTILITY<span>THE CITY ESSENTIAL</span></span></div>
+    <section class="rf-story" aria-labelledby="rf-story-title">
+      <a class="rf-story-photo rf-story-shell" href={url("demo/rift/products/shell/?color=silver")} aria-label="دیدن ژاکت شِل"><img src={url("art/rift/hero.webp")} alt="ژاکت نقره‌ای ریفت در یک ترکیب روزمره" width="1536" height="1024" loading="lazy" /></a>
+      <div class="rf-story-copy">
+        <span class="eyebrow" dir="ltr">MADE FOR YOUR DAYS</span><h2 id="rf-story-title">راحت بپوش.<br />خودت باش.</h2>
+        <p>قرار نیست لباس، روزت را پیچیده کند. رنگ را انتخاب کن، اندازه را با راهنمای ما بسنج و ترکیبی بساز که شبیه خودت باشد.</p>
+        <a class="text-link" href={url("demo/rift/about/")}>دنیای ریفت <Icon name="arrow" size={18} /></a>
+        <div class="rf-benefits"><a href={url("demo/rift/size-guide/")}><Icon name="grid" size={26} /><span>راهنمای اندازه</span></a><a href={url("demo/rift/catalog/")}><Icon name="layers" size={26} /><span>رنگ‌های متنوع</span></a><a href={url("demo/rift/help/#care")}><Icon name="leaf" size={26} /><span>مراقبت از لباس</span></a><a href={url("demo/rift/help/")}><Icon name="shield" size={26} /><span>انتخاب با آگاهی</span></a></div>
+      </div>
+      <a class="rf-story-photo" href={url("demo/rift/products/hoodie/?color=rose")} aria-label="دیدن هودی هِوی"><img src={url("art/rift/hoodie-editorial.webp")} alt="هودی تمشکی هِوی در کمپین اختصاصی ریفت" width="1024" height="1536" loading="lazy" /></a>
     </section>
   </main>
   <Cart />

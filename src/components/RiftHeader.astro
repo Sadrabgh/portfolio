@@ -1,0 +1,27 @@
+---
+import Logo from "./RiftLogo.astro";
+import Icon from "./Icon.astro";
+import { url } from "../config";
+const { current = "" } = Astro.props;
+const links = [["خانه", ""], ["فروشگاه", "catalog"], ["کالکشن‌ها", "collections"], ["دربارهٔ ریفت", "about"], ["راهنمای خرید", "help"]];
+---
+<header class="brand-header rf-header">
+  <div class="wrap rf-header-inner">
+    <a class="brand-mark" href={url("demo/rift/")} aria-label="خانهٔ ریفت"><Logo /></a>
+    <nav class="brand-nav" id="rift-navigation" aria-label="ناوبری فروشگاه ریفت">
+      {links.map(([label, path]) => <a href={url("demo/rift/" + (path ? path + "/" : ""))} aria-current={current === path ? "page" : undefined}>{label}</a>)}
+    </nav>
+    <div class="rf-header-actions">
+      <form class="rf-header-search" action={url("demo/rift/catalog/")} role="search">
+        <label class="rf-sr-only" for="rf-header-query">جست‌وجوی محصولات</label>
+        <input id="rf-header-query" type="search" name="q" maxlength="80" placeholder="جست‌وجوی لباس…" />
+        <button type="submit" aria-label="جست‌وجو"><Icon name="search" size={18} /></button>
+      </form>
+      <a class="rf-icon" href={url("demo/rift/wishlist/")} aria-label="علاقه‌مندی‌ها"><Icon name="heart" /><span data-wishlist-count hidden></span></a>
+      <button class="rf-icon header-cart" type="button" data-cart-open aria-label="باز کردن سبد خرید"><Icon name="bag" /><span data-cart-count>۰</span></button>
+      <button class="rf-icon" type="button" data-theme-toggle aria-label="تغییر حالت رنگ"><span class="theme-moon"><Icon name="moon" /></span><span class="theme-sun"><Icon name="sun" /></span></button>
+      <button class="rf-icon menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="rift-navigation" aria-label="منوی فروشگاه"><Icon name="menu" /></button>
+    </div>
+  </div>
+</header>
+<script>import "../scripts/rift-store";</script>

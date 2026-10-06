@@ -5,16 +5,6 @@ import SocialLinks from "./SocialLinks.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 import { url, site } from "../config";
 const home = Astro.url.pathname === url();
-const projects = [
-  ["mora", "فروشگاه مبلمان مورا"],
-  ["avan", "فروشگاه صوتی آوان"],
-  ["rava", "فروشگاه کفش راوا"],
-  ["velia", "فروشگاه مراقبت آلبا"],
-  ["luma", "فروشگاه پوشاک ریفت"],
-  ["form", "آتلیه نو"],
-  ["orbit", "محصول تعاملی ولو"],
-  ["medical", "کلینیک نِوا"],
-];
 const menus = [
   [
     "خانه",
@@ -26,8 +16,7 @@ const menus = [
   [
     "نمونه‌کارها",
     [
-      ["work/", "همهٔ نمونه‌کارها"],
-      ...projects.map(([id, t]) => ["work/" + id + "/", t]),
+      ["work/", "نمونه‌کارها"],
     ],
   ],
   [
@@ -61,6 +50,9 @@ const menus = [
     )}
     <nav class="desktop-nav" aria-label="ناوبری اصلی">
       {menus.map(([label, items]) => (
+        label === "نمونه‌کارها" ? (
+          <a class="nav-link" href={url("work/")} aria-current={Astro.url.pathname === url("work/") ? "page" : undefined}>نمونه‌کارها</a>
+        ) : (
         <details class="nav-group">
           <summary>{label as string}</summary>
           <div class="nav-dropdown">
@@ -69,6 +61,7 @@ const menus = [
             ))}
           </div>
         </details>
+        )
       ))}
     </nav>
     {home && (
@@ -137,17 +130,7 @@ const menus = [
     </div>
     <nav aria-label="منوی کناری">
       <a href={url()}>خانه</a>
-      <details class="menu-projects">
-        <summary>
-          نمونه‌کارها <Icon name="down" size={22} />
-        </summary>
-        <div>
-          <a href={url("work/")}>همهٔ پروژه‌ها</a>
-          {projects.map(([id, t]) => (
-            <a href={url("work/" + id + "/")}>{t}</a>
-          ))}
-        </div>
-      </details>
+      <a href={url("work/")}>نمونه‌کارها</a>
       <a href={url("services/")}>خدمات</a>
       <a href={url("about/")}>درباره</a>
       <a href={url("contact/")}>تماس</a>

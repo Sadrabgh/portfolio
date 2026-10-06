@@ -2,7 +2,12 @@
 import { url } from "../config";
 import { garmentImage, money, garmentStock } from "../data/brands";
 import Icon from "./Icon.astro";
-const { p, heading = "h3" } = Astro.props;
+const { p, heading = "h3", editorial = false } = Astro.props;
+const campaign: Record<string, string> = {
+  shell: "art/rift/hero.webp",
+  hoodie: "art/rift/hoodie-editorial.webp",
+  tee: "art/rift/tee-editorial.webp",
+};
 const Heading = heading as "h2" | "h3";
 ---
 
@@ -15,12 +20,13 @@ const Heading = heading as "h2" | "h3";
     .filter((s) => garmentStock[p.id][s] > 0)
     .join(" ")}
   data-colors={p.colors.map((c: any) => c.id).join(" ")}
-  data-depth
+  data-product-id={p.id}
 >
-  <a class="rift-card-image" href={url(`demo/rift/products/${p.id}/`)}>
+  <a class="rift-card-image" href={url(`demo/rift/products/${p.id}/`) + (editorial && p.id === "shell" ? "?color=silver" : "")}>
     <img
-      src={url(garmentImage(p.id, p.colors[0].id))}
-      alt={`${p.name} · ${p.colors[0].label}`}
+      src={url(editorial && campaign[p.id] ? campaign[p.id] : garmentImage(p.id, p.colors[0].id))}
+      alt={editorial ? "ترکیب پیشنهادی " + p.name : `${p.name} · ${p.colors[0].label}`}
+      class:list={{ "rf-campaign-card": editorial, "rf-shell-campaign": editorial && p.id === "shell" }}
       width="1024"
       height="1536"
       loading="lazy"
@@ -30,6 +36,7 @@ const Heading = heading as "h2" | "h3";
       {p.en}
     </span>
   </a>
+  <button class="rf-favorite rf-icon" type="button" data-favorite={p.id} aria-label={"ذخیرهٔ " + p.name} aria-pressed="false" disabled><Icon name="heart" size={18} /></button>
   <div class="rift-card-info">
     <a href={url(`demo/rift/products/${p.id}/`)}>
       <Heading>{p.name}</Heading>
@@ -44,5 +51,5 @@ const Heading = heading as "h2" | "h3";
       ))}
     </div>
   </div>
-  <button class="rift-quick-trigger" type="button" data-quick-view={p.id} aria-label={`انتخاب سریع ${p.name}`} disabled><span>انتخاب سریع</span><Icon name="plus" size={18} /></button>
+  <button class="rift-quick-trigger" type="button" data-quick-view={p.id} data-quick-initial-color={editorial && p.id === "shell" ? "silver" : undefined} aria-label={`انتخاب سریع ${p.name}`} disabled><span>انتخاب سریع</span><Icon name="plus" size={18} /></button>
 </article>

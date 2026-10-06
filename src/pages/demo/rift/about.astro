@@ -1,0 +1,11 @@
+---
+import Brand from "../../../layouts/Brand.astro";
+import Cart from "../../../components/RiftCart.astro";
+import { url } from "../../../config";
+---
+<Brand brand="rift" title="دنیای ریفت" current="about">
+  <main id="demo-main" class="wrap rf-story-page">
+    <div><span class="eyebrow" dir="ltr">RIFT / EVERYDAY, RECONSIDERED</span><h1>کمتر. بهتر.<br />هر روز.</h1><p>ریفت از یک ایدهٔ ساده شروع می‌شود: لباس‌هایی که راحت می‌پوشی و راحت کنار هم می‌نشینند. فرم آزاد، جزئیات کاربردی و رنگ‌هایی که قرار نیست فقط برای یک روز باشند.</p><p>در این کالکشن، چهار قطعهٔ اصلی داریم؛ شِل برای لایهٔ بیرونی، هِوی برای حجم نرم، باکس برای روزمره و یوتیلیتی برای حرکت. انتخاب نهایی با توست.</p><a class="button" href={url("demo/rift/looks/")}>ترکیب خودت را بساز ↗</a></div>
+    <img src={url("art/rift/hero.webp")} alt="کمپین اختصاصی کالکشن روزمرهٔ ریفت" width="1536" height="1024" />
+  </main><Cart />
+</Brand>

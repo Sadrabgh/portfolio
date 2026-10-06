@@ -311,7 +311,7 @@ if (quickDialog) {
         });
         options.append(b);
       });
-      selectColor(p.colors[0].id);
+      selectColor(p.colors.some(c => c.id === trigger.dataset.quickInitialColor) ? trigger.dataset.quickInitialColor! : p.colors[0].id);
       quickDialog!.showModal();
     });
   });
@@ -420,8 +420,11 @@ if (app) {
 const filter = document.querySelector<HTMLFormElement>("[data-catalog]");
 if (filter) {
   const selects = [...filter.querySelectorAll<HTMLSelectElement>("select")];
+  const search = filter.querySelector<HTMLInputElement>("[data-catalog-search]");
+  const normalizeSearch = (value: string) => value.normalize("NFKC").replace(/[يى]/g, "ی").replace(/ك/g, "ک").replace(/\u200c/g, " ").toLocaleLowerCase("fa-IR").trim();
   function restoreFilters() {
     const params = new URLSearchParams(location.search);
+    if (search) search.value = (params.get("q") || "").slice(0, 80);
     selects.forEach((select) => {
       const value = params.get(select.name);
       select.value = value && [...select.options].some((option) => option.value === value) ? value : select.options[0].value;
@@ -429,6 +432,7 @@ if (filter) {
   }
   function apply() {
     const f = new FormData(filter!);
+    const query = normalizeSearch(String(f.get("q") || ""));
     const category = f.get("category"),
       color = f.get("color"),
       size = f.get("size"),
@@ -438,8 +442,10 @@ if (filter) {
       ...document.querySelectorAll<HTMLElement>("[data-product-card]"),
     ];
     cards.forEach((c) => {
+      const garment = product(c.dataset.productId || "");
+      const matchesSearch = !query || Boolean(garment && normalizeSearch(garment.name + " " + garment.en + " " + garment.label + " " + garment.desc).includes(query));
       c.hidden =
-        !(category === "all" || c.dataset.category === category) ||
+        !matchesSearch || !(category === "all" || c.dataset.category === category) ||
         !(
           color === "all" ||
           c.dataset.colors!.split(" ").includes(String(color))
@@ -464,7 +470,7 @@ if (filter) {
     cards.forEach((c) =>
       document.querySelector("[data-catalog-grid]")?.append(c),
     );
-    const active = selects.filter((select) => select.name !== "sort" && select.value !== "all").length;
+    const active = selects.filter((select) => select.name !== "sort" && select.value !== "all").length + (query ? 1 : 0);
     document.querySelector("[data-catalog-status]")!.textContent =
       `${count.toLocaleString("fa-IR")} محصول${active ? ` · ${active.toLocaleString("fa-IR")} فیلتر فعال` : " · تمام فرم‌های کالکشن"}`;
     document.querySelector<HTMLElement>("[data-catalog-empty]")!.hidden =
@@ -474,6 +480,10 @@ if (filter) {
     apply();
     // ASVS 1.2.2: URLSearchParams encodes allowlisted select values.
     const target = new URL(location.href);
+    const query = search?.value.trim().slice(0, 80) || "";
+    if (query) target.searchParams.set("q", query); else target.searchParams.delete("q");
+    const headerSearch = document.querySelector<HTMLInputElement>(".rf-header-search input");
+    if (headerSearch) headerSearch.value = query;
     selects.forEach((select) => {
       if (select.value === select.options[0].value) target.searchParams.delete(select.name);
       else target.searchParams.set(select.name, select.value);
@@ -483,6 +493,8 @@ if (filter) {
   restoreFilters();
   apply();
   filter.addEventListener("change", updateFilters);
+  search?.addEventListener("input", updateFilters);
+  filter.addEventListener("submit", event => { event.preventDefault(); updateFilters(); });
   filter.addEventListener("reset", () => queueMicrotask(updateFilters));
   addEventListener("popstate", () => { restoreFilters(); apply(); });
   document

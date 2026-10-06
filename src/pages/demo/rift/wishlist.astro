@@ -1,0 +1,17 @@
+---
+import Brand from "../../../layouts/Brand.astro";
+import Cart from "../../../components/RiftCart.astro";
+import Card from "../../../components/RiftCard.astro";
+import { garments } from "../../../data/brands";
+import { url } from "../../../config";
+---
+<Brand brand="rift" title="انتخاب‌های شما" current="wishlist">
+  <main id="demo-main" class="wrap section">
+    <span class="eyebrow" dir="ltr">YOUR PERSONAL EDIT</span><h1>برای بعد نگه دار.</h1>
+    <p class="muted">لباس‌هایی که دوست داری، اینجا کنار هم می‌مانند.</p>
+    <div class="rift-grid" data-wishlist-grid hidden>{garments.map(p => <Card p={p} />)}</div>
+    <div class="rf-empty" data-wishlist-empty hidden><h2>انتخاب اولت کدام است؟</h2><p>با لمس قلب کنار هر لباس، آن را برای بعد ذخیره کن.</p><a class="button" href={url("demo/rift/catalog/")}>دیدن فروشگاه ↗</a></div>
+    <p class="status" data-wishlist-status role="status"></p>
+    <noscript><p class="notice">برای نمایش انتخاب‌های ذخیره‌شده، جاوااسکریپت را فعال کنید. همهٔ لباس‌ها در فروشگاه قابل مشاهده‌اند.</p></noscript>
+  </main><Cart />
+</Brand>

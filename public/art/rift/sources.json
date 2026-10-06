@@ -1,0 +1,37 @@
+{
+  "assets": [
+    {
+      "name": "hero",
+      "file": "public/art/rift/hero.webp",
+      "source": "exec-d6114c8f-ae96-4504-adf8-46f8444a7beb.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "8ec24fb792c369576216cc726a585275138b54652310c4f3f361279ae3a7e97e",
+      "generator": "built-in Imagegen",
+      "role": "original fictional RIFT campaign; no real client or model endorsement",
+      "prompt": "Use case: ads-marketing. Asset type: original photographic campaign hero for the fictional clothing storefront RIFT, landscape 1536 by 1024. Create a refined, natural fashion studio photograph, NOT a website mockup. One adult woman with an original face, olive skin, dark softly waved hair tied back, sitting naturally on a simple sculptural oak chair. Outfit: a short light silver-grey technical hooded jacket with a fine ripstop grid, center zip and two zipped lower pockets, open over a plain off-white boxy cotton tee; stone-grey straight cargo trousers with understated side pockets; simple neutral shoes. This is elevated everyday streetwear, relaxed tailoring, clean contemporary styling. Entire seated figure, including head and shoes, visible with safe margins; realistic anatomy and hands. Composition: woman and chair occupy the RIGHT half, LEFT 45 percent is completely empty clean warm ivory studio background for webpage headline overlay. Uniform warm ivory backdrop approximately #f7f2eb, subtle grounded soft shadow, diffused daylight, tactile fabric, muted silver, stone and off-white palette. Calm confident expression, editorial quality, believable photograph. No lettering, no logos, no watermark, no other people, no badges, no UI. Create an independent campaign identity; do not reproduce a known fashion campaign or public figure."
+    },
+    {
+      "name": "hoodie-editorial",
+      "file": "public/art/rift/hoodie-editorial.webp",
+      "source": "exec-c00364fc-1809-4f82-9fb4-74ac0da88dd2.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "3d39a752bde44ce0520f9722891a718de608be995f5f0f2d5c21a0247a716946",
+      "generator": "built-in Imagegen",
+      "role": "original fictional RIFT campaign; no real client or model endorsement",
+      "prompt": "Use case: ads-marketing. Asset type: original vertical fashion editorial portrait for fictional clothing brand RIFT, 1024 by 1536. Photoreal studio photograph of one adult woman with an original face, medium warm skin, curly dark shoulder-length hair. She stands in a relaxed natural three-quarter pose, wearing a raspberry-rose oversized heavy cotton hoodie: plain fabric, no print or logo, lowered hood, dropped shoulders, kangaroo pocket, ribbed cuffs; stone-grey straight cargo trousers. Hands naturally relaxed, show the outfit from head to mid-shin with breathing room. Seamless warm ivory backdrop approximately #f7f2eb and very subtle grounded shadow, soft natural studio daylight, tactile cotton fabric, sophisticated elevated everyday streetwear. Calm expression, beautifully styled while still believable. This is photography only, not a website, no typography, no watermark, no logos, no extra people, no public figure. Use an independent campaign image for RIFT."
+    },
+    {
+      "name": "tee-editorial",
+      "file": "public/art/rift/tee-editorial.webp",
+      "source": "exec-05b1459e-9f0b-4f73-831c-d4f2d19bf155.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "02ff01e5ef399aff31f1a59a5563c4fb1e24026966f128a54d667928915e080d",
+      "generator": "built-in Imagegen",
+      "role": "original fictional RIFT campaign; no real client or model endorsement",
+      "prompt": "Use case: ads-marketing. Asset type: original portrait catalog campaign photograph for the fictional clothing brand RIFT, 1024 by 1536. Photograph one adult woman with an original East Asian face and a short dark bob, standing naturally in a calm full-body pose. She wears a plain off-white heavyweight cotton BOX tee, relaxed boxy short-sleeve silhouette with a ribbed round neck and NO PRINT, and straight graphite-grey cargo trousers with practical side pockets and neutral shoes. Hands relaxed, believable human anatomy, entire head and shoes visible with margins. Warm ivory seamless studio background approximately #f7f2eb, soft diffused light, subtle grounded shadow, elevated everyday urban style, tactile fabric, professional editorial catalog quality. No words, no brand logo, no watermark, no other people, no mockup UI, no public figure. This image should feel part of the same cream, stone, silver and muted rose art direction as RIFT's original campaign."
+    }
+  ]
+}

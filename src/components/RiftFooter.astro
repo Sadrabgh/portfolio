@@ -1,0 +1,37 @@
+---
+import Logo from "./RiftLogo.astro";
+import Icon from "./Icon.astro";
+import { url } from "../config";
+const groups = [
+  { title: "همراه انتخاب تو", links: [["راهنمای اندازه", "size-guide/"], ["نگهداری لباس", "help/#care"], ["سفارش و سبد خرید", "help/#orders"]] },
+  { title: "دنیای ریفت", links: [["دربارهٔ ریفت", "about/"], ["کالکشن‌ها", "collections/"], ["یک ترکیب کامل", "looks/"]] },
+  { title: "فروشگاه", links: [["همهٔ محصولات", "catalog/"], ["لایه‌های بیرونی", "catalog/?category=outer"], ["انتخاب‌های شما", "wishlist/"]] },
+];
+---
+<section class="rf-newsletter" aria-labelledby="rf-newsletter-title">
+  <div class="wrap">
+    <span class="eyebrow" dir="ltr">THE NEXT EDIT</span>
+    <h2 id="rf-newsletter-title">از فصل بعدی جا نمان.</h2>
+    <p>خبر کالکشن‌های تازه و ایده‌های پوشیدن، در یک نامهٔ کوتاه.</p>
+    <form data-rift-newsletter>
+      <label class="rf-sr-only" for="rf-newsletter-email">آدرس ایمیل</label>
+      <input id="rf-newsletter-email" type="email" autocomplete="email" maxlength="254" required placeholder="ایمیل شما" />
+      <button class="button" type="submit" disabled><span data-newsletter-label>عضویت</span> <Icon name="arrow" size={18} /></button>
+    </form>
+    <p class="rf-newsletter-status small" role="status" data-newsletter-status>خبرنامهٔ نمایشی؛ ایمیلی ارسال نمی‌شود.</p>
+  </div>
+</section>
+<footer class="rf-footer">
+  <div class="wrap rf-footer-grid">
+    {groups.map(group => <nav aria-label={group.title}><h3>{group.title}</h3>{group.links.map(([label, path]) => <a href={url("demo/rift/" + path)}>{label}</a>)}</nav>)}
+    <div class="rf-footer-brand">
+      <a href={url("demo/rift/")} aria-label="خانهٔ ریفت"><Logo /></a>
+      <p>فرم‌هایی ساده، برای روزهای تو.</p>
+      <a class="rf-footer-cta" href={url("demo/rift/catalog/")}>انتخاب بعدی من <Icon name="arrow" size={18} /></a>
+    </div>
+  </div>
+  <div class="wrap rf-footer-bottom">
+    <p>© {new Date().getFullYear()} RIFT · فروشگاه مفهومی، سفارش آزمایشی بدون پرداخت و ارسال.</p>
+    <div><button type="button" data-motion-toggle aria-pressed="false"><Icon name="motion" size={18} /> کاهش حرکت</button><a href={url("work/luma/")}>دربارهٔ این نمونه‌کار ↗</a></div>
+  </div>
+</footer>

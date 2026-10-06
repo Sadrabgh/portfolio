@@ -1,0 +1,19 @@
+---
+import Brand from "../../../layouts/Brand.astro";
+import Cart from "../../../components/RiftCart.astro";
+import { url } from "../../../config";
+const questions = [
+  ["چطور اندازه‌ام را انتخاب کنم؟", "اندازهٔ یک لباس راحت را با جدول راهنما مقایسه کن. فرم هر محصول، مثل آزاد یا باکسی، در صفحهٔ همان لباس نوشته شده است."],
+  ["رنگ‌های دیگر را کجا ببینم؟", "در صفحهٔ محصول، روی نام یا نشان رنگ بزن. تصویر، نام رنگ و انتخاب سبد هم‌زمان تغییر می‌کنند."],
+  ["اندازهٔ غیرفعال چه معنایی دارد؟", "اندازهٔ غیرفعال در موجودی آزمایشی این فروشگاه موجود نیست و نمی‌توان آن را به سبد اضافه کرد."],
+];
+---
+<Brand brand="rift" title="راهنمای خرید" current="help">
+  <main id="demo-main" class="wrap section rf-help">
+    <span class="eyebrow" dir="ltr">A LITTLE GUIDANCE</span><h1>انتخاب راحت‌تر، از همین‌جا.</h1><p>راهنمای اندازه، انتخاب رنگ، مراقبت از لباس و مسیر سفارش را اینجا پیدا می‌کنی.</p>
+    {questions.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}
+    <details id="care"><summary>چطور از لباس‌ها مراقبت کنم؟</summary><p>برای نگهداری هر قطعه، بخش مشخصات و مراقبت در صفحهٔ محصول را ببین. جنس پارچه‌ها و ویژگی‌های درج‌شده در این نمونه، داده‌های مفهومی کالکشن‌اند.</p><a class="text-link" href={url("demo/rift/catalog/")}>انتخاب محصول ↗</a></details>
+    <details id="orders"><summary>سفارش چطور ثبت می‌شود؟</summary><p>رنگ و اندازه را انتخاب کن، محصول را به سبد اضافه کن و به مرحلهٔ بازبینی برو. پس از تکمیل اطلاعات آزمایشی، رسید نمایشی می‌بینی. در این نمونه پرداخت، ارسال کالا یا ثبت اطلاعات شخصی انجام نمی‌شود.</p><a class="text-link" href={url("demo/rift/checkout/")}>رفتن به بازبینی سبد ↗</a></details>
+    <a class="button" href={url("demo/rift/size-guide/")}>راهنمای اندازه ↗</a>
+  </main><Cart />
+</Brand>
