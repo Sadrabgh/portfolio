@@ -1,18 +1,18 @@
 ---
 import SkillMark from "./SkillMark.astro";
 const tools = [
-  ["frontend", "DESIGN", "طراحی رابط فروشگاه", "صفحه‌هایی هماهنگ با برند شما"],
-  ["backend", "BUILD", "پیاده‌سازی سایت", "اجرای طرح و جزئیات صفحه‌ها"],
-  ["api", "SHOP", "مسیر خرید", "از پیدا‌کردن محصول تا سبد خرید"],
-  ["database", "PRODUCT", "نمایش محصول", "تصاویر، مشخصات و انتخاب‌ها"],
-  ["testing", "MOBILE", "موبایل و دسکتاپ", "چیدمان مناسب هر اندازهٔ صفحه"],
-  ["devops", "MOTION", "موشن و تعامل", "حرکت روان و بازخورد روشن"],
+  ["frontend", "FRONTEND", "توسعهٔ فرانت‌اند", "رابط‌های سریع و واکنش‌گرا"],
+  ["backend", "BACKEND", "توسعهٔ بک‌اند", "منطق، امنیت و پردازش"],
+  ["api", "API", "طراحی و اتصال API", "ارتباط و یکپارچه‌سازی سرویس‌ها"],
+  ["database", "DATABASE", "دیتابیس و داده", "مدل‌سازی و مدیریت داده"],
+  ["testing", "TESTING", "تست و خطایابی", "تست، خطایابی و کیفیت"],
+  ["devops", "DEVOPS", "استقرار و زیرساخت", "استقرار، پایش و اتوماسیون"],
 ];
 ---
 
 <section class="expertise-section container">
   <h2 class="serif-section-title" data-motion-reveal>
-    طراحی یک فروشگاه کامل
+    حوزه‌های تخصص
   </h2>
   <div class="expertise-grid">
     {tools.map(([id, code, t, description], i) => (

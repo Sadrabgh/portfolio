@@ -13,16 +13,11 @@ import { site, url } from "../config";
 const projects = (await getCollection("projects")).sort(
   (a, b) => a.data.order - b.data.order,
 );
-const stats = [
-  { label: ["نمونه‌کار", "قابل مشاهده"], count: projects.length },
-  {
-    label: ["فروشگاه", "چندصفحه‌ای"],
-    count: projects.filter((project) => project.data.category === "commerce").length,
-  },
-];
 const benefits = [
-  { label: ["برای موبایل", "و دسکتاپ"], value: "واکنش‌گرا" },
-  { label: ["از طراحی", "تا اجرا"], value: "یکپارچه" },
+  { label: ["از پیدا کردن محصول", "تا ثبت سفارش"], value: "خرید آسان" },
+  { label: ["ظاهر یکدست", "هماهنگ با فروشگاهتان"], value: "هویت برند" },
+  { label: ["انتخاب و خرید راحت", "با گوشی و تبلت"], value: "روی موبایل" },
+  { label: ["امکانات و مراحل کار", "مشخص پیش از شروع"], value: "روند شفاف" },
 ];
 ---
 
@@ -77,23 +72,9 @@ const benefits = [
       alt="پرترهٔ رنگی با پیراهن لینن دکمه‌بسته و ژست نشسته، در قاب بیضی"
       caption="استودیو طراحی"
     />
-    <div class="profile-numbers">
-      {stats.map(({ label, count }, i) => (
-        <div data-motion-reveal data-delay={i * 100}>
-          <span class="eyebrow">
-            {label[0]}<br />{label[1]}
-          </span>
-          <strong
-            dir="ltr"
-            data-count={count}
-            aria-label={count.toLocaleString("fa-IR") + " " + label.join(" ")}
-          >
-            {count.toLocaleString("fa-IR")}
-          </strong>
-        </div>
-      ))}
+    <div class="profile-numbers" role="list" aria-label="مزیت‌های سایت برای فروشگاه شما">
       {benefits.map(({ label, value }, i) => (
-        <div data-motion-reveal data-delay={(i + stats.length) * 100}>
+        <div role="listitem" data-motion-reveal data-delay={i * 100}>
           <span class="eyebrow">
             {label[0]}<br />{label[1]}
           </span>
