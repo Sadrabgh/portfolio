@@ -37,31 +37,6 @@ window.addEventListener("pagehide", () => {
   if (menu?.open) menu.close();
   document.body.style.overflow = "";
 });
-document.querySelectorAll<HTMLDetailsElement>(".nav-group").forEach((group) => {
-  let timer: ReturnType<typeof setTimeout>;
-  group.addEventListener("pointerenter", (e) => {
-    if ((e as PointerEvent).pointerType === "mouse") {
-      clearTimeout(timer);
-      group.open = true;
-    }
-  });
-  group.addEventListener("pointerleave", () => {
-    timer = setTimeout(() => {
-      if (!group.contains(document.activeElement)) group.open = false;
-    }, 220);
-  });
-  group.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      group.open = false;
-      group.querySelector<HTMLElement>("summary")?.focus();
-    }
-  });
-  group.addEventListener("focusout", () => {
-    setTimeout(() => {
-      if (!group.contains(document.activeElement)) group.open = false;
-    }, 0);
-  });
-});
 const searchPanel = document.querySelector<HTMLElement>("#site-search");
 const searchToggle =
   document.querySelector<HTMLButtonElement>(".search-toggle");

@@ -6,35 +6,11 @@ import ThemeToggle from "./ThemeToggle.astro";
 import { url, site } from "../config";
 const home = Astro.url.pathname === url();
 const menus = [
-  [
-    "خانه",
-    [
-      ["", "صفحهٔ اصلی"],
-      ["about/", "دربارهٔ استودیو"],
-    ],
-  ],
-  [
-    "نمونه‌کارها",
-    [
-      ["work/", "نمونه‌کارها"],
-    ],
-  ],
-  [
-    "خدمات",
-    [
-      ["services/", "خدمات طراحی"],
-      ["services/#approach", "مراحل انجام پروژه"],
-      ["contact/", "شروع همکاری"],
-    ],
-  ],
-  [
-    "صفحات",
-    [
-      ["about/", "درباره"],
-      ["contact/", "تماس"],
-      ["privacy/", "حریم خصوصی"],
-    ],
-  ],
+  ["", "خانه"],
+  ["work/", "نمونه‌کارها"],
+  ["services/", "خدمات"],
+  ["about/", "درباره"],
+  ["contact/", "تماس"],
 ];
 ---
 
@@ -49,19 +25,8 @@ const menus = [
       </a>
     )}
     <nav class="desktop-nav" aria-label="ناوبری اصلی">
-      {menus.map(([label, items]) => (
-        label === "نمونه‌کارها" ? (
-          <a class="nav-link" href={url("work/")} aria-current={Astro.url.pathname === url("work/") ? "page" : undefined}>نمونه‌کارها</a>
-        ) : (
-        <details class="nav-group">
-          <summary>{label as string}</summary>
-          <div class="nav-dropdown">
-            {(items as string[][]).map(([href, t]) => (
-              <a href={url(href)}>{t}</a>
-            ))}
-          </div>
-        </details>
-        )
+      {menus.map(([href, label]) => (
+        <a class="nav-link" href={url(href)} aria-current={Astro.url.pathname === url(href) ? "page" : undefined}>{label}</a>
       ))}
     </nav>
     {home && (
@@ -129,11 +94,9 @@ const menus = [
       </button>
     </div>
     <nav aria-label="منوی کناری">
-      <a href={url()}>خانه</a>
-      <a href={url("work/")}>نمونه‌کارها</a>
-      <a href={url("services/")}>خدمات</a>
-      <a href={url("about/")}>درباره</a>
-      <a href={url("contact/")}>تماس</a>
+      {menus.map(([href, label]) => (
+        <a href={url(href)} aria-current={Astro.url.pathname === url(href) ? "page" : undefined}>{label}</a>
+      ))}
     </nav>
     <div class="menu-bottom">
       <p>
