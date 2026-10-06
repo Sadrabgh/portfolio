@@ -6,23 +6,27 @@ import ThemeToggle from "./ThemeToggle.astro";
 import { url, site } from "../config";
 const home = Astro.url.pathname === url();
 const projects = [
+  ["mora", "فروشگاه مبلمان مورا"],
+  ["avan", "فروشگاه صوتی آوان"],
+  ["rava", "فروشگاه کفش راوا"],
+  ["velia", "فروشگاه مراقبت آلبا"],
+  ["luma", "فروشگاه پوشاک ریفت"],
   ["form", "آتلیه نو"],
-  ["luma", "RIFT"],
-  ["orbit", "VELO"],
-  ["medical", "نِوا"],
+  ["orbit", "محصول تعاملی ولو"],
+  ["medical", "کلینیک نِوا"],
 ];
 const menus = [
   [
     "خانه",
     [
-      ["", "خانهٔ فریلنسر"],
-      ["about/", "دربارهٔ طراح"],
+      ["", "صفحهٔ اصلی"],
+      ["about/", "دربارهٔ استودیو"],
     ],
   ],
   [
     "نمونه‌کارها",
     [
-      ["work/", "آرشیو پروژه‌ها"],
+      ["work/", "همهٔ نمونه‌کارها"],
       ...projects.map(([id, t]) => ["work/" + id + "/", t]),
     ],
   ],
@@ -30,7 +34,7 @@ const menus = [
     "خدمات",
     [
       ["services/", "خدمات طراحی"],
-      ["services/#approach", "رویکرد کار"],
+      ["services/#approach", "مراحل انجام پروژه"],
       ["contact/", "شروع همکاری"],
     ],
   ],
@@ -152,7 +156,7 @@ const menus = [
       <p>
         © {new Date().getFullYear()} استودیو طراحی
         <br />
-        طراحی رابط و توسعهٔ وب
+        طراحی سایت فروشگاهی و وب‌سایت اختصاصی
       </p>
       <SocialLinks />
     </div>

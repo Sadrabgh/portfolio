@@ -1,7 +1,7 @@
 ---
 title: دوچرخهٔ شهری VELO
 english: VELO
-summary: نمایشگاه سه‌بعدی با فصل‌های طراحی، حرکت دوربین و پیکربندی زندهٔ سه مدل دوچرخه.
+summary: معرفی تعاملی دوچرخه با مدل سه‌بعدی، تغییر رنگ، بررسی اجزا و ذخیرهٔ ترکیب انتخاب‌شده.
 category: interactive
 label: محصول سه‌بعدی
 previewDesktop: portfolio/orbit-desktop.webp

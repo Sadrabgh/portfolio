@@ -166,7 +166,7 @@ const countObserver = new IntersectionObserver(
       let frame = 0;
       const finish = () => {
         cancelAnimationFrame(frame);
-        element.textContent = String(end).padStart(2, "0");
+        element.textContent = end.toLocaleString("fa-IR");
       };
       motionReset.add(finish);
       cleanup.add(finish);
@@ -177,9 +177,9 @@ const countObserver = new IntersectionObserver(
       const start = performance.now();
       const tick = (now: number) => {
         const t = Math.min(1, (now - start) / 1200);
-        element.textContent = String(
-          Math.round(end * (1 - Math.pow(1 - t, 3))),
-        ).padStart(2, "0");
+        element.textContent = Math.round(
+          end * (1 - Math.pow(1 - t, 3)),
+        ).toLocaleString("fa-IR");
         if (t < 1 && !reduced()) frame = requestAnimationFrame(tick);
         else finish();
       };

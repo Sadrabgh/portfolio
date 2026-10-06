@@ -25,7 +25,7 @@ if (form) {
       output.contact = "یک ایمیل معتبر یا شمارهٔ تماس بنویسید.";
     if (!value("service")) output.service = "نوع پروژه را انتخاب کنید.";
     if (value("message").length < 20)
-      output.message = "حداقل ۲۰ نویسه دربارهٔ نیازتان بنویسید.";
+      output.message = "دربارهٔ سایت موردنظرتان کمی بیشتر بنویسید؛ حداقل ۲۰ حرف.";
     fields.forEach((id) => {
       const el = form.elements.namedItem(id) as HTMLInputElement;
       el.setAttribute("aria-invalid", String(Boolean(output[id])));

@@ -14,38 +14,41 @@ const projects = (await getCollection("projects")).sort(
   (a, b) => a.data.order - b.data.order,
 );
 const stats = [
-  ["پروژهٔ", "مستقل", projects.length],
-  ["حوزهٔ", "طراحی", 4],
-  ["اندازهٔ", "نمایش", 2],
-  ["تجربهٔ", "محصول سه‌بعدی", 1],
+  { label: ["نمونه‌کار", "قابل مشاهده"], count: projects.length },
+  {
+    label: ["فروشگاه", "چندصفحه‌ای"],
+    count: projects.filter((project) => project.data.category === "commerce").length,
+  },
+];
+const benefits = [
+  { label: ["برای موبایل", "و دسکتاپ"], value: "واکنش‌گرا" },
+  { label: ["از طراحی", "تا اجرا"], value: "یکپارچه" },
 ];
 ---
 
-<Base title="استودیو طراحی — رابط و تجربهٔ کاربر">
+<Base title="طراحی سایت فروشگاهی و وب‌سایت اختصاصی">
   <section class="freelancer-intro container">
     <h1 data-motion-reveal>
-      <span>{site.ownerName || "استودیو طراحی"}</span>
-      <span>طراح رابط و تجربهٔ کاربر</span>
-      <span>طراحی و توسعهٔ وب</span>
+      <span>طراحی سایت فروشگاهی</span>
+      <span>برای برند شما،</span>
+      <span>با تجربهٔ خرید آسان.</span>
     </h1>
   </section>
-  <section class="freelancer-profile container" aria-label="معرفی طراح">
+  <section class="freelancer-profile container" aria-label="معرفی خدمات طراحی سایت">
     <div class="profile-notes">
       <div data-motion-reveal data-delay="100">
-        <span class="eyebrow">زندگی‌نامه</span>
+        <span class="eyebrow">دربارهٔ کار من</span>
         <p>
-          طراحی برای تجربه‌های بهتر.
-          <br />
-          من طراح رابط و توسعه‌دهندهٔ وب هستم؛ از ایده و ساختار تا جزئیات حرکت و
-          اجرا.
+          برای فروشگاه شما، سایتی هماهنگ با برندتان طراحی می‌کنم؛ با معرفی روشن
+          محصولات، خرید ساده و تجربه‌ای روان روی موبایل و دسکتاپ.
         </p>
       </div>
       <div data-motion-reveal data-delay="200">
         <span class="eyebrow">تماس</span>
         <a class="profile-contact" href={url("contact/")}>
-          گفت‌وگو دربارهٔ پروژه
+          دربارهٔ فروشگاهتان بگویید
           <br />
-          شروع یک همکاری
+          شروع پروژه
         </a>
         {site.email && (
           <a href={"mailto:" + site.email} dir="ltr">
@@ -57,13 +60,13 @@ const stats = [
         <span class="eyebrow">خدمات</span>
         <ul>
           <li>
-            <a href={url("services/")}>طراحی وب‌سایت</a>
+            <a href={url("services/")}>طراحی فروشگاه آنلاین</a>
           </li>
           <li>
-            <a href={url("services/")}>رابط و تجربهٔ کاربر</a>
+            <a href={url("services/")}>طراحی و بازطراحی سایت</a>
           </li>
           <li>
-            <a href={url("services/")}>حرکت و انیمیشن</a>
+            <a href={url("services/")}>موشن و تعامل</a>
           </li>
         </ul>
       </div>
@@ -72,24 +75,34 @@ const stats = [
       priority
       src="portfolio/moonex/portrait-linen-color-v6.png"
       alt="پرترهٔ رنگی با پیراهن لینن دکمه‌بسته و ژست نشسته، در قاب بیضی"
-      caption="پرترهٔ شخصی"
+      caption="استودیو طراحی"
     />
     <div class="profile-numbers">
-      {stats.map(([a, b, n], i) => (
+      {stats.map(({ label, count }, i) => (
         <div data-motion-reveal data-delay={i * 100}>
           <span class="eyebrow">
-            {a}
-            <br />
-            {b}
+            {label[0]}<br />{label[1]}
           </span>
-          <strong dir="ltr" data-count={n} aria-label={String(n)}>
-            {String(n).padStart(2, "0")}
+          <strong
+            dir="ltr"
+            data-count={count}
+            aria-label={count.toLocaleString("fa-IR") + " " + label.join(" ")}
+          >
+            {count.toLocaleString("fa-IR")}
           </strong>
+        </div>
+      ))}
+      {benefits.map(({ label, value }, i) => (
+        <div data-motion-reveal data-delay={(i + stats.length) * 100}>
+          <span class="eyebrow">
+            {label[0]}<br />{label[1]}
+          </span>
+          <strong class="profile-benefit">{value}</strong>
         </div>
       ))}
     </div>
   </section>
-  <div class="project-wordmarks container" aria-label="جهان پروژه‌ها">
+  <div class="project-wordmarks container" aria-label="برندهای نمونه‌کارها">
     {[
       ["form", "ATELIER NO"],
       ["luma", "RIFT"],
@@ -116,7 +129,7 @@ const stats = [
   <Experience />
   <section class="selected-section container" id="selected">
     <h2 class="serif-section-title" data-motion-reveal>
-      آخرین پروژه‌ها
+      نمونه‌کارهای منتخب
     </h2>
     <div
       class="carousel project-carousel"

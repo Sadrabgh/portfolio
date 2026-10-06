@@ -8,31 +8,32 @@ import ContactCTA from "../components/ContactCTA.astro";
 import { site, url } from "../config";
 ---
 
-<Base title="دربارهٔ طراح">
+<Base title="دربارهٔ استودیو">
   <section class="about-profile container">
     <div class="about-profile-copy">
       <div data-motion-reveal>
         <h1>{site.ownerName || "استودیو طراحی"}</h1>
         <p class="about-role">
-          طراح رابط و تجربهٔ کاربر
+          طراحی سایت فروشگاهی
           <br />
-          توسعه‌دهندهٔ وب
+          از طراحی تا اجرای وب
         </p>
       </div>
       <div class="about-biography" data-motion-reveal data-delay="100">
-        <span class="eyebrow">زندگی‌نامه</span>
+        <span class="eyebrow">دربارهٔ کار من</span>
         <p>
-          طراحی برای تجربه‌های بهتر.
-          <br />
-          از ساختار یک صفحه تا جزئیات حرکت و اجرای آن، تجربه را یکپارچه می‌سازم.
+          برای فروشگاه‌ها و کسب‌وکارها سایت طراحی و اجرا می‌کنم. هدفم این است
+          که ظاهر سایت با برند شما هماهنگ باشد، محصولات واضح معرفی شوند و
+          مشتری بتواند راحت‌تر انتخاب کند. ساختار صفحه‌ها، نسخهٔ موبایل و جزئیات
+          تعامل را در کنار هم پیش می‌برم.
         </p>
       </div>
       <div class="about-contact" data-motion-reveal data-delay="200">
         <span class="eyebrow">تماس</span>
         <a href={url("contact/")}>
-          شروع یک گفت‌وگو
+          دربارهٔ فروشگاهتان بگویید
           <br />
-          دربارهٔ پروژهٔ شما
+          شروع طراحی سایت
         </a>
         {site.email && (
           <a href={"mailto:" + site.email} dir="ltr">
@@ -43,11 +44,11 @@ import { site, url } from "../config";
       <div class="about-services" data-motion-reveal data-delay="300">
         <span class="eyebrow">حوزه‌های طراحی</span>
         {[
-          ["طراحی رابط", "01"],
-          ["توسعهٔ وب", "02"],
-          ["حرکت و تعامل", "03"],
-          ["تجربهٔ سه‌بعدی", "04"],
-          ["طراحی واکنش‌گرا", "05"],
+          ["طراحی فروشگاه آنلاین", "۰۱"],
+          ["طراحی و بازطراحی سایت", "۰۲"],
+          ["نسخهٔ موبایل و دسکتاپ", "۰۳"],
+          ["موشن و تعامل", "۰۴"],
+          ["نمایش تعاملی محصول", "۰۵"],
         ].map(([t, n]) => (
           <a href={url("services/")}>
             <span>{t}</span>

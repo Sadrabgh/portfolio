@@ -1,7 +1,7 @@
 ---
 title: پوشاک شهری RIFT
 english: RIFT
-summary: کمپین پوشاک با لوک‌بوک قابل خرید، ساخت ترکیب و مسیر کامل انتخاب تا رسید نمایشی.
+summary: فروشگاه پوشاک با کالکشن‌های تصویری، انتخاب رنگ و اندازه و مسیر سادهٔ انتخاب تا سفارش آزمایشی.
 category: commerce
 label: فروشگاه پوشاک
 previewDesktop: portfolio/luma-desktop.webp

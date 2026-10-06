@@ -11,19 +11,19 @@ const { compact = false } = Astro.props;
     <div class="footer-main container">
       <div class="footer-pitch" data-motion-reveal>
         <h2>
-          یک قدم بالاتر
+          برای فروشگاه شما،
           <br />
-          برای کسب‌وکار شما.
+          یک سایت هماهنگ با برندتان.
         </h2>
         <h2>
-          شروع با <a href={url("contact/")}>یک سلام!</a>
+          شروع با <a href={url("contact/")}>یک گفت‌وگو</a>
         </h2>
-        <p>طراحی رابط، تجربهٔ کاربر و توسعهٔ وب</p>
+        <p>طراحی و اجرای سایت فروشگاهی، از ساختار تا جزئیات تعامل</p>
         <a
           class="footer-contact"
           href={site.email ? "mailto:" + site.email : url("contact/")}
         >
-          {site.email || "دربارهٔ پروژه‌تان بگویید."}
+          {site.email || "دربارهٔ سایتتان بگویید."}
         </a>
       </div>
       <div class="footer-links" data-motion-reveal data-delay="100">
@@ -34,13 +34,14 @@ const { compact = false } = Astro.props;
         <a href={url("privacy/")}>حریم خصوصی</a>
       </div>
       <div class="footer-links" data-motion-reveal data-delay="200">
-        <h3>استودیو</h3>
+        <h3>نمونه‌های فروشگاهی</h3>
         <a href={url("work/")}>نمونه‌کارها</a>
         <a href={url("about/")}>درباره</a>
-        <a href={url("demo/atelier/")}>آتلیه نو</a>
-        <a href={url("demo/rift/")}>RIFT</a>
-        <a href={url("demo/velo/")}>VELO</a>
-        <a href={url("demo/neva/")}>نِوا</a>
+        <a href={url("demo/mora/")}>مبلمان مورا</a>
+        <a href={url("demo/avan/")}>محصولات صوتی آوان</a>
+        <a href={url("demo/rava/")}>کفش راوا</a>
+        <a href={url("demo/velia/")}>مراقبت پوست آلبا</a>
+        <a href={url("demo/rift/")}>پوشاک ریفت</a>
       </div>
     </div>
   )}

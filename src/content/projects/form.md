@@ -1,7 +1,7 @@
 ---
 title: آتلیه نو
 english: ATELIER NO
-summary: معماری با روایت تصویری، آرشیو تحریریه‌ای و مطالعات حجم، نور و ماده.
+summary: سایت استودیوی معماری با معرفی پروژه‌ها، گالری تصاویر، مطالعات سه‌بعدی و مسیر شروع همکاری.
 category: business
 label: معماری و استودیو
 previewDesktop: portfolio/form-desktop.webp

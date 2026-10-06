@@ -1,7 +1,7 @@
 ---
 title: کلینیک مفهومی نِوا
 english: NEVA
-summary: مقایسهٔ پزشک و نزدیک‌ترین زمان، تقویم هفتگی شمسی و رزرو مرحله‌ای با بازبینی روشن.
+summary: نمونهٔ سایت کلینیک با معرفی پزشکان، مقایسهٔ زمان‌ها و مسیر رزرو و مدیریت نوبت آزمایشی.
 category: healthcare
 label: پزشکی و نوبت‌دهی
 previewDesktop: portfolio/medical-desktop.webp

@@ -7,7 +7,7 @@ import { site, url } from "../config";
 
 <Base title="تماس و شروع پروژه">
   <section class="page-intro contact-intro container" data-motion-reveal>
-    <h1>بیایید دربارهٔ پروژهٔ شما گفت‌وگو کنیم.</h1>
+    <h1>برای فروشگاهتان چه سایتی می‌خواهید؟</h1>
     <SocialLinks round />
   </section>
   <section class="contact-layout container">
@@ -15,15 +15,15 @@ import { site, url } from "../config";
       <div data-motion-reveal>
         <span class="eyebrow">همکاری</span>
         <p>
-          طراحی و توسعهٔ وب
+          طراحی فروشگاه آنلاین
           <br />
-          پروژه‌های اختصاصی
+          طراحی و بازطراحی سایت
         </p>
       </div>
       <div data-motion-reveal data-delay="100">
         <span class="eyebrow">ارتباط</span>
         <a href={site.email ? "mailto:" + site.email : "#contact-form"}>
-          {site.email || "فرم شروع گفت‌وگو"}
+          {site.email || "آماده‌کردن درخواست"}
           <br />
           دربارهٔ پروژهٔ شما
         </a>
@@ -31,9 +31,9 @@ import { site, url } from "../config";
       <div data-motion-reveal data-delay="200">
         <span class="eyebrow">نمونه‌کارها</span>
         <a href={url("work/")}>
-          پنج پروژهٔ مستقل
+          مشاهدهٔ نمونه‌کارها
           <br />
-          مرور تجربه‌های طراحی
+          فروشگاه‌ها و سایت‌های معرفی
         </a>
       </div>
     </aside>
@@ -46,10 +46,10 @@ import { site, url } from "../config";
       data-motion-reveal
       data-delay="100"
     >
-      <div class="form-section-heading">دربارهٔ پروژه و هدف‌هایتان بگویید.</div>
+      <div class="form-section-heading">از فروشگاهتان و امکاناتی که نیاز دارید بگویید.</div>
       <div class="form-grid">
         <div class="form-field">
-          <label for="name">نام شما چیست؟</label>
+          <label for="name">نام شما</label>
           <input
             id="name"
             name="name"
@@ -62,7 +62,7 @@ import { site, url } from "../config";
         </div>
         <div class="form-field">
           <label for="company">
-            نام کسب‌وکار شما چیست؟ <small>اختیاری</small>
+            نام فروشگاه یا برند <small>اختیاری</small>
           </label>
           <input
             id="company"
@@ -72,7 +72,7 @@ import { site, url } from "../config";
           />
         </div>
         <div class="form-field">
-          <label for="contact">ایمیل یا شمارهٔ تماس شما؟</label>
+          <label for="contact">ایمیل یا شمارهٔ تماس</label>
           <input
             id="contact"
             name="contact"
@@ -84,7 +84,7 @@ import { site, url } from "../config";
           <p class="field-error" id="contact-error"></p>
         </div>
         <div class="form-field">
-          <label for="message">از پروژه و هدف‌هایتان بگویید.</label>
+          <label for="message">دربارهٔ سایت موردنظرتان</label>
           <textarea
             id="message"
             name="message"
@@ -97,7 +97,7 @@ import { site, url } from "../config";
         </div>
         <div class="form-field">
           <label for="timeline">
-            چه زمانی را در نظر دارید؟ <small>اختیاری</small>
+            زمان شروع پروژه <small>اختیاری</small>
           </label>
           <select id="timeline" name="timeline">
             <option>زمان مشخصی ندارم</option>
@@ -108,12 +108,12 @@ import { site, url } from "../config";
         </div>
         <div class="form-field">
           <label for="budget">
-            بودجهٔ پروژه چقدر است؟ <small>اختیاری</small>
+            بودجهٔ حدودی <small>اختیاری</small>
           </label>
           <input id="budget" name="budget" maxlength="100" />
         </div>
         <div class="form-field">
-          <label for="service">چه نوع پروژه‌ای در نظر دارید؟</label>
+          <label for="service">نوع پروژه</label>
           <select
             id="service"
             name="service"
@@ -121,10 +121,10 @@ import { site, url } from "../config";
             aria-describedby="service-error"
           >
             <option value="">انتخاب کنید</option>
-            <option value="01">سایت معرفی و کسب‌وکار</option>
-            <option value="02">سایت فروشگاهی</option>
-            <option value="03">تجربهٔ سه‌بعدی</option>
-            <option value="04">حرکت و تعامل / سایر</option>
+            <option value="01">سایت معرفی یا بازطراحی سایت</option>
+            <option value="02">فروشگاه آنلاین</option>
+            <option value="03">نمایش تعاملی محصول</option>
+            <option value="04">موشن و تعامل یا سایر خدمات</option>
           </select>
           <p class="field-error" id="service-error"></p>
         </div>
