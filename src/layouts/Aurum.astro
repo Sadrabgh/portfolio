@@ -1,0 +1,251 @@
+---
+import "../styles/aurum.css";
+import Icon from "../components/aurum/Icon.astro";
+import { products, link } from "../data/aurum";
+import { photo } from "../data/aurum-images";
+import latinFont from "../assets/avan/fonts/latin.woff2?url";
+import { url } from "../config";
+interface Props {
+  title: string;
+  page: string;
+}
+const { title, page } = Astro.props;
+const nav = [
+  ["shop/", "Shop"],
+  ["collections/", "Collections"],
+  ["story/", "About"],
+  ["journal/", "Journal"],
+];
+const runtimeProducts = await Promise.all(
+  products.map(async (p) => ({
+    ...p,
+    image: (await photo(p.id, 640)).src,
+    href: link("products/" + p.id + "/"),
+  })),
+);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#d0ded0" />
+    <meta
+      name="description"
+      content="AURUM. Modern jewelry, considered forms and a little brilliance for the everyday. Independent concept store."
+    />
+    <title>{title} — AURUM</title>
+    <link rel="icon" href={url("art/aurum/mark.svg")} />
+    <link
+      rel="preload"
+      as="font"
+      href={latinFont}
+      type="font/woff2"
+      crossorigin
+    />
+    <style
+      is:inline
+      set:html={`@font-face{font-family:Aurum;src:url("${latinFont}") format("woff2");font-weight:100 900;font-display:swap}`}
+    />
+  </head>
+  <body class="au" data-au-page={page}>
+    <a href="#au-main" class="au-skip">
+      Skip to content
+    </a>
+    <header class="au-header au-wrap">
+      <a class="au-logo" href={link()} aria-label="AURUM home">
+        AURUM
+      </a>
+      <nav class="au-nav" aria-label="Main navigation">
+        {nav.map(([path, label]) => (
+          <a
+            href={link(path)}
+            aria-current={page === path.slice(0, -1) ? "page" : undefined}
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+      <div class="au-tools">
+        <button class="au-icon" data-open="au-search" aria-label="Search">
+          <Icon name="search" />
+        </button>
+        <a
+          class="au-icon au-desktop-save"
+          href={link("saved/")}
+          aria-label="Saved pieces"
+        >
+          <Icon name="heart" />
+        </a>
+        <button class="au-icon" data-open="au-bag" aria-label="Open bag">
+          <Icon name="bag" />
+          <span class="au-count" data-bag-count hidden>
+            0
+          </span>
+        </button>
+        <button
+          class="au-icon au-menu-button"
+          data-open="au-menu"
+          aria-label="Open menu"
+        >
+          <Icon name="menu" />
+        </button>
+      </div>
+    </header>
+    <main id="au-main" tabindex="-1">
+      <slot />
+    </main>
+    <footer class="au-footer au-wrap">
+      <div class="au-footer-row">
+        <a class="au-logo" href={link()}>
+          AURUM
+        </a>
+        <nav aria-label="Footer">
+          {[
+            ["help/care/", "Care"],
+            ["help/shipping/", "Shipping"],
+            ["help/returns/", "Returns"],
+            ["help/privacy/", "Privacy"],
+            ["contact/", "Contact"],
+            ["saved/", "Saved"],
+          ].map(([path, label]) => (
+            <a href={link(path)}>{label}</a>
+          ))}
+        </nav>
+        <p>
+          A more
+          <br />
+          brilliant everyday.
+        </p>
+      </div>
+      <div class="au-footer-note">
+        <span>
+          © 2026 AURUM · Concept store. Prices and checkout are illustrative.
+        </span>
+        <a href={url("work/aurum/")}>About this project ↗</a>
+      </div>
+    </footer>
+    <dialog id="au-menu" class="au-dialog au-menu" aria-label="Menu">
+      <div class="au-dialog-head">
+        <span class="au-logo">AURUM</span>
+        <button class="au-icon" data-close aria-label="Close menu">
+          <Icon name="close" />
+        </button>
+      </div>
+      <nav>
+        {[
+          ["", "Home"],
+          ...nav,
+          ["saved/", "Saved pieces"],
+          ["contact/", "Contact"],
+        ].map(([path, label]) => (
+          <a href={link(path)}>
+            {label}
+            <Icon />
+          </a>
+        ))}
+      </nav>
+    </dialog>
+    <dialog
+      id="au-search"
+      class="au-dialog au-search-dialog"
+      aria-labelledby="au-search-title"
+    >
+      <div class="au-dialog-head">
+        <h2 id="au-search-title">Find your everyday.</h2>
+        <button class="au-icon" data-close aria-label="Close search">
+          <Icon name="close" />
+        </button>
+      </div>
+      <form action={link("shop/")} role="search">
+        <label for="au-global-query">Search pieces</label>
+        <div class="au-search-field">
+          <input
+            id="au-global-query"
+            name="q"
+            type="search"
+            placeholder="A ring, a shape, a little light…"
+            autofocus
+          />
+          <button class="au-icon" aria-label="Submit search">
+            <Icon name="arrow" />
+          </button>
+        </div>
+      </form>
+      <div class="au-popular">
+        <span>Start with a shape</span>
+        {["rings", "earrings", "necklaces"].map((c) => (
+          <a href={link("shop/?category=" + c)}>
+            {c}
+            <Icon />
+          </a>
+        ))}
+      </div>
+    </dialog>
+    <dialog
+      id="au-bag"
+      class="au-dialog au-drawer"
+      aria-labelledby="au-bag-title"
+    >
+      <div class="au-dialog-head">
+        <h2 id="au-bag-title">
+          Your bag <span data-bag-count>0</span>
+        </h2>
+        <button class="au-icon" data-close aria-label="Close bag">
+          <Icon name="close" />
+        </button>
+      </div>
+      <div data-bag-lines="drawer"></div>
+      <div class="au-drawer-bottom">
+        <div class="au-total-row">
+          <span>Subtotal</span>
+          <strong data-subtotal>$0</strong>
+        </div>
+        <p>Shipping is calculated at checkout.</p>
+        <a class="au-button" data-checkout-link href={link("checkout/")}>
+          Continue to checkout
+          <Icon />
+        </a>
+        <a class="au-text-link" href={link("cart/")}>
+          Review your bag <Icon />
+        </a>
+      </div>
+    </dialog>
+    <dialog
+      id="au-quick"
+      class="au-dialog au-quick"
+      aria-labelledby="au-quick-title"
+    >
+      <div class="au-dialog-head">
+        <span class="au-eyebrow">A closer look</span>
+        <button class="au-icon" data-close aria-label="Close product">
+          <Icon name="close" />
+        </button>
+      </div>
+      <div data-quick-body></div>
+    </dialog>
+    <p class="au-status au-sr" role="status" aria-live="polite" data-status></p>
+    <p class="au-storage-note" data-storage-note hidden>
+      Browser storage is unavailable. Choices can only be kept on this page.
+    </p>
+    <noscript>
+      <p class="au-storage-note">
+        Enable JavaScript to save pieces and try the illustrative checkout.
+        Product and information pages remain available.
+      </p>
+    </noscript>
+    <script
+      type="application/json"
+      id="au-data"
+      set:html={JSON.stringify({
+        products: runtimeProducts,
+        base: link(),
+      }).replace(/</g, "\\u003c")}
+    />
+    <script>
+      import "../scripts/aurum";
+    </script>
+  </body>
+</html>

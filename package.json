@@ -33,7 +33,8 @@
     "capture:rava": "node tests/heepzy-capture.mjs",
     "test:rava:review": "node tests/rava-review.mjs",
     "test:rava:motion": "node tests/rava-motion.mjs",
-    "test:mora": "node tests/mora-basic.mjs"
+    "test:mora": "node tests/mora-basic.mjs",
+    "test:aurum": "node tests/aurum-basic.mjs"
   },
   "dependencies": {
     "@fontsource-variable/vazirmatn": "^5.2.0",

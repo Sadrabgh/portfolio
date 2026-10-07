@@ -1,0 +1,132 @@
+---
+import { products, link, money, type Jewel } from "../../data/aurum";
+import Photo from "./Photo.astro";
+import Icon from "./Icon.astro";
+import Card from "./Card.astro";
+interface Props {
+  product: Jewel;
+}
+const { product: p } = Astro.props;
+const related = products
+  .filter((x) => x.id !== p.id)
+  .sort(
+    (a, b) =>
+      Number(b.category === p.category) - Number(a.category === p.category),
+  )
+  .slice(0, 3);
+---
+
+<div class="au-wrap au-breadcrumb">
+  <a href={link()}>Home</a>
+  <span>/</span>
+  <a href={link("shop/?category=" + p.category)}>{p.category}</a>
+  <span>/</span>
+  <span>{p.name}</span>
+</div>
+<section class="au-wrap au-product">
+  <div class="au-product-image">
+    <Photo
+      name={p.id}
+      alt={p.name + " in polished yellow gold"}
+      eager
+      sizes="(max-width: 700px) 94vw, 52vw"
+    />
+  </div>
+  <div class="au-product-copy">
+    <span class="au-eyebrow">THE EVERYDAY COLLECTION</span>
+    <h1>{p.name}</h1>
+    <span class="au-product-price">{money(p.price)}</span>
+    <p class="au-product-description">{p.description}</p>
+    <span class="au-material">{p.material}</span>
+    <form data-product-form={p.id} class="au-product-form">
+      <label>
+        {p.optionLabel}
+        <select name="option" required>
+          {p.options.length > 1 && (
+            <option value="" disabled selected>
+              Choose your {p.category === "rings" ? "size" : "length"}
+            </option>
+          )}
+          {p.options.map((o) => (
+            <option value={o}>{o}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        Quantity
+        <select name="quantity">
+          {Array.from({ length: p.stock }, (_, i) => (
+            <option value={i + 1}>{i + 1}</option>
+          ))}
+        </select>
+      </label>
+      <div class="au-product-actions">
+        <button type="submit" class="au-button">
+          Add to bag
+          <Icon name="plus" />
+        </button>
+        <button
+          class="au-icon au-save-product"
+          type="button"
+          data-save={p.id}
+          aria-label={"Save " + p.name}
+          aria-pressed="false"
+        >
+          <Icon name="heart" />
+        </button>
+      </div>
+      <p
+        class="au-form-feedback"
+        data-feedback
+        role="status"
+        aria-live="polite"
+      ></p>
+    </form>
+    <a class="au-text-link au-size-link" href={link("help/size-guide/")}>
+      Find your fit
+      <Icon />
+    </a>
+    <div class="au-product-details">
+      <details open>
+        <summary>
+          A closer look<span>+</span>
+        </summary>
+        <p>{p.detail}</p>
+      </details>
+      <details>
+        <summary>
+          A little care<span>+</span>
+        </summary>
+        <p>
+          Store separately and wipe gently after wear. Remove before swimming,
+          exercise or cleaning.
+        </p>
+        <a href={link("help/care/")}>Read the care notes ↗</a>
+      </details>
+      <details>
+        <summary>
+          Delivery & returns<span>+</span>
+        </summary>
+        <p>
+          This concept store has an illustrative checkout. No payment or
+          shipping takes place.
+        </p>
+        <a href={link("help/shipping/")}>See delivery options ↗</a>
+      </details>
+    </div>
+  </div>
+</section>
+<section class="au-wrap au-related">
+  <div class="au-section-head">
+    <h2>Good company.</h2>
+    <a class="au-text-link" href={link("shop/")}>
+      All pieces
+      <Icon />
+    </a>
+  </div>
+  <div class="au-grid">
+    {related.map((x) => (
+      <Card product={x} />
+    ))}
+  </div>
+</section>

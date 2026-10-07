@@ -1,0 +1,69 @@
+---
+import { products, categories } from "../../data/aurum";
+import Card from "./Card.astro";
+import Icon from "./Icon.astro";
+---
+
+<section class="au-wrap au-page-intro">
+  <span class="au-eyebrow">THE AURUM COLLECTION</span>
+  <h1>
+    A little
+    <br />
+    extraordinary.
+  </h1>
+  <p>Considered forms. Everyday possibilities.</p>
+</section>
+<section class="au-wrap au-catalog" data-catalog>
+  <form class="au-filter" role="search">
+    <label class="au-search-field">
+      <Icon name="search" />
+      <span class="au-sr">Search products</span>
+      <input
+        type="search"
+        name="q"
+        placeholder="Find your piece…"
+        autocomplete="off"
+      />
+    </label>
+    <label>
+      Category
+      <select name="category">
+        <option value="all">All pieces</option>
+        {categories.map((c) => (
+          <option value={c.id}>{c.name}</option>
+        ))}
+      </select>
+    </label>
+    <label>
+      Sort by
+      <select name="sort">
+        <option value="featured">Featured</option>
+        <option value="price-low">Price: low to high</option>
+        <option value="price-high">Price: high to low</option>
+        <option value="name">Name</option>
+      </select>
+    </label>
+    <button class="au-text-link" type="button" data-reset-filter>
+      Reset
+    </button>
+  </form>
+  <div class="au-result-row">
+    <p data-result-count role="status" aria-live="polite">
+      6 pieces
+    </p>
+    <span>Yellow gold / The everyday edit</span>
+  </div>
+  <div class="au-grid" data-product-grid>
+    {products.map((p) => (
+      <Card product={p} />
+    ))}
+  </div>
+  <div class="au-empty" data-empty-filter hidden>
+    <h2>A different kind of search?</h2>
+    <p>Try another name or explore the complete collection.</p>
+    <button class="au-button" data-reset-filter>
+      Show all pieces
+      <Icon />
+    </button>
+  </div>
+</section>

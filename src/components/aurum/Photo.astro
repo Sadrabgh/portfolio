@@ -1,0 +1,36 @@
+---
+import { originals, photo } from "../../data/aurum-images";
+interface Props {
+  name: string;
+  alt: string;
+  eager?: boolean;
+  sizes?: string;
+  class?: string;
+}
+const {
+  name,
+  alt,
+  eager = false,
+  sizes = "(max-width: 650px) 94vw, (max-width: 1000px) 46vw, 32vw",
+  class: className,
+} = Astro.props;
+const source = originals[name];
+const widths = [...new Set([320, 640, 960, Math.min(1400, source.width)])]
+  .filter((w) => w <= source.width)
+  .sort((a, b) => a - b);
+const variants = await Promise.all(widths.map((w) => photo(name, w)));
+const fallback = variants[Math.min(1, variants.length - 1)];
+---
+
+<img
+  class={className}
+  src={fallback.src}
+  srcset={variants.map((v, i) => v.src + " " + widths[i] + "w").join(", ")}
+  sizes={sizes}
+  width={source.width}
+  height={source.height}
+  alt={alt}
+  loading={eager ? "eager" : "lazy"}
+  fetchpriority={eager ? "high" : "auto"}
+  decoding="async"
+/>

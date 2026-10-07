@@ -1,0 +1,92 @@
+---
+import { products, categories, link } from "../../data/aurum";
+import Photo from "./Photo.astro";
+import Icon from "./Icon.astro";
+import Card from "./Card.astro";
+---
+
+<section class="au-hero au-wrap">
+  <div class="au-hero-copy">
+    <h1>
+      Small
+      <br /> pieces.
+      <br /> Big
+      <br /> presence.
+    </h1>
+    <a class="au-button" href={link("shop/")}>
+      Shop the collection
+      <Icon />
+    </a>
+    <a
+      class="au-hero-hand"
+      href={link("products/lume-ring/")}
+      aria-label="Discover the Lume Ring"
+    >
+      <Photo
+        name="hand"
+        alt="A gold ring worn with a soft sage linen sleeve"
+        sizes="(max-width: 700px) 45vw, 32vw"
+      />
+    </a>
+  </div>
+  <div class="au-hero-image">
+    <Photo
+      name="hero"
+      alt="Two sculptural gold rings on translucent mint plinths"
+      eager
+      sizes="(max-width: 700px) 94vw, 64vw"
+    />
+    <span class="au-image-note">THE EVERYDAY COLLECTION / 01</span>
+  </div>
+</section>
+<section class="au-featured au-wrap" aria-label="Featured pieces">
+  <nav class="au-category-pills" aria-label="Shop by category">
+    {categories.map((c, i) => (
+      <a
+        class:list={["au-pill", { "au-mint": i === 0 }]}
+        href={link("shop/?category=" + c.id)}
+      >
+        <Icon name={c.icon} />
+        {c.name}
+        <span class="au-sr"> — shop category</span>
+      </a>
+    ))}
+  </nav>
+  <div class="au-grid">
+    {products.slice(0, 3).map((p) => (
+      <Card product={p} />
+    ))}
+  </div>
+  <div class="au-featured-link">
+    <a class="au-text-link" href={link("shop/")}>
+      Explore all pieces
+      <Icon />
+    </a>
+  </div>
+</section>
+<section class="au-editorial" data-au-reveal>
+  <div class="au-editorial-copy">
+    <h2>
+      Made for
+      <br />
+      your everyday.
+    </h2>
+    <span class="au-short-line"></span>
+    <p>
+      Modern essentials, designed
+      <br />
+      to move with you.
+    </p>
+    <a class="au-button" href={link("story/")}>
+      Explore the story
+      <Icon />
+    </a>
+  </div>
+  <div class="au-editorial-image">
+    <Photo
+      name="campaign"
+      alt="A gold hoop worn with a pale sage shirt"
+      sizes="(max-width: 700px) 100vw, 50vw"
+    />
+  </div>
+</section>

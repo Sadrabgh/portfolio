@@ -1,0 +1,52 @@
+---
+import { link, money, type Jewel } from "../../data/aurum";
+import Photo from "./Photo.astro";
+import Icon from "./Icon.astro";
+interface Props {
+  product: Jewel;
+  saved?: boolean;
+}
+const { product: p, saved = false } = Astro.props;
+---
+
+<article
+  class="au-card"
+  data-product-card={p.id}
+  data-category={p.category}
+  data-price={p.price}
+  data-term={(p.name + " " + p.category + " " + p.description).toLowerCase()}
+  data-saved-card={saved ? p.id : undefined}
+>
+  <a
+    class="au-card-photo"
+    href={link("products/" + p.id + "/")}
+    aria-label={"View " + p.name}
+  >
+    <Photo name={p.id} alt={p.name + " on a pale mint background"} />
+  </a>
+  <button
+    class="au-save au-icon"
+    type="button"
+    data-save={p.id}
+    aria-label={"Save " + p.name}
+    aria-pressed="false"
+  >
+    <Icon name="heart" />
+  </button>
+  <div class="au-card-info">
+    <div>
+      <a class="au-card-name" href={link("products/" + p.id + "/")}>
+        {p.name}
+      </a>
+      <span>{money(p.price)}</span>
+    </div>
+    <button
+      type="button"
+      class="au-add au-icon"
+      data-quick={p.id}
+      aria-label={"Choose " + p.name}
+    >
+      <Icon name="plus" />
+    </button>
+  </div>
+</article>

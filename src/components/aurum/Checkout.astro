@@ -1,0 +1,134 @@
+---
+import { link } from "../../data/aurum";
+import Icon from "./Icon.astro";
+---
+
+<section class="au-wrap au-page-intro au-checkout-intro">
+  <span class="au-eyebrow">A CONSIDERED CHECKOUT</span>
+  <h1>Almost yours.</h1>
+  <p>Try the complete journey with example details. No payment is collected.</p>
+</section>
+<section class="au-wrap au-checkout" data-checkout>
+  <div>
+    <ol class="au-steps" aria-label="Checkout steps">
+      <li data-step="details" aria-current="step">
+        <span>01</span> Your details
+      </li>
+      <li data-step="review">
+        <span>02</span> Review
+      </li>
+    </ol>
+    <div data-checkout-empty hidden class="au-empty">
+      <h2>A little room in your bag.</h2>
+      <p>Choose a piece before starting checkout.</p>
+      <a class="au-button" href={link("shop/")}>
+        Explore the collection
+        <Icon />
+      </a>
+    </div>
+    <form data-checkout-form>
+      <fieldset disabled data-client-enable>
+        <legend>Contact & delivery</legend>
+        <div class="au-form-grid">
+          <label>
+            Full name
+            <input
+              name="name"
+              autocomplete="off"
+              required
+              maxlength="80"
+              placeholder="Alex Example"
+            />
+          </label>
+          <label>
+            Email address
+            <input
+              name="email"
+              type="email"
+              autocomplete="off"
+              required
+              maxlength="120"
+              placeholder="alex@example.com"
+            />
+          </label>
+          <label class="au-field-wide">
+            Street address
+            <input
+              name="address"
+              autocomplete="off"
+              required
+              maxlength="160"
+              placeholder="12 Example Street"
+            />
+          </label>
+          <label>
+            City
+            <input
+              name="city"
+              required
+              maxlength="80"
+              placeholder="Example City"
+            />
+          </label>
+          <label>
+            Postal code
+            <input name="postal" required maxlength="20" placeholder="12345" />
+          </label>
+        </div>
+        <label class="au-shipping">
+          Delivery option
+          <select name="shipping">
+            <option value="standard">Standard · $20 / free from $1,500</option>
+            <option value="express">Express · $35</option>
+          </select>
+        </label>
+        <label class="au-check">
+          <input type="checkbox" name="gift" /> Add gift packaging · $15
+        </label>
+        <div class="au-coupon">
+          <label>
+            Try demo code AURUM10
+            <input name="coupon" placeholder="Optional code" maxlength="20" />
+          </label>
+          <button type="button" class="au-button au-outline" data-apply-code>
+            Apply
+          </button>
+        </div>
+        <p class="au-form-feedback" data-coupon-feedback role="status"></p>
+        <button type="submit" class="au-button">
+          Review your order
+          <Icon />
+        </button>
+      </fieldset>
+    </form>
+    <section data-review hidden aria-labelledby="au-review-title">
+      <h2 id="au-review-title" tabindex="-1">
+        A final look.
+      </h2>
+      <div class="au-review-contact"></div>
+      <p class="au-note">
+        This is a demo order. Your contact details stay on this screen and are
+        not saved or sent.
+      </p>
+      <div class="au-review-actions">
+        <button class="au-button" type="button" data-place-order>
+          Place demo order
+          <Icon name="check" />
+        </button>
+        <button class="au-text-link" data-back-details type="button">
+          Edit details
+        </button>
+      </div>
+      <p class="au-form-feedback" data-order-feedback role="status"></p>
+    </section>
+  </div>
+  <aside class="au-summary">
+    <h2>Your selection.</h2>
+    <div data-summary-lines></div>
+    <div class="au-totals" data-checkout-totals></div>
+    <a class="au-text-link" href={link("cart/")}>
+      Edit your bag
+      <Icon />
+    </a>
+  </aside>
+</section>
