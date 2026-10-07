@@ -58,6 +58,14 @@ try {
   assert.equal(await page.locator("html").getAttribute("lang"), "fa");
   assert.equal(await page.locator("html").getAttribute("dir"), "rtl");
   assert.ok((await page.locator("#au-main > section").count()) >= 9);
+  assert.equal(await page.locator(".au-category-links a").count(), 3);
+  await page.evaluate(() => scrollTo(0, 550));
+  assert.ok(
+    await page
+      .locator(".au-header-shell")
+      .evaluate((el) => Math.abs(el.getBoundingClientRect().top) < 1),
+  );
+  await page.evaluate(() => scrollTo(0, 0));
   await ready();
   await page.screenshot({ path: output + "/home-full.png", fullPage: true });
   await page.emulateMedia({ reducedMotion: "no-preference" });
@@ -176,8 +184,21 @@ try {
   await fit();
   await page.getByRole("button", { name: "باز کردن منو", exact: true }).click();
   assert.ok(await page.locator("#au-menu").evaluate((el) => el.open));
+  assert.equal(
+    await page
+      .getByRole("button", { name: "باز کردن منو" })
+      .getAttribute("aria-expanded"),
+    "true",
+  );
+  assert.equal(await page.locator(".au-menu-categories a").count(), 3);
   await page.keyboard.press("Escape");
   assert.ok(!(await page.locator("#au-menu").evaluate((el) => el.open)));
+  assert.equal(
+    await page
+      .getByRole("button", { name: "باز کردن منو" })
+      .getAttribute("aria-expanded"),
+    "false",
+  );
   await page.getByRole("button", { name: "جست‌وجو", exact: true }).click();
   await page.locator("#au-global-query").fill("ساحل");
   await page

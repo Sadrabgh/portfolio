@@ -70,7 +70,7 @@ import Guides from "./Guides.astro";
     </a>
   </div>
 </section>
-<section class="au-wrap au-home-section">
+<section class="au-wrap au-home-section" data-au-reveal-group>
   <div class="au-section-head">
     <div>
       <span class="au-eyebrow">سه نگاه، یک مجموعه</span>
@@ -82,7 +82,11 @@ import Guides from "./Guides.astro";
   </div>
   <div class="au-collection-grid">
     {collections.map((c) => (
-      <a class="au-collection-card" href={link("collections/" + c.id + "/")}>
+      <a
+        class="au-collection-card"
+        data-au-reveal-item
+        href={link("collections/" + c.id + "/")}
+      >
         <Photo name={c.image} alt={c.name} />
         <div>
           <h3>{c.name}</h3>
@@ -134,7 +138,7 @@ import Guides from "./Guides.astro";
   </div>
 </section>
 <Guides />
-<section class="au-wrap au-home-section" data-au-reveal>
+<section class="au-wrap au-home-section" data-au-reveal-group>
   <div class="au-section-head">
     <div>
       <span class="au-eyebrow">پیش از انتخاب</span>
@@ -146,7 +150,11 @@ import Guides from "./Guides.astro";
   </div>
   <div class="au-journal-grid">
     {articles.slice(0, 2).map((a) => (
-      <a class="au-journal-card" href={link("journal/" + a.id + "/")}>
+      <a
+        class="au-journal-card"
+        data-au-reveal-item
+        href={link("journal/" + a.id + "/")}
+      >
         <Photo name={a.image} alt={a.title} />
         <span class="au-eyebrow">{a.tag}</span>
         <h3>

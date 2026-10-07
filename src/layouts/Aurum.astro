@@ -1,7 +1,7 @@
 ---
 import "../styles/aurum.css";
 import Icon from "../components/aurum/Icon.astro";
-import { products, link } from "../data/aurum";
+import { products, categories, link } from "../data/aurum";
 import { photo } from "../data/aurum-images";
 import arabicFont from "../assets/avan/fonts/arabic.woff2?url";
 import { categoryText } from "../data/aurum-locale";
@@ -51,51 +51,113 @@ const runtimeProducts = await Promise.all(
       is:inline
       set:html={`@font-face{font-family:Aurum;src:url("${latinFont}") format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0000-024F} @font-face{font-family:Aurum;src:url("${arabicFont}") format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+08A0-08FF,U+200C-200F,U+FB50-FDFF,U+FE70-FEFF}`}
     />
+    <script
+      is:inline
+      set:html={`try{if(location.pathname===${JSON.stringify(link())}&&!matchMedia("(prefers-reduced-motion: reduce)").matches&&!sessionStorage.getItem("aurum-intro-v1")){document.documentElement.classList.add("au-first-visit");sessionStorage.setItem("aurum-intro-v1","1")}}catch{}`}
+    />
   </head>
   <body class="au" data-au-page={page}>
     <a href="#au-main" class="au-skip">
       رفتن به محتوای اصلی
     </a>
-    <header class="au-header au-wrap">
-      <a class="au-logo" dir="ltr" href={link()} aria-label="خانهٔ آوروم">
-        AURUM
-      </a>
-      <nav class="au-nav" aria-label="منوی اصلی">
-        {nav.map(([path, label]) => (
-          <a
-            href={link(path)}
-            aria-current={page === path.slice(0, -1) ? "page" : undefined}
-          >
-            {label}
-          </a>
-        ))}
-      </nav>
-      <div class="au-tools">
-        <button class="au-icon" data-open="au-search" aria-label="جست‌وجو">
-          <Icon name="search" />
-        </button>
-        <a
-          class="au-icon au-desktop-save"
-          href={link("saved/")}
-          aria-label="علاقه‌مندی‌ها"
-        >
-          <Icon name="heart" />
-        </a>
-        <button class="au-icon" data-open="au-bag" aria-label="باز کردن سبد">
-          <Icon name="bag" />
-          <span class="au-count" data-bag-count hidden>
-            ۰
-          </span>
-        </button>
-        <button
-          class="au-icon au-menu-button"
-          data-open="au-menu"
-          aria-label="باز کردن منو"
-        >
-          <Icon name="menu" />
-        </button>
+    <div class="au-service-bar">
+      <div class="au-wrap">
+        <span>آوروم؛ جزئیات کوچک برای هر روز</span>
+        <div>
+          <a href={link("help/size-guide/")}>راهنمای اندازه</a>
+          <span aria-hidden="true">·</span>
+          <a href={link("contact/")}>همراه انتخاب شما</a>
+        </div>
       </div>
-    </header>
+    </div>
+    <span class="au-header-sentinel" aria-hidden="true"></span>
+    <div class="au-header-shell">
+      <header class="au-header au-wrap">
+        <a class="au-brand" href={link()} aria-label="خانهٔ آوروم">
+          <span class="au-logo" dir="ltr">
+            AURUM
+          </span>
+          <span class="au-brand-note">زیورآلات روزمره</span>
+        </a>
+        <nav class="au-nav" aria-label="منوی اصلی">
+          {nav.map(([path, label]) => (
+            <a
+              href={link(path)}
+              aria-current={page === path.slice(0, -1) ? "page" : undefined}
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+        <div class="au-tools">
+          <button
+            class="au-search-trigger"
+            data-open="au-search"
+            aria-label="جست‌وجو"
+            aria-haspopup="dialog"
+            aria-controls="au-search"
+            aria-expanded="false"
+          >
+            <Icon name="search" />
+            <span>جست‌وجو</span>
+          </button>
+          <a
+            class="au-icon au-desktop-save au-saved-trigger"
+            href={link("saved/")}
+            aria-label="علاقه‌مندی‌ها"
+          >
+            <Icon name="heart" />
+            <span
+              class="au-count au-saved-count"
+              data-saved-count
+              hidden
+              aria-hidden="true"
+            >
+              ۰
+            </span>
+          </a>
+          <button
+            class="au-icon au-bag-trigger"
+            data-open="au-bag"
+            aria-label="باز کردن سبد"
+            aria-haspopup="dialog"
+            aria-controls="au-bag"
+            aria-expanded="false"
+          >
+            <Icon name="bag" />
+            <span class="au-count" data-bag-count hidden aria-hidden="true">
+              ۰
+            </span>
+          </button>
+          <button
+            class="au-icon au-menu-button"
+            data-open="au-menu"
+            aria-label="باز کردن منو"
+            aria-haspopup="dialog"
+            aria-controls="au-menu"
+            aria-expanded="false"
+          >
+            <Icon name="menu" />
+          </button>
+        </div>
+      </header>
+    </div>
+    <nav class="au-category-nav" aria-label="دسته‌بندی زیورآلات">
+      <div class="au-wrap">
+        <span class="au-category-lead">کشف بر اساس فرم</span>
+        <div class="au-category-links">
+          {categories.map((category) => (
+            <a href={link("shop/?category=" + category.id)}>
+              <Icon name={category.icon} />
+              <span>{category.name}</span>
+            </a>
+          ))}
+        </div>
+        <a class="au-category-all" href={link("shop/")}>
+          همهٔ زیورآلات <Icon />
+        </a>
+      </div>
+    </nav>
     <main id="au-main" tabindex="-1">
       <slot />
     </main>
@@ -183,6 +245,17 @@ const runtimeProducts = await Promise.all(
           </a>
         ))}
       </nav>
+      <div class="au-menu-categories">
+        <span>دسته‌بندی‌ها</span>
+        <div>
+          {categories.map((category) => (
+            <a href={link("shop/?category=" + category.id)}>
+              <Icon name={category.icon} />
+              {category.name}
+            </a>
+          ))}
+        </div>
+      </div>
     </dialog>
     <dialog
       id="au-search"

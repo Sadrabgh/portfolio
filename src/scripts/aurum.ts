@@ -287,11 +287,13 @@ if (dataNode) {
   }
 
   const activeMotion = new Map<Element, Animation>();
-  function animate(el: Element, frames: Keyframe[], duration = 300) {
+  function animate(el: Element, frames: Keyframe[], duration = 300, delay = 0) {
     activeMotion.get(el)?.cancel();
     if (motion.matches) return;
     const animation = el.animate(frames, {
       duration,
+      delay,
+      fill: delay ? "backwards" : "none",
       easing: "cubic-bezier(.22,1,.36,1)",
     });
     activeMotion.set(el, animation);
@@ -417,20 +419,65 @@ if (dataNode) {
           (p?.name || "محصول"),
       );
     });
-    $$("[data-saved-card]").forEach((el) =>
-      el.toggleAttribute(
-        "hidden",
-        !saved.includes((el as HTMLElement).dataset.savedCard!),
-      ),
+    $$<HTMLElement>("[data-saved-count]").forEach((el) => {
+      const previous = Number(el.dataset.previous || 0);
+      el.textContent = number(saved.length);
+      el.toggleAttribute("hidden", saved.length === 0);
+      if (previous !== saved.length && saved.length)
+        animate(
+          el,
+          [
+            { opacity: 0.4, transform: "scale(.65)" },
+            { opacity: 1, transform: "scale(1)" },
+          ],
+          240,
+        );
+      el.dataset.previous = String(saved.length);
+    });
+    $(".au-saved-trigger")?.setAttribute(
+      "aria-label",
+      saved.length
+        ? "علاقه‌مندی‌ها، " + number(saved.length) + " محصول"
+        : "علاقه‌مندی‌ها",
+    );
+    const savedCards = $$<HTMLElement>("[data-saved-card]");
+    const savedPositions = capture(savedCards.filter((el) => !el.hidden));
+    const focusedSaved = (
+      document.activeElement as HTMLElement
+    )?.closest<HTMLElement>("[data-saved-card]");
+    savedCards.forEach((el) =>
+      el.toggleAttribute("hidden", !saved.includes(el.dataset.savedCard!)),
+    );
+    flow(
+      savedCards.filter((el) => !el.hidden),
+      savedPositions,
     );
     $("[data-saved-empty]")?.toggleAttribute("hidden", saved.length > 0);
+    if (focusedSaved?.hidden) {
+      const destination =
+        $<HTMLAnchorElement>(
+          "[data-saved-card]:not([hidden]) .au-card-photo",
+        ) || $<HTMLAnchorElement>("[data-saved-empty] a");
+      destination?.focus({ preventScroll: true });
+    }
     renderCheckout();
   }
   function renderCheckout() {
     $$("[data-summary-lines]").forEach((el) => (el.innerHTML = summaryLines()));
-    $$("[data-checkout-totals]").forEach(
-      (el) => (el.innerHTML = totalsHTML(totals())),
-    );
+    $$("[data-checkout-totals]").forEach((el) => {
+      const previous = $(".au-grand-total strong", el)?.textContent;
+      el.innerHTML = totalsHTML(totals());
+      const total = $(".au-grand-total strong", el);
+      if (total && previous && previous !== total.textContent)
+        animate(
+          total,
+          [
+            { opacity: 0.4, transform: "translateY(5px)" },
+            { opacity: 1, transform: "none" },
+          ],
+          240,
+        );
+    });
     if (!bag.length && $("[data-checkout]")) {
       $("[data-checkout-empty]")?.removeAttribute("hidden");
       $("[data-checkout-form]")?.setAttribute("hidden", "");
@@ -506,14 +553,31 @@ if (dataNode) {
     $$<HTMLDialogElement>("dialog[open]").forEach((d) => d.close());
     dialog.showModal();
     document.body.style.overflow = "hidden";
+    syncDialogTriggers();
+  }
+  function syncDialogTriggers() {
+    $$<HTMLButtonElement>("[data-open]").forEach((button) => {
+      button.setAttribute(
+        "aria-expanded",
+        String(!!$<HTMLDialogElement>("#" + button.dataset.open)?.open),
+      );
+    });
   }
   function closeDialog(dialog: HTMLDialogElement) {
     dialog.close();
     document.body.style.overflow = "";
+    syncDialogTriggers();
   }
   $$<HTMLDialogElement>("dialog").forEach((dialog) => {
+    dialog.addEventListener("cancel", () => {
+      $$<HTMLButtonElement>("[data-open]").forEach((button) => {
+        if (button.dataset.open === dialog.id)
+          button.setAttribute("aria-expanded", "false");
+      });
+    });
     dialog.addEventListener("close", () => {
       if (!$("dialog[open]")) document.body.style.overflow = "";
+      syncDialogTriggers();
     });
     dialog.addEventListener("click", (event) => {
       if (event.target === dialog) {
@@ -815,11 +879,11 @@ if (dataNode) {
       legacy,
     );
     return (
-      '<div class="au-receipt-card"><div class="au-receipt-top"><div><h2>سفارش آزمایشی ثبت شد.</h2><p>' +
+      '<div class="au-receipt-card"><div class="au-receipt-top"><div class="au-receipt-heading"><span class="au-receipt-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span><div><h2>سفارش آزمایشی ثبت شد.</h2><p>' +
       "<bdi>" +
       escape(receipt.ref) +
       "</bdi>" +
-      "</p></div><p>" +
+      "</p></div></div><p>" +
       new Intl.DateTimeFormat("fa-IR", { dateStyle: "medium" }).format(
         receipt.time,
       ) +
@@ -961,9 +1025,16 @@ if (dataNode) {
     }
   });
   render();
-  const reveals = $$<HTMLElement>("[data-au-reveal]");
-  const active = new Map<HTMLElement, Animation>();
+  const header = $(".au-header-shell");
+  const sentinel = $(".au-header-sentinel");
+  const reveals = $$<HTMLElement>("[data-au-reveal], [data-au-reveal-item]");
   if ("IntersectionObserver" in window) {
+    if (header && sentinel) {
+      const headerObserver = new IntersectionObserver(([entry]) => {
+        header.toggleAttribute("data-raised", !entry.isIntersecting);
+      });
+      headerObserver.observe(sentinel);
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -971,25 +1042,27 @@ if (dataNode) {
           const el = entry.target as HTMLElement;
           observer.unobserve(el);
           if (motion.matches) continue;
-          const animation = el.animate(
+          const isItem = el.hasAttribute("data-au-reveal-item");
+          const siblings = isItem
+            ? $$<HTMLElement>("[data-au-reveal-item]", el.parentElement!)
+            : [];
+          const delay = isItem ? Math.min(siblings.indexOf(el), 3) * 55 : 0;
+          animate(
+            el,
             [
-              { opacity: 0, transform: "translateY(14px)" },
+              {
+                opacity: 0,
+                transform: isItem ? "translateY(18px)" : "translateY(14px)",
+              },
               { opacity: 1, transform: "none" },
             ],
-            { duration: 700, easing: "cubic-bezier(.22,1,.36,1)" },
+            isItem ? 580 : 700,
+            delay,
           );
-          active.set(el, animation);
-          animation.finished.catch(() => {}).finally(() => active.delete(el));
         }
       },
       { rootMargin: "0px 0px -8% 0px", threshold: 0.1 },
     );
     reveals.forEach((el) => observer.observe(el));
-    motion.addEventListener("change", () => {
-      if (motion.matches) {
-        active.forEach((animation) => animation.cancel());
-        active.clear();
-      }
-    });
   }
 }
