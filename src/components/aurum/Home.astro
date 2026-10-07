@@ -1,30 +1,37 @@
 ---
-import { products, categories, link } from "../../data/aurum";
+import {
+  products,
+  categories,
+  collections,
+  articles,
+  faq,
+  link,
+} from "../../data/aurum";
 import Photo from "./Photo.astro";
 import Icon from "./Icon.astro";
 import Card from "./Card.astro";
+import Guides from "./Guides.astro";
 ---
 
 <section class="au-hero au-wrap">
   <div class="au-hero-copy">
     <h1>
-      Small
-      <br /> pieces.
-      <br /> Big
-      <br /> presence.
+      جزئیات
+      <br /> کوچک،
+      <br /> درخشش
+      <br /> ماندگار.
     </h1>
     <a class="au-button" href={link("shop/")}>
-      Shop the collection
-      <Icon />
+      دیدن مجموعه <Icon />
     </a>
     <a
       class="au-hero-hand"
       href={link("products/lume-ring/")}
-      aria-label="Discover the Lume Ring"
+      aria-label="کشف انگشتر روشن"
     >
       <Photo
         name="hand"
-        alt="A gold ring worn with a soft sage linen sleeve"
+        alt="انگشتر طلایی پهن در کنار آستین سبز روشن"
         sizes="(max-width: 700px) 45vw, 32vw"
       />
     </a>
@@ -32,15 +39,15 @@ import Card from "./Card.astro";
   <div class="au-hero-image">
     <Photo
       name="hero"
-      alt="Two sculptural gold rings on translucent mint plinths"
+      alt="دو انگشتر طلایی بر پایه‌های شفاف نعنایی"
       eager
       sizes="(max-width: 700px) 94vw, 64vw"
     />
-    <span class="au-image-note">THE EVERYDAY COLLECTION / 01</span>
+    <span class="au-image-note">مجموعهٔ روزمره · فصل اول</span>
   </div>
 </section>
-<section class="au-featured au-wrap" aria-label="Featured pieces">
-  <nav class="au-category-pills" aria-label="Shop by category">
+<section class="au-featured au-wrap" aria-label="منتخب مجموعه">
+  <nav class="au-category-pills" aria-label="خرید بر اساس دسته">
     {categories.map((c, i) => (
       <a
         class:list={["au-pill", { "au-mint": i === 0 }]}
@@ -48,7 +55,7 @@ import Card from "./Card.astro";
       >
         <Icon name={c.icon} />
         {c.name}
-        <span class="au-sr"> — shop category</span>
+        <span class="au-sr"> — مشاهدهٔ محصولات</span>
       </a>
     ))}
   </nav>
@@ -59,34 +66,129 @@ import Card from "./Card.astro";
   </div>
   <div class="au-featured-link">
     <a class="au-text-link" href={link("shop/")}>
-      Explore all pieces
-      <Icon />
+      تمام زیورآلات <Icon />
     </a>
+  </div>
+</section>
+<section class="au-wrap au-home-section">
+  <div class="au-section-head">
+    <div>
+      <span class="au-eyebrow">سه نگاه، یک مجموعه</span>
+      <h2>به سبک خودتان.</h2>
+    </div>
+    <a class="au-text-link" href={link("collections/")}>
+      همهٔ کالکشن‌ها <Icon />
+    </a>
+  </div>
+  <div class="au-collection-grid">
+    {collections.map((c) => (
+      <a class="au-collection-card" href={link("collections/" + c.id + "/")}>
+        <Photo name={c.image} alt={c.name} />
+        <div>
+          <h3>{c.name}</h3>
+          <Icon />
+        </div>
+        <p>{c.subtitle}</p>
+      </a>
+    ))}
   </div>
 </section>
 <section class="au-editorial" data-au-reveal>
   <div class="au-editorial-copy">
+    <span class="au-eyebrow">آوروم؛ همراه لحظه‌های ساده</span>
     <h2>
-      Made for
-      <br />
-      your everyday.
+      برای هر روزِ
+      <br /> شما.
     </h2>
     <span class="au-short-line"></span>
     <p>
-      Modern essentials, designed
-      <br />
-      to move with you.
+      فرم‌های آرام و جزئیاتی که با شما معنا پیدا می‌کنند؛ از یک صبح معمولی تا یک
+      قرار به‌یادماندنی.
     </p>
     <a class="au-button" href={link("story/")}>
-      Explore the story
-      <Icon />
+      داستان آوروم <Icon />
     </a>
   </div>
   <div class="au-editorial-image">
     <Photo
       name="campaign"
-      alt="A gold hoop worn with a pale sage shirt"
+      alt="گوشوارهٔ طلایی در کنار پیراهن سبز روشن"
       sizes="(max-width: 700px) 100vw, 50vw"
     />
   </div>
+</section>
+<section class="au-wrap au-home-section">
+  <div class="au-section-head">
+    <div>
+      <span class="au-eyebrow">از خط تا قوس</span>
+      <h2>یک جزئیات تازه.</h2>
+    </div>
+    <a class="au-text-link" href={link("shop/")}>
+      کشف مجموعه <Icon />
+    </a>
+  </div>
+  <div class="au-grid">
+    {products.slice(3).map((p) => (
+      <Card product={p} />
+    ))}
+  </div>
+</section>
+<Guides />
+<section class="au-wrap au-home-section" data-au-reveal>
+  <div class="au-section-head">
+    <div>
+      <span class="au-eyebrow">پیش از انتخاب</span>
+      <h2>یادداشت‌های آوروم.</h2>
+    </div>
+    <a class="au-text-link" href={link("journal/")}>
+      مجله <Icon />
+    </a>
+  </div>
+  <div class="au-journal-grid">
+    {articles.slice(0, 2).map((a) => (
+      <a class="au-journal-card" href={link("journal/" + a.id + "/")}>
+        <Photo name={a.image} alt={a.title} />
+        <span class="au-eyebrow">{a.tag}</span>
+        <h3>
+          {a.title}
+          <Icon />
+        </h3>
+        <p>{a.intro}</p>
+      </a>
+    ))}
+  </div>
+</section>
+<section class="au-wrap au-home-section au-faq">
+  <div>
+    <span class="au-eyebrow">پاسخ‌های کوتاه</span>
+    <h2>
+      با خیال روشن
+      <br /> انتخاب کنید.
+    </h2>
+    <a class="au-text-link" href={link("contact/")}>
+      راهنمایی بیشتر <Icon />
+    </a>
+  </div>
+  <div class="au-product-details">
+    {faq.map(([q, a]) => (
+      <details>
+        <summary>
+          {q}
+          <span>+</span>
+        </summary>
+        <p>{a}</p>
+      </details>
+    ))}
+  </div>
+</section>
+<section class="au-last-call au-wrap" data-au-reveal>
+  <span class="au-eyebrow">از یک قطعه شروع کنید</span>
+  <h2>درخشش، به سلیقهٔ شما.</h2>
+  <p>
+    یک فرم دلخواه پیدا کنید، اندازه را انتخاب کنید و مسیر سفارش آزمایشی را تجربه
+    کنید.
+  </p>
+  <a class="au-button" href={link("shop/")}>
+    انتخاب اولین قطعه <Icon />
+  </a>
 </section>

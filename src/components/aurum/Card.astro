@@ -2,6 +2,7 @@
 import { link, money, type Jewel } from "../../data/aurum";
 import Photo from "./Photo.astro";
 import Icon from "./Icon.astro";
+import { normalizeSearch, categoryText } from "../../data/aurum-locale";
 interface Props {
   product: Jewel;
   saved?: boolean;
@@ -14,21 +15,33 @@ const { product: p, saved = false } = Astro.props;
   data-product-card={p.id}
   data-category={p.category}
   data-price={p.price}
-  data-term={(p.name + " " + p.category + " " + p.description).toLowerCase()}
+  data-term={normalizeSearch(
+    p.name +
+      " " +
+      categoryText(p.category) +
+      " " +
+      p.description +
+      " " +
+      p.id.replaceAll("-", " "),
+  )}
   data-saved-card={saved ? p.id : undefined}
 >
   <a
     class="au-card-photo"
     href={link("products/" + p.id + "/")}
-    aria-label={"View " + p.name}
+    aria-label={"مشاهدهٔ " + p.name}
   >
-    <Photo name={p.id} alt={p.name + " on a pale mint background"} />
+    <Photo
+      transitionName={"aurum-product-" + p.id}
+      name={p.id}
+      alt={p.name + " بر زمینهٔ نعنایی روشن"}
+    />
   </a>
   <button
     class="au-save au-icon"
     type="button"
     data-save={p.id}
-    aria-label={"Save " + p.name}
+    aria-label={"ذخیرهٔ " + p.name}
     aria-pressed="false"
   >
     <Icon name="heart" />
@@ -44,7 +57,7 @@ const { product: p, saved = false } = Astro.props;
       type="button"
       class="au-add au-icon"
       data-quick={p.id}
-      aria-label={"Choose " + p.name}
+      aria-label={"انتخاب " + p.name}
     >
       <Icon name="plus" />
     </button>

@@ -4,6 +4,7 @@ interface Props {
   name: string;
   alt: string;
   eager?: boolean;
+  transitionName?: string;
   sizes?: string;
   class?: string;
 }
@@ -11,6 +12,7 @@ const {
   name,
   alt,
   eager = false,
+  transitionName,
   sizes = "(max-width: 650px) 94vw, (max-width: 1000px) 46vw, 32vw",
   class: className,
 } = Astro.props;
@@ -24,6 +26,9 @@ const fallback = variants[Math.min(1, variants.length - 1)];
 
 <img
   class={className}
+  style={
+    transitionName ? { "view-transition-name": transitionName } : undefined
+  }
   src={fallback.src}
   srcset={variants.map((v, i) => v.src + " " + widths[i] + "w").join(", ")}
   sizes={sizes}

@@ -55,13 +55,16 @@ try {
   ])
     await capture(name, w, h, route);
   await go("");
+  assert.equal(await page.locator("html").getAttribute("lang"), "fa");
+  assert.equal(await page.locator("html").getAttribute("dir"), "rtl");
+  assert.ok((await page.locator("#au-main > section").count()) >= 9);
   await ready();
   await page.screenshot({ path: output + "/home-full.png", fullPage: true });
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.setViewportSize({ width: 1440, height: 1000 });
   await go("shop/");
   assert.equal(await page.locator("[data-product-card]:visible").count(), 6);
-  await page.locator('[data-catalog] [name="q"]').fill("Halo");
+  await page.locator('[data-catalog] [name="q"]').fill("هاله");
   assert.equal(await page.locator("[data-product-card]:visible").count(), 1);
   await page.locator("[data-reset-filter]").first().click();
   await page.locator('[name="category"]').selectOption("necklaces");
@@ -70,32 +73,52 @@ try {
   assert.ok(await page.locator("[data-empty-filter]").isVisible());
   await go("products/lume-ring/");
   await page.locator('[name="option"]').selectOption("US 7");
-  await page.getByRole("button", { name: "Add to bag", exact: true }).click();
-  assert.match(await page.locator("[data-feedback]").innerText(), /Added/);
   await page
-    .getByRole("button", { name: "Save Lume Ring", exact: true })
+    .getByRole("button", { name: "افزودن به سبد", exact: true })
+    .click();
+  assert.match(await page.locator("[data-feedback]").innerText(), /اضافه شد/);
+  await page
+    .getByRole("button", { name: "ذخیرهٔ انگشتر روشن", exact: true })
     .click();
   await go("saved/");
   assert.equal(await page.locator("[data-saved-card]:visible").count(), 1);
   await go("cart/");
-  assert.match(await page.locator("[data-bag-lines=page]").innerText(), /US 7/);
-  await page
-    .getByRole("button", { name: "Increase Lume Ring quantity", exact: true })
-    .click();
-  assert.equal(
-    await page.locator("[data-bag-lines=page] .au-quantity span").innerText(),
-    "2",
+  assert.match(
+    await page.locator("[data-bag-lines=page]").innerText(),
+    /۷ آمریکا/,
+  );
+  await page.evaluate(
+    () =>
+      (window.__cartRow = document.querySelector(
+        "[data-bag-lines=page] [data-line-key]",
+      )),
   );
   await page
-    .getByRole("button", { name: "Decrease Lume Ring quantity", exact: true })
+    .getByRole("button", { name: "افزایش تعداد انگشتر روشن", exact: true })
     .click();
   assert.equal(
     await page.locator("[data-bag-lines=page] .au-quantity span").innerText(),
-    "1",
+    "۲",
+  );
+  assert.ok(
+    await page.evaluate(
+      () =>
+        window.__cartRow ===
+        document.querySelector("[data-bag-lines=page] [data-line-key]"),
+    ),
+  );
+  await page
+    .getByRole("button", { name: "کاهش تعداد انگشتر روشن", exact: true })
+    .click();
+  assert.equal(
+    await page.locator("[data-bag-lines=page] .au-quantity span").innerText(),
+    "۱",
   );
   await go("products/sol-necklace/");
   await page.locator('[name="option"]').selectOption("18 inch");
-  await page.getByRole("button", { name: "Add to bag", exact: true }).click();
+  await page
+    .getByRole("button", { name: "افزودن به سبد", exact: true })
+    .click();
   await go("checkout/");
   await page.locator('[name="name"]').fill("Alex Example");
   await page.locator('[name="email"]').fill("alex@example.com");
@@ -107,32 +130,34 @@ try {
   await page.locator('[name="gift"]').check();
   assert.match(
     await page.locator("[data-checkout-totals]").innerText(),
-    /\$1,752/,
+    /۷۰٬۱۱۰٬۰۰۰/,
   );
   await page
-    .getByRole("button", { name: "Review your order", exact: true })
+    .getByRole("button", { name: "بازبینی سفارش", exact: true })
     .click();
   assert.ok(await page.locator("[data-review]").isVisible());
   assert.match(
     await page.locator(".au-review-contact").innerText(),
     /Alex Example/,
   );
-  await page.getByRole("button", { name: "Edit details", exact: true }).click();
+  await page
+    .getByRole("button", { name: "ویرایش اطلاعات", exact: true })
+    .click();
   assert.equal(
     await page.locator('[name="name"]').inputValue(),
     "Alex Example",
   );
   await page
-    .getByRole("button", { name: "Review your order", exact: true })
+    .getByRole("button", { name: "بازبینی سفارش", exact: true })
     .click();
   await page.locator("[data-place-order]").click();
   await page.waitForURL("**/order/");
   assert.match(
     await page.locator("[data-receipt]").innerText(),
-    /Demo order complete/,
+    /سفارش آزمایشی ثبت شد/,
   );
-  assert.match(await page.locator("[data-receipt]").innerText(), /US 7/);
-  assert.match(await page.locator("[data-receipt]").innerText(), /18 inch/);
+  assert.match(await page.locator("[data-receipt]").innerText(), /۷ آمریکا/);
+  assert.match(await page.locator("[data-receipt]").innerText(), /۱۸ اینچ/);
   const stored = await page.evaluate(() =>
     sessionStorage.getItem("aurum-receipt-v1"),
   );
@@ -144,45 +169,43 @@ try {
   await go("cart/");
   assert.match(
     await page.locator("[data-bag-lines=page]").innerText(),
-    /Your bag is empty/,
+    /سبد شما خالی/,
   );
   await page.setViewportSize({ width: 390, height: 844 });
   await go("");
   await fit();
-  await page.getByRole("button", { name: "Open menu", exact: true }).click();
+  await page.getByRole("button", { name: "باز کردن منو", exact: true }).click();
   assert.ok(await page.locator("#au-menu").evaluate((el) => el.open));
   await page.keyboard.press("Escape");
   assert.ok(!(await page.locator("#au-menu").evaluate((el) => el.open)));
-  await page.getByRole("button", { name: "Search", exact: true }).click();
-  await page.locator("#au-global-query").fill("Cove");
+  await page.getByRole("button", { name: "جست‌وجو", exact: true }).click();
+  await page.locator("#au-global-query").fill("ساحل");
   await page
-    .getByRole("button", { name: "Submit search", exact: true })
+    .getByRole("button", { name: "انجام جست‌وجو", exact: true })
     .click();
-  await page.waitForURL("**/shop/?q=Cove");
+  await page.waitForURL("**/shop/?q=*");
   assert.equal(await page.locator("[data-product-card]:visible").count(), 1);
   await fit();
   await page
-    .getByRole("button", { name: "Choose Cove Earrings", exact: true })
+    .getByRole("button", { name: "انتخاب گوشواره ساحل", exact: true })
     .click();
   assert.ok(await page.locator("#au-quick").evaluate((el) => el.open));
   await page
     .locator("#au-quick")
-    .getByRole("button", { name: "Add to bag", exact: true })
+    .getByRole("button", { name: "افزودن به سبد", exact: true })
     .click();
-  await page
-    .getByRole("button", { name: "Close product", exact: true })
-    .click();
-  await page.getByRole("button", { name: "Open bag", exact: true }).click();
-  assert.match(await page.locator("#au-bag").innerText(), /Cove Earrings/);
+  await page.getByRole("button", { name: "بستن محصول", exact: true }).click();
+  await page.getByRole("button", { name: "باز کردن سبد", exact: true }).click();
+  assert.match(await page.locator("#au-bag").innerText(), /گوشواره ساحل/);
   await page
     .getByRole("button", {
-      name: "Increase Cove Earrings quantity",
+      name: "افزایش تعداد گوشواره ساحل",
       exact: true,
     })
     .click();
   assert.equal(
     await page.locator("#au-bag .au-quantity span").innerText(),
-    "2",
+    "۲",
   );
   await page.keyboard.press("Escape");
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -207,6 +230,8 @@ try {
     "story/",
     "journal/",
     "journal/finding-your-form/",
+    "journal/choosing-a-gift/",
+    "journal/building-a-collection/",
     "help/care/",
     "help/size-guide/",
     "contact/",
@@ -219,11 +244,11 @@ try {
   await contact.locator('[name="email"]').fill("test@example.com");
   await contact.locator('[name="message"]').fill("A demonstration request.");
   await contact
-    .getByRole("button", { name: "Preview your request", exact: true })
+    .getByRole("button", { name: "پیش‌نمایش درخواست", exact: true })
     .click();
   assert.match(
     await contact.locator("[data-contact-feedback]").innerText(),
-    /Nothing was sent/,
+    /پیام ارسال یا ذخیره نشده/,
   );
   for (const route of ["/", "/work/", "/work/aurum/"]) {
     const response = await page.goto(origin + route, {

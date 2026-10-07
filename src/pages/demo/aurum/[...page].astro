@@ -7,11 +7,13 @@ import Checkout from "../../../components/aurum/Checkout.astro";
 import Photo from "../../../components/aurum/Photo.astro";
 import Card from "../../../components/aurum/Card.astro";
 import Icon from "../../../components/aurum/Icon.astro";
+import Guides from "../../../components/aurum/Guides.astro";
 import {
   products,
   collections,
   articles,
   help,
+  faq,
   link,
 } from "../../../data/aurum";
 export function getStaticPaths() {
@@ -38,16 +40,16 @@ const collection = collections.find((c) => "collections/" + c.id === page);
 const article = articles.find((a) => "journal/" + a.id === page);
 const info = help[page.replace("help/", "")];
 const titles: Record<string, string> = {
-  "": "Small pieces. Big presence.",
-  shop: "The collection",
-  collections: "Collections",
-  story: "Our story",
-  journal: "Journal",
-  saved: "Saved pieces",
-  cart: "Your bag",
-  checkout: "Checkout",
-  order: "Your demo order",
-  contact: "A little conversation",
+  "": "جزئیات کوچک، درخشش ماندگار",
+  shop: "زیورآلات",
+  collections: "کالکشن‌ها",
+  story: "داستان آوروم",
+  journal: "مجله",
+  saved: "علاقه‌مندی‌ها",
+  cart: "سبد خرید",
+  checkout: "تکمیل سفارش",
+  order: "رسید سفارش آزمایشی",
+  contact: "همراه انتخاب شما",
 };
 ---
 
@@ -66,91 +68,112 @@ const titles: Record<string, string> = {
   {product && <Product product={product} />}
   {page === "checkout" && <Checkout />}
   {page === "collections" && (
-    <section class="au-wrap au-content-page">
-      <div class="au-page-intro">
-        <span class="au-eyebrow">CURATED, NOT COMPLICATED</span>
-        <h1>
-          Find your
-          <br />
-          kind of everyday.
-        </h1>
-        <p>Three ways into the collection. Make each one your own.</p>
-      </div>
-      <div class="au-collection-grid">
-        {collections.map((c) => (
-          <a
-            class="au-collection-card"
-            href={link("collections/" + c.id + "/")}
-          >
-            <Photo name={c.image} alt={c.name} />
-            <div>
-              <h2>{c.name}</h2>
-              <Icon />
-            </div>
-            <p>{c.subtitle}</p>
-          </a>
-        ))}
-      </div>
-    </section>
+    <>
+      <section class="au-wrap au-content-page">
+        <div class="au-page-intro">
+          <span class="au-eyebrow">منتخب‌هایی با نگاه متفاوت</span>
+          <h1>
+            روزمره،
+            <br /> به سلیقهٔ شما.
+          </h1>
+          <p>
+            سه مسیر برای کشف مجموعه. از یک فرم محبوب شروع کنید و ترکیب خودتان را
+            بسازید.
+          </p>
+        </div>
+        <div class="au-collection-grid">
+          {collections.map((c) => (
+            <a
+              class="au-collection-card"
+              href={link("collections/" + c.id + "/")}
+            >
+              <Photo name={c.image} alt={c.name} />
+              <div>
+                <h2>{c.name}</h2>
+                <Icon />
+              </div>
+              <p>{c.subtitle}</p>
+              <p>{c.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+      <Guides />
+    </>
   )}
   {collection && (
-    <section class="au-wrap au-content-page">
-      <a class="au-text-link" href={link("collections/")}>
-        ← All collections
-      </a>
-      <div class="au-collection-hero">
-        <div>
-          <span class="au-eyebrow">THE AURUM EDIT</span>
-          <h1>{collection.name}</h1>
-          <p>{collection.subtitle}</p>
+    <>
+      <section class="au-wrap au-content-page">
+        <a class="au-text-link" href={link("collections/")}>
+          → همهٔ کالکشن‌ها
+        </a>
+        <div class="au-collection-hero">
+          <div>
+            <span class="au-eyebrow">منتخب آوروم</span>
+            <h1>{collection.name}</h1>
+            <p>{collection.subtitle}</p>
+            <p>{collection.description}</p>
+            <a
+              class="au-text-link"
+              href={link("journal/building-a-collection/")}
+            >
+              راهنمای ساخت مجموعهٔ شخصی <Icon />
+            </a>
+          </div>
+          <Photo
+            name={collection.image}
+            alt={collection.name}
+            eager
+            sizes="(max-width:700px) 94vw, 55vw"
+          />
         </div>
-        <Photo
-          name={collection.image}
-          alt={collection.name}
-          eager
-          sizes="(max-width:700px) 94vw, 55vw"
-        />
-      </div>
-      <div class="au-grid">
-        {products
-          .filter((p) => collection.ids.includes(p.id))
-          .map((p) => (
-            <Card product={p} />
-          ))}
-      </div>
-    </section>
+        <div class="au-grid">
+          {products
+            .filter((p) => collection.ids.includes(p.id))
+            .map((p) => (
+              <Card product={p} />
+            ))}
+        </div>
+      </section>
+      <Guides />
+    </>
   )}
   {page === "story" && (
     <section class="au-story">
       <div class="au-wrap au-page-intro">
-        <span class="au-eyebrow">AURUM / OUR POINT OF VIEW</span>
+        <span class="au-eyebrow">آوروم؛ نگاه ما</span>
         <h1>
-          Small pieces.
-          <br />A personal world.
+          جزئیات کوچک.
+          <br /> دنیایی شخصی.
         </h1>
-        <p>Good form doesn’t need to be complicated.</p>
+        <p>سادگی، جا را برای سلیقهٔ شما باز می‌کند.</p>
       </div>
       <div class="au-editorial">
         <div class="au-editorial-copy">
           <h2>
-            Made for
-            <br />
-            your everyday.
+            برای هر روزِ
+            <br /> شما.
           </h2>
           <span class="au-short-line"></span>
           <p>
-            A soft curve, a clear line, a little light. AURUM brings considered
-            jewelry into the things you do every day.
+            یک انحنای نرم، یک خط روشن و کمی درخشش. آوروم زیورآلات را بخشی از
+            زندگی روزمره می‌بیند؛ قطعه‌هایی که کنار لباس‌های محبوب شما جا
+            می‌گیرند.
           </p>
           <p>
-            This independent concept imagines a collection that feels simple to
-            choose and personal to wear.
+            نام آوروم از واژهٔ لاتین «طلا» می‌آید. در این مجموعهٔ مستقل، رنگ
+            طلایی در کنار سبز نعنایی قرار گرفته تا گرما و آرامش را هم‌زمان روایت
+            کند.
+          </p>
+          <p>
+            این فروشگاه یک نمونه‌کار مفهومی است؛ فرم‌ها و تصاویر برای همین هویت
+            ساخته شده‌اند و مسیر انتخاب تا رسید سفارش قابل تجربه است.
           </p>
         </div>
         <div class="au-editorial-image">
           <Photo
             name="campaign"
-            alt="Understated gold hoops and a sage cotton collar"
+            alt="گوشوارهٔ سادهٔ طلایی و یقهٔ سبز روشن"
             eager
             sizes="(max-width:700px) 100vw, 50vw"
           />
@@ -159,16 +182,16 @@ const titles: Record<string, string> = {
       <div class="au-wrap au-story-notes" data-au-reveal>
         {[
           [
-            "Form first.",
-            "Clean silhouettes. Soft edges. Space for your own style.",
+            "از فرم شروع می‌کنیم.",
+            "سطح‌های صیقلی، لبه‌های نرم و تناسب‌هایی که بدون شلوغی دیده می‌شوند.",
           ],
           [
-            "A closer look.",
-            "Product information and size choices stay beside the piece.",
+            "انتخاب روشن.",
+            "مشخصات، اندازه و راهنمای نگه‌داری کنار هر قطعه قرار دارند تا انتخاب آسان‌تر شود.",
           ],
           [
-            "Your everyday.",
-            "Start with one favorite and build a collection around you.",
+            "مجموعهٔ شخصی شما.",
+            "یک قطعهٔ محبوب کافی است؛ باقی مجموعه را بر اساس زندگی و سلیقهٔ خودتان بسازید.",
           ],
         ].map(([title, text]) => (
           <div>
@@ -178,16 +201,19 @@ const titles: Record<string, string> = {
         ))}
       </div>
       <div class="au-wrap au-story-end">
-        <Photo name="hand" alt="A sculptural gold band worn with sage linen" />
+        <Photo name="hand" alt="انگشتر طلایی پهن در کنار پارچهٔ سبز روشن" />
         <div>
+          <span class="au-eyebrow">کمتر، اما انتخاب‌شده</span>
           <h2>
-            A little
-            <br />
-            brilliance.
+            درخشش
+            <br /> به سبک شما.
           </h2>
+          <p>
+            قطعه‌ای را پیدا کنید که هم به‌تنهایی دوستش دارید و هم کنار
+            انتخاب‌های دیگر شما دیده می‌شود.
+          </p>
           <a class="au-button" href={link("shop/")}>
-            Find your piece
-            <Icon />
+            کشف زیورآلات <Icon />
           </a>
         </div>
       </div>
@@ -196,13 +222,15 @@ const titles: Record<string, string> = {
   {page === "journal" && (
     <section class="au-wrap au-content-page">
       <div class="au-page-intro">
-        <span class="au-eyebrow">THE JOURNAL</span>
+        <span class="au-eyebrow">یادداشت‌های آوروم</span>
         <h1>
-          Notes for
-          <br />
-          the everyday.
+          پیش از
+          <br /> انتخاب.
         </h1>
-        <p>A little perspective before choosing your next piece.</p>
+        <p>
+          از شناخت فرم تا انتخاب هدیه و مراقبت روزمره؛ چند نگاه برای انتخابی
+          شخصی‌تر.
+        </p>
       </div>
       <div class="au-journal-grid">
         {articles.map((a) => (
@@ -220,42 +248,57 @@ const titles: Record<string, string> = {
     </section>
   )}
   {article && (
-    <article class="au-wrap au-article">
-      <a class="au-text-link" href={link("journal/")}>
-        ← All notes
-      </a>
-      <div class="au-page-intro">
-        <span class="au-eyebrow">{article.tag}</span>
-        <h1>{article.title}</h1>
-        <p>{article.intro}</p>
-      </div>
-      <Photo
-        name={article.image}
-        alt={article.title}
-        eager
-        sizes="(max-width:700px) 94vw, 80vw"
-      />
-      <div class="au-prose">
-        {article.paragraphs.map((p) => (
-          <p>{p}</p>
-        ))}
-        <a class="au-text-link" href={link("shop/")}>
-          Explore the collection
-          <Icon />
+    <>
+      <article class="au-wrap au-article">
+        <a class="au-text-link" href={link("journal/")}>
+          → همهٔ یادداشت‌ها
         </a>
-      </div>
-    </article>
+        <div class="au-page-intro">
+          <span class="au-eyebrow">{article.tag}</span>
+          <h1>{article.title}</h1>
+          <p>{article.intro}</p>
+        </div>
+        <Photo
+          name={article.image}
+          alt={article.title}
+          eager
+          sizes="(max-width:700px) 94vw, 80vw"
+        />
+        <div class="au-prose">
+          {article.paragraphs.map((p) => (
+            <p>{p}</p>
+          ))}
+          <a class="au-text-link" href={link("shop/")}>
+            کشف مجموعه <Icon />
+          </a>
+        </div>
+      </article>
+      <section class="au-wrap au-related">
+        <div class="au-section-head">
+          <h2>همراه این یادداشت.</h2>
+        </div>
+        <div class="au-grid">
+          {products
+            .filter((p) => article.related.includes(p.id))
+            .map((p) => (
+              <Card product={p} />
+            ))}
+        </div>
+      </section>
+    </>
   )}
   {page === "saved" && (
     <section class="au-wrap au-content-page">
       <div class="au-page-intro">
-        <span class="au-eyebrow">YOUR PERSONAL EDIT</span>
+        <span class="au-eyebrow">منتخب شخصی شما</span>
         <h1>
-          A little
-          <br />
-          saved brilliance.
+          برای بعد،
+          <br /> نگه دارید.
         </h1>
-        <p>Keep your favorites close. Return whenever you’re ready.</p>
+        <p>
+          قطعه‌های محبوب را کنار هم ببینید، مقایسه کنید و هر زمان آماده بودید
+          انتخاب کنید.
+        </p>
       </div>
       <div class="au-grid" data-saved-grid>
         {products.map((p) => (
@@ -263,11 +306,18 @@ const titles: Record<string, string> = {
         ))}
       </div>
       <div class="au-empty" data-saved-empty hidden>
-        <h2>Start with a favorite.</h2>
-        <p>Use the heart on any piece to add it to your edit.</p>
+        <h2>از یک قطعهٔ محبوب شروع کنید.</h2>
+        <p>قلب کنار هر محصول را بزنید تا به این مجموعه اضافه شود.</p>
         <a class="au-button" href={link("shop/")}>
-          Explore the collection
-          <Icon />
+          کشف مجموعه <Icon />
+        </a>
+      </div>
+      <div class="au-help-strip">
+        <p>
+          هنوز بین چند فرم مانده‌اید؟ راهنمای انتخاب می‌تواند شروع خوبی باشد.
+        </p>
+        <a class="au-text-link" href={link("journal/finding-your-form/")}>
+          پیدا کردن فرم دلخواه <Icon />
         </a>
       </div>
     </section>
@@ -275,30 +325,30 @@ const titles: Record<string, string> = {
   {page === "cart" && (
     <section class="au-wrap au-content-page">
       <div class="au-page-intro">
-        <span class="au-eyebrow">YOUR SELECTION</span>
+        <span class="au-eyebrow">انتخاب‌های شما</span>
         <h1>
-          Good things,
-          <br />
-          together.
+          کنار هم،
+          <br /> زیباتر.
         </h1>
-        <p>A final look before checkout.</p>
+        <p>اندازه و تعداد را بررسی کنید؛ بعد به مرحلهٔ سفارش آزمایشی بروید.</p>
       </div>
       <div class="au-cart-layout">
         <div data-bag-lines="page"></div>
         <aside class="au-summary">
-          <h2>Your bag.</h2>
+          <h2>سبد خرید.</h2>
           <div class="au-total-row">
-            <span>Subtotal</span>
-            <strong data-subtotal>$0</strong>
+            <span>جمع محصولات</span>
+            <strong data-subtotal>۰ تومان</strong>
           </div>
-          <p>Shipping and gift options at checkout.</p>
+          <p>هزینهٔ ارسال و بسته‌بندی هدیه در مرحلهٔ بعد مشخص می‌شود.</p>
           <a class="au-button" href={link("checkout/")} data-checkout-link>
-            Continue to checkout
-            <Icon />
+            تکمیل سفارش <Icon />
           </a>
           <a class="au-text-link" href={link("shop/")}>
-            Keep exploring
-            <Icon />
+            ادامهٔ انتخاب <Icon />
+          </a>
+          <a class="au-text-link" href={link("help/shipping/")}>
+            راهنمای ارسال <Icon />
           </a>
         </aside>
       </div>
@@ -307,23 +357,24 @@ const titles: Record<string, string> = {
   {page === "order" && (
     <section class="au-wrap au-order au-content-page">
       <div class="au-page-intro">
-        <span class="au-eyebrow">YOUR DEMO ORDER</span>
+        <span class="au-eyebrow">سفارش آزمایشی شما</span>
         <h1>
-          A little
-          <br />
-          well chosen.
+          انتخابی
+          <br /> به سلیقهٔ شما.
         </h1>
-        <p>
-          No payment was collected. This receipt is a preview of the complete
-          journey.
-        </p>
+        <p>این رسید نمایشی است؛ پرداخت یا ارسال واقعی انجام نشده است.</p>
       </div>
       <div data-receipt>
-        <h2>No receipt in this session.</h2>
-        <p>Start with a piece you love to try the demo checkout.</p>
+        <h2>در این نشست رسیدی ندارید.</h2>
+        <p>برای تجربهٔ مسیر سفارش، ابتدا یک قطعه انتخاب کنید.</p>
         <a class="au-button" href={link("shop/")}>
-          Explore the collection
-          <Icon />
+          کشف مجموعه <Icon />
+        </a>
+      </div>
+      <div class="au-help-strip">
+        <p>رسید بدون اطلاعات تماس در همین نشست مرورگر نگه‌داری می‌شود.</p>
+        <a class="au-text-link" href={link("help/privacy/")}>
+          حریم خصوصی <Icon />
         </a>
       </div>
     </section>
@@ -331,13 +382,23 @@ const titles: Record<string, string> = {
   {info && (
     <section class="au-wrap au-information">
       <a class="au-text-link" href={link("shop/")}>
-        ← Back to the collection
+        → بازگشت به مجموعه
       </a>
       <div class="au-page-intro">
-        <span class="au-eyebrow">A LITTLE HELP</span>
+        <span class="au-eyebrow">همراه انتخاب شما</span>
         <h1>{info.title}</h1>
         <p>{info.intro}</p>
       </div>
+      <nav class="au-help-nav" aria-label="راهنماهای خرید">
+        {Object.entries(help).map(([id, data]) => (
+          <a
+            href={link("help/" + id + "/")}
+            aria-current={page === "help/" + id ? "page" : undefined}
+          >
+            {data.title}
+          </a>
+        ))}
+      </nav>
       <div class="au-info-sections">
         {info.sections.map(([heading, text]) => (
           <section>
@@ -347,66 +408,98 @@ const titles: Record<string, string> = {
         ))}
       </div>
       <a class="au-button" href={link("contact/")}>
-        Start a conversation
-        <Icon />
+        راهنمایی بیشتر <Icon />
       </a>
     </section>
   )}
   {page === "contact" && (
-    <section class="au-wrap au-contact">
-      <div class="au-page-intro">
-        <span class="au-eyebrow">A LITTLE CONVERSATION</span>
-        <h1>
-          Let’s talk
-          <br />
-          about your piece.
-        </h1>
-        <p>A size, a detail, an idea. Start here.</p>
-        <a class="au-text-link" href={link("help/size-guide/")}>
-          Explore the size guide
-          <Icon />
-        </a>
-      </div>
-      <form data-contact-form>
-        <fieldset disabled data-client-enable>
-          <legend>Your message</legend>
-          <label>
-            Your name
-            <input
-              name="name"
-              required
-              maxlength="80"
-              placeholder="Alex Example"
-            />
-          </label>
-          <label>
-            Email
-            <input
-              name="email"
-              type="email"
-              required
-              maxlength="120"
-              placeholder="alex@example.com"
-            />
-          </label>
-          <label>
-            What’s on your mind?
-            <textarea
-              name="message"
-              required
-              rows="5"
-              maxlength="1000"
-              placeholder="Tell us a little…"
-            ></textarea>
-          </label>
-          <p class="au-note">Demo form: your message is not sent or stored.</p>
-          <button class="au-button">
-            Preview your request
-            <Icon />
-          </button>
-        </fieldset>
-        <p data-contact-feedback class="au-form-feedback" role="status"></p>
-      </form>
-    </section>
+    <>
+      <section class="au-wrap au-contact">
+        <div class="au-page-intro">
+          <span class="au-eyebrow">همراه انتخاب شما</span>
+          <h1>
+            دربارهٔ انتخابتان
+            <br /> صحبت کنیم.
+          </h1>
+          <p>
+            اندازه، یک جزئیات یا ایده‌ای برای هدیه؛ موضوع را انتخاب کنید و فرم
+            نمایشی را امتحان کنید.
+          </p>
+          <a class="au-text-link" href={link("help/size-guide/")}>
+            راهنمای اندازه <Icon />
+          </a>
+          <a class="au-text-link" href={link("help/shipping/")}>
+            ارسال و بسته‌بندی <Icon />
+          </a>
+        </div>
+        <form data-contact-form>
+          <fieldset disabled data-client-enable>
+            <legend>پیام شما</legend>
+            <label>
+              نام شما
+              <input
+                name="name"
+                required
+                maxlength="80"
+                placeholder="نام نمونه"
+              />
+            </label>
+            <label>
+              نشانی ایمیل
+              <input
+                name="email"
+                type="email"
+                dir="ltr"
+                required
+                maxlength="120"
+                placeholder="name@example.com"
+              />
+            </label>
+            <label>
+              موضوع
+              <select name="subject">
+                <option value="size">اندازه و انتخاب محصول</option>
+                <option value="gift">انتخاب هدیه</option>
+                <option value="care">نگه‌داری و مراقبت</option>
+                <option value="other">موضوع دیگر</option>
+              </select>
+            </label>
+            <label>
+              چطور می‌توانیم راهنمایی کنیم؟
+              <textarea
+                name="message"
+                required
+                rows="5"
+                maxlength="1000"
+                placeholder="کمی دربارهٔ انتخابتان بنویسید…"
+              ></textarea>
+            </label>
+            <p class="au-note">
+              فرم نمایشی است؛ پیام شما ارسال یا ذخیره نمی‌شود.
+            </p>
+            <button class="au-button">
+              پیش‌نمایش درخواست <Icon />
+            </button>
+          </fieldset>
+          <p data-contact-feedback class="au-form-feedback" role="status"></p>
+        </form>
+      </section>
+      <section class="au-wrap au-home-section au-faq">
+        <div>
+          <h2>پیش از پیام.</h2>
+        </div>
+        <div class="au-product-details">
+          {faq.map(([q, a]) => (
+            <details>
+              <summary>
+                {q}
+                <span>+</span>
+              </summary>
+              <p>{a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    </>
   )}
 </Aurum>

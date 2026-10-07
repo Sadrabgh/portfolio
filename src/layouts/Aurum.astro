@@ -3,6 +3,8 @@ import "../styles/aurum.css";
 import Icon from "../components/aurum/Icon.astro";
 import { products, link } from "../data/aurum";
 import { photo } from "../data/aurum-images";
+import arabicFont from "../assets/avan/fonts/arabic.woff2?url";
+import { categoryText } from "../data/aurum-locale";
 import latinFont from "../assets/avan/fonts/latin.woff2?url";
 import { url } from "../config";
 interface Props {
@@ -11,10 +13,10 @@ interface Props {
 }
 const { title, page } = Astro.props;
 const nav = [
-  ["shop/", "Shop"],
-  ["collections/", "Collections"],
-  ["story/", "About"],
-  ["journal/", "Journal"],
+  ["shop/", "زیورآلات"],
+  ["collections/", "کالکشن‌ها"],
+  ["story/", "داستان آوروم"],
+  ["journal/", "مجله"],
 ];
 const runtimeProducts = await Promise.all(
   products.map(async (p) => ({
@@ -26,7 +28,7 @@ const runtimeProducts = await Promise.all(
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="fa" dir="rtl">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -34,31 +36,31 @@ const runtimeProducts = await Promise.all(
     <meta name="theme-color" content="#d0ded0" />
     <meta
       name="description"
-      content="AURUM. Modern jewelry, considered forms and a little brilliance for the everyday. Independent concept store."
+      content="آوروم؛ زیورآلات مدرن، فرم‌های آرام و درخششی برای هر روز. فروشگاه مفهومی با سفارش آزمایشی."
     />
     <title>{title} — AURUM</title>
     <link rel="icon" href={url("art/aurum/mark.svg")} />
     <link
       rel="preload"
       as="font"
-      href={latinFont}
+      href={arabicFont}
       type="font/woff2"
       crossorigin
     />
     <style
       is:inline
-      set:html={`@font-face{font-family:Aurum;src:url("${latinFont}") format("woff2");font-weight:100 900;font-display:swap}`}
+      set:html={`@font-face{font-family:Aurum;src:url("${latinFont}") format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0000-024F} @font-face{font-family:Aurum;src:url("${arabicFont}") format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+08A0-08FF,U+200C-200F,U+FB50-FDFF,U+FE70-FEFF}`}
     />
   </head>
   <body class="au" data-au-page={page}>
     <a href="#au-main" class="au-skip">
-      Skip to content
+      رفتن به محتوای اصلی
     </a>
     <header class="au-header au-wrap">
-      <a class="au-logo" href={link()} aria-label="AURUM home">
+      <a class="au-logo" dir="ltr" href={link()} aria-label="خانهٔ آوروم">
         AURUM
       </a>
-      <nav class="au-nav" aria-label="Main navigation">
+      <nav class="au-nav" aria-label="منوی اصلی">
         {nav.map(([path, label]) => (
           <a
             href={link(path)}
@@ -69,26 +71,26 @@ const runtimeProducts = await Promise.all(
         ))}
       </nav>
       <div class="au-tools">
-        <button class="au-icon" data-open="au-search" aria-label="Search">
+        <button class="au-icon" data-open="au-search" aria-label="جست‌وجو">
           <Icon name="search" />
         </button>
         <a
           class="au-icon au-desktop-save"
           href={link("saved/")}
-          aria-label="Saved pieces"
+          aria-label="علاقه‌مندی‌ها"
         >
           <Icon name="heart" />
         </a>
-        <button class="au-icon" data-open="au-bag" aria-label="Open bag">
+        <button class="au-icon" data-open="au-bag" aria-label="باز کردن سبد">
           <Icon name="bag" />
           <span class="au-count" data-bag-count hidden>
-            0
+            ۰
           </span>
         </button>
         <button
           class="au-icon au-menu-button"
           data-open="au-menu"
-          aria-label="Open menu"
+          aria-label="باز کردن منو"
         >
           <Icon name="menu" />
         </button>
@@ -98,48 +100,82 @@ const runtimeProducts = await Promise.all(
       <slot />
     </main>
     <footer class="au-footer au-wrap">
-      <div class="au-footer-row">
-        <a class="au-logo" href={link()}>
-          AURUM
-        </a>
-        <nav aria-label="Footer">
-          {[
-            ["help/care/", "Care"],
-            ["help/shipping/", "Shipping"],
-            ["help/returns/", "Returns"],
-            ["help/privacy/", "Privacy"],
-            ["contact/", "Contact"],
-            ["saved/", "Saved"],
-          ].map(([path, label]) => (
-            <a href={link(path)}>{label}</a>
-          ))}
-        </nav>
-        <p>
-          A more
-          <br />
-          brilliant everyday.
-        </p>
+      <div class="au-footer-grid">
+        <div class="au-footer-brand">
+          <a class="au-logo" dir="ltr" href={link()}>
+            AURUM
+          </a>
+          <p>
+            جزئیات کوچک، درخشش ماندگار.
+            <br />
+            زیورآلاتی برای هر روزِ شما.
+          </p>
+          <a class="au-text-link" href={link("story/")}>
+            داستان آوروم <Icon />
+          </a>
+        </div>
+        {[
+          [
+            "کشف مجموعه",
+            [
+              ["shop/", "همهٔ زیورآلات"],
+              ["shop/?category=rings", "انگشتر"],
+              ["shop/?category=earrings", "گوشواره"],
+              ["shop/?category=necklaces", "گردنبند"],
+              ["collections/", "کالکشن‌ها"],
+            ],
+          ],
+          [
+            "راهنمای انتخاب",
+            [
+              ["help/size-guide/", "راهنمای اندازه"],
+              ["help/care/", "مراقبت"],
+              ["help/shipping/", "ارسال و بسته‌بندی"],
+              ["help/returns/", "بازگشت محصول"],
+              ["help/privacy/", "حریم خصوصی"],
+            ],
+          ],
+          [
+            "همراه شما",
+            [
+              ["journal/", "مجله"],
+              ["contact/", "تماس"],
+              ["saved/", "علاقه‌مندی‌ها"],
+              ["cart/", "سبد خرید"],
+              ["order/", "آخرین رسید آزمایشی"],
+            ],
+          ],
+        ].map(([heading, items]) => (
+          <nav aria-label={heading as string}>
+            <h2>{heading}</h2>
+            {(items as string[][]).map(([path, label]) => (
+              <a href={link(path)}>{label}</a>
+            ))}
+          </nav>
+        ))}
       </div>
       <div class="au-footer-note">
         <span>
-          © 2026 AURUM · Concept store. Prices and checkout are illustrative.
+          © ۲۰۲۶ آوروم · فروشگاه مفهومی. قیمت‌ها و سفارش نمایشی هستند.
         </span>
-        <a href={url("work/aurum/")}>About this project ↗</a>
+        <a href={url("work/aurum/")}>دربارهٔ این نمونه‌کار ↖</a>
       </div>
     </footer>
-    <dialog id="au-menu" class="au-dialog au-menu" aria-label="Menu">
+    <dialog id="au-menu" class="au-dialog au-menu" aria-label="منو">
       <div class="au-dialog-head">
-        <span class="au-logo">AURUM</span>
-        <button class="au-icon" data-close aria-label="Close menu">
+        <span class="au-logo" dir="ltr">
+          AURUM
+        </span>
+        <button class="au-icon" data-close aria-label="بستن منو">
           <Icon name="close" />
         </button>
       </div>
       <nav>
         {[
-          ["", "Home"],
+          ["", "خانه"],
           ...nav,
-          ["saved/", "Saved pieces"],
-          ["contact/", "Contact"],
+          ["saved/", "علاقه‌مندی‌ها"],
+          ["contact/", "تماس"],
         ].map(([path, label]) => (
           <a href={link(path)}>
             {label}
@@ -154,31 +190,31 @@ const runtimeProducts = await Promise.all(
       aria-labelledby="au-search-title"
     >
       <div class="au-dialog-head">
-        <h2 id="au-search-title">Find your everyday.</h2>
-        <button class="au-icon" data-close aria-label="Close search">
+        <h2 id="au-search-title">قطعهٔ دلخواهتان را پیدا کنید.</h2>
+        <button class="au-icon" data-close aria-label="بستن جست‌وجو">
           <Icon name="close" />
         </button>
       </div>
       <form action={link("shop/")} role="search">
-        <label for="au-global-query">Search pieces</label>
+        <label for="au-global-query">جست‌وجوی زیورآلات</label>
         <div class="au-search-field">
           <input
             id="au-global-query"
             name="q"
             type="search"
-            placeholder="A ring, a shape, a little light…"
+            placeholder="نام محصول، یک فرم، کمی درخشش…"
             autofocus
           />
-          <button class="au-icon" aria-label="Submit search">
+          <button class="au-icon" aria-label="انجام جست‌وجو">
             <Icon name="arrow" />
           </button>
         </div>
       </form>
       <div class="au-popular">
-        <span>Start with a shape</span>
+        <span>از یک فرم شروع کنید</span>
         {["rings", "earrings", "necklaces"].map((c) => (
           <a href={link("shop/?category=" + c)}>
-            {c}
+            {categoryText(c)}
             <Icon />
           </a>
         ))}
@@ -191,25 +227,25 @@ const runtimeProducts = await Promise.all(
     >
       <div class="au-dialog-head">
         <h2 id="au-bag-title">
-          Your bag <span data-bag-count>0</span>
+          سبد خرید شما <span data-bag-count>۰</span>
         </h2>
-        <button class="au-icon" data-close aria-label="Close bag">
+        <button class="au-icon" data-close aria-label="بستن سبد">
           <Icon name="close" />
         </button>
       </div>
       <div data-bag-lines="drawer"></div>
       <div class="au-drawer-bottom">
         <div class="au-total-row">
-          <span>Subtotal</span>
-          <strong data-subtotal>$0</strong>
+          <span>جمع محصولات</span>
+          <strong data-subtotal>۰ تومان</strong>
         </div>
-        <p>Shipping is calculated at checkout.</p>
+        <p>هزینهٔ ارسال در مرحلهٔ تکمیل سفارش محاسبه می‌شود.</p>
         <a class="au-button" data-checkout-link href={link("checkout/")}>
-          Continue to checkout
+          تکمیل سفارش
           <Icon />
         </a>
         <a class="au-text-link" href={link("cart/")}>
-          Review your bag <Icon />
+          بررسی سبد <Icon />
         </a>
       </div>
     </dialog>
@@ -219,8 +255,8 @@ const runtimeProducts = await Promise.all(
       aria-labelledby="au-quick-title"
     >
       <div class="au-dialog-head">
-        <span class="au-eyebrow">A closer look</span>
-        <button class="au-icon" data-close aria-label="Close product">
+        <span class="au-eyebrow">نگاهی نزدیک‌تر</span>
+        <button class="au-icon" data-close aria-label="بستن محصول">
           <Icon name="close" />
         </button>
       </div>
@@ -228,12 +264,12 @@ const runtimeProducts = await Promise.all(
     </dialog>
     <p class="au-status au-sr" role="status" aria-live="polite" data-status></p>
     <p class="au-storage-note" data-storage-note hidden>
-      Browser storage is unavailable. Choices can only be kept on this page.
+      ذخیره‌سازی مرورگر در دسترس نیست. انتخاب‌ها فقط در همین صفحه باقی می‌مانند.
     </p>
     <noscript>
       <p class="au-storage-note">
-        Enable JavaScript to save pieces and try the illustrative checkout.
-        Product and information pages remain available.
+        برای ذخیرهٔ انتخاب‌ها و تجربهٔ سفارش آزمایشی، جاوااسکریپت را فعال کنید.
+        صفحات محصولات و راهنما همچنان قابل مشاهده‌اند.
       </p>
     </noscript>
     <script

@@ -4,47 +4,50 @@ import Icon from "./Icon.astro";
 ---
 
 <section class="au-wrap au-page-intro au-checkout-intro">
-  <span class="au-eyebrow">A CONSIDERED CHECKOUT</span>
-  <h1>Almost yours.</h1>
-  <p>Try the complete journey with example details. No payment is collected.</p>
+  <span class="au-eyebrow">انتخاب‌های شما، مرحلهٔ آخر</span>
+  <h1>کمی تا تکمیل انتخاب.</h1>
+  <p>
+    با اطلاعات نمونه، مسیر کامل سفارش را تجربه کنید. پرداخت واقعی انجام نمی‌شود.
+  </p>
 </section>
 <section class="au-wrap au-checkout" data-checkout>
   <div>
-    <ol class="au-steps" aria-label="Checkout steps">
+    <ol class="au-steps" aria-label="مراحل سفارش">
       <li data-step="details" aria-current="step">
-        <span>01</span> Your details
+        <span>۰۱</span> اطلاعات شما
       </li>
       <li data-step="review">
-        <span>02</span> Review
+        <span>۰۲</span> بازبینی
       </li>
     </ol>
     <div data-checkout-empty hidden class="au-empty">
-      <h2>A little room in your bag.</h2>
-      <p>Choose a piece before starting checkout.</p>
+      <h2>سبدتان هنوز خالی است.</h2>
+      <p>ابتدا یک قطعه انتخاب کنید، سپس سفارش را ادامه دهید.</p>
       <a class="au-button" href={link("shop/")}>
-        Explore the collection
+        کشف مجموعه
         <Icon />
       </a>
     </div>
     <form data-checkout-form>
       <fieldset disabled data-client-enable>
-        <legend>Contact & delivery</legend>
+        <legend>تماس و نشانی</legend>
         <div class="au-form-grid">
           <label>
-            Full name
+            نام و نام خانوادگی
             <input
               name="name"
               autocomplete="off"
               required
               maxlength="80"
-              placeholder="Alex Example"
+              placeholder="نام نمونه"
             />
           </label>
           <label>
-            Email address
+            نشانی ایمیل
             <input
               name="email"
               type="email"
+              dir="ltr"
               autocomplete="off"
               required
               maxlength="120"
@@ -52,82 +55,89 @@ import Icon from "./Icon.astro";
             />
           </label>
           <label class="au-field-wide">
-            Street address
+            نشانی خیابان
             <input
               name="address"
               autocomplete="off"
               required
               maxlength="160"
-              placeholder="12 Example Street"
+              placeholder="خیابان نمونه، پلاک ۱۲"
             />
           </label>
           <label>
-            City
+            شهر
             <input
               name="city"
               required
               maxlength="80"
-              placeholder="Example City"
+              placeholder="شهر نمونه"
             />
           </label>
           <label>
-            Postal code
-            <input name="postal" required maxlength="20" placeholder="12345" />
+            کد پستی
+            <input name="postal" required maxlength="20" placeholder="۱۲۳۴۵" />
           </label>
         </div>
         <label class="au-shipping">
-          Delivery option
+          روش ارسال
           <select name="shipping">
-            <option value="standard">Standard · $20 / free from $1,500</option>
-            <option value="express">Express · $35</option>
+            <option value="standard">
+              عادی · ۱۲۰٬۰۰۰ تومان؛ رایگان از ۶۰ میلیون
+            </option>
+            <option value="express">سریع · ۲۴۰٬۰۰۰ تومان</option>
           </select>
         </label>
         <label class="au-check">
-          <input type="checkbox" name="gift" /> Add gift packaging · $15
+          <input type="checkbox" name="gift" /> بسته‌بندی هدیه · ۱۸۰٬۰۰۰ تومان
         </label>
         <div class="au-coupon">
           <label>
-            Try demo code AURUM10
-            <input name="coupon" placeholder="Optional code" maxlength="20" />
+            کد نمایشی AURUM10
+            <input
+              name="coupon"
+              dir="ltr"
+              placeholder="کد اختیاری"
+              maxlength="20"
+            />
           </label>
           <button type="button" class="au-button au-outline" data-apply-code>
-            Apply
+            اعمال کد
           </button>
         </div>
         <p class="au-form-feedback" data-coupon-feedback role="status"></p>
         <button type="submit" class="au-button">
-          Review your order
+          بازبینی سفارش
           <Icon />
         </button>
       </fieldset>
     </form>
     <section data-review hidden aria-labelledby="au-review-title">
       <h2 id="au-review-title" tabindex="-1">
-        A final look.
+        یک نگاه پیش از ثبت.
       </h2>
       <div class="au-review-contact"></div>
       <p class="au-note">
-        This is a demo order. Your contact details stay on this screen and are
-        not saved or sent.
+        این سفارش آزمایشی است. اطلاعات تماس فقط روی همین صفحه نمایش داده می‌شوند
+        و ذخیره یا ارسال نمی‌شوند.
       </p>
       <div class="au-review-actions">
         <button class="au-button" type="button" data-place-order>
-          Place demo order
+          ثبت سفارش آزمایشی
           <Icon name="check" />
         </button>
         <button class="au-text-link" data-back-details type="button">
-          Edit details
+          ویرایش اطلاعات
         </button>
       </div>
       <p class="au-form-feedback" data-order-feedback role="status"></p>
     </section>
   </div>
   <aside class="au-summary">
-    <h2>Your selection.</h2>
+    <h2>انتخاب‌های شما.</h2>
     <div data-summary-lines></div>
     <div class="au-totals" data-checkout-totals></div>
     <a class="au-text-link" href={link("cart/")}>
-      Edit your bag
+      ویرایش سبد
       <Icon />
     </a>
   </aside>

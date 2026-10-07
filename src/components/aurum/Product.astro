@@ -3,6 +3,8 @@ import { products, link, money, type Jewel } from "../../data/aurum";
 import Photo from "./Photo.astro";
 import Icon from "./Icon.astro";
 import Card from "./Card.astro";
+import Guides from "./Guides.astro";
+import { optionText, categoryText, number } from "../../data/aurum-locale";
 interface Props {
   product: Jewel;
 }
@@ -17,23 +19,24 @@ const related = products
 ---
 
 <div class="au-wrap au-breadcrumb">
-  <a href={link()}>Home</a>
+  <a href={link()}>خانه</a>
   <span>/</span>
-  <a href={link("shop/?category=" + p.category)}>{p.category}</a>
+  <a href={link("shop/?category=" + p.category)}>{categoryText(p.category)}</a>
   <span>/</span>
   <span>{p.name}</span>
 </div>
 <section class="au-wrap au-product">
   <div class="au-product-image">
     <Photo
+      transitionName={"aurum-product-" + p.id}
       name={p.id}
-      alt={p.name + " in polished yellow gold"}
+      alt={p.name + " با سطح طلایی صیقلی"}
       eager
       sizes="(max-width: 700px) 94vw, 52vw"
     />
   </div>
   <div class="au-product-copy">
-    <span class="au-eyebrow">THE EVERYDAY COLLECTION</span>
+    <span class="au-eyebrow">مجموعهٔ روزمره</span>
     <h1>{p.name}</h1>
     <span class="au-product-price">{money(p.price)}</span>
     <p class="au-product-description">{p.description}</p>
@@ -44,32 +47,32 @@ const related = products
         <select name="option" required>
           {p.options.length > 1 && (
             <option value="" disabled selected>
-              Choose your {p.category === "rings" ? "size" : "length"}
+              انتخاب {p.category === "rings" ? "اندازه" : "طول"}
             </option>
           )}
           {p.options.map((o) => (
-            <option value={o}>{o}</option>
+            <option value={o}>{optionText(o)}</option>
           ))}
         </select>
       </label>
       <label>
-        Quantity
+        تعداد
         <select name="quantity">
           {Array.from({ length: p.stock }, (_, i) => (
-            <option value={i + 1}>{i + 1}</option>
+            <option value={i + 1}>{number(i + 1)}</option>
           ))}
         </select>
       </label>
       <div class="au-product-actions">
         <button type="submit" class="au-button">
-          Add to bag
+          افزودن به سبد
           <Icon name="plus" />
         </button>
         <button
           class="au-icon au-save-product"
           type="button"
           data-save={p.id}
-          aria-label={"Save " + p.name}
+          aria-label={"ذخیرهٔ " + p.name}
           aria-pressed="false"
         >
           <Icon name="heart" />
@@ -83,44 +86,52 @@ const related = products
       ></p>
     </form>
     <a class="au-text-link au-size-link" href={link("help/size-guide/")}>
-      Find your fit
+      راهنمای اندازه
       <Icon />
     </a>
     <div class="au-product-details">
       <details open>
         <summary>
-          A closer look<span>+</span>
+          نگاهی نزدیک‌تر<span>+</span>
         </summary>
         <p>{p.detail}</p>
+        <dl class="au-specs">
+          {p.specs.map(([label, value]) => (
+            <div>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))}
+        </dl>
       </details>
       <details>
         <summary>
-          A little care<span>+</span>
+          مراقبت روزمره<span>+</span>
         </summary>
         <p>
-          Store separately and wipe gently after wear. Remove before swimming,
-          exercise or cleaning.
+          هر قطعه را جداگانه نگه دارید و پس از استفاده با پارچهٔ نرم تمیز کنید.
+          پیش از شنا، ورزش یا کار با مواد شوینده، زیورآلات را کنار بگذارید.
         </p>
-        <a href={link("help/care/")}>Read the care notes ↗</a>
+        <a href={link("help/care/")}>راهنمای مراقبت ↖</a>
       </details>
       <details>
         <summary>
-          Delivery & returns<span>+</span>
+          ارسال و بازگشت<span>+</span>
         </summary>
         <p>
-          This concept store has an illustrative checkout. No payment or
-          shipping takes place.
+          سفارش در این فروشگاه آزمایشی است. می‌توانید ارسال و بسته‌بندی را
+          انتخاب کنید؛ پرداخت و ارسال واقعی انجام نمی‌شود.
         </p>
-        <a href={link("help/shipping/")}>See delivery options ↗</a>
+        <a href={link("help/shipping/")}>گزینه‌های ارسال ↖</a>
       </details>
     </div>
   </div>
 </section>
 <section class="au-wrap au-related">
   <div class="au-section-head">
-    <h2>Good company.</h2>
+    <h2>در کنار این قطعه.</h2>
     <a class="au-text-link" href={link("shop/")}>
-      All pieces
+      تمام زیورآلات
       <Icon />
     </a>
   </div>
@@ -130,3 +141,5 @@ const related = products
     ))}
   </div>
 </section>
+
+<Guides />

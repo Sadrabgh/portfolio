@@ -1,30 +1,38 @@
-# AURUM — Mint studio
+# AURUM — Persian mint storefront
 
-Approved direction: the user's mint storefront concept, 2026-10-07. Complete concept store with illustrative checkout; no real payments or external form submissions.
+Approved visual direction: the user's original mint storefront concept, 2026-10-07. A complete, independent Persian concept store with an illustrative order journey.
 
 ## Visual system
 
 - Off-white #f7f8f4, sage-mint #d0ded0, ink #141613, secondary text #566052, focus #32573e.
-- Local variable Latin font already present in the project, clean sans typography; no remote font requests.
-- Wide asymmetrical hero, four-line title, small lifestyle image, three pill category links, three featured cards, split editorial story, quiet compact footer.
-- Media radius 24px, pills 999px, thin 1px rules, spacious 8px rhythm, up to 1400px content width.
-- English storefront matching the selected artboard. Persian case-study copy for the main portfolio.
-- Six concept products, three categories, three curated collections, product pages, saved items, bag, checkout/review/receipt, story, two journal articles and help/contact pages.
+- Local Vazirmatn Arabic/Persian and Latin variable fonts, with Unicode subsets and the Persian font preloaded. Persian reading order, logical spacing, left-side cart drawer and forward arrows pointing left. The AURUM wordmark and order/coupon codes retain their Latin spelling.
+- Asymmetrical hero, bold Persian headline, gold product photography, rounded media, pill categories and split editorial compositions continue the approved theme.
+- Homepage: hero, selected pieces, three collections, brand campaign, three more pieces, selection guides, journal, shopping FAQ and final collection link. The footer links all shopping and support destinations.
+- Six individual products and product pages with translated variant choices, concept specifications, care and delivery information, three curated collections, brand story, four substantive journal articles with related products, five help pages, contact preview, saved items, editable bag, two-step checkout and anonymous receipt. 28 storefront routes; the project case is separate.
+- No fabricated reviews, awards, external social/app links, real payment forms or contact submissions.
+- Illustrative prices in toman are independent sample values, not an exchange-rate conversion or a gold-price quote. Standard delivery 120,000; express 240,000; gift packaging 180,000. Standard delivery free when the discounted product total reaches 60,000,000 toman.
 
 ## Motion decisions
 
-- Immediate press and focus feedback. Fine-pointer image hover 400ms, press 130ms. Core mobile controls keep a 44px touch target.
-- Search and mobile-menu dialogs: 260ms enter / 160ms exit; interruptible CSS transitions with native dialog focus handling, @starting-style and discrete display/overlay transitions. Older browsers retain native open/close without blocking focus.
-- Cart drawer: 300ms enter / 180ms exit, from the right-side bag trigger.
-- Product UI and above-fold hero are immediately visible. Only editorial marketing blocks reveal once over 700ms, 14px travel.
-- Respect reduced motion in JavaScript and CSS, retaining restrained color/opacity feedback. Native scrolling, no looping decoration.
+- Product controls and above-fold content remain available immediately. Native scrolling throughout.
+- Native same-origin page transitions: 160ms page crossfade, 420ms shared product-image continuity from card to detail page. Unsupported browsers use ordinary navigation.
+- Fine-pointer desktop hero has restrained CSS scroll-driven image depth, with a native view timeline and no JavaScript frame loop. Unsupported browsers keep a static image.
+- Marketing narrative sections reveal once over 700ms, 14px travel. Catalog cards and purchasing controls are not gated behind a reveal.
+- Keyed bag rows preserve DOM identity and focus during quantity updates. Count feedback 180ms; bag-row and filter/sort reflow use interruptible transform/opacity animations, 360ms movement / 240ms introduction. State changes synchronously.
+- Native modal enter/exit 260/160ms; left drawer 300/180ms. CSS discrete transitions pair display, overlay and backdrop; native dialog provides focus and Escape handling.
+- Checkout review/back feedback 260ms. Confirmation buttons hold their width while text changes and retain focus. Fine-pointer image hover 450ms, press 130ms, immediate active state.
+- Reduced-motion preference disables geometric movement, scroll depth and cross-document transitions. JavaScript animations cancel if the preference changes. No looping decoration, sound or permanent will-change.
+
+## Persistence
+
+Existing bag and saved-item IDs/options stay compatible. Only displayed variant labels change. New anonymous receipts snapshot unit prices and currency. Old dollar receipts remain dollar receipts and are labeled as belonging to the previous version; localization never silently changes their currency. Contact details are displayed only for order review and are neither persisted nor sent.
 
 ## Guidance applied
 
-ui-ux-pro-max design-system query was reviewed; its vibrant blocks, urgency-orange palette and serif typography did not fit the selected reference and were not persisted. The explicit Minimalism & Swiss Style retry supplied general grid/hierarchy/contrast guidance, rather than a jewelry-specific match. Astro stack guidance applied where compatible with the installed Astro 5: responsive build-time images, fixed media dimensions and lazy loading below the fold. ui-animation decision framework, transition recipes and scroll guidance inform the motion timings above.
+ui-ux-pro-max Minimalism & Swiss Style and compatible Astro guidance supplied general grid, typography, build-time image and responsive-media recommendations. Its broad RTL searches returned unrelated guidance; no specialized RTL claim is based on those results. RTL implementation follows the actual reading direction, logical CSS and browser verification. ui-animation decision framework, transition recipes, contextual motion and scroll guidance inform the interaction decisions.
 
-## Validation scope
+Native CSS references: [cross-document transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@view-transition), [animation timelines](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation-timeline). These are progressive enhancements.
 
-Basic Astro check/build plus desktop/mobile browser checks, search/category filter, variant selection, saved items, bag quantities, checkout/review/receipt, menu/search dialog and reduced-motion behavior. No exhaustive performance audit requested.
+## Validation
 
-Validated: Astro check, 0 errors/warnings/hints; production build, 209 pages. `tests/aurum-basic.mjs` passed desktop 1440px, mobile 390px and narrow 320px layout checks, category/search/empty state, selected ring size and necklace length through anonymous receipt, quantity editing, discount/shipping/gift arithmetic, mobile dialogs and quick add, reduced-motion behavior, demo contact form and main portfolio links. Browser emulation was used; no claim of a physical-device run. Real UI captures and the basic report are in `output/aurum/`.
+Basic Astro check/build and desktop/mobile checks only, per user preference. Current Astro check: 253 files, zero errors/warnings/hints. Production build: 211 pages across the portfolio. Browser checks and actual Persian interface captures are saved in output/aurum; no physical-device or exhaustive performance-audit claim.

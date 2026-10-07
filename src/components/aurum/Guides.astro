@@ -1,0 +1,50 @@
+---
+import { link } from "../../data/aurum";
+import Photo from "./Photo.astro";
+import Icon from "./Icon.astro";
+---
+
+<section class="au-guide-band au-wrap" data-au-reveal>
+  <a
+    class="au-guide-photo"
+    href={link("journal/choosing-a-gift/")}
+    aria-label="راهنمای انتخاب هدیه"
+  >
+    <Photo name="hand" alt="یک انگشتر صیقلی با فرم نرم" />
+  </a>
+  <div>
+    <span class="au-eyebrow">انتخابی که به شما می‌آید</span>
+    <h2>سلیقه، در جزئیات.</h2>
+    <p>
+      برای خودتان یا کسی که دوستش دارید؛ فرم، اندازه و شیوهٔ نگه‌داری را بشناسید
+      و آگاهانه انتخاب کنید.
+    </p>
+    <div class="au-guide-links">
+      {[
+        [
+          "help/size-guide/",
+          "اندازهٔ مناسب",
+          "اندازهٔ انگشتر و طول گردنبند را بررسی کنید.",
+        ],
+        [
+          "journal/choosing-a-gift/",
+          "هدیه‌ای شخصی",
+          "با توجه به سبک پوشش و قطعه‌های محبوب انتخاب کنید.",
+        ],
+        [
+          "help/care/",
+          "مراقبت روزمره",
+          "چند عادت ساده برای نگه‌داری بهتر از زیورآلات.",
+        ],
+      ].map(([path, title, text]) => (
+        <a href={link(path)}>
+          <div>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+          <Icon />
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

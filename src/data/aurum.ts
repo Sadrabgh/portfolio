@@ -1,11 +1,6 @@
 import { url } from "../config";
+export { money } from "./aurum-locale";
 export const link = (path = "") => url("demo/aurum/" + path.replace(/^\//, ""));
-export const money = (amount: number) =>
-  new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-  }).format(amount);
 export type Category = "rings" | "earrings" | "necklaces";
 export interface Jewel {
   id: string;
@@ -18,117 +13,148 @@ export interface Jewel {
   material: string;
   options: string[];
   optionLabel: string;
+  specs: [string, string][];
 }
 export const categories = [
-  { id: "rings", name: "Rings", icon: "ring" },
-  { id: "earrings", name: "Earrings", icon: "earring" },
-  { id: "necklaces", name: "Necklaces", icon: "necklace" },
+  { id: "rings", name: "انگشتر", icon: "ring" },
+  { id: "earrings", name: "گوشواره", icon: "earring" },
+  { id: "necklaces", name: "گردنبند", icon: "necklace" },
 ];
 export const products: Jewel[] = [
   {
     id: "lume-ring",
-    name: "Lume Ring",
+    name: "انگشتر روشن",
     category: "rings",
-    price: 980,
+    price: 39800000,
     stock: 6,
-    description:
-      "A little light, shaped around you. A flowing gold band with a softly sculpted edge.",
+    description: "فرمی نرم و روان، برای درخششی که هر روز همراه شماست.",
     detail:
-      "A wide, curved profile with a smooth interior. Wear it alone, let the shape do the talking.",
-    material: "Polished yellow gold · concept design",
+      "لبهٔ موج‌دار و سطح صیقلی این انگشتر، نور را از هر زاویه به شکلی تازه بازتاب می‌دهند. فرم پهن آن به‌تنهایی دیده می‌شود و در کنار قطعه‌های ظریف، تعادل خوبی می‌سازد.",
+    material: "طلای زرد صیقلی · مشخصات مفهومی",
     options: ["US 5", "US 6", "US 7", "US 8"],
-    optionLabel: "Ring size",
+    optionLabel: "اندازهٔ انگشتر",
+    specs: [
+      ["فرم", "حلقهٔ پهن با لبهٔ موج‌دار"],
+      ["پرداخت", "صیقلی و یکدست"],
+      ["انتخاب اندازه", "چهار اندازهٔ نمونه"],
+    ],
   },
   {
     id: "cove-earrings",
-    name: "Cove Earrings",
+    name: "گوشواره ساحل",
     category: "earrings",
-    price: 1180,
+    price: 47600000,
     stock: 8,
-    description:
-      "Your everyday pair, with a little more presence. Rounded oval hoops in warm gold.",
+    description: "حلقه‌های بیضی با خطوط نرم؛ انتخابی ساده با حضوری مشخص.",
     detail:
-      "A matching pair of oval hoops with a clean hinged closure. Designed to frame the everyday.",
-    material: "Polished yellow gold · concept design",
+      "یک جفت گوشواره با فرم بیضی، سطح صاف و اتصال لولایی. کنار یقه‌های ساده یا با گردنبندی ظریف، همان جزئیات کوچکی هستند که استایل را کامل می‌کنند.",
+    material: "طلای زرد صیقلی · مشخصات مفهومی",
     options: ["One size"],
-    optionLabel: "Size",
+    optionLabel: "اندازه",
+    specs: [
+      ["تعداد", "یک جفت"],
+      ["فرم", "حلقهٔ بیضی"],
+      ["نوع اتصال", "لولایی"],
+    ],
   },
   {
     id: "sol-necklace",
-    name: "Sol Necklace",
+    name: "گردنبند خورشید",
     category: "necklaces",
-    price: 950,
+    price: 37900000,
     stock: 7,
-    description:
-      "A small circle of sunshine. A simple gold disc on a fine, considered chain.",
+    description: "یک دایرهٔ کوچک از نور، روی زنجیری ظریف و آرام.",
     detail:
-      "An unengraved round pendant and a fine chain. Choose a length to find your own balance.",
-    material: "Polished yellow gold · concept design",
+      "آویز گرد بدون حکاکی، با سطحی روشن و زنجیری ظریف. طول کوتاه‌تر نزدیک یقه می‌نشیند و طول بلندتر فضای بیشتری برای ترکیب با لباس ایجاد می‌کند.",
+    material: "طلای زرد صیقلی · مشخصات مفهومی",
     options: ["16 inch", "18 inch"],
-    optionLabel: "Chain length",
+    optionLabel: "طول زنجیر",
+    specs: [
+      ["فرم آویز", "دایرهٔ ساده"],
+      ["سطح", "صاف و بدون حکاکی"],
+      ["انتخاب طول", "دو طول نمونه"],
+    ],
   },
   {
     id: "halo-band",
-    name: "Halo Band",
+    name: "انگشتر هاله",
     category: "rings",
-    price: 1240,
+    price: 52400000,
     stock: 4,
-    description:
-      "A quiet line of light. A delicate band set with a continuous row of clear stones.",
+    description: "خطی پیوسته از درخشش، در یک حلقهٔ ظریف.",
     detail:
-      "A slim profile to wear on its own or alongside a simple band. Small stones, a clear silhouette.",
-    material: "Yellow gold and clear stones · concept design",
+      "ردیفی مرتب از سنگ‌های شفاف، دور این حلقه را روشن می‌کند. به‌تنهایی ظریف است و کنار یک حلقهٔ ساده، تضادی آرام میان بافت و سطح می‌سازد.",
+    material: "طلای زرد و سنگ شفاف · مشخصات مفهومی",
     options: ["US 5", "US 6", "US 7", "US 8"],
-    optionLabel: "Ring size",
+    optionLabel: "اندازهٔ انگشتر",
+    specs: [
+      ["فرم", "حلقهٔ ظریف"],
+      ["جزئیات", "یک ردیف سنگ شفاف"],
+      ["انتخاب اندازه", "چهار اندازهٔ نمونه"],
+    ],
   },
   {
     id: "line-earrings",
-    name: "Line Earrings",
+    name: "گوشواره خط",
     category: "earrings",
-    price: 760,
+    price: 29800000,
     stock: 5,
-    description:
-      "A clean line, a soft movement. Open geometric drops with gently rounded corners.",
+    description: "خطوط روشن و حرکت نرم؛ برای جزئیاتی که بی‌تکلف دیده می‌شوند.",
     detail:
-      "A pair of slender open rectangles suspended from simple studs. Light in appearance, distinct in shape.",
-    material: "Polished yellow gold · concept design",
+      "یک جفت آویز هندسی با گوشه‌های گرد و اتصال میخی ساده. فضای خالی میان خطوط، ظاهر قطعه را سبک نگه می‌دارد و حرکت کوچک آن به فرم جان می‌دهد.",
+    material: "طلای زرد صیقلی · مشخصات مفهومی",
     options: ["One size"],
-    optionLabel: "Size",
+    optionLabel: "اندازه",
+    specs: [
+      ["تعداد", "یک جفت"],
+      ["فرم", "مستطیل باز با گوشهٔ نرم"],
+      ["نوع اتصال", "میخی و آویز"],
+    ],
   },
   {
     id: "arc-necklace",
-    name: "Arc Necklace",
+    name: "گردنبند قوس",
     category: "necklaces",
-    price: 860,
+    price: 34600000,
     stock: 3,
-    description:
-      "An open shape for an open day. A sculptural arch suspended on a fine gold chain.",
+    description: "یک قوس باز، برای روزهایی به سبک خودتان.",
     detail:
-      "A simple open arch with rounded ends, connected at both sides for a balanced profile.",
-    material: "Polished yellow gold · concept design",
+      "آویز قوسی از دو سمت به زنجیر متصل می‌شود تا فرم متعادل بماند. خطوط نرم و فضای باز آن، در کنار یک حلقه یا گوشوارهٔ ساده به‌خوبی دیده می‌شوند.",
+    material: "طلای زرد صیقلی · مشخصات مفهومی",
     options: ["16 inch", "18 inch"],
-    optionLabel: "Chain length",
+    optionLabel: "طول زنجیر",
+    specs: [
+      ["فرم آویز", "قوس باز"],
+      ["اتصال", "دوطرفه"],
+      ["انتخاب طول", "دو طول نمونه"],
+    ],
   },
 ];
 export const collections = [
   {
     id: "everyday",
-    name: "The everyday edit",
-    subtitle: "Your first on. Your last off.",
+    name: "همراه هر روز",
+    subtitle: "انتخاب‌های ساده، برای روزهای پر از زندگی.",
+    description:
+      "حلقه، گوشواره و گردنبندی که کنار هم آرام می‌نشینند. از یک قطعهٔ محبوب شروع کنید و ترکیب خودتان را بسازید.",
     image: "hand",
     ids: ["lume-ring", "cove-earrings", "sol-necklace"],
   },
   {
     id: "form",
-    name: "A study in form",
-    subtitle: "Soft curves. Clear character.",
+    name: "روایت فرم",
+    subtitle: "خطوط نرم، با شخصیتی روشن.",
+    description:
+      "موج، خط و قوس؛ سه نگاه متفاوت به یک زبان ساده. این مجموعه برای کسانی است که شکل قطعه را پیش از هر جزئیات دیگری انتخاب می‌کنند.",
     image: "hero",
     ids: ["lume-ring", "line-earrings", "arc-necklace"],
   },
   {
     id: "light",
-    name: "A little light",
-    subtitle: "Small details, brighter days.",
+    name: "کمی درخشش",
+    subtitle: "جزئیات کوچک، لحظه‌های روشن‌تر.",
+    description:
+      "سطح صیقلی و بافت سنگ، دو راه برای همراه‌کردن نور با استایل شما. قطعه‌ها را تنها یا در یک ترکیب شخصی ببینید.",
     image: "campaign",
     ids: ["halo-band", "cove-earrings", "sol-necklace"],
   },
@@ -136,29 +162,63 @@ export const collections = [
 export const articles = [
   {
     id: "finding-your-form",
-    title: "Finding your everyday form.",
-    tag: "Style notes",
+    title: "فرم روزمرهٔ خودتان را پیدا کنید.",
+    tag: "راهنمای استایل",
     image: "hand",
-    intro: "The best starting point is the piece you keep reaching for.",
+    intro: "بهترین نقطهٔ شروع، همان قطعه‌ای است که دوست دارید دوباره بپوشید.",
     paragraphs: [
-      "Start with one shape you enjoy wearing. A smooth band, an oval hoop or a simple pendant can set the tone without asking for attention.",
-      "Leave a little space between statement pieces. A wide ring and a quiet necklace work together because each has room to be noticed.",
-      "Try a chain length against the collars you wear most. The same piece can feel different over cotton, knitwear or a clean neckline.",
-      "There is no single right combination. Keep the pieces that feel comfortable, then let your collection grow around you.",
+      "از یک فرم آشنا شروع کنید. حلقه‌ای صاف، گوشواره‌ای بیضی یا آویزی ساده می‌تواند پایهٔ ترکیب شما باشد؛ قطعه‌ای که با لباس‌های هر روزتان هماهنگ است و به توضیح زیادی نیاز ندارد.",
+      "به هر قطعه فضای دیده‌شدن بدهید. یک انگشتر پهن کنار گردنبندی ظریف، تعادل دارد؛ چون هر کدام نقش مشخصی در ترکیب پیدا می‌کنند. لازم نیست همهٔ قطعه‌ها در یک اندازه یا با یک بافت باشند.",
+      "گردنبند را با یقه‌های مختلف تصور کنید. یک طول ثابت روی پیراهن، بافت یا یقهٔ باز، حس متفاوتی می‌سازد. پیش از انتخاب، به لباسی فکر کنید که بیشتر می‌پوشید.",
+      "می‌توانید از یک خانوادهٔ شکل استفاده کنید: قوس در گردنبند، بیضی در گوشواره و موج در حلقه. هماهنگی لازم نیست کاملاً یکسان باشد؛ کافی است خطوط کنار هم آرام باشند.",
+      "ترکیب درست، نسخهٔ واحدی ندارد. قطعه‌هایی را نگه دارید که پوشیدنشان برایتان راحت است و مجموعه را به‌مرور، به سلیقهٔ خودتان کامل کنید.",
     ],
+    related: ["lume-ring", "cove-earrings", "arc-necklace"],
   },
   {
     id: "a-little-care",
-    title: "A little care goes a long way.",
-    tag: "Care notes",
+    title: "کمی مراقبت، درخششی ماندگار.",
+    tag: "مراقبت از زیورآلات",
     image: "campaign",
-    intro: "Make a small ritual of looking after the pieces you wear.",
+    intro: "نگه‌داری از قطعه‌های محبوب می‌تواند یک عادت کوچک و ساده باشد.",
     paragraphs: [
-      "Keep each piece in a separate soft pouch so polished surfaces do not rub against one another.",
-      "Take jewelry off before swimming, exercise and household cleaning. Put it on after lotions or fragrance have dried.",
-      "Use a soft, dry cloth after wear. Check the specific material and stone-care instructions before using any cleaning solution.",
-      "If a clasp feels loose or a setting changes, stop wearing the piece and ask a qualified jeweler to inspect it.",
+      "هر قطعه را جداگانه، در کیسه یا جای نرم نگه دارید تا سطح صیقلی آن با قطعه‌های دیگر تماس نداشته باشد. زنجیرهای ظریف را پیش از گذاشتن در جعبه باز و مرتب کنید.",
+      "پیش از شنا، ورزش و نظافت، زیورآلات را کنار بگذارید. پس از خشک‌شدن عطر یا کرم، آن‌ها را بپوشید تا تماس مستقیم با این مواد کمتر شود.",
+      "بعد از استفاده، سطح قطعه را با پارچهٔ نرم و خشک به‌آرامی پاک کنید. پیش از هر محلول شست‌وشو، دستور مراقبت ویژهٔ جنس و سنگ همان قطعه را بررسی کنید.",
+      "اگر اتصال، قفل یا جای سنگ تغییر کرد، استفاده را متوقف کنید و قطعه را به یک متخصص بسپارید. مراقبت روزمره جای بررسی یک اتصال آسیب‌دیده را نمی‌گیرد.",
+      "مشخصات مجموعهٔ آوروم در این سایت مفهومی است. برای یک محصول واقعی، راهنمای سازندهٔ همان قطعه مرجع اصلی انتخاب و نگه‌داری خواهد بود.",
     ],
+    related: ["halo-band", "line-earrings", "sol-necklace"],
+  },
+  {
+    id: "choosing-a-gift",
+    title: "هدیه‌ای به سلیقهٔ او.",
+    tag: "راهنمای هدیه",
+    image: "hero",
+    intro: "برای انتخاب هدیه، از چیزهایی شروع کنید که هر روز با او هستند.",
+    paragraphs: [
+      "به فرم‌های محبوب او نگاه کنید. آیا قطعه‌های ساده می‌پوشد یا از جزئیات هندسی لذت می‌برد؟ همین مشاهدهٔ کوچک می‌تواند انتخاب را از یک حدس به تصمیمی شخصی تبدیل کند.",
+      "اندازه را وارد انتخاب کنید. برای انگشتر، اندازهٔ راحت و آشنا اهمیت دارد. اگر اندازه را نمی‌دانید، گردنبند با طول قابل انتخاب یا گوشوارهٔ تک‌سایز را در همین مجموعه بررسی کنید.",
+      "جزئیات هدیه را پیش از پایان سفارش مرور کنید. در مسیر خرید آزمایشی، انتخاب بسته‌بندی هدیه کنار هزینهٔ آن قرار دارد و در خلاصهٔ نهایی دیده می‌شود.",
+      "گاهی یک قطعه کافی است. لازم نیست هدیه به یک ست کامل تبدیل شود؛ قطعه‌ای که به یک خاطره یا سلیقه اشاره می‌کند، می‌تواند انتخاب شخصی‌تری باشد.",
+    ],
+    related: ["cove-earrings", "sol-necklace", "line-earrings"],
+  },
+  {
+    id: "building-a-collection",
+    title: "مجموعه‌ای که شبیه شماست.",
+    tag: "یادداشت انتخاب",
+    image: "lume-ring",
+    intro:
+      "یک مجموعهٔ خوب با تعداد قطعه‌ها تعریف نمی‌شود؛ با انتخاب‌های شما شکل می‌گیرد.",
+    paragraphs: [
+      "نقطهٔ ثابت مجموعه را پیدا کنید. شاید یک گردنبند ساده یا یک حلقهٔ پهن باشد که با بیشتر لباس‌هایتان هماهنگ می‌شود. قطعه‌های بعدی می‌توانند حول همان انتخاب شکل بگیرند.",
+      "میان فرم و بافت تنوع ایجاد کنید. سطح صاف کنار یک ردیف سنگ، یا خطوط هندسی کنار حلقه‌ای گرد، به مجموعه عمق می‌دهد؛ بدون اینکه هماهنگی آن از بین برود.",
+      "به موقعیت‌های استفاده فکر کنید. برای هر روز، قطعه‌هایی را بررسی کنید که با حرکت و لباس شما سازگارند. برای موقعیت‌های دیگر می‌توانید یک فرم شاخص‌تر به همان پایه اضافه کنید.",
+      "انتخاب‌های محبوبتان را ذخیره کنید و در زمان دیگری دوباره ببینید. صفحهٔ علاقه‌مندی در این فروشگاه برای همین مکث کوچک طراحی شده است.",
+      "با کالکشن‌ها شروع کنید، اما به ترکیب پیشنهادی محدود نمانید. تصویر، توضیح فرم و گزینهٔ اندازه کنار هر محصول هستند تا انتخاب نهایی به سلیقهٔ شما باقی بماند.",
+    ],
+    related: ["lume-ring", "halo-band", "arc-necklace"],
   },
 ];
 export const help: Record<
@@ -166,94 +226,135 @@ export const help: Record<
   { title: string; intro: string; sections: [string, string][] }
 > = {
   shipping: {
-    title: "A considered arrival.",
-    intro:
-      "Every part of the journey should feel as simple as the piece itself.",
+    title: "از انتخاب تا دریافت.",
+    intro: "جزئیات تحویل، روشن و کنار سفارش.",
     sections: [
       [
-        "Packaging",
-        "Each concept order includes a soft pouch and a simple gift box. Gift packaging can be selected at checkout.",
+        "بسته‌بندی",
+        "هر سفارش مفهومی با یک جای نرم و جعبهٔ ساده همراه است. گزینهٔ بسته‌بندی هدیه را می‌توانید هنگام تکمیل سفارش انتخاب کنید.",
       ],
       [
-        "Delivery options",
-        "The demo calculates standard shipping at $20, or free for an order of $1,500 or more after discounts. Express shipping is $35.",
+        "روش ارسال",
+        "در این نسخهٔ نمایشی، ارسال عادی ۱۲۰٬۰۰۰ تومان و برای سفارشِ پس از تخفیف به مبلغ ۶۰٬۰۰۰٬۰۰۰ تومان یا بیشتر، رایگان است. ارسال سریع ۲۴۰٬۰۰۰ تومان محاسبه می‌شود.",
       ],
       [
-        "This concept store",
-        "Orders on this website are demonstrations. No payment is collected, no parcel is dispatched and delivery estimates do not describe a real service.",
+        "بازبینی پیش از ثبت",
+        "محصول، اندازه، تعداد، تخفیف و هزینهٔ ارسال در مرحلهٔ بازبینی کنار هم قرار دارند. پیش از ثبت سفارش آزمایشی می‌توانید به سبد برگردید و انتخاب را اصلاح کنید.",
+      ],
+      [
+        "سفارش آزمایشی",
+        "در این سایت پرداخت یا ارسال واقعی انجام نمی‌شود. رسید، پیش‌نمایش یک سفارش کامل است و اطلاعات تماس یا نشانی در آن ذخیره نمی‌شود.",
       ],
     ],
   },
   returns: {
-    title: "Room to reconsider.",
-    intro: "Clear answers make choosing easier.",
+    title: "فرصتی برای دوباره‌دیدن.",
+    intro: "انتخاب بهتر، با اطلاعات روشن شروع می‌شود.",
     sections: [
       [
-        "Before an order",
-        "Read the size, material and product details before adding a piece to your bag. The size guide explains the illustrative options used in this collection.",
+        "پیش از انتخاب",
+        "فرم، اندازه و مشخصات نمونهٔ هر محصول را بخوانید. راهنمای اندازه، گزینه‌های موجود این مجموعه را توضیح می‌دهد.",
       ],
       [
-        "Demo orders",
-        "There is no real purchase to return on this concept store. The receipt exists only to show how an order can be reviewed.",
+        "اصلاح سبد",
+        "تا پیش از ثبت نهایی، اندازه‌ها در سبد مشخص‌اند و تعداد را می‌توانید تغییر دهید. برای انتخاب اندازه‌ای دیگر، از صفحهٔ محصول به سبد اضافه کنید و گزینهٔ قبلی را حذف کنید.",
       ],
       [
-        "Need a hand?",
-        "The contact form lets you preview a support request. It does not send your message to an external service.",
+        "سفارش‌های نمایشی",
+        "این فروشگاه خرید واقعی ثبت نمی‌کند؛ بنابراین محصولی برای مرجوع‌کردن وجود ندارد. مسیر بازبینی و رسید برای نمایش تجربهٔ سفارش ساخته شده‌اند.",
+      ],
+      [
+        "راهنمای انتخاب",
+        "اگر دربارهٔ اندازه یا فرم پرسشی دارید، راهنمای انتخاب و فرم تماس آزمایشی را ببینید. فرم، پیام شما را ارسال یا ذخیره نمی‌کند.",
       ],
     ],
   },
   care: {
-    title: "Keep a little brilliance.",
-    intro: "Simple care for the pieces in your everyday.",
+    title: "درخشش را همراه خود نگه دارید.",
+    intro: "چند عادت ساده برای قطعه‌هایی که دوستشان دارید.",
     sections: [
       [
-        "After wear",
-        "Wipe gently with a soft, dry cloth and store each piece separately.",
+        "پس از استفاده",
+        "با پارچهٔ نرم و خشک به‌آرامی پاک کنید. هر قطعه را جداگانه نگه دارید تا سطوح با یکدیگر تماس نداشته باشند.",
       ],
       [
-        "Before water or cleaning",
-        "Remove jewelry before swimming, exercise or working with household cleaners. Avoid direct contact with fragrance.",
+        "پیش از آب یا نظافت",
+        "زیورآلات را پیش از شنا، ورزش و نظافت کنار بگذارید. از تماس مستقیم با عطر، کرم و شوینده پرهیز کنید.",
       ],
       [
-        "Know the material",
-        "Materials and prices here are illustrative. For a real piece, follow the maker’s material-specific instructions and have loose clasps or settings checked by a qualified jeweler.",
+        "زنجیر و اتصال",
+        "زنجیر را پیش از نگه‌داری مرتب کنید و به اتصال‌ها توجه داشته باشید. اگر قفل یا جای سنگ تغییر کرد، قطعه را برای بررسی به متخصص بسپارید.",
+      ],
+      [
+        "جنس هر قطعه",
+        "جنس و قیمت‌های این مجموعه نمونه‌اند. برای محصول واقعی، دستور ویژهٔ سازنده دربارهٔ همان متریال و سنگ را دنبال کنید.",
       ],
     ],
   },
   "size-guide": {
-    title: "Find your fit.",
-    intro: "A few small details before choosing a size.",
+    title: "اندازه‌ای برای راحتی شما.",
+    intro: "پیش از انتخاب، کمی به فرم و اندازه نزدیک‌تر شوید.",
     sections: [
       [
-        "Rings",
-        "The concept collection offers US sizes 5, 6, 7 and 8. Measure a comfortable existing ring or ask a jeweler for a fitting. The selected size is retained in your bag and receipt.",
+        "انگشتر",
+        "چهار اندازهٔ نمونهٔ آمریکا، از ۵ تا ۸، در این مجموعه وجود دارد. از اندازهٔ انگشتری که برایتان راحت است شروع کنید یا برای اندازه‌گیری به متخصص مراجعه کنید.",
       ],
       [
-        "Necklaces",
-        "Choose 16 or 18 inches. A piece of string at the stated length helps you picture where a necklace will sit with your favorite collar.",
+        "گردنبند",
+        "دو طول ۱۶ و ۱۸ اینچ در دسترس‌اند؛ تقریباً ۴۱ و ۴۶ سانتی‌متر. با نخ در طول مورد نظر می‌توانید محل نشستن زنجیر را کنار یقهٔ لباس تصور کنید.",
       ],
       [
-        "Earrings",
-        "Earrings are sold as one matching pair in one size. Each product image shows the shape; the image scale is not a measurement.",
+        "گوشواره",
+        "گوشواره‌ها به‌صورت یک جفت و با یک اندازه ارائه می‌شوند. تصویر، فرم را نشان می‌دهد و مقیاس عکس اندازه‌گیری محصول نیست.",
+      ],
+      [
+        "انتخاب در سبد",
+        "اندازه یا طول انتخاب‌شده در سبد، بازبینی و رسید باقی می‌ماند. برای تغییر اندازه، گزینهٔ تازه را از صفحهٔ محصول انتخاب کنید.",
+      ],
+      [
+        "مشخصات نمونه",
+        "محصولات و گزینه‌های این فروشگاه مفهومی‌اند. این راهنما جای مشخصات دقیق یا اندازه‌گیری محصول واقعی را نمی‌گیرد.",
       ],
     ],
   },
   privacy: {
-    title: "Your choices, kept simple.",
-    intro: "A small amount of storage for a smoother demo.",
+    title: "انتخاب‌های شما، ساده و روشن.",
+    intro: "اطلاعات لازم برای تجربهٔ خرید، با مرزهای مشخص.",
     sections: [
       [
-        "Saved choices",
-        "Your bag and saved products use this browser’s local storage. They are not sent to a server.",
+        "سبد و علاقه‌مندی",
+        "انتخاب‌ها در ذخیره‌سازی همین مرورگر نگه‌داری می‌شوند و به سرور ارسال نمی‌شوند. انتخاب‌های نسخهٔ قبلی نیز با همان شناسهٔ محصول و اندازه خوانده می‌شوند.",
       ],
       [
-        "Checkout details",
-        "Contact and address fields are used only on screen to preview checkout. They are not saved in the receipt or sent anywhere. Please use example details.",
+        "اطلاعات دریافت‌کننده",
+        "نام، ایمیل و نشانی فقط در همان صفحهٔ بازبینی دیده می‌شوند؛ نه ذخیره می‌شوند و نه ارسال. برای آزمایش فرم از اطلاعات نمونه استفاده کنید.",
       ],
       [
-        "Demo receipt",
-        "An anonymous receipt with product choices, prices and a reference is kept in session storage. Closing the browser session clears it. Contact and newsletter forms do not send or store the information entered.",
+        "رسید",
+        "رسید غیرشخصی، محصول، اندازه، تعداد و مبلغ را در همان نشست مرورگر نگه می‌دارد. با پایان نشست، رسید پاک می‌شود.",
+      ],
+      [
+        "فرم تماس",
+        "فرم تماس صرفاً پیش‌نمایش یک درخواست است و پیام یا اطلاعات واردشده را ذخیره و ارسال نمی‌کند.",
       ],
     ],
   },
 };
+export const faq: [string, string][] = [
+  [
+    "خرید در این سایت واقعی است؟",
+    "این فروشگاه یک نمونه‌کار کامل است. می‌توانید انتخاب، سبد، بازبینی و رسید را امتحان کنید؛ پرداخت و ارسال واقعی انجام نمی‌شود.",
+  ],
+  [
+    "اندازهٔ قطعه را از کجا انتخاب کنم؟",
+    "در صفحهٔ محصول یا پنجرهٔ انتخاب سریع، اندازهٔ انگشتر و طول گردنبند مشخص‌اند. راهنمای اندازه هم از همان صفحه در دسترس است.",
+  ],
+  [
+    "انتخاب‌هایم را بعداً می‌بینم؟",
+    "قلب کنار هر محصول آن را به علاقه‌مندی اضافه می‌کند. سبد و علاقه‌مندی‌ها در همین مرورگر باقی می‌مانند.",
+  ],
+  [
+    "هزینهٔ ارسال و هدیه کجا مشخص می‌شود؟",
+    "گزینه‌های ارسال و بسته‌بندی در مرحلهٔ تکمیل سفارش قرار دارند و خلاصهٔ مبلغ پیش از ثبت نهایی به‌روز می‌شود.",
+  ],
+];
